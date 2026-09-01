@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { submitForm } from "@/app/actions";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -279,7 +280,7 @@ export default function Page() {
         </div>
 
         
-        <form className="form-devis reveal" action="#" method="post">
+        <form className="form-devis reveal" action={submitForm}>
           <div className="form-devis-grid">
             <div className="champ">
               <label htmlFor="nom">Nom</label>
