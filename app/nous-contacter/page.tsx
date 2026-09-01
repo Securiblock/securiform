@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { submitForm } from "@/app/actions";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -111,7 +112,7 @@ export default function Page() {
         <div className="presentation-visuel reveal" aria-label="Formulaire de contact" style={{ "background": "var(--gris-clair)", "padding": "2.5rem" }}>
           <h3 style={{ "color": "var(--noir)" }}>Demande de renseignements</h3>
           
-          <form action="#" method="post" style={{ "display": "flex", "flexDirection": "column", "gap": "1.1rem", "marginTop": "1.2rem" }}>
+          <form action={submitForm} style={{ "display": "flex", "flexDirection": "column", "gap": "1.1rem", "marginTop": "1.2rem" }}>
             <div className="champ">
               <label htmlFor="sujet" style={{ "color": "var(--noir)" }}>Sujet</label>
               <select id="sujet" name="sujet">
