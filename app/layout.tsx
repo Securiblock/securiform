@@ -40,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="fr"
       data-scroll-behavior="smooth"
       className={`${rajdhani.variable} ${quicksand.variable}`}
+      suppressHydrationWarning
     >
       <body>
         <a className="skip-link" href="#main">
