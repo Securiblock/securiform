@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/preparation-habilitation-electrique/formation-personnel-electricien/"
+      "url": "https://securiform.fr/habilitation-electrique/formation-personnel-electricien/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Préparation à l'habilitation électrique",
-          "item": "https://securiform.fr/accueil/preparation-habilitation-electrique/"
+          "item": "https://securiform.fr/habilitation-electrique/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation personnel électricien",
-          "item": "https://securiform.fr/accueil/preparation-habilitation-electrique/formation-personnel-electricien/"
+          "item": "https://securiform.fr/habilitation-electrique/formation-personnel-electricien/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation personnel électricien — B1-B2-BR-BC, H1-H2-HC — SECURIFORM",
-  description: "Formation SECURIFORM pour personnel électricien : B1-B2-BR-BC-BE essai en basse tension, H1-H2-HC en haute tension, B1L-B2L-BRL-BCL véhicules électriques. Consignation en 5 étapes, recyclage tous les 3 ans.",
+  title: "Formation personnel électricien — SECURIFORM",
+  description: "Formation SECURIFORM pour personnel électricien : basse et haute tension, véhicules électriques. Consignation en 5 étapes, recyclage 3 ans.",
   alternates: { canonical: "/habilitation-electricien" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/habilitation-electricien",
     title: "Formation personnel électricien — SECURIFORM",
     description: "B1-B2-BR-BC, H1-H2-HC : formation SECURIFORM pour le personnel électricien, en basse et haute tension.",
+    images: ["/image/formation-habilitation-electricien.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation personnel électricien — SECURIFORM",
     description: "Formez vos électriciens à la consignation, aux travaux BT/HTA, avec SECURIFORM.",
+    images: ["/image/formation-habilitation-electricien.jpg"],
   },
 };
 

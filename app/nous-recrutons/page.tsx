@@ -33,7 +33,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Nous recrutons — Devenez formateur SECURIFORM",
-  description: "SECURIFORM recrute des formateurs certifiés en sécurité au travail sur toute la France : CACES, habilitation électrique, incendie, SST, travaux en hauteur, AIPR. Rejoignez notre équipe.",
+  description: "SECURIFORM recrute des formateurs certifiés en sécurité au travail sur toute la France. Rejoignez notre équipe.",
   alternates: { canonical: "/nous-recrutons" },
   openGraph: {
     type: "website",
@@ -42,11 +42,13 @@ export const metadata: Metadata = {
     url: "/nous-recrutons",
     title: "Nous recrutons — SECURIFORM",
     description: "Formateurs certifiés en sécurité au travail, rejoignez SECURIFORM sur toute la France.",
+    images: ["/image/logo-securiform.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nous recrutons — SECURIFORM",
     description: "SECURIFORM recrute des formateurs certifiés sur toute la France.",
+    images: ["/image/logo-securiform.png"],
   },
 };
 

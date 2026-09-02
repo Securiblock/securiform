@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des chargeuses — SECURIFORM",
-  description: "Vérification Générale Périodique des chargeuses avec SECURIFORM : équipements concernés, éléments contrôlés, registre de sécurité, fréquence de 6 mois. Conforme à l'arrêté du 1er mars 2004.",
+  description: "VGP des chargeuses avec SECURIFORM : équipements concernés, éléments contrôlés, registre de sécurité. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-chargeuses" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-chargeuses",
     title: "VGP des chargeuses — SECURIFORM",
-    description: "Assurez la sécurité de vos chargeuses avec les VGP SECURIFORM : inspections tous les 6 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des chargeuses avec SECURIFORM : équipements concernés, éléments contrôlés, registre de sécurité. Fréquence de 6 mois.",
+    images: ["/image/vgp-chargeuses.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des chargeuses — SECURIFORM",
     description: "Vérification Générale Périodique de vos chargeuses, avec SECURIFORM.",
+    images: ["/image/vgp-chargeuses.jpg"],
   },
 };
 

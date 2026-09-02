@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/caces-copy/"
+          "item": "https://securiform.fr/formations-specifiques/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Utilisation en sécurité d'une tronçonneuse thermique à chaîne — SECURIFORM",
-  description: "Formation SECURIFORM à l'utilisation en sécurité d'une tronçonneuse thermique : risque de rebond, équipements de protection, vérifications avant utilisation, technique d'abattage. Pour équipes espaces verts et élagage.",
+  title: "Utilisation sécurisée d'une tronçonneuse — SECURIFORM",
+  description: "Formation SECURIFORM à l'utilisation sécurisée d'une tronçonneuse thermique : risque de rebond, équipements de protection, vérifications.",
   alternates: { canonical: "/tronconneuse-thermique" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/tronconneuse-thermique",
     title: "Utilisation en sécurité d'une tronçonneuse thermique à chaîne — SECURIFORM",
     description: "Formation SECURIFORM au risque de rebond, aux équipements de protection et à la technique de coupe en sécurité.",
+    images: ["/image/formation-tronconneuse.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Utilisation en sécurité d'une tronçonneuse thermique — SECURIFORM",
     description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuse thermique, avec SECURIFORM.",
+    images: ["/image/formation-tronconneuse.jpg"],
   },
 };
 

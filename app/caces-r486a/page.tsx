@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R486 Catégorie A — Nacelles élévatrices — SECURIFORM",
-  description: "Formation CACES R486 Catégorie A avec SECURIFORM : plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 10 ans, partout en France.",
+  title: "Formation CACES® R486-A — SECURIFORM",
+  description: "Formation CACES R486 Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 10 ans.",
   alternates: { canonical: "/caces-r486a" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r486a",
     title: "Formation CACES® R486 Catégorie A — Nacelles élévatrices — SECURIFORM",
     description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 10 ans.",
+    images: ["/image/caces-r486a.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R486 Catégorie A — SECURIFORM",
     description: "Conduite en sécurité des nacelles élévatrices à élévation verticale, avec SECURIFORM.",
+    images: ["/image/caces-r486a.jpg"],
   },
 };
 

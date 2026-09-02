@@ -35,8 +35,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
-  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, qui accompagne les entreprises sur toute la France. Découvrez notre mission, nos valeurs et notre méthode.",
+  title: "L'entreprise SECURIFORM — Organisme certifié Qualiopi",
+  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent partout en France.",
   alternates: { canonical: "/lentreprise" },
   openGraph: {
     type: "website",
@@ -45,11 +45,13 @@ export const metadata: Metadata = {
     url: "/lentreprise",
     title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
     description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent partout en France.",
+    images: ["/image/logo-securiform.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "L'entreprise — SECURIFORM",
     description: "Découvrez la mission, les valeurs et la certification Qualiopi de SECURIFORM.",
+    images: ["/image/logo-securiform.png"],
   },
 };
 

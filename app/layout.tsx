@@ -20,12 +20,11 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   metadataBase: new URL("https://securiform.fr"),
   title: {
-    default:
-      "SECURIFORM — Organisme de formation à la sécurité au travail | CACES®, habilitation électrique, SST, incendie",
+    default: "SECURIFORM — Formations sécurité au travail en France",
     template: "%s",
   },
   description:
-    "SECURIFORM, organisme de formation certifié Qualiopi, vous accompagne partout en France : préparation à l'habilitation électrique, conduite en sécurité et CACES® (R482 à R490), secourisme SST, incendie et évacuation, travaux en hauteur, AIPR et VGP.",
+    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, partout en France.",
   robots: {
     index: true,
     follow: true,

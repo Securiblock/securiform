@@ -43,7 +43,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
-  description: "SECURIFORM réalise les Vérifications Générales Périodiques (VGP) de vos équipements de levage et de manutention : chariots élévateurs, nacelles, grues auxiliaires, ponts roulants et plus. Intervention dans les Hauts-de-France.",
+  description: "SECURIFORM réalise les Vérifications Générales Périodiques (VGP) de vos équipements de levage et manutention, dans les Hauts-de-France.",
   alternates: { canonical: "/vgp" },
   openGraph: {
     type: "article",
@@ -52,11 +52,13 @@ export const metadata: Metadata = {
     url: "/vgp",
     title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
     description: "Chariots élévateurs, nacelles, grues auxiliaires, ponts roulants : SECURIFORM réalise vos VGP dans les Hauts-de-France.",
+    images: ["/image/vgp-chariots-elevateurs.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
     description: "Faites vérifier vos équipements de levage et de manutention avec SECURIFORM, dans les Hauts-de-France.",
+    images: ["/image/vgp-chariots-elevateurs.jpg"],
   },
 };
 

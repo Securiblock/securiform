@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formation-secourisme-sst/"
+      "url": "https://securiform.fr/secourisme/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formation secourisme (SST)",
-          "item": "https://securiform.fr/accueil/formation-secourisme-sst/"
+          "item": "https://securiform.fr/secourisme/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation secourisme (SST) — SECURIFORM",
-  description: "SECURIFORM est habilitée centre de formation Sauveteur Secouriste du Travail (SST) : formation initiale de 14h et MAC de recyclage tous les 24 mois. Protocole Protéger-Alerter-Secourir, gestes qui sauvent, partout en France.",
+  description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, partout en France.",
   alternates: { canonical: "/secourisme" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/secourisme",
     title: "Formation secourisme (SST) — SECURIFORM",
     description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, partout en France.",
+    images: ["/image/formation-secourisme-sst.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation secourisme (SST) — SECURIFORM",
     description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, partout en France.",
+    images: ["/image/formation-secourisme-sst.jpg"],
   },
 };
 

@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-equipier-de-premiere-intervention/"
+      "url": "https://securiform.fr/incendie-evacuation/formation-equipier-de-premiere-intervention/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Équipier de Première Intervention",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-equipier-de-premiere-intervention/"
+          "item": "https://securiform.fr/incendie-evacuation/formation-equipier-de-premiere-intervention/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation Équipier de Première Intervention (EPI) — RIA, extincteurs, coupures — SECURIFORM",
-  description: "Formation SECURIFORM Équipier de Première Intervention : obligations légales, organisation de l'intervention, RIA, limites à ne jamais dépasser, coupures d'énergie. Référentiel APSAD R6.",
+  title: "Formation Équipier de Première Intervention — SECURIFORM",
+  description: "Formation SECURIFORM Équipier de Première Intervention : obligations légales, organisation, RIA, coupures d'énergie. Référentiel APSAD R6.",
   alternates: { canonical: "/equipier-premiere-intervention" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/equipier-premiere-intervention",
     title: "Formation Équipier de Première Intervention — SECURIFORM",
     description: "RIA, extincteurs, coupures d'énergie, limites de l'intervention : formation SECURIFORM aux Équipiers de Première Intervention.",
+    images: ["/image/formation-epi.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation Équipier de Première Intervention — SECURIFORM",
     description: "Formez vos référents internes à intervenir sur un début d'incendie, avec SECURIFORM.",
+    images: ["/image/formation-epi.jpg"],
   },
 };
 

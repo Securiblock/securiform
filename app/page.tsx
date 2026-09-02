@@ -3,10 +3,9 @@ import Link from "next/link";
 import HeroSlider, { type Slide } from "@/components/hero-slider";
 
 export const metadata: Metadata = {
-  title:
-    "SECURIFORM — Organisme de formation à la sécurité au travail | CACES®, habilitation électrique, SST, incendie",
+  title: "SECURIFORM — Formations sécurité au travail en France",
   description:
-    "SECURIFORM, organisme de formation certifié Qualiopi, vous accompagne partout en France : préparation à l'habilitation électrique, conduite en sécurité et CACES® (R482 à R490), secourisme SST, incendie et évacuation, travaux en hauteur, AIPR et VGP.",
+    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, partout en France.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -16,18 +15,14 @@ export const metadata: Metadata = {
     title: "SECURIFORM — Formations sécurité au travail partout en France",
     description:
       "Habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, VGP. Organisme certifié Qualiopi, 99,5 % de réussite.",
-    images: [
-      "https://securiform.fr/wp-content/uploads/elementor/thumbs/formation-qg0seffzuzxzt53fhlwn3a16jz0lprbux1mpru55js.png",
-    ],
+    images: ["/image/slide-1-habilitation-electrique.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "SECURIFORM — Formations sécurité au travail partout en France",
     description:
       "Habilitation électrique, CACES®, SST, incendie, travaux en hauteur, VGP. Organisme certifié Qualiopi.",
-    images: [
-      "https://securiform.fr/wp-content/uploads/elementor/thumbs/formation-qg0seffzuzxzt53fhlwn3a16jz0lprbux1mpru55js.png",
-    ],
+    images: ["/image/slide-1-habilitation-electrique.jpg"],
   },
 };
 
@@ -39,7 +34,7 @@ const jsonLd = {
       "@id": "https://securiform.fr/#organization",
       name: "SECURIFORM",
       url: "https://securiform.fr/",
-      logo: "https://securiform.fr/wp-content/uploads/2022/12/petit-logo_securiform.png",
+      logo: "https://securiform.fr/image/logo-securiform.png",
       description:
         "Organisme de formation à la sécurité au travail intervenant sur toute la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
       telephone: "+33320673490",
@@ -82,49 +77,49 @@ const jsonLd = {
           "@type": "ListItem",
           position: 1,
           name: "Formations à la conduite en sécurité et CACES®",
-          url: "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/",
+          url: "https://securiform.fr/caces/",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Préparation à l'habilitation électrique",
-          url: "https://securiform.fr/accueil/preparation-habilitation-electrique/",
+          url: "https://securiform.fr/habilitation-electrique/",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Formation secourisme (SST)",
-          url: "https://securiform.fr/accueil/formation-secourisme-sst/",
+          url: "https://securiform.fr/secourisme/",
         },
         {
           "@type": "ListItem",
           position: 4,
           name: "Formations à l'incendie et à l'évacuation",
-          url: "https://securiform.fr/accueil/formations-incendie-et-evacuation/",
+          url: "https://securiform.fr/incendie-evacuation/",
         },
         {
           "@type": "ListItem",
           position: 5,
           name: "Formations aux travaux en hauteur et échafaudages",
-          url: "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/",
+          url: "https://securiform.fr/travaux-hauteur-echafaudages/",
         },
         {
           "@type": "ListItem",
           position: 6,
           name: "Formations AIPR",
-          url: "https://securiform.fr/accueil/formations-aipr/",
+          url: "https://securiform.fr/aipr/",
         },
         {
           "@type": "ListItem",
           position: 7,
           name: "Formations gestes et postures",
-          url: "https://securiform.fr/accueil/formation-gestes-et-postures/",
+          url: "https://securiform.fr/gestes-postures/",
         },
         {
           "@type": "ListItem",
           position: 8,
           name: "Formations spécifiques",
-          url: "https://securiform.fr/caces-copy/",
+          url: "https://securiform.fr/formations-specifiques/",
         },
       ],
     },

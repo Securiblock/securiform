@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des bras de levage — SECURIFORM",
-  description: "Vérification Générale Périodique des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques, fréquence de 6 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-bras-de-levage" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-bras-de-levage",
     title: "VGP des bras de levage — SECURIFORM",
-    description: "Assurez la sécurité de vos bras de levage avec les VGP SECURIFORM : inspections tous les 6 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques. Fréquence de 6 mois.",
+    images: ["/image/vgp-bras-de-levage.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des bras de levage — SECURIFORM",
     description: "Vérification Générale Périodique de vos bras de levage, avec SECURIFORM.",
+    images: ["/image/vgp-bras-de-levage.jpg"],
   },
 };
 

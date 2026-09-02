@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/caces-copy/"
+          "item": "https://securiform.fr/formations-specifiques/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite en sécurité de tondeuses auto-portées — SECURIFORM",
-  description: "Formation SECURIFORM à la conduite en sécurité des tondeuses auto-portées : risques de retournement sur pente, vérifications avant utilisation, règles de conduite. Pour espaces verts et collectivités.",
+  title: "Conduite de tondeuses auto-portées — SECURIFORM",
+  description: "Formation SECURIFORM à la conduite des tondeuses auto-portées : risques de retournement, vérifications, règles de conduite.",
   alternates: { canonical: "/tondeuses-autoportees" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/tondeuses-autoportees",
     title: "Conduite en sécurité de tondeuses auto-portées — SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des tondeuses auto-portées, pour les équipes espaces verts.",
+    images: ["/image/formation-tondeuse.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conduite en sécurité de tondeuses auto-portées — SECURIFORM",
     description: "Formez vos équipes espaces verts à la conduite en sécurité des tondeuses auto-portées.",
+    images: ["/image/formation-tondeuse.jpg"],
   },
 };
 

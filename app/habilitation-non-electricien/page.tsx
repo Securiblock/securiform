@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/preparation-habilitation-electrique/formation-personnel-non-electricien/"
+      "url": "https://securiform.fr/habilitation-electrique/formation-personnel-non-electricien/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Préparation à l'habilitation électrique",
-          "item": "https://securiform.fr/accueil/preparation-habilitation-electrique/"
+          "item": "https://securiform.fr/habilitation-electrique/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation personnel non-électricien",
-          "item": "https://securiform.fr/accueil/preparation-habilitation-electrique/formation-personnel-non-electricien/"
+          "item": "https://securiform.fr/habilitation-electrique/formation-personnel-non-electricien/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation personnel non-électricien — Habilitation H0B0, BS, BE/HE Manœuvre, B0L — SECURIFORM",
-  description: "Formation SECURIFORM pour personnel non-électricien : H0B0 exécutant et chargé de chantier, BS, BE/HE Manœuvre, B0L véhicules électriques. Habilitation délivrée par l'employeur, recyclage tous les 3 ans.",
+  title: "Formation personnel non-électricien — SECURIFORM",
+  description: "Formation SECURIFORM pour personnel non-électricien : H0B0, BS, BE/HE Manœuvre, B0L véhicules électriques. Recyclage tous les 3 ans.",
   alternates: { canonical: "/habilitation-non-electricien" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/habilitation-non-electricien",
     title: "Formation personnel non-électricien — SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B0L : formation SECURIFORM pour tout personnel non-électricien travaillant en environnement électrique.",
+    images: ["/image/formation-habilitation-non-electricien.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation personnel non-électricien — SECURIFORM",
     description: "Formez votre personnel non-électricien aux bons réflexes en environnement électrique, avec SECURIFORM.",
+    images: ["/image/formation-habilitation-non-electricien.jpg"],
   },
 };
 

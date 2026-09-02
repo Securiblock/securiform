@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des hayons élévateurs — SECURIFORM",
-  description: "Vérification Générale Périodique des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques, fréquence de 6 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-hayons-elevateurs" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-hayons-elevateurs",
     title: "VGP des hayons élévateurs — SECURIFORM",
-    description: "Assurez la sécurité de vos hayons élévateurs avec les VGP SECURIFORM : inspections tous les 6 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques. Fréquence de 6 mois.",
+    images: ["/image/vgp-hayons-elevateurs.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des hayons élévateurs — SECURIFORM",
     description: "Vérification Générale Périodique de vos hayons élévateurs, avec SECURIFORM.",
+    images: ["/image/vgp-hayons-elevateurs.jpg"],
   },
 };
 

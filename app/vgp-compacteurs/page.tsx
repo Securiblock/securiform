@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des compacteurs — SECURIFORM",
-  description: "Vérification Générale Périodique des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques, fréquence de 12 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-compacteurs" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-compacteurs",
     title: "VGP des compacteurs — SECURIFORM",
-    description: "Assurez la sécurité de vos compacteurs avec les VGP SECURIFORM : inspections tous les 12 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques. Fréquence de 12 mois.",
+    images: ["/image/vgp-compacteurs.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des compacteurs — SECURIFORM",
     description: "Vérification Générale Périodique de vos compacteurs, avec SECURIFORM.",
+    images: ["/image/vgp-compacteurs.jpg"],
   },
 };
 

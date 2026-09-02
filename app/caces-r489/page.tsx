@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R489 — Chariots de manutention — SECURIFORM",
-  description: "Formation CACES R489 avec SECURIFORM : catégories 1 à 6, transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Certificat valable 5 ans, partout en France.",
+  title: "Formation CACES® R489 — SECURIFORM",
+  description: "Formation CACES R489 avec SECURIFORM : catégories 1 à 6, transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. 5 ans.",
   alternates: { canonical: "/caces-r489" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r489",
     title: "Formation CACES® R489 — Chariots de manutention — SECURIFORM",
     description: "Catégories 1 à 6 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Formation SECURIFORM, certificat valable 5 ans.",
+    images: ["/image/caces-r489.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R489 — SECURIFORM",
     description: "Conduite en sécurité des chariots de manutention à conducteur porté, avec SECURIFORM.",
+    images: ["/image/caces-r489.jpg"],
   },
 };
 

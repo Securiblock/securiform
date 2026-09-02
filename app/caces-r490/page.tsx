@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R490 — Grues auxiliaires de chargement — SECURIFORM",
-  description: "Formation CACES R490 avec SECURIFORM : conduite des grues auxiliaires de chargement montées sur véhicules porteurs, options télécommande et treuil. Certificat valable 10 ans, partout en France.",
+  title: "Formation CACES® R490 — SECURIFORM",
+  description: "Formation CACES R490 avec SECURIFORM : grues auxiliaires de chargement, options télécommande et treuil. Certificat valable 10 ans.",
   alternates: { canonical: "/caces-r490" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r490",
     title: "Formation CACES® R490 — Grues auxiliaires de chargement — SECURIFORM",
     description: "Conduite en sécurité des grues auxiliaires de chargement, options télécommande et treuil. Formation SECURIFORM, certificat valable 10 ans.",
+    images: ["/image/caces-r490.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R490 — SECURIFORM",
     description: "Conduite en sécurité des grues auxiliaires de chargement, avec SECURIFORM.",
+    images: ["/image/caces-r490.jpg"],
   },
 };
 

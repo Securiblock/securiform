@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des ponts roulants — SECURIFORM",
-  description: "Vérification Générale Périodique des ponts roulants avec SECURIFORM : équipements concernés, registre de sécurité, fréquence de 12 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des ponts roulants avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-ponts-roulants" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-ponts-roulants",
     title: "VGP des ponts roulants — SECURIFORM",
-    description: "Assurez la sécurité de vos ponts roulants avec les VGP SECURIFORM : inspections tous les 12 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des ponts roulants avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 12 mois.",
+    images: ["/image/vgp-ponts-roulants.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des ponts roulants — SECURIFORM",
     description: "Vérification Générale Périodique de vos ponts roulants, avec SECURIFORM.",
+    images: ["/image/vgp-ponts-roulants.jpg"],
   },
 };
 

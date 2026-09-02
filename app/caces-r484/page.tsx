@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/formation-a-la-conduite-en-securite-caces-r484/"
+      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r484/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "CACES R484",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/formation-a-la-conduite-en-securite-caces-r484/"
+          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r484/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R484 — Ponts roulants et portiques — SECURIFORM",
-  description: "Formation CACES R484 avec SECURIFORM : catégorie 1 (commande au sol) et catégorie 2 (commande en cabine), techniques d'élingage, calcul de charge. Certificat valable 5 ans, partout en France.",
+  title: "Formation CACES® R484 — SECURIFORM",
+  description: "Formation CACES R484 avec SECURIFORM : commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-r484" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r484",
     title: "Formation CACES® R484 — Ponts roulants et portiques — SECURIFORM",
     description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484 avec SECURIFORM, certificat valable 5 ans.",
+    images: ["/image/caces-r484.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R484 — SECURIFORM",
     description: "Conduite en sécurité des ponts roulants et portiques, avec SECURIFORM.",
+    images: ["/image/caces-r484.jpg"],
   },
 };
 

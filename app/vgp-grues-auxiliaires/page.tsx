@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des grues auxiliaires — SECURIFORM",
-  description: "Vérification Générale Périodique des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité, fréquence de 6 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-grues-auxiliaires" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-grues-auxiliaires",
     title: "VGP des grues auxiliaires — SECURIFORM",
-    description: "Assurez la sécurité de vos grues auxiliaires avec les VGP SECURIFORM : inspections tous les 6 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 6 mois.",
+    images: ["/image/vgp-grues-auxiliaires.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des grues auxiliaires — SECURIFORM",
     description: "Vérification Générale Périodique de vos grues auxiliaires, avec SECURIFORM.",
+    images: ["/image/vgp-grues-auxiliaires.jpg"],
   },
 };
 

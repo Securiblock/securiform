@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des pelleteuses — SECURIFORM",
-  description: "Vérification Générale Périodique des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations, fréquence de 12 mois. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-pelleteuses" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-pelleteuses",
     title: "VGP des pelleteuses — SECURIFORM",
-    description: "Assurez la sécurité de vos pelleteuses avec les VGP SECURIFORM : inspections tous les 12 mois, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations. Fréquence de 12 mois.",
+    images: ["/image/vgp-pelleteuses.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des pelleteuses — SECURIFORM",
     description: "Vérification Générale Périodique de vos pelleteuses, avec SECURIFORM.",
+    images: ["/image/vgp-pelleteuses.jpg"],
   },
 };
 

@@ -49,7 +49,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "VGP des tombereaux — SECURIFORM",
-  description: "Vérification Générale Périodique des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement, fréquence de 6 ou 12 mois selon l'usage. Conforme à la directive Machines 2006/42/CE.",
+  description: "VGP des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement. Fréquence de 6 ou 12 mois.",
   alternates: { canonical: "/vgp-tombereaux" },
   openGraph: {
     type: "article",
@@ -57,12 +57,14 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp-tombereaux",
     title: "VGP des tombereaux — SECURIFORM",
-    description: "Assurez la sécurité de vos tombereaux avec les VGP SECURIFORM : inspections tous les 6 ou 12 mois selon l'usage, détection d'anomalies, conformité réglementaire.",
+    description: "VGP des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement. Fréquence de 6 ou 12 mois.",
+    images: ["/image/vgp-tombereaux.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des tombereaux — SECURIFORM",
     description: "Vérification Générale Périodique de vos tombereaux, avec SECURIFORM.",
+    images: ["/image/vgp-tombereaux.jpg"],
   },
 };
 

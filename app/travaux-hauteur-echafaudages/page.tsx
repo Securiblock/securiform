@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/"
+      "url": "https://securiform.fr/travaux-hauteur-echafaudages/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
         }
       ]
     }
@@ -37,8 +37,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
-  description: "SECURIFORM forme au port du harnais anti-chute ainsi qu'au montage d'échafaudages fixes (R408) et roulants (R457), conformément au Code du travail. Habilitations valables 5 ans, partout en France.",
+  title: "Travaux en hauteur et échafaudages — SECURIFORM",
+  description: "SECURIFORM forme au port du harnais anti-chute et au montage d'échafaudages fixes (R408) et roulants (R457), partout en France.",
   alternates: { canonical: "/travaux-hauteur-echafaudages" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/travaux-hauteur-echafaudages",
     title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
     description: "Port du harnais anti-chute, échafaudages fixes (R408) et roulants (R457) : SECURIFORM forme vos équipes partout en France.",
+    images: ["/image/formation-travaux-hauteur.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
     description: "Harnais anti-chute, échafaudages fixes et roulants : préparez vos équipes avec SECURIFORM.",
+    images: ["/image/formation-travaux-hauteur.jpg"],
   },
 };
 

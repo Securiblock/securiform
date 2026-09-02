@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-aipr/formation-concepteurs-aipr/"
+      "url": "https://securiform.fr/aipr/formation-concepteurs-aipr/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/"
+          "item": "https://securiform.fr/aipr/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation concepteurs AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/formation-concepteurs-aipr/"
+          "item": "https://securiform.fr/aipr/formation-concepteurs-aipr/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation concepteurs AIPR — Guichet Unique, DCE, investigations complémentaires — SECURIFORM",
-  description: "Formation SECURIFORM concepteurs AIPR : Guichet Unique, analyse des réponses DT, investigations complémentaires, clauses DCE, vérification des compétences. Pour maîtres d'ouvrage et maîtres d'œuvre.",
+  title: "Formation concepteurs AIPR — SECURIFORM",
+  description: "Formation SECURIFORM concepteurs AIPR : Guichet Unique, investigations complémentaires, clauses DCE. Pour maîtres d'ouvrage et d'œuvre.",
   alternates: { canonical: "/aipr-concepteurs" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-concepteurs",
     title: "Formation concepteurs AIPR — SECURIFORM",
     description: "Guichet Unique, investigations complémentaires, clauses DCE : formation SECURIFORM concepteurs AIPR.",
+    images: ["/image/formation-aipr-concepteur.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation concepteurs AIPR — SECURIFORM",
     description: "Formez vos maîtres d'ouvrage et maîtres d'œuvre à piloter un projet en conformité AIPR, avec SECURIFORM.",
+    images: ["/image/formation-aipr-concepteur.jpg"],
   },
 };
 

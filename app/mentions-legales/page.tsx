@@ -32,7 +32,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Mentions légales — SECURIFORM",
-  description: "Mentions légales du site SECURIFORM : éditeur, hébergeur, propriété intellectuelle, données personnelles et cookies, conformément à la loi pour la confiance en l'économie numérique.",
+  description: "Mentions légales du site SECURIFORM : éditeur, hébergeur, propriété intellectuelle, données personnelles et cookies.",
   alternates: { canonical: "/mentions-legales" },
   openGraph: {
     type: "website",
@@ -41,11 +41,13 @@ export const metadata: Metadata = {
     url: "/mentions-legales",
     title: "Mentions légales — SECURIFORM",
     description: "Informations légales relatives à l'éditeur et à l'hébergement du site SECURIFORM.",
+    images: ["/image/logo-securiform.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mentions légales — SECURIFORM",
     description: "Informations légales du site SECURIFORM.",
+    images: ["/image/logo-securiform.png"],
   },
 };
 

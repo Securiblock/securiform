@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
+      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation échafaudages fixes",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation échafaudages fixes R408 — Montage, vérification, supervision — SECURIFORM",
-  description: "Formation SECURIFORM aux échafaudages fixes R408 : montage/démontage, règles de stabilité, classes de charge, vérifications réglementaires, supervision d'équipe. Habilitation valable 5 ans.",
+  title: "Formation échafaudages fixes R408 — SECURIFORM",
+  description: "Formation SECURIFORM aux échafaudages fixes R408 : montage/démontage, règles de stabilité, classes de charge, vérifications réglementaires.",
   alternates: { canonical: "/echafaudages-fixes" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/echafaudages-fixes",
     title: "Formation échafaudages fixes R408 — SECURIFORM",
     description: "Montage, stabilité, vérifications réglementaires, supervision d'équipe : formation SECURIFORM aux échafaudages fixes R408.",
+    images: ["/image/formation-echafaudage-fixe.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation échafaudages fixes R408 — SECURIFORM",
     description: "Formez vos monteurs et superviseurs aux échafaudages fixes, avec SECURIFORM.",
+    images: ["/image/formation-echafaudage-fixe.jpg"],
   },
 };
 

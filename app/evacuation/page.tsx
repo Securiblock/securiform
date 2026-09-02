@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-evacuation/"
+      "url": "https://securiform.fr/incendie-evacuation/formation-evacuation/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation évacuation",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation/formation-evacuation/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation évacuation — Guides-files, serre-files, exercices — SECURIFORM",
-  description: "Formation SECURIFORM à l'évacuation : rôles de guide-file et serre-file, comportement humain en situation de danger, organisation d'exercices tous les 6 mois, adaptation aux personnes handicapées.",
+  title: "Formation évacuation des locaux — SECURIFORM",
+  description: "Formation SECURIFORM à l'évacuation : rôles de guide-file et serre-file, comportement en situation de danger, exercices tous les 6 mois.",
   alternates: { canonical: "/evacuation" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/evacuation",
     title: "Formation évacuation — SECURIFORM",
     description: "Guides-files, serre-files, organisation d'exercices : formation SECURIFORM à l'évacuation des locaux.",
+    images: ["/image/formation-evacuation.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation évacuation — SECURIFORM",
     description: "Formez vos guides-files et serre-files à organiser une évacuation efficace, avec SECURIFORM.",
+    images: ["/image/formation-evacuation.jpg"],
   },
 };
 

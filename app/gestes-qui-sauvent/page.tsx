@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/caces-copy/"
+          "item": "https://securiform.fr/formations-specifiques/"
         },
         {
           "@type": "ListItem",
@@ -44,7 +44,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
-  description: "Sensibilisation SECURIFORM aux gestes qui sauvent : accessible à tous, sans prérequis, en quelques heures. Alerter les secours, gestes essentiels, cadre légal du bon samaritain. Différent de la formation SST.",
+  description: "Sensibilisation SECURIFORM aux gestes qui sauvent : accessible à tous, sans prérequis, en quelques heures. Alerter les secours, gestes essentiels.",
   alternates: { canonical: "/gestes-qui-sauvent" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/gestes-qui-sauvent",
     title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
     description: "Une sensibilisation courte et accessible à tous, pour diffuser les gestes qui sauvent dans votre entreprise.",
+    images: ["/image/formation-gestes-qui-sauvent.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
     description: "Formez l'ensemble de vos collaborateurs aux gestes qui sauvent, sans prérequis, avec SECURIFORM.",
+    images: ["/image/formation-gestes-qui-sauvent.jpg"],
   },
 };
 
