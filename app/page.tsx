@@ -146,7 +146,7 @@ const slides: Slide[] = [
         Formations à la conduite <span className="accent">en sécurité</span>
       </>
     ),
-    text: "Nous préparons à l'autorisation de conduite selon les recommandations suivantes : R482, R484, R485, R486-A, R489 et R490. Pour le passage du CACES®, nous consulter.",
+    text: "Nous préparons à l'autorisation de conduite selon les recommandations suivantes : R482-A, R484, R485, R486-A, R489 et R490. Pour le passage du CACES®, nous consulter.",
     href: "/caces",
     image: "/image/slide-2-caces.jpg",
     ariaLabel: "2 sur 5",
@@ -194,7 +194,7 @@ const formations = [
     img: "/image/formation-caces.jpg",
     alt: "Formation conduite en sécurité et CACES®",
     title: "Conduite en sécurité et CACES®",
-    text: "R482, R484, R485, R486-A, R489 et R490 — préparation à l'autorisation de conduite et au passage du CACES®.",
+    text: "R482-A, R484, R485, R486-A, R489 et R490 : préparation à l'autorisation de conduite et au passage du CACES®.",
     href: "/caces",
   },
   {

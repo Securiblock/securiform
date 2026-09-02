@@ -218,12 +218,12 @@ export default function Page() {
               <tr>
                 <td>Nacelle, plateforme élévatrice (PEMP)</td>
                 <td>R486-A</td>
-                <td>10 ans</td>
+                <td>5 ans</td>
               </tr>
               <tr>
                 <td>Pont roulant, portique</td>
                 <td>R484</td>
-                <td>10 ans</td>
+                <td>5 ans</td>
               </tr>
               <tr>
                 <td>Gerbeur à conducteur accompagnant</td>
@@ -233,7 +233,7 @@ export default function Page() {
               <tr>
                 <td>Grue auxiliaire de chargement sur porteur</td>
                 <td>R490</td>
-                <td>10 ans</td>
+                <td>5 ans</td>
               </tr>
             </tbody>
           </table>
@@ -299,7 +299,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de mon CACES®&nbsp;?</summary>
-            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariots de manutention (R489) et les gerbeurs à conducteur accompagnant (R485), 10 ans pour les autres catégories (R482, R484, R486, R490). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
+            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489), les gerbeurs à conducteur accompagnant (R485), nacelle, plateforme élévatrice (R486-A), pont roulant, portique (R484), gerbeur à conducteur accompagnant (R485), grue auxiliaire de chargement sur porteur (R490) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482-A). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
           </details>
 
           <details className="faq-item">
