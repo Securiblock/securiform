@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
+      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation échafaudages roulants",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation échafaudages roulants R457 — Stabilisation, déplacement sécurisé — SECURIFORM",
-  description: "Formation SECURIFORM aux échafaudages roulants R457 : blocage des roues, stabilisateurs, procédure de déplacement sécurisé, différences avec le R408. Habilitation valable 5 ans.",
+  title: "Formation échafaudages roulants R457 — SECURIFORM",
+  description: "Formation SECURIFORM aux échafaudages roulants R457 : blocage des roues, stabilisateurs, procédure de déplacement sécurisé.",
   alternates: { canonical: "/echafaudages-roulants" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/echafaudages-roulants",
     title: "Formation échafaudages roulants R457 — SECURIFORM",
     description: "Stabilisation, blocage des roues, déplacement sécurisé : formation SECURIFORM aux échafaudages roulants R457.",
+    images: ["/image/formation-echafaudage-roulant.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation échafaudages roulants R457 — SECURIFORM",
     description: "Formez vos équipes à la stabilisation et au déplacement sécurisé des échafaudages roulants, avec SECURIFORM.",
+    images: ["/image/formation-echafaudage-roulant.jpg"],
   },
 };
 

@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-aipr/formation-operateurs-aipr/"
+      "url": "https://securiform.fr/aipr/formation-operateurs-aipr/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/"
+          "item": "https://securiform.fr/aipr/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation opérateurs AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/formation-operateurs-aipr/"
+          "item": "https://securiform.fr/aipr/formation-operateurs-aipr/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation opérateurs AIPR — Distances de sécurité, classes de précision — SECURIFORM",
-  description: "Formation SECURIFORM opérateurs AIPR : classes de précision DT-DICT, distances de sécurité par type de réseau, règle du mètre, règle des 4A. Conforme au Code de l'environnement.",
+  title: "Formation opérateurs AIPR — SECURIFORM",
+  description: "Formation SECURIFORM opérateurs AIPR : classes de précision DT-DICT, distances de sécurité, règle du mètre et règle des 4A.",
   alternates: { canonical: "/aipr-operateurs" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-operateurs",
     title: "Formation opérateurs AIPR — SECURIFORM",
     description: "Classes de précision, distances de sécurité, règle du mètre : formation SECURIFORM opérateurs AIPR.",
+    images: ["/image/formation-aipr-operateur.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation opérateurs AIPR — SECURIFORM",
     description: "Formez vos conducteurs d'engins et canalisateurs à intervenir en sécurité près des réseaux, avec SECURIFORM.",
+    images: ["/image/formation-aipr-operateur.jpg"],
   },
 };
 

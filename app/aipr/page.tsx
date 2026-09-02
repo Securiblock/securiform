@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-aipr/"
+      "url": "https://securiform.fr/aipr/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/"
+          "item": "https://securiform.fr/aipr/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations AIPR — SECURIFORM",
-  description: "SECURIFORM prépare aux trois niveaux d'Autorisation d'Intervention à Proximité des Réseaux : Opérateur, Encadrant, Concepteur. Attestation valable 5 ans, conforme à la réglementation DT-DICT, partout en France.",
+  description: "SECURIFORM prépare aux 3 niveaux d'AIPR (Opérateur, Encadrant, Concepteur). Attestation valable 5 ans, conforme DT-DICT, partout en France.",
   alternates: { canonical: "/aipr" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/aipr",
     title: "Formations AIPR — SECURIFORM",
     description: "Opérateur, Encadrant, Concepteur : SECURIFORM prépare vos équipes à l'AIPR partout en France.",
+    images: ["/image/formation-aipr.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations AIPR — SECURIFORM",
     description: "Opérateur, Encadrant, Concepteur : préparez vos équipes à l'AIPR avec SECURIFORM.",
+    images: ["/image/formation-aipr.jpg"],
   },
 };
 

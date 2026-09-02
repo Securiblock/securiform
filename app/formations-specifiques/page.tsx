@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces-copy/"
+      "url": "https://securiform.fr/formations-specifiques/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/caces-copy/"
+          "item": "https://securiform.fr/formations-specifiques/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations spécifiques — SECURIFORM",
-  description: "SECURIFORM propose des formations spécifiques et sur mesure : conduite de tondeuses auto-portées, utilisation de tronçonneuse thermique, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent. Partout en France.",
+  description: "SECURIFORM propose des formations sur mesure : tondeuses auto-portées, tronçonneuse thermique, balayeuses routières, gestes qui sauvent.",
   alternates: { canonical: "/formations-specifiques" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/formations-specifiques",
     title: "Formations spécifiques — SECURIFORM",
     description: "Tondeuses auto-portées, tronçonneuse thermique, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
+    images: ["/image/formation-specifiques.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations spécifiques — SECURIFORM",
     description: "Des formations sur mesure, adaptées aux équipements et aux risques propres à votre entreprise.",
+    images: ["/image/formation-specifiques.jpg"],
   },
 };
 

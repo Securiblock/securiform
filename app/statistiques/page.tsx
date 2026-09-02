@@ -40,11 +40,13 @@ export const metadata: Metadata = {
     url: "/statistiques",
     title: "Avis clients & Rapports d'activité — SECURIFORM",
     description: "Retrouvez les avis clients et rapports d'activité de SECURIFORM, année par année.",
+    images: ["/image/logo-securiform.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Avis clients & Rapports d'activité — SECURIFORM",
     description: "Les avis clients et rapports d'activité de SECURIFORM, année par année.",
+    images: ["/image/logo-securiform.png"],
   },
 };
 

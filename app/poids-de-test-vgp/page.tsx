@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Poids de test VGP — Épreuves de charge et blocs béton — SECURIFORM",
-  description: "VGP obligatoire : utilisez des blocs béton de masse certifiée pour tester la capacité de charge de vos engins de levage et établir un rapport conforme. Protocole, plaque constructeur, charges recommandées.",
+  title: "Poids de test VGP — SECURIFORM",
+  description: "VGP obligatoire : utilisez des blocs béton de masse certifiée pour tester la capacité de charge de vos engins de levage.",
   alternates: { canonical: "/poids-de-test-vgp" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/poids-de-test-vgp",
     title: "Poids de test VGP — SECURIFORM",
     description: "Blocs béton de masse certifiée, épreuves de charge, protocole en 6 étapes : tout savoir sur les poids de test lors d'une VGP.",
+    images: ["/image/vgp-accessoires-levage.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Poids de test VGP — SECURIFORM",
     description: "Comprendre l'épreuve de charge lors d'une VGP et le rôle des blocs béton certifiés.",
+    images: ["/image/vgp-accessoires-levage.jpg"],
   },
 };
 

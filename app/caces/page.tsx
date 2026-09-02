@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+      "url": "https://securiform.fr/caces/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations à la conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         }
       ]
     }
@@ -37,8 +37,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-  description: "SECURIFORM prépare vos équipes à la conduite en sécurité et au CACES® : R482 engins de chantier, R484 ponts roulants, R485 gerbeurs, R486-A nacelles, R489 chariots, R490 grues auxiliaires. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+  title: "Conduite en sécurité et CACES® — SECURIFORM",
+  description: "SECURIFORM prépare vos équipes au CACES® : R482, R484, R485, R486-A, R489, R490. Tests réalisés par un organisme testeur certifié INRS, partout en France.",
   alternates: { canonical: "/caces" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
     description: "R482, R484, R485, R486-A, R489, R490 : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+    images: ["/image/formation-caces.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
     description: "R482, R484, R485, R486-A, R489, R490 : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
+    images: ["/image/formation-caces.jpg"],
   },
 };
 

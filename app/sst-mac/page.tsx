@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formation-secourisme-sst/"
+      "url": "https://securiform.fr/sst-mac/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Secourisme (SST)",
-          "item": "https://securiform.fr/accueil/formation-secourisme-sst/"
+          "item": "https://securiform.fr/secourisme/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "MAC SST",
-          "item": "https://securiform.fr/accueil/formation-secourisme-sst/"
+          "item": "https://securiform.fr/sst-mac/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "MAC SST — Recyclage Sauveteur Secouriste du Travail — SECURIFORM",
-  description: "Recyclage MAC SST avec SECURIFORM : 7 heures pour maintenir et actualiser vos compétences de Sauveteur Secouriste du Travail. Tous les 24 mois, avant expiration du certificat.",
+  title: "Recyclage MAC SST — SECURIFORM",
+  description: "Recyclage MAC SST avec SECURIFORM : 7h pour maintenir vos compétences, tous les 24 mois avant expiration du certificat.",
   alternates: { canonical: "/sst-mac" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/sst-mac",
     title: "MAC SST — Recyclage Sauveteur Secouriste du Travail — SECURIFORM",
     description: "7 heures pour maintenir vos compétences SST à jour, avant l'expiration de votre certificat. Avec SECURIFORM, centre habilité INRS.",
+    images: ["/image/formation-sst-mac.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "MAC SST — SECURIFORM",
     description: "Renouvelez votre certificat SST avec le recyclage MAC, avec SECURIFORM.",
+    images: ["/image/formation-sst-mac.jpg"],
   },
 };
 

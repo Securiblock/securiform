@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formation-secourisme-sst/"
+      "url": "https://securiform.fr/sst-initiale/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Secourisme (SST)",
-          "item": "https://securiform.fr/accueil/formation-secourisme-sst/"
+          "item": "https://securiform.fr/secourisme/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation initiale SST",
-          "item": "https://securiform.fr/accueil/formation-secourisme-sst/"
+          "item": "https://securiform.fr/sst-initiale/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation initiale SST — Sauveteur Secouriste du Travail — SECURIFORM",
-  description: "Formation initiale SST avec SECURIFORM : cadre légal, programme en 10 modules, évaluation, rôle préventif du SST. 14 heures sur 2 jours, certificat valable 24 mois.",
+  title: "Formation initiale SST — SECURIFORM",
+  description: "Formation initiale SST avec SECURIFORM : cadre légal, programme en 10 modules, évaluation. 14h sur 2 jours, certificat valable 24 mois.",
   alternates: { canonical: "/sst-initiale" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/sst-initiale",
     title: "Formation initiale SST — SECURIFORM",
     description: "Cadre légal, programme en 10 modules, rôle préventif du SST : formation initiale SST avec SECURIFORM, 14h, certificat valable 24 mois.",
+    images: ["/image/formation-sst-initiale.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation initiale SST — SECURIFORM",
     description: "Devenez Sauveteur Secouriste du Travail avec SECURIFORM, centre habilité INRS.",
+    images: ["/image/formation-sst-initiale.jpg"],
   },
 };
 

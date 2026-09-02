@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-aipr/formation-encadrants-aipr/"
+      "url": "https://securiform.fr/aipr/formation-encadrants-aipr/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/"
+          "item": "https://securiform.fr/aipr/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation encadrants AIPR",
-          "item": "https://securiform.fr/accueil/formations-aipr/formation-encadrants-aipr/"
+          "item": "https://securiform.fr/aipr/formation-encadrants-aipr/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation encadrants AIPR — DT-DICT, préparation de chantier — SECURIFORM",
-  description: "Formation SECURIFORM encadrants AIPR : procédures DT-DICT, documents à vérifier, marquage et piquetage, arrêt de chantier, examen QCM. Attestation valable 5 ans.",
+  title: "Formation encadrants AIPR — SECURIFORM",
+  description: "Formation SECURIFORM encadrants AIPR : procédures DT-DICT, marquage-piquetage, arrêt de chantier, examen QCM. Attestation valable 5 ans.",
   alternates: { canonical: "/aipr-encadrants" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-encadrants",
     title: "Formation encadrants AIPR — SECURIFORM",
     description: "Procédures DT-DICT, préparation de chantier, marquage : formation SECURIFORM encadrants AIPR.",
+    images: ["/image/formation-aipr-encadrant.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation encadrants AIPR — SECURIFORM",
     description: "Formez vos chefs de chantier à organiser des interventions sécurisées près des réseaux, avec SECURIFORM.",
+    images: ["/image/formation-aipr-encadrant.jpg"],
   },
 };
 

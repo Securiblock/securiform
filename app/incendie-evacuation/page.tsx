@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-incendie-et-evacuation/"
+      "url": "https://securiform.fr/incendie-evacuation/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations incendie et évacuation — SECURIFORM",
-  description: "SECURIFORM forme à la manipulation des extincteurs et RIA, à l'évacuation des locaux et aux Équipiers de Première et Seconde Intervention. Formations conformes aux articles R4227-28 et suivants du Code du travail, partout en France.",
+  description: "SECURIFORM forme à la manipulation des extincteurs et RIA, à l'évacuation des locaux et aux Équipiers de Première Intervention.",
   alternates: { canonical: "/incendie-evacuation" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/incendie-evacuation",
     title: "Formations incendie et évacuation — SECURIFORM",
     description: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux : SECURIFORM forme vos équipes partout en France.",
+    images: ["/image/formation-incendie.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations incendie et évacuation — SECURIFORM",
     description: "Extincteurs, RIA, EPI, évacuation : préparez vos équipes à la sécurité incendie avec SECURIFORM.",
+    images: ["/image/formation-incendie.jpg"],
   },
 };
 

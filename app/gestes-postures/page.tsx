@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formation-gestes-et-postures/"
+      "url": "https://securiform.fr/gestes-postures/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formation gestes et postures",
-          "item": "https://securiform.fr/accueil/formation-gestes-et-postures/"
+          "item": "https://securiform.fr/gestes-postures/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation gestes et postures — SECURIFORM",
-  description: "SECURIFORM forme aux gestes et postures de manutention pour prévenir les troubles musculosquelettiques (TMS), conformément à l'article R4541-8 du Code du travail. Formation essentiellement pratique, partout en France.",
+  description: "SECURIFORM forme aux gestes et postures de manutention pour prévenir les TMS, conformément au Code du travail. Partout en France.",
   alternates: { canonical: "/gestes-postures" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/gestes-postures",
     title: "Formation gestes et postures — SECURIFORM",
     description: "Prévention des TMS, techniques de manutention, ergonomie des postes : SECURIFORM forme vos équipes partout en France.",
+    images: ["/image/formation-gestes-postures.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation gestes et postures — SECURIFORM",
     description: "Prévenez les troubles musculosquelettiques avec une formation gestes et postures SECURIFORM.",
+    images: ["/image/formation-gestes-postures.jpg"],
   },
 };
 

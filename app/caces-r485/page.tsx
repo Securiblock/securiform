@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R485 — Gerbeurs à conducteur accompagnant — SECURIFORM",
+  title: "Formation CACES® R485 — SECURIFORM",
   description: "Formation CACES R485 avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, partout en France.",
   alternates: { canonical: "/caces-r485" },
   openGraph: {
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r485",
     title: "Formation CACES® R485 — Gerbeurs à conducteur accompagnant — SECURIFORM",
     description: "Gerbeurs à conducteur accompagnant, catégories 1 et 2. Formation SECURIFORM, certificat valable 5 ans.",
+    images: ["/image/caces-r485.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R485 — SECURIFORM",
     description: "Conduite en sécurité des gerbeurs à conducteur accompagnant, avec SECURIFORM.",
+    images: ["/image/caces-r485.jpg"],
   },
 };
 

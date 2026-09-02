@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/caces-copy/"
+          "item": "https://securiform.fr/formations-specifiques/"
         },
         {
           "@type": "ListItem",
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
-  description: "Formation SECURIFORM à la conduite en sécurité des balayeuses routières : cohabitation avec la circulation, angles morts, signalisation, vérifications avant utilisation. Pour collectivités et entreprises de nettoyage urbain.",
+  title: "Conduite de balayeuses routières — SECURIFORM",
+  description: "Formation SECURIFORM à la conduite des balayeuses routières : angles morts, signalisation et vérifications avant utilisation, partout en France.",
   alternates: { canonical: "/balayeuses-routieres" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/balayeuses-routieres",
     title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des balayeuses routières, pour les équipes de nettoyage urbain.",
+    images: ["/image/formation-balayeuse.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
     description: "Formez vos équipes à la conduite en sécurité des balayeuses routières, au milieu de la circulation.",
+    images: ["/image/formation-balayeuse.jpg"],
   },
 };
 

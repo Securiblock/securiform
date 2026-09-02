@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-manipulation-extincteurs/"
+      "url": "https://securiform.fr/incendie-evacuation/formation-manipulation-extincteurs/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Manipulation des extincteurs",
-          "item": "https://securiform.fr/accueil/formations-incendie-et-evacuation/formation-manipulation-extincteurs/"
+          "item": "https://securiform.fr/incendie-evacuation/formation-manipulation-extincteurs/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation manipulation des extincteurs — Classes de feu, technique ABCDE — SECURIFORM",
-  description: "Formation SECURIFORM à la manipulation des extincteurs : triangle du feu, classes A à F, technique d'utilisation, pratique sur feu réel. Conforme à l'article R4227-28 du Code du travail.",
+  title: "Formation manipulation des extincteurs — SECURIFORM",
+  description: "Formation SECURIFORM à la manipulation des extincteurs : triangle du feu, classes A à F, pratique sur feu réel.",
   alternates: { canonical: "/manipulation-extincteurs" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/manipulation-extincteurs",
     title: "Formation manipulation des extincteurs — SECURIFORM",
     description: "Triangle du feu, classes de feu, technique d'utilisation : formation SECURIFORM à la manipulation des extincteurs.",
+    images: ["/image/formation-extincteurs.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation manipulation des extincteurs — SECURIFORM",
     description: "Formez vos équipes à réagir efficacement face à un début d'incendie, avec SECURIFORM.",
+    images: ["/image/formation-extincteurs.jpg"],
   },
 };
 

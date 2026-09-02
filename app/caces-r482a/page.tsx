@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/formation-a-la-conduite-en-securite-caces-r482a/"
+      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r482a/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/"
+          "item": "https://securiform.fr/caces/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "CACES R482A",
-          "item": "https://securiform.fr/accueil/formations-a-la-conduite-en-securite-caces/formation-a-la-conduite-en-securite-caces-r482a/"
+          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r482a/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R482A — Engins de chantier — SECURIFORM",
-  description: "Formation CACES R482A avec SECURIFORM : catégories A, B1, B2, B3, C1, C2, C3, D, E, F, G. Pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans, partout en France.",
+  title: "Formation CACES® R482A — SECURIFORM",
+  description: "Formation CACES R482A avec SECURIFORM : catégories A à G, pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
   alternates: { canonical: "/caces-r482a" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-r482a",
     title: "Formation CACES® R482A — Engins de chantier — SECURIFORM",
     description: "Toutes les catégories du CACES R482A (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
+    images: ["/image/caces-r482.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R482A — SECURIFORM",
     description: "Toutes les catégories d'engins de chantier du CACES R482A, avec SECURIFORM.",
+    images: ["/image/caces-r482.jpg"],
   },
 };
 

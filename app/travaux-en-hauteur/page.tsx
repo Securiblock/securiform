@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
+      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation travaux en hauteur",
-          "item": "https://securiform.fr/accueil/formations-travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
         }
       ]
     }
@@ -43,8 +43,8 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation travaux en hauteur — Harnais, points d'ancrage, EPI antichute — SECURIFORM",
-  description: "Formation SECURIFORM aux travaux en hauteur : hiérarchie des protections, contrôle du harnais, points d'ancrage dorsal/sternal, longes, enrouleurs, lignes de vie. Conforme au Code du travail.",
+  title: "Formation travaux en hauteur — SECURIFORM",
+  description: "Formation SECURIFORM aux travaux en hauteur : hiérarchie des protections, harnais, points d'ancrage, longes, lignes de vie.",
   alternates: { canonical: "/travaux-en-hauteur" },
   openGraph: {
     type: "article",
@@ -53,11 +53,13 @@ export const metadata: Metadata = {
     url: "/travaux-en-hauteur",
     title: "Formation travaux en hauteur — SECURIFORM",
     description: "Hiérarchie des protections, harnais, points d'ancrage, lignes de vie : formation SECURIFORM aux travaux en hauteur.",
+    images: ["/image/formation-harnais.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation travaux en hauteur — SECURIFORM",
     description: "Formez vos équipes aux bons réflexes du travail en hauteur, avec SECURIFORM.",
+    images: ["/image/formation-harnais.jpg"],
   },
 };
 

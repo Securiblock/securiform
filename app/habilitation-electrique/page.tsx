@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/accueil/preparation-habilitation-electrique/"
+      "url": "https://securiform.fr/habilitation-electrique/"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Préparation à l'habilitation électrique",
-          "item": "https://securiform.fr/accueil/preparation-habilitation-electrique/"
+          "item": "https://securiform.fr/habilitation-electrique/"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Préparation à l'habilitation électrique — SECURIFORM",
-  description: "SECURIFORM prépare à l'habilitation électrique le personnel électricien et non-électricien, en basse et haute tensions : H0B0, BS, BE/HE Manœuvre, B1-B2-BR-BC-BE essai, H1-H2-HC-HE essai, et véhicules électriques/hybrides B1L-B2L-BRL-BCL.",
+  description: "SECURIFORM prépare à l'habilitation électrique le personnel électricien et non-électricien, basse et haute tension, partout en France.",
   alternates: { canonical: "/habilitation-electrique" },
   openGraph: {
     type: "article",
@@ -47,11 +47,13 @@ export const metadata: Metadata = {
     url: "/habilitation-electrique",
     title: "Préparation à l'habilitation électrique — SECURIFORM",
     description: "Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques/hybrides : SECURIFORM prépare vos équipes à l'habilitation électrique partout en France.",
+    images: ["/image/formation-habilitation-electrique.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Préparation à l'habilitation électrique — SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B1-B2-BR-BC, H1-H2-HC : préparez vos équipes à l'habilitation électrique avec SECURIFORM.",
+    images: ["/image/formation-habilitation-electrique.jpg"],
   },
 };
 
