@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations à la conduite en sécurité et CACES®">
+<section className="page-hero" aria-label="Formations à la conduite en sécurité et CACES®" style={{ backgroundImage: "url('/image/formation-caces.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

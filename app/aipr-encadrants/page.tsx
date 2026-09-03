@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation encadrants AIPR">
+<section className="page-hero" aria-label="Formation encadrants AIPR" style={{ backgroundImage: "url('/image/formation-aipr-encadrant.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

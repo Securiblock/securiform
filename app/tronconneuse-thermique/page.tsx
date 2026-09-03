@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuse thermique">
+<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuse thermique" style={{ backgroundImage: "url('/image/formation-tronconneuse.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

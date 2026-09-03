@@ -76,7 +76,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Vérifications Générales Périodiques">
+<section className="page-hero" aria-label="Vérifications Générales Périodiques" style={{ backgroundImage: "url('/image/vgp-chariots-elevateurs.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

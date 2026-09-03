@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des chargeuses">
+<section className="page-hero" aria-label="VGP des chargeuses" style={{ backgroundImage: "url('/image/vgp-chargeuses.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

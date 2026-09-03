@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation Équipier de Première Intervention">
+<section className="page-hero" aria-label="Formation Équipier de Première Intervention" style={{ backgroundImage: "url('/image/formation-epi.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

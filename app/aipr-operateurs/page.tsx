@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation opérateurs AIPR">
+<section className="page-hero" aria-label="Formation opérateurs AIPR" style={{ backgroundImage: "url('/image/formation-aipr-operateur.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

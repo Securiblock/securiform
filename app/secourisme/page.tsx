@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation secourisme (SST)">
+<section className="page-hero" aria-label="Formation secourisme (SST)" style={{ backgroundImage: "url('/image/formation-secourisme-sst.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

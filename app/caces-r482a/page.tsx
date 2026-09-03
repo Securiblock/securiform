@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R482A">
+<section className="page-hero" aria-label="Formation CACES R482A" style={{ backgroundImage: "url('/image/caces-r482.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Sensibilisation aux gestes qui sauvent">
+<section className="page-hero" aria-label="Sensibilisation aux gestes qui sauvent" style={{ backgroundImage: "url('/image/formation-gestes-qui-sauvent.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation travaux en hauteur">
+<section className="page-hero" aria-label="Formation travaux en hauteur" style={{ backgroundImage: "url('/image/formation-harnais.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
