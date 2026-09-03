@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Poids de test VGP">
+<section className="page-hero" aria-label="Poids de test VGP" style={{ backgroundImage: "url('/image/vgp-accessoires-levage.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

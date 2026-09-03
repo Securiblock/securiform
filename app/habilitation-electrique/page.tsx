@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Préparation à l'habilitation électrique">
+<section className="page-hero" aria-label="Préparation à l'habilitation électrique" style={{ backgroundImage: "url('/image/formation-habilitation-electrique.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

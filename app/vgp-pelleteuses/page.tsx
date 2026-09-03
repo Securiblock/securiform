@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des pelleteuses">
+<section className="page-hero" aria-label="VGP des pelleteuses" style={{ backgroundImage: "url('/image/vgp-pelleteuses.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

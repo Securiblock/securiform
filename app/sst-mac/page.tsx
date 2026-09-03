@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="MAC SST — recyclage">
+<section className="page-hero" aria-label="MAC SST — recyclage" style={{ backgroundImage: "url('/image/formation-sst-mac.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

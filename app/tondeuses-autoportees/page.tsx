@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Conduite en sécurité de tondeuses auto-portées">
+<section className="page-hero" aria-label="Conduite en sécurité de tondeuses auto-portées" style={{ backgroundImage: "url('/image/formation-tondeuse.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

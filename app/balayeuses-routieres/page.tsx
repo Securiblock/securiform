@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Conduite en sécurité de balayeuses routières">
+<section className="page-hero" aria-label="Conduite en sécurité de balayeuses routières" style={{ backgroundImage: "url('/image/formation-balayeuse.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

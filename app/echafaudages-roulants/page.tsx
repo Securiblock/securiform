@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation échafaudages roulants">
+<section className="page-hero" aria-label="Formation échafaudages roulants" style={{ backgroundImage: "url('/image/formation-echafaudage-roulant.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
