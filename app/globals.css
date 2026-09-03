@@ -280,49 +280,6 @@ h3{font-size:26px}
   .reveal{opacity:1;transform:none}
 }
 
-/* ===================== RESPONSIVE ===================== */
-@media (max-width:1024px){
-  .formations-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .presentation{grid-template-columns:1fr;gap:2.6rem}
-  .vgp{grid-template-columns:1fr}
-  .grille-categories{grid-template-columns:repeat(2,1fr)}
-  .etapes{grid-template-columns:repeat(2,1fr)}
-}
-@media (max-width:768px){
-  body{font-size:19px}
-  h2{font-size:31px}
-  .nav{
-    position:fixed;inset:0;top:0;background:var(--blanc);
-    transform:translateX(100%);transition:transform .35s ease;
-    padding:6rem 2rem 2rem;z-index:90;overflow-y:auto;
-  }
-  .nav.open{transform:translateX(0)}
-  .nav ul{flex-direction:column;align-items:flex-start;gap:1.4rem}
-  .nav a{font-size:22px}
-  .burger{display:block;position:relative;z-index:95}
-  .slider{min-height:620px}
-  .slide{padding:3.5rem 0 7rem}
-  .slide p{font-size:19px}
-  .stats-grid{grid-template-columns:1fr;gap:1.8rem}
-  .stat-num{font-size:46px}
-  .section{padding:3.8rem 0}
-  .vgp{padding:2.2rem}
-  .cta-tel{font-size:34px}
-  .slider-controls{flex-direction:column-reverse;align-items:center;gap:1rem;bottom:1.2rem}
-  .page-hero{min-height:340px}
-  .etapes{grid-template-columns:1fr}
-  .form-devis-grid{grid-template-columns:1fr}
-}
-@media (max-width:520px){
-  .formations-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .topbar .container{justify-content:center;text-align:center}
-  .btn{width:100%;text-align:center}
-  .cta-actions .btn{width:auto}
-  .vgp-liste{grid-template-columns:1fr}
-  .grille-categories{grid-template-columns:1fr}
-}
 
 /* =========================================================
    PAGE CACES — bannière statique, fil d'Ariane, cartes,
@@ -464,4 +421,57 @@ h3{font-size:26px}
   .cols-3{grid-template-columns:repeat(3,1fr)}
   .cols-4{grid-template-columns:repeat(4,1fr)}
   .cols-5{grid-template-columns:repeat(5,1fr)}
+}
+
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:1024px){
+  .formations-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .presentation{grid-template-columns:1fr;gap:2.6rem}
+  .vgp{grid-template-columns:1fr}
+  .grille-categories{grid-template-columns:repeat(2,1fr)}
+  .etapes{grid-template-columns:repeat(2,1fr)}
+  /* Burger menu from here down: the horizontal nav (logo + 7 links) no
+     longer fits the header past this width and has no wrap fallback. */
+  .nav{
+    position:fixed;inset:0;top:0;background:var(--blanc);
+    transform:translateX(100%);transition:transform .35s ease;
+    padding:6rem 2rem 2rem;z-index:90;overflow-y:auto;
+  }
+  .nav.open{transform:translateX(0)}
+  .nav ul{flex-direction:column;align-items:flex-start;gap:1.4rem}
+  .nav a{font-size:22px}
+  .burger{display:block;position:relative;z-index:95}
+}
+@media (max-width:768px){
+  body{font-size:19px}
+  h2{font-size:31px}
+  .slider{min-height:620px}
+  .slide{padding:3.5rem 0 7rem}
+  .slide p{font-size:19px}
+  .stats-grid{grid-template-columns:1fr;gap:1.8rem}
+  .stat-num{font-size:46px}
+  .section{padding:3.8rem 0}
+  .vgp{padding:2.2rem}
+  .cta-tel{font-size:34px}
+  .slider-controls{flex-direction:column-reverse;align-items:center;gap:1rem;bottom:1.2rem}
+  .page-hero{min-height:340px}
+  .etapes{grid-template-columns:1fr}
+  .form-devis-grid{grid-template-columns:1fr}
+  .form-devis{padding:2rem}
+  .presentation-visuel{padding:2rem}
+  .categorie-card,.formation-card,.etape,.doc-card{padding:1.5rem 1.3rem}
+  .categorie-photo{margin:-1.5rem -1.3rem 1.2rem}
+  .formation-photo{margin:-1.5rem -1.3rem 0}
+}
+@media (max-width:520px){
+  .form-devis{padding:1.5rem}
+  .formations-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .topbar .container{justify-content:center;text-align:center}
+  .btn{width:100%;text-align:center}
+  .cta-actions .btn{width:auto}
+  .vgp-liste{grid-template-columns:1fr}
+  .grille-categories{grid-template-columns:1fr}
 }

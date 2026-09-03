@@ -7,6 +7,12 @@ import { Resend } from "resend";
 const TO_EMAIL = "henri@securiblock.fr";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 
+// Hidden honeypot field: real visitors never fill it in (it's visually
+// hidden), so a non-empty value means the submission came from a bot.
+const HONEYPOT_FIELD = "site_web";
+
+const ALLOWED_ATTACHMENT_EXTENSIONS = [".pdf", ".doc", ".docx"];
+
 const FIELD_LABELS: Record<string, string> = {
   sujet: "Sujet",
   nom: "Nom",
@@ -25,6 +31,12 @@ const FIELD_LABELS: Record<string, string> = {
 // this just forwards whatever was actually submitted rather than assuming a
 // fixed shape — see app/actions.ts usage across app/**/page.tsx.
 export async function submitForm(formData: FormData) {
+  // Bots fill in every field they find, including this hidden one. Real
+  // visitors never see it, so pretend to succeed without sending anything.
+  if (formData.get(HONEYPOT_FIELD)) {
+    redirect("/merci?ok=1");
+  }
+
   const referer = (await headers()).get("referer") || "";
   let sourcePath = "/";
   try {
@@ -38,8 +50,19 @@ export async function submitForm(formData: FormData) {
   let replyTo: string | undefined;
 
   for (const [key, value] of formData.entries()) {
+    if (key === HONEYPOT_FIELD) continue;
+
     if (value instanceof File) {
       if (value.size > 0) {
+        const extension = value.name
+          .slice(value.name.lastIndexOf("."))
+          .toLowerCase();
+        if (!ALLOWED_ATTACHMENT_EXTENSIONS.includes(extension)) {
+          lines.push(
+            `[Pièce jointe refusée : "${value.name}" n'est pas un type de fichier autorisé (pdf, doc, docx)]`
+          );
+          continue;
+        }
         const buffer = Buffer.from(await value.arrayBuffer());
         attachments.push({ filename: value.name, content: buffer });
       }
