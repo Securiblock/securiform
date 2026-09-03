@@ -276,6 +276,7 @@ export default function Page() {
 
         
         <form className="form-devis reveal" action={submitForm}>
+          <input type="text" name="site_web" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} />
           <div className="form-devis-grid">
             <div className="champ">
               <label htmlFor="nom">Nom</label>

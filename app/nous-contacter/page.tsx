@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import FileInput from "@/components/file-input";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -115,6 +116,7 @@ export default function Page() {
           <h3 style={{ "color": "var(--noir)" }}>Demande de renseignements</h3>
           
           <form action={submitForm} style={{ "display": "flex", "flexDirection": "column", "gap": "1.1rem", "marginTop": "1.2rem" }}>
+          <input type="text" name="site_web" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }} />
             <div className="champ">
               <label htmlFor="sujet" style={{ "color": "var(--noir)" }}>Sujet</label>
               <select id="sujet" name="sujet">
@@ -141,7 +143,7 @@ export default function Page() {
             </div>
             <div className="champ">
               <label htmlFor="document" style={{ "color": "var(--noir)" }}>Document joint (optionnel)</label>
-              <input type="file" id="document" name="document" />
+              <FileInput id="document" name="document" />
             </div>
             <div className="champ">
               <label htmlFor="message" style={{ "color": "var(--noir)" }}>Message</label>
