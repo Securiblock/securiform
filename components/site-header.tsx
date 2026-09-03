@@ -73,6 +73,7 @@ export default function SiteHeader() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
+                      className={item.href === "/nous-contacter" ? "nav-cta" : undefined}
                       aria-current={
                         isNavItemActive(item.href, pathname)
                           ? "page"

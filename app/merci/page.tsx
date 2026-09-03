@@ -43,6 +43,10 @@ export default async function Page({
                 </a>
                 .
               </p>
+              <p style={{ marginTop: "1rem" }}>
+                En attendant notre réponse, n&apos;hésitez pas à jeter un œil
+                à notre boutique en ligne.
+              </p>
             </>
           ) : (
             <>
@@ -59,9 +63,29 @@ export default async function Page({
               </p>
             </>
           )}
-          <Link className="btn btn-plein" href="/" style={{ marginTop: "1.5rem" }}>
-            Retour à l&apos;accueil
-          </Link>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              marginTop: "1.5rem",
+            }}
+          >
+            {success && (
+              <Link
+                className="btn btn-contour"
+                href="https://securistore.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Découvrir la boutique
+              </Link>
+            )}
+            <Link className="btn btn-plein" href="/">
+              Retour à l&apos;accueil
+            </Link>
+          </div>
         </div>
       </section>
     </>

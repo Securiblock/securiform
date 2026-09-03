@@ -85,6 +85,13 @@ h3{font-size:26px}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:3px;background:var(--rouge);transition:var(--transition)}
 .nav a:hover::after,.nav a[aria-current="page"]::after{width:100%}
 .nav a[aria-current="page"]{color:var(--rouge)}
+.nav a.nav-cta{
+  display:inline-block;background:var(--rouge);color:#fff;
+  padding:.55rem 1.3rem;border-radius:6px;
+}
+.nav a.nav-cta::after{content:none}
+.nav a.nav-cta:hover{background:var(--rouge-fonce)}
+.nav a.nav-cta[aria-current="page"]{background:var(--rouge-fonce);color:#fff}
 .burger{display:none;background:none;border:none;cursor:pointer;padding:.4rem}
 .burger span{display:block;width:28px;height:3px;background:var(--noir);margin:6px 0;border-radius:2px;transition:var(--transition)}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(9px) rotate(45deg)}
