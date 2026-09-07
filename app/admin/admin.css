@@ -1,0 +1,6 @@
+/* Tailwind utilities scoped to /admin only — no preflight import here on
+   purpose, so this never touches the hand-written public site stylesheet
+   (app/globals.css) that every marketing page relies on. */
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+@plugin "@tailwindcss/typography";

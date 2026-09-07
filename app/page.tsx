@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import HeroSlider, { type Slide } from "@/components/hero-slider";
+import { getPublishedArticles } from "@/lib/blog/content";
+
+// Deliberately NOT forced dynamic, unlike /blog and /admin/blog: the
+// homepage is the highest-traffic page on the site and stays statically
+// prerendered like the rest of it. The "derniers articles" teaser below is
+// a promo block, not the canonical article list, so picking up new posts
+// only on the next deploy is an acceptable trade for keeping this page fast.
+function formatArticleDate(date: string): string {
+  if (!date) return "";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return date;
+  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+}
 
 export const metadata: Metadata = {
   title: "SECURIFORM — Formations sécurité au travail en France",
@@ -264,6 +277,8 @@ const vgpLinks = [
 ];
 
 export default function Home() {
+  const latestArticles = getPublishedArticles().slice(0, 3);
+
   return (
     <>
       <script
@@ -460,6 +475,45 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {latestArticles.length > 0 && (
+        <section className="section section-alt" aria-labelledby="titre-blog">
+          <div className="container">
+            <div className="section-head reveal">
+              <span className="surtitre">Blog</span>
+              <h2 id="titre-blog">Nos derniers articles</h2>
+              <hr className="trait" />
+              <p>Conseils et guides pratiques sur la sécurité au travail.</p>
+            </div>
+            <div className="grille-categories cols-3">
+              {latestArticles.map((article) => (
+                <article key={article.slug} className="categorie-card reveal">
+                  {article.date && (
+                    <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
+                      {formatArticleDate(article.date)}
+                    </span>
+                  )}
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                  <span className="lien" style={{ marginTop: "1rem" }}>
+                    Lire l&apos;article
+                  </span>
+                  <Link
+                    className="card-cover"
+                    href={`/blog/${article.slug}`}
+                    aria-label={article.title}
+                  />
+                </article>
+              ))}
+            </div>
+            <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
+              <Link className="btn btn-contour" href="/blog">
+                Voir tous les articles
+              </Link>
+            </p>
+          </div>
+        </section>
+      )}
     </>
   );
 }

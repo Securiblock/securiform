@@ -1,0 +1,34 @@
+[
+  {
+    "id": "873a79bb-cc6f-43b7-861c-40046775cea5",
+    "title": "comment passé le caces ",
+    "description": "explique les étapes pour passer ça ",
+    "keywords": [
+      "securité",
+      "sst",
+      "caces"
+    ],
+    "tone": "technique",
+    "targetLength": 500,
+    "status": "published",
+    "createdAt": "2026-09-07T12:29:18.235Z",
+    "generatedAt": "2026-09-07T12:45:42.567Z",
+    "publishedAt": "2026-09-07T12:56:02.046Z",
+    "slug": "comment-passer-le-caces",
+    "deletedAt": null
+  },
+  {
+    "id": "3fadf280-9bf9-4c63-a4d9-22d78c3db70d",
+    "title": "Pourquoi se former sur la sécurité ?",
+    "description": "Pourquoi se former sur la sécurité ?",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "generated",
+    "createdAt": "2026-09-07T13:17:16.366Z",
+    "generatedAt": "2026-09-07T13:17:28.907Z",
+    "publishedAt": null,
+    "slug": "pourquoi-se-former-sur-la-securite",
+    "deletedAt": null
+  }
+]
