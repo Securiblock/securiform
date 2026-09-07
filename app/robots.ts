@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/merci",
+      disallow: ["/merci", "/admin"],
     },
     sitemap: "https://securiform.fr/sitemap.xml",
   };

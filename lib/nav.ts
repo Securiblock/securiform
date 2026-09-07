@@ -3,6 +3,7 @@ export const navItems = [
   { href: "/lentreprise", label: "L'entreprise" },
   { href: "/#formations", label: "Formations" },
   { href: "/vgp", label: "VGP" },
+  { href: "/blog", label: "Blog" },
   { href: "https://www.securistore.fr/", label: "Boutique", external: true },
   { href: "/statistiques", label: "Statistiques" },
   { href: "/nous-contacter", label: "Contact" },
@@ -66,6 +67,7 @@ export function isNavItemActive(itemHref: string, pathname: string): boolean {
   if (itemHref === "/") return pathname === "/";
   if (itemHref === "/#formations") return formationSlugs.has(slug);
   if (itemHref === "/vgp") return vgpSlugs.has(slug);
+  if (itemHref === "/blog") return pathname === "/blog" || pathname.startsWith("/blog/");
 
   return pathname === itemHref;
 }

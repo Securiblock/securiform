@@ -1,6 +1,11 @@
 import type { MetadataRoute } from "next";
+import { getPublishedArticles } from "@/lib/blog/content";
 
 const BASE_URL = "https://securiform.fr";
+
+// Reads content/blog/*.mdx at request time (for the article list below), so
+// this can't be prerendered once at build time — force it to stay live.
+export const dynamic = "force-dynamic";
 
 const hubs: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
@@ -11,6 +16,7 @@ const hubs: { path: string; priority: number }[] = [
   { path: "/travaux-hauteur-echafaudages", priority: 0.9 },
   { path: "/aipr", priority: 0.9 },
   { path: "/vgp", priority: 0.9 },
+  { path: "/blog", priority: 0.8 },
   { path: "/formations-specifiques", priority: 0.8 },
   { path: "/gestes-postures", priority: 0.8 },
 ];
@@ -62,6 +68,7 @@ const legal: string[] = ["/mentions-legales", "/conditions-generales-de-vente"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  const articles = getPublishedArticles();
 
   return [
     ...hubs.map(({ path, priority }) => ({
@@ -81,6 +88,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "yearly" as const,
       priority: 0.3,
+    })),
+    ...articles.map((article) => ({
+      url: `${BASE_URL}/blog/${article.slug}`,
+      lastModified: article.date ? new Date(article.date) : lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 }
