@@ -109,7 +109,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>CACES® et conduite en sécurité</h3>
-            <p>R482, R484, R485, R486-A, R489, R490.</p>
+            <p>R482, R484, R485, R486A, R489, R490.</p>
           </article>
 
           <article className="categorie-card reveal">

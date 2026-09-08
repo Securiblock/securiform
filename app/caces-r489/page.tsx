@@ -7,7 +7,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R489 — Chariots de manutention",
+      "name": "Formation CACES R489A — Chariots de manutention",
       "description": "Formation à la conduite en sécurité des chariots de manutention à conducteur porté, couvrant les catégories 1 à 6 de la recommandation R489 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -335,7 +335,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R485 (gerbeurs accompagnants), R486-A (nacelles) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R485 (gerbeurs accompagnants), R486A (nacelles) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>

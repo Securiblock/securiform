@@ -7,14 +7,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R486 Catégorie A — Nacelles élévatrices",
-      "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, catégorie A de la recommandation R486. Certificat valable 10 ans.",
+      "name": "Formation CACES R486A Catégorie A — Nacelles élévatrices",
+      "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, catégorie A de la recommandation R486. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces-r486-a/"
+      "url": "https://securiform.fr/caces-r486a/"
     },
     {
       "@type": "BreadcrumbList",
@@ -34,8 +34,8 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "CACES R486-A",
-          "item": "https://securiform.fr/caces-r486-a/"
+          "name": "CACES R486A",
+          "item": "https://securiform.fr/caces-r486a/"
         }
       ]
     }
@@ -43,16 +43,16 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R486-A — SECURIFORM",
-  description: "Formation CACES R486 Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 10 ans.",
+  title: "Formation CACES® R486A — SECURIFORM",
+  description: "Formation CACES R486A Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-r486a" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-r486a",
-    title: "Formation CACES® R486 Catégorie A — Nacelles élévatrices — SECURIFORM",
-    description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 10 ans.",
+    title: "Formation CACES® R486A Catégorie A — Nacelles élévatrices — SECURIFORM",
+    description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-r486a.jpg"],
   },
   twitter: {
@@ -84,7 +84,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <Link href="/caces">Conduite en sécurité et CACES®</Link>
           <span aria-hidden="true">›</span>
-          <span>CACES R486-A</span>
+          <span>CACES R486A</span>
         </p>
         <h1>Formation CACES® R486 Catégorie A — Nacelles élévatrices</h1>
         <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale&nbsp;: nacelles à ciseaux et plateformes sur mât.</p>
@@ -274,7 +274,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R486 Catégorie A est valable 10 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R486 Catégorie A est valable 5 ans à compter de son obtention.</p>
       </div>
     </section>
 
@@ -308,12 +308,12 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité du CACES R486 Catégorie A&nbsp;?</summary>
-            <p>Le certificat est valable 10 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances et prolonger la validité.</p>
+            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances et prolonger la validité.</p>
           </details>
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R485 (gerbeurs), R489 (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs), R489A (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -328,7 +328,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation CACES® R486-A</h2>
+          <h2 id="titre-devis">Programmer une formation CACES® R486A</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>

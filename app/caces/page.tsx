@@ -8,7 +8,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations à la conduite en sécurité et CACES®",
-      "description": "Préparation aux recommandations CACES® R482 (engins de chantier), R484 (ponts roulants et portiques), R485 (gerbeurs à conducteur accompagnant), R486-A (nacelles élévatrices), R489 (chariots de manutention) et R490 (grues auxiliaires de chargement).",
+      "description": "Préparation aux recommandations CACES® R482 (engins de chantier), R484 (ponts roulants et portiques), R485 (gerbeurs à conducteur accompagnant), R486A (nacelles élévatrices), R489 (chariots de manutention) et R490 (grues auxiliaires de chargement).",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Conduite en sécurité et CACES® — SECURIFORM",
-  description: "SECURIFORM prépare vos équipes au CACES® : R482, R484, R485, R486-A, R489, R490. Tests réalisés par un organisme testeur certifié INRS, partout en France.",
+  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, partout en France.",
   alternates: { canonical: "/caces" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482, R484, R485, R486-A, R489, R490 : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+    description: "R482, R484, R485, R486A, R489, R490 : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
     images: ["/image/formation-caces.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482, R484, R485, R486-A, R489, R490 : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
+    description: "R482, R484, R485, R486A, R489, R490 : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
     images: ["/image/formation-caces.jpg"],
   },
 };
@@ -111,7 +111,7 @@ export default function Page() {
               <img src="/image/caces-r482.jpg" alt="CACES R482 — engins de chantier" loading="lazy" />
             </div>
             <span className="categorie-badge">10 ans</span>
-            <span className="categorie-code">R482-A</span>
+            <span className="categorie-code">R482A</span>
             <h3>Engins de chantier</h3>
             <p>Pelles, chargeuses, engins de terrassement, compacteurs et chariots télescopiques utilisés en BTP, carrières et travaux publics.</p>
             <span className="lien">En savoir +</span>
@@ -132,10 +132,10 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r486a.jpg" alt="CACES R486-A — nacelles élévatrices" loading="lazy" />
+              <img src="/image/caces-r486a.jpg" alt="CACES R486A — nacelles élévatrices" loading="lazy" />
             </div>
-            <span className="categorie-badge">10 ans</span>
-            <span className="categorie-code">R486-A</span>
+            <span className="categorie-badge">5 ans</span>
+            <span className="categorie-code">R486A</span>
             <h3>Nacelles élévatrices (PEMP)</h3>
             <p>Plateformes élévatrices mobiles de personnes à élévation verticale, pour les interventions en hauteur ponctuelles.</p>
             <span className="lien">En savoir +</span>
@@ -146,7 +146,7 @@ export default function Page() {
             <div className="categorie-photo">
               <img src="/image/caces-r484.jpg" alt="CACES R484 — ponts roulants et portiques" loading="lazy" />
             </div>
-            <span className="categorie-badge">10 ans</span>
+            <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R484</span>
             <h3>Ponts roulants et portiques</h3>
             <p>Conduite des ponts roulants et portiques de levage utilisés en ateliers et environnements industriels.</p>
@@ -170,7 +170,7 @@ export default function Page() {
             <div className="categorie-photo">
               <img src="/image/caces-r490.jpg" alt="CACES R490 — grues auxiliaires de chargement" loading="lazy" />
             </div>
-            <span className="categorie-badge">10 ans</span>
+            <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R490</span>
             <h3>Grues auxiliaires de chargement</h3>
             <p>Grues de chargement montées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
@@ -212,12 +212,12 @@ export default function Page() {
               </tr>
               <tr>
                 <td>Pelle, chargeuse, engin de terrassement</td>
-                <td>R482-A</td>
+                <td>R482A</td>
                 <td>10 ans</td>
               </tr>
               <tr>
                 <td>Nacelle, plateforme élévatrice (PEMP)</td>
-                <td>R486-A</td>
+                <td>R486A</td>
                 <td>5 ans</td>
               </tr>
               <tr>
@@ -299,7 +299,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de mon CACES®&nbsp;?</summary>
-            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489), les gerbeurs à conducteur accompagnant (R485), nacelle, plateforme élévatrice (R486-A), pont roulant, portique (R484), gerbeur à conducteur accompagnant (R485), grue auxiliaire de chargement sur porteur (R490) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482-A). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
+            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486A), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
           </details>
 
           <details className="faq-item">
@@ -356,12 +356,12 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
-                <option value="R482">R482-A — Engins de chantier</option>
-                <option value="R489">R489 — Chariots de manutention</option>
-                <option value="R486-A">R486-A — Nacelles élévatrices</option>
-                <option value="R484">R484 — Ponts roulants et portiques</option>
-                <option value="R485">R485 — Gerbeurs à conducteur accompagnant</option>
-                <option value="R490">R490 — Grues auxiliaires de chargement</option>
+                <option value="R482B">R482B— Engins de chantier</option>
+                <option value="R489A">R489A — Chariots de manutention</option>
+                <option value="R486B">R486B — Nacelles élévatrices</option>
+                <option value="R484A">R484A — Ponts roulants et portiques</option>
+                <option value="R485A">R485A — Gerbeurs à conducteur accompagnant</option>
+                <option value="R490A">R490A — Grues auxiliaires de chargement</option>
                 <option value="autre">Autre / je ne sais pas encore</option>
               </select>
             </div>
