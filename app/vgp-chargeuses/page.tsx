@@ -227,7 +227,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il aussi former les conducteurs de chargeuses&nbsp;?</summary>
-            <p>Oui, la conduite d'une chargeuse relève du CACES R482 (catégorie C1), complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence du conducteur.</p>
+            <p>Oui, la conduite d'une chargeuse relève du CACES R482B (catégorie C1), complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence du conducteur.</p>
           </details>
 
           <details className="faq-item">
@@ -327,8 +327,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos conducteurs sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos chargeuses&nbsp;; le CACES R482 certifie la compétence de vos conducteurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
-            <Link className="btn btn-blanc" href="/caces-r482a">Découvrir le CACES R482</Link>
+            <p>La VGP contrôle l'état de vos chargeuses&nbsp;; le CACES R482B certifie la compétence de vos conducteurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <Link className="btn btn-blanc" href="/caces-R482B">Découvrir le CACES R482B</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

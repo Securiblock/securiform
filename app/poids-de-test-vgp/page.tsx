@@ -261,37 +261,37 @@ export default function Page() {
             <tbody>
               <tr>
                 <td>Chariot contrebalancé</td>
-                <td>R489 cat. 3</td>
+                <td>R489A cat. 3</td>
                 <td>2 500 kg</td>
                 <td>2 750 kg</td>
               </tr>
               <tr>
                 <td>Chariot à mât rétractable</td>
-                <td>R489 cat. 4</td>
+                <td>R489A cat. 4</td>
                 <td>1 600 kg</td>
                 <td>1 760 kg</td>
               </tr>
               <tr>
                 <td>Chariot tout-terrain</td>
-                <td>R489 cat. 3</td>
+                <td>R489A cat. 3</td>
                 <td>3 000 kg</td>
                 <td>3 300 kg</td>
               </tr>
               <tr>
                 <td>Télescopique chantier</td>
-                <td>R489 cat. 8</td>
+                <td>R489A cat. 8</td>
                 <td>4 000 kg</td>
                 <td>4 400 kg</td>
               </tr>
               <tr>
                 <td>Télescopique rotatif</td>
-                <td>R484</td>
+                <td>R484A</td>
                 <td>3 500 kg</td>
                 <td>3 850 kg</td>
               </tr>
               <tr>
                 <td>Gerbeur électrique</td>
-                <td>R489 cat. 2</td>
+                <td>R489A cat. 2</td>
                 <td>1 200 kg</td>
                 <td>1 320 kg</td>
               </tr>
@@ -311,7 +311,7 @@ export default function Page() {
         <span className="surtitre">Une polyvalence utile</span>
         <h2 id="titre-mutualisation">VGP et formation CACES®&nbsp;: un même outil, deux usages</h2>
         <hr className="trait" />
-        <p>Il est courant que les centres de formation CACES® et les services maintenance des entreprises utilisent les mêmes blocs béton pour deux finalités distinctes&nbsp;: les exercices pédagogiques d'une part, et les épreuves de charge lors des VGP d'autre part. Un parc de blocs béton bien dimensionné couvre ainsi les besoins du plateau technique de formation et les besoins de vérification périodique du parc d'engins, sans investissement supplémentaire. Pour les entreprises et centres de formation souhaitant disposer de charges certifiées utilisables dans les deux cas, des fabricants spécialisés comme <a href="https://www.securiblock.fr" style={{ "color": "var(--rouge)", "fontWeight": "700" }}>Securiblock</a> proposent des blocs de lest en plusieurs formats, conçus pour les fourches standard des engins couverts par les recommandations R489 et R484, avec la traçabilité nécessaire à l'établissement d'un rapport de VGP valide.</p>
+        <p>Il est courant que les centres de formation CACES® et les services maintenance des entreprises utilisent les mêmes blocs béton pour deux finalités distinctes&nbsp;: les exercices pédagogiques d'une part, et les épreuves de charge lors des VGP d'autre part. Un parc de blocs béton bien dimensionné couvre ainsi les besoins du plateau technique de formation et les besoins de vérification périodique du parc d'engins, sans investissement supplémentaire. Pour les entreprises et centres de formation souhaitant disposer de charges certifiées utilisables dans les deux cas, des fabricants spécialisés comme <a href="https://www.securiblock.fr" style={{ "color": "var(--rouge)", "fontWeight": "700" }}>Securiblock</a> proposent des blocs de lest en plusieurs formats, conçus pour les fourches standard des engins couverts par les recommandations R489A et R484A, avec la traçabilité nécessaire à l'établissement d'un rapport de VGP valide.</p>
       </div>
     </section>
 

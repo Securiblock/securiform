@@ -8,7 +8,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations à la conduite en sécurité et CACES®",
-      "description": "Préparation aux recommandations CACES® R482 (engins de chantier), R484 (ponts roulants et portiques), R485 (gerbeurs à conducteur accompagnant), R486A (nacelles élévatrices), R489 (chariots de manutention) et R490 (grues auxiliaires de chargement).",
+      "description": "Préparation aux recommandations CACES® R482B (engins de chantier), R484A (ponts roulants et portiques), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices), R489A (chariots de manutention) et R490A (grues auxiliaires de chargement).",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482, R484, R485, R486A, R489, R490 : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
     images: ["/image/formation-caces.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482, R484, R485, R486A, R489, R490 : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
     images: ["/image/formation-caces.jpg"],
   },
 };
@@ -108,78 +108,78 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r482.jpg" alt="CACES R482 — engins de chantier" loading="lazy" />
+              <img src="/image/caces-R482B.jpg" alt="CACES R482B — engins de chantier" loading="lazy" />
             </div>
             <span className="categorie-badge">10 ans</span>
-            <span className="categorie-code">R482A</span>
+            <span className="categorie-code">R482B</span>
             <h3>Engins de chantier</h3>
             <p>Pelles, chargeuses, engins de terrassement, compacteurs et chariots télescopiques utilisés en BTP, carrières et travaux publics.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r482a" aria-label="Formation CACES R482A — engins de chantier" />
+            <Link className="card-cover" href="/caces-R482B" aria-label="Formation CACES R482B — engins de chantier" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r489.jpg" alt="CACES R489 — chariots de manutention" loading="lazy" />
+              <img src="/image/caces-R489A.jpg" alt="CACES R489A — chariots de manutention" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
-            <span className="categorie-code">R489</span>
+            <span className="categorie-code">R489A</span>
             <h3>Chariots de manutention</h3>
             <p>Transpalettes, gerbeurs et chariots élévateurs en porte-à-faux, pour l'entrepôt, la logistique et la distribution.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r489" aria-label="Formation CACES R489 — chariots de manutention" />
+            <Link className="card-cover" href="/caces-R489A" aria-label="Formation CACES R489A — chariots de manutention" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r486a.jpg" alt="CACES R486A — nacelles élévatrices" loading="lazy" />
+              <img src="/image/caces-R486B.jpg" alt="CACES R486B — nacelles élévatrices" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
-            <span className="categorie-code">R486A</span>
+            <span className="categorie-code">R486B</span>
             <h3>Nacelles élévatrices (PEMP)</h3>
             <p>Plateformes élévatrices mobiles de personnes à élévation verticale, pour les interventions en hauteur ponctuelles.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r486a" aria-label="Formation CACES R486 Catégorie A — nacelles élévatrices" />
+            <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B Catégorie A — nacelles élévatrices" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r484.jpg" alt="CACES R484 — ponts roulants et portiques" loading="lazy" />
+              <img src="/image/caces-R484A.jpg" alt="CACES R484A — ponts roulants et portiques" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
-            <span className="categorie-code">R484</span>
+            <span className="categorie-code">R484A</span>
             <h3>Ponts roulants et portiques</h3>
             <p>Conduite des ponts roulants et portiques de levage utilisés en ateliers et environnements industriels.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r484" aria-label="Formation CACES R484 — ponts roulants et portiques" />
+            <Link className="card-cover" href="/caces-R484A" aria-label="Formation CACES R484A — ponts roulants et portiques" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r485.jpg" alt="CACES R485 — gerbeurs à conducteur accompagnant" loading="lazy" />
+              <img src="/image/caces-R485A.jpg" alt="CACES R485A — gerbeurs à conducteur accompagnant" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
-            <span className="categorie-code">R485</span>
+            <span className="categorie-code">R485A</span>
             <h3>Gerbeurs à conducteur accompagnant</h3>
             <p>Conduite de gerbeurs accompagnants pour la manutention en entrepôt et environnements spécialisés.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r485" aria-label="Formation CACES R485 — gerbeurs à conducteur accompagnant" />
+            <Link className="card-cover" href="/caces-R485A" aria-label="Formation CACES R485A — gerbeurs à conducteur accompagnant" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-r490.jpg" alt="CACES R490 — grues auxiliaires de chargement" loading="lazy" />
+              <img src="/image/caces-R490A.jpg" alt="CACES R490A — grues auxiliaires de chargement" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
-            <span className="categorie-code">R490</span>
+            <span className="categorie-code">R490A</span>
             <h3>Grues auxiliaires de chargement</h3>
             <p>Grues de chargement montées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-r490" aria-label="Formation CACES R490 — grues auxiliaires de chargement" />
+            <Link className="card-cover" href="/caces-R490A" aria-label="Formation CACES R490A — grues auxiliaires de chargement" />
           </article>
 
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2.5rem", "color": "var(--gris)" }}>Pour le passage d'autres CACES® (R483 grues mobiles, R487 grues à tour…), nous consulter.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2.5rem", "color": "var(--gris)" }}>Pour le passage d'autres CACES® (R483A grues mobiles, R487A grues à tour…), nous consulter.</p>
       </div>
     </section>
 
@@ -207,32 +207,32 @@ export default function Page() {
             <tbody>
               <tr>
                 <td>Chariot élévateur, transpalette, gerbeur porté</td>
-                <td>R489</td>
+                <td>R489A</td>
                 <td>5 ans</td>
               </tr>
               <tr>
                 <td>Pelle, chargeuse, engin de terrassement</td>
-                <td>R482A</td>
+                <td>R482B</td>
                 <td>10 ans</td>
               </tr>
               <tr>
                 <td>Nacelle, plateforme élévatrice (PEMP)</td>
-                <td>R486A</td>
+                <td>R486B</td>
                 <td>5 ans</td>
               </tr>
               <tr>
                 <td>Pont roulant, portique</td>
-                <td>R484</td>
+                <td>R484A</td>
                 <td>5 ans</td>
               </tr>
               <tr>
                 <td>Gerbeur à conducteur accompagnant</td>
-                <td>R485</td>
+                <td>R485A</td>
                 <td>5 ans</td>
               </tr>
               <tr>
                 <td>Grue auxiliaire de chargement sur porteur</td>
-                <td>R490</td>
+                <td>R490A</td>
                 <td>5 ans</td>
               </tr>
             </tbody>
@@ -299,7 +299,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de mon CACES®&nbsp;?</summary>
-            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486A), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
+            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486B), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
           </details>
 
           <details className="faq-item">

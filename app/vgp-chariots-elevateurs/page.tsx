@@ -246,7 +246,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il aussi former les caristes qui utilisent ces chariots&nbsp;?</summary>
-            <p>Oui, la conduite d'un chariot élévateur relève du CACES R489, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence du conducteur.</p>
+            <p>Oui, la conduite d'un chariot élévateur relève du CACES R489A, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence du conducteur.</p>
           </details>
 
         </div>
@@ -341,8 +341,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos caristes sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos chariots élévateurs&nbsp;; le CACES R489 certifie la compétence de vos conducteurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
-            <Link className="btn btn-blanc" href="/caces-r489">Découvrir le CACES R489</Link>
+            <p>La VGP contrôle l'état de vos chariots élévateurs&nbsp;; le CACES R489A certifie la compétence de vos conducteurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <Link className="btn btn-blanc" href="/caces-R489A">Découvrir le CACES R489A</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">
             <Link href="/vgp-nacelles-elevatrices">Nacelles élévatrices</Link>

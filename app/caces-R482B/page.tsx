@@ -7,14 +7,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R482A — Engins de chantier",
-      "description": "Formation à la conduite en sécurité des engins de chantier, couvrant les catégories A, B1, B2, B3, C1, C2, C3, D, E, F et G de la recommandation CACES R482. Certificat valable 10 ans.",
+      "name": "Formation CACES R482B — Engins de chantier",
+      "description": "Formation à la conduite en sécurité des engins de chantier, couvrant les catégories A, B1, B2, B3, C1, C2, C3, D, E, F et G de la recommandation CACES R482B. Certificat valable 10 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r482a/"
+      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R482B/"
     },
     {
       "@type": "BreadcrumbList",
@@ -34,8 +34,8 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "CACES R482A",
-          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r482a/"
+          "name": "CACES R482B",
+          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R482B/"
         }
       ]
     }
@@ -43,23 +43,23 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R482A — SECURIFORM",
-  description: "Formation CACES R482A avec SECURIFORM : catégories A à G, pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
-  alternates: { canonical: "/caces-r482a" },
+  title: "Formation CACES® R482B — SECURIFORM",
+  description: "Formation CACES R482B avec SECURIFORM : catégories A à G, pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
+  alternates: { canonical: "/caces-R482B" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
-    url: "/caces-r482a",
-    title: "Formation CACES® R482A — Engins de chantier — SECURIFORM",
-    description: "Toutes les catégories du CACES R482A (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
-    images: ["/image/caces-r482.jpg"],
+    url: "/caces-R482B",
+    title: "Formation CACES® R482B — Engins de chantier — SECURIFORM",
+    description: "Toutes les catégories du CACES R482B (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
+    images: ["/image/caces-R482B.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R482A — SECURIFORM",
-    description: "Toutes les catégories d'engins de chantier du CACES R482A, avec SECURIFORM.",
-    images: ["/image/caces-r482.jpg"],
+    title: "Formation CACES® R482B — SECURIFORM",
+    description: "Toutes les catégories d'engins de chantier du CACES R482B, avec SECURIFORM.",
+    images: ["/image/caces-R482B.jpg"],
   },
 };
 
@@ -77,16 +77,16 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R482A" style={{ backgroundImage: "url('/image/caces-r482.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R482B" style={{ backgroundImage: "url('/image/caces-R482B.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
           <span aria-hidden="true">›</span>
           <Link href="/caces">Conduite en sécurité et CACES®</Link>
           <span aria-hidden="true">›</span>
-          <span>CACES R482A</span>
+          <span>CACES R482B</span>
         </p>
-        <h1>Formation CACES® R482A - Engins de chantier</h1>
+        <h1>Formation CACES® R482B - Engins de chantier</h1>
         <p>Formez-vous à la conduite en sécurité des engins de chantier, quelle que soit la catégorie&nbsp;: pelles, chargeuses, bulldozers, compacteurs, tombereaux et plus encore.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -101,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Onze catégories, un seul objectif&nbsp;: conduire en sécurité</h2>
         <hr className="trait" />
-        <p>Le CACES R482A couvre l'ensemble des engins de chantier utilisés en travaux publics, terrassement, construction et carrières. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes, pour une certification au plus près de vos équipements.</p>
+        <p>Le CACES R482B couvre l'ensemble des engins de chantier utilisés en travaux publics, terrassement, construction et carrières. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes, pour une certification au plus près de vos équipements.</p>
       </div>
     </section>
 
@@ -113,7 +113,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les catégories du CACES R482A</h2>
+          <h2 id="titre-categories">Les catégories du CACES R482B</h2>
           <hr className="trait" />
           <p>Chaque catégorie correspond à une famille d'engins et à un mode de déplacement précis.</p>
         </div>
@@ -247,7 +247,7 @@ export default function Page() {
                 <td>4 à 5 jours</td>
               </tr>
               <tr>
-                <td>Expérimenté (autre catégorie R482A déjà détenue)</td>
+                <td>Expérimenté (autre catégorie R482B déjà détenue)</td>
                 <td>2 jours environ</td>
               </tr>
               <tr>
@@ -364,7 +364,7 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R482A&nbsp;?</summary>
+            <summary>Quelle est la durée de validité du CACES R482B&nbsp;?</summary>
             <p>Le certificat est valable 10 ans. Un recyclage est recommandé avant son expiration, idéalement dans les 5 ans précédant l'échéance.</p>
           </details>
 
@@ -375,7 +375,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs), R486B (nacelles), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs), R486B (nacelles), R482B (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -390,7 +390,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation CACES® R482A</h2>
+          <h2 id="titre-devis">Programmer une formation CACES® R482B</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>

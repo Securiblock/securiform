@@ -231,7 +231,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il aussi former les opérateurs qui utilisent ces nacelles&nbsp;?</summary>
-            <p>Oui, la conduite d'une nacelle élévatrice relève du CACES R486, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur.</p>
+            <p>Oui, la conduite d'une nacelle élévatrice relève du CACES R486B, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur.</p>
           </details>
 
           <details className="faq-item">
@@ -331,8 +331,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos opérateurs sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos nacelles&nbsp;; le CACES R486 certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
-            <Link className="btn btn-blanc" href="/caces-r486a">Découvrir le CACES R486</Link>
+            <p>La VGP contrôle l'état de vos nacelles&nbsp;; le CACES R486B certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <Link className="btn btn-blanc" href="/caces-R486B">Découvrir le CACES R486B</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>
