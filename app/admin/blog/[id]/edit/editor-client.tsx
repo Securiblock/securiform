@@ -16,12 +16,19 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [title, setTitle] = useState(article.title);
   const [metaDescription, setMetaDescription] = useState(article.metaDescription);
   const [content, setContent] = useState(article.content);
+  const [image, setImage] = useState(article.image || "");
   const [dirty, setDirty] = useState(false);
-  const [busy, setBusy] = useState<
-    null | "save" | "approve" | "publish" | "regenerate" | "unpublish"
-  >(null);
+  const [busy, setBusy] = useState<null | "save" | "publish" | "regenerate" | "unpublish">(
+    null
+  );
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const [imageIdeas, setImageIdeas] = useState<string[] | null>(null);
+  const [imageIdeasBusy, setImageIdeasBusy] = useState(false);
+  const [imageIdeasError, setImageIdeasError] = useState<string | null>(null);
+  const [imageUploading, setImageUploading] = useState(false);
+  const [imageUploadError, setImageUploadError] = useState<string | null>(null);
 
   const [regenOpen, setRegenOpen] = useState(false);
   const [regenTopicTitle, setRegenTopicTitle] = useState(topic.title);
@@ -47,7 +54,7 @@ export default function ArticleEditor({ topic, article }: Props) {
       const res = await fetch(`/api/blog/articles/${article.slug}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, metaDescription, content }),
+        body: JSON.stringify({ title, metaDescription, content, image: image || null }),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Échec de la sauvegarde.");
       setDirty(false);
@@ -61,30 +68,11 @@ export default function ArticleEditor({ topic, article }: Props) {
     }
   }
 
-  async function handleApprove() {
-    setBusy("approve");
-    setError(null);
-    try {
-      if (dirty && !(await save())) return;
-      const res = await fetch(`/api/blog/topics/${topic.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: "approved" }),
-      });
-      if (!res.ok) throw new Error((await res.json()).error || "Échec de la validation.");
-      setMessage("Article validé — prêt à publier.");
-      router.refresh();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur inconnue.");
-    } finally {
-      setBusy(null);
-    }
-  }
-
   async function handlePublish() {
     setBusy("publish");
     setError(null);
     try {
+      if (dirty && !(await save())) return;
       const res = await fetch("/api/blog/publish", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -92,7 +80,9 @@ export default function ArticleEditor({ topic, article }: Props) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Échec de la publication.");
-      setMessage("Article publié !");
+      setMessage(
+        topic.status === "published" ? "Page mise à jour !" : "Article publié !"
+      );
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur inconnue.");
@@ -161,6 +151,47 @@ export default function ArticleEditor({ topic, article }: Props) {
     }
   }
 
+  async function handleImageIdeas() {
+    setImageIdeasBusy(true);
+    setImageIdeasError(null);
+    try {
+      const res = await fetch("/api/blog/image-ideas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: article.slug }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Échec de la génération d'idées.");
+      setImageIdeas(data.ideas);
+    } catch (err) {
+      setImageIdeasError(err instanceof Error ? err.message : "Erreur inconnue.");
+    } finally {
+      setImageIdeasBusy(false);
+    }
+  }
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = ""; // allow re-selecting the same file later
+    if (!file) return;
+
+    setImageUploading(true);
+    setImageUploadError(null);
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await fetch("/api/blog/upload-image", { method: "POST", body: formData });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Échec de l'envoi de l'image.");
+      setImage(data.path);
+      setDirty(true);
+    } catch (err) {
+      setImageUploadError(err instanceof Error ? err.message : "Erreur inconnue.");
+    } finally {
+      setImageUploading(false);
+    }
+  }
+
   return (
     <div>
       <div className="mb-6 flex items-center justify-between">
@@ -190,6 +221,60 @@ export default function ArticleEditor({ topic, article }: Props) {
           />
           <p className="mt-1 text-xs text-slate-400">{metaDescription.length} caractères</p>
         </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold">Image à la une</label>
+          <p className="mb-1 text-xs text-slate-500">
+            Envoyez une image depuis votre ordinateur (jpg, png, webp ou gif, 5 Mo
+            max). Pas d&apos;idée ? Demandez des suggestions à Gemini ci-dessous,
+            cherchez une photo qui correspond, puis envoyez-la.
+          </p>
+          <div className="flex gap-3">
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              onChange={handleImageUpload}
+              disabled={imageUploading}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-sm file:font-semibold disabled:opacity-50"
+            />
+            <button
+              type="button"
+              onClick={handleImageIdeas}
+              disabled={imageIdeasBusy}
+              className="shrink-0 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+            >
+              {imageIdeasBusy ? "..." : "💡 Idées d'images"}
+            </button>
+          </div>
+          {imageUploading && <p className="mt-2 text-sm text-slate-500">Envoi en cours...</p>}
+          {imageUploadError && <p className="mt-2 text-sm text-red-600">{imageUploadError}</p>}
+
+          {image && (
+            <div className="mt-3 flex items-start gap-3">
+              <img
+                src={image}
+                alt="Aperçu de l'image à la une"
+                className="h-40 w-auto rounded-lg border border-slate-200 object-cover"
+              />
+              <button
+                type="button"
+                onClick={() => markDirty(setImage)("")}
+                className="text-sm font-medium text-slate-400 hover:text-red-600"
+              >
+                Retirer l&apos;image
+              </button>
+            </div>
+          )}
+
+          {imageIdeasError && <p className="mt-2 text-sm text-red-600">{imageIdeasError}</p>}
+          {imageIdeas && (
+            <ul className="mt-3 space-y-1.5 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">
+              {imageIdeas.map((idea, i) => (
+                <li key={i}>💡 {idea}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
 
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -216,32 +301,31 @@ export default function ArticleEditor({ topic, article }: Props) {
       {message && !error && <p className="mb-4 text-sm text-green-600">{message}</p>}
 
       <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          onClick={() => save()}
-          disabled={busy !== null}
-          className="rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
-        >
-          {busy === "save" ? "Sauvegarde..." : "💾 Sauvegarder les modifications"}
-        </button>
+        {topic.status !== "published" && (
+          <button
+            type="button"
+            onClick={() => save()}
+            disabled={busy !== null}
+            className="rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
+          >
+            {busy === "save" ? "Sauvegarde..." : "💾 Sauvegarder les modifications"}
+          </button>
+        )}
 
-        <button
-          type="button"
-          onClick={handleApprove}
-          disabled={busy !== null || topic.status === "published"}
-          className="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700 disabled:opacity-50"
-        >
-          {busy === "approve" ? "Validation..." : "✅ Valider l'article"}
-        </button>
-
-        {topic.status === "approved" && (
+        {(topic.status === "generated" ||
+          topic.status === "approved" ||
+          topic.status === "published") && (
           <button
             type="button"
             onClick={handlePublish}
             disabled={busy !== null}
             className="rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-green-700 disabled:opacity-50"
           >
-            {busy === "publish" ? "Publication..." : "🚀 Publier"}
+            {busy === "publish"
+              ? "Publication..."
+              : topic.status === "published"
+                ? "🔄 Mettre à jour la page publiée"
+                : "🚀 Publier"}
           </button>
         )}
 

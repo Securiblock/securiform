@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { saveArticle } from "@/lib/blog/articles";
+import { getArticle, saveArticle } from "@/lib/blog/articles";
 import { generateArticle } from "@/lib/blog/gemini";
 import { getTopic, updateTopic } from "@/lib/blog/topics";
 import type { Article } from "@/lib/blog/types";
@@ -24,6 +24,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 502 });
   }
 
+  // Régénération sur le même slug : on garde l'image déjà choisie plutôt que
+  // de la perdre à chaque nouvelle génération.
+  const previousImage =
+    topic.slug === generated.slug ? getArticle(generated.slug)?.image ?? null : null;
+
   const now = new Date().toISOString();
   const article: Article = {
     id: topic.id,
@@ -34,6 +39,7 @@ export async function POST(request: Request) {
     readingTime: generated.readingTime,
     generatedAt: now,
     status: "generated",
+    image: previousImage,
   };
 
   saveArticle(article);

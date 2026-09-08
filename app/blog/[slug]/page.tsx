@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       url: `/blog/${slug}`,
       title: article.title,
       description: article.description,
+      images: article.image ? [article.image] : undefined,
     },
   };
 }
@@ -49,6 +50,19 @@ export default async function BlogArticlePage({ params }: Params) {
           <h2 id="titre-article" className="sr-only" style={{ position: "absolute", left: "-9999px" }}>
             {article.title}
           </h2>
+          {article.image && (
+            <img
+              src={article.image}
+              alt={article.title}
+              style={{
+                width: "100%",
+                maxWidth: 760,
+                margin: "0 auto 2.5rem",
+                borderRadius: 12,
+                display: "block",
+              }}
+            />
+          )}
           <div
             className="article-content"
             dangerouslySetInnerHTML={{ __html: article.html }}
