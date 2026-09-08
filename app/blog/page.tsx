@@ -60,6 +60,11 @@ export default function BlogIndexPage() {
             <div className="grille-categories cols-3">
               {articles.map((article) => (
                 <article key={article.slug} className="categorie-card reveal">
+                  {article.image && (
+                    <div className="categorie-photo">
+                      <img src={article.image} alt={article.title} />
+                    </div>
+                  )}
                   {article.date && (
                     <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
                       {formatDate(article.date)}

@@ -11,6 +11,7 @@ export type PublishedArticle = {
   description: string;
   date: string;
   readingTime: number;
+  image: string | null;
   html: string;
 };
 
@@ -33,6 +34,7 @@ export function getPublishedArticles(): ArticleSummary[] {
       description: data.description || "",
       date: data.date || "",
       readingTime: data.readingTime || 1,
+      image: data.image || null,
     });
   }
 
@@ -53,6 +55,7 @@ export function getPublishedArticle(slug: string): PublishedArticle | undefined 
     description: data.description || "",
     date: data.date || "",
     readingTime: data.readingTime || 1,
+    image: data.image || null,
     html: marked.parse(content, { async: false }) as string,
   };
 }

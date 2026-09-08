@@ -488,6 +488,11 @@ export default function Home() {
             <div className="grille-categories cols-3">
               {latestArticles.map((article) => (
                 <article key={article.slug} className="categorie-card reveal">
+                  {article.image && (
+                    <div className="categorie-photo">
+                      <img src={article.image} alt={article.title} />
+                    </div>
+                  )}
                   {article.date && (
                     <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
                       {formatArticleDate(article.date)}

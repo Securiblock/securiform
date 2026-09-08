@@ -30,6 +30,8 @@ export async function PUT(request: Request, { params }: Params) {
     metaDescription:
       typeof body.metaDescription === "string" ? body.metaDescription : existing.metaDescription,
     content: typeof body.content === "string" ? body.content : existing.content,
+    image:
+      typeof body.image === "string" || body.image === null ? body.image : existing.image,
   };
 
   saveArticle(updated);

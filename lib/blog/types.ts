@@ -34,4 +34,5 @@ export interface Article {
   readingTime: number;
   generatedAt: string;
   status: Extract<TopicStatus, "generated" | "approved" | "published">;
+  image: string | null;
 }

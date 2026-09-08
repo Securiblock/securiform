@@ -74,15 +74,13 @@ function extractJson(text: string): string {
   return (fenced ? fenced[1] : text).trim();
 }
 
-export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
+async function callGemini(prompt: string, maxOutputTokens = 4096): Promise<string> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
     throw new Error(
       "GEMINI_API_KEY manquante. Ajoutez-la dans .env.local (voir GEMINI_API_KEY dans le fichier)."
     );
   }
-
-  const prompt = buildPrompt(topic);
 
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`,
@@ -93,7 +91,7 @@ export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 4096,
+          maxOutputTokens,
         },
       }),
     }
@@ -113,6 +111,11 @@ export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
       "Réponse Gemini vide ou inattendue. La demande a peut-être été bloquée (filtre de sécurité) — réessayez avec une description différente."
     );
   }
+  return text;
+}
+
+export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
+  const text = await callGemini(buildPrompt(topic));
 
   let parsed: Partial<GeneratedArticle>;
   try {
@@ -135,4 +138,41 @@ export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
         ? parsed.readingTime
         : Math.max(1, Math.round(parsed.content.split(/\s+/).length / 200)),
   };
+}
+
+function buildImageIdeasPrompt(title: string, content: string): string {
+  // Only the first chunk of the article is enough context for image ideas,
+  // no need to spend tokens on the whole thing.
+  const excerpt = content.slice(0, 2000);
+
+  return `
+Tu es directeur artistique pour le blog d'un organisme de formation à la sécurité au travail (SECURIFORM).
+
+Voici un article de blog :
+
+**Titre :** ${title}
+**Extrait :** ${excerpt}
+
+Propose 5 idées d'images à la une pour illustrer cet article. Chaque idée doit être une description concrète et visuelle (ce qu'on verrait sur la photo : lieu, action, équipement, personnes), utilisable telle quelle comme requête de recherche sur une banque d'images (Unsplash, Pexels...). Pas de texte à ajouter sur l'image, pas de logo, pas de typographie — uniquement des scènes réalistes en lien avec la formation professionnelle et la sécurité au travail.
+
+**Réponds UNIQUEMENT avec un tableau JSON de 5 chaînes de texte en français, sans backticks ni markdown autour :**
+["idée 1", "idée 2", "idée 3", "idée 4", "idée 5"]
+`.trim();
+}
+
+export async function suggestImageIdeas(title: string, content: string): Promise<string[]> {
+  const text = await callGemini(buildImageIdeasPrompt(title, content), 1024);
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(extractJson(text));
+  } catch {
+    throw new Error("Impossible d'analyser les suggestions d'images de Gemini. Réessayez.");
+  }
+
+  if (!Array.isArray(parsed) || parsed.some((idea) => typeof idea !== "string")) {
+    throw new Error("Réponse de suggestions d'images inattendue.");
+  }
+
+  return parsed as string[];
 }
