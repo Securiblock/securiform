@@ -335,7 +335,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484 (ponts roulants), R485 (gerbeurs accompagnants), R486A (nacelles) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs accompagnants), R486B (nacelles) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
