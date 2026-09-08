@@ -30,5 +30,61 @@
     "publishedAt": null,
     "slug": "pourquoi-se-former-sur-la-securite",
     "deletedAt": null
+  },
+  {
+    "id": "bc5dadf9-b707-44c9-89c4-c1ed47a70086",
+    "title": "Qu'est-ce que le CACES® et pourquoi est-il obligatoire ?",
+    "description": "Expliquer clairement ce qu'est le CACES, qui est concerné, les différentes catégories R482, R484, R489, les obligations légales pour les employeurs et les sanctions en cas de non-conformité.",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "published",
+    "createdAt": "2026-09-07T14:05:03.142Z",
+    "generatedAt": "2026-09-07T14:05:18.224Z",
+    "publishedAt": "2026-09-07T14:26:02.110Z",
+    "slug": "quest-ce-que-le-caces-obligatoire",
+    "deletedAt": null
+  },
+  {
+    "id": "0609514e-fb07-4f49-b342-33c392f0f082",
+    "title": "Habilitation électrique : quelles différences entre B0, B1, B2, BR et BC ?",
+    "description": "Démystifier les niveaux d'habilitation électrique basse et haute tension, qui doit les passer, ce que chaque niveau autorise à faire sur le terrain, et comment se préparer à l'examen.",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "generated",
+    "createdAt": "2026-09-07T14:05:03.176Z",
+    "generatedAt": "2026-09-08T08:36:56.156Z",
+    "publishedAt": null,
+    "slug": "habilitation-electrique-differences-b0-b1-b2-br-bc",
+    "deletedAt": null
+  },
+  {
+    "id": "5c290e68-e5cd-4a97-8dc1-d08942fd44d2",
+    "title": "Comment prévenir les risques d'incendie en entreprise ?",
+    "description": "Les obligations réglementaires de l'employeur, les équipements indispensables, l'importance de former ses équipes à la manipulation des extincteurs et aux procédures d'évacuation.",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-07T14:05:03.201Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null
+  },
+  {
+    "id": "ed4d3199-84da-4991-83c6-a545ffe71aac",
+    "title": "Vérifications Générales Périodiques des chariots élévateurs",
+    "description": "explique en détail les vgp",
+    "keywords": [],
+    "tone": "décontracté",
+    "targetLength": 1000,
+    "status": "generated",
+    "createdAt": "2026-09-08T07:59:04.920Z",
+    "generatedAt": "2026-09-08T08:27:55.996Z",
+    "publishedAt": null,
+    "slug": "verifications-generales-periodiques-chariots-elevateurs",
+    "deletedAt": null
   }
 ]
