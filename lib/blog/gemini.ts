@@ -14,29 +14,45 @@ export type GeneratedArticle = {
 
 function buildPrompt(topic: Topic): string {
   return `
-Tu es un expert en rédaction de contenu web SEO-friendly.
+Tu es un expert en rédaction SEO spécialisé dans le secteur de la formation professionnelle à la sécurité, aux habilitations et aux certifications CACES.
 
-Génère un article de blog complet en français avec les spécifications suivantes :
+Génère un article de blog complet, informatif et 100% textuel en français avec les spécifications suivantes :
 
 **Sujet :** ${topic.title}
 **Description :** ${topic.description}
-**Mots-clés à intégrer :** ${topic.keywords.join(", ")}
+**Mots-clés principaux à intégrer naturellement :** ${topic.keywords.join(", ")}
 **Ton :** ${topic.tone}
 **Longueur cible :** environ ${topic.targetLength} mots
 
-**Structure obligatoire de l'article :**
-- Une introduction accrocheuse (2-3 paragraphes)
-- 4 à 6 sections avec des titres H2
-- Des sous-sections H3 si nécessaire
-- Une conclusion avec un call-to-action
-- Utilise le Markdown pour le formatage
+**Règles de rédaction strictes :**
+- Aucun bullet point, aucune liste à puces ou numérotée : uniquement des paragraphes structurés et cohérents
+- Rédaction naturelle et fluide, jamais robotique
+- Champ sémantique riche autour de la formation professionnelle, sécurité au travail, habilitations électriques, CACES, prévention des risques et réglementation
+- Intègre naturellement SECURIFORM dans le corps du texte en mettant en avant : son expertise en formation, la qualité de ses formateurs, ses certifications, la variété de ses formations (CACES, habilitations, SST, etc.) et son accompagnement personnalisé
+- Encourage le lecteur à contacter ou découvrir SECURIFORM sans être trop commercial
+- L'article est destiné à être publié sur https://securiform.fr
+
+**Structure obligatoire :**
+- Une balise H1 : titre principal SEO optimisé
+- Une introduction accrocheuse de 2 à 3 paragraphes qui pose la problématique et accroche le lecteur
+- 4 à 6 sections avec balises H2 couvrant le sujet en profondeur
+- Des sous-sections H3 si le sujet le nécessite
+- Une conclusion avec un call-to-action invitant à contacter SECURIFORM ou à consulter leur catalogue de formations
+- Utilise le Markdown pour le formatage des titres uniquement
+
+**Bonnes pratiques SEO à appliquer :**
+- Le mot-clé principal doit apparaître dans le H1, dans les 100 premiers mots et naturellement dans le texte
+- Utilise des variations sémantiques et synonymes des mots-clés
+- Réponds précisément à l'intention de recherche de l'internaute (chef d'entreprise, RH, salarié cherchant une formation)
+- Chaque section H2 doit apporter une réponse concrète et de la valeur
+- Méta-description accrocheuse entre 150 et 160 caractères
 
 **Réponds UNIQUEMENT avec un objet JSON valide (sans backticks, sans markdown autour du JSON) :**
 {
-  "title": "Titre SEO optimisé de l'article",
+  "title": "Titre H1 SEO optimisé de l'article",
   "slug": "titre-en-kebab-case",
-  "metaDescription": "Description SEO entre 150 et 160 caractères",
-  "content": "Contenu complet de l'article en Markdown",
+  "metaDescription": "Description SEO entre 150 et 160 caractères, avec le mot-clé principal",
+  "content": "Contenu complet de l'article en Markdown, uniquement des paragraphes, aucune liste",
   "readingTime": nombre_de_minutes_de_lecture
 }
 `.trim();
