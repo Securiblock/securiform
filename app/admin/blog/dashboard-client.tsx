@@ -195,7 +195,7 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
           <h2 className="mb-1 text-sm font-bold">Ajouter plusieurs sujets d&apos;un coup</h2>
           <p className="mb-3 text-xs text-slate-500">
             Un sujet par ligne. Optionnel : ajoutez une description après un « | »
-            (ex. <code>CACES R489 | les erreurs à éviter</code>). Sans description,
+            (ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description,
             le titre sert aussi de description — vous pourrez l&apos;affiner plus
             tard. Tous les sujets sont créés en ton « professionnel », 1000 mots.
           </p>
@@ -203,7 +203,7 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
             value={quickAddText}
             onChange={(e) => setQuickAddText(e.target.value)}
             rows={6}
-            placeholder={"CACES R489 | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
+            placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
           />
           {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}

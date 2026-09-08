@@ -204,7 +204,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il aussi former les opérateurs de ponts roulants&nbsp;?</summary>
-            <p>Oui, la conduite d'un pont roulant relève du CACES R484, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur, notamment aux techniques d'élingage.</p>
+            <p>Oui, la conduite d'un pont roulant relève du CACES R484A, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur, notamment aux techniques d'élingage.</p>
           </details>
 
           <details className="faq-item">
@@ -304,8 +304,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos opérateurs sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos ponts roulants&nbsp;; le CACES R484 certifie la compétence de vos opérateurs, notamment aux techniques d'élingage. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
-            <Link className="btn btn-blanc" href="/caces-r484">Découvrir le CACES R484</Link>
+            <p>La VGP contrôle l'état de vos ponts roulants&nbsp;; le CACES R484A certifie la compétence de vos opérateurs, notamment aux techniques d'élingage. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <Link className="btn btn-blanc" href="/caces-R484A">Découvrir le CACES R484A</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

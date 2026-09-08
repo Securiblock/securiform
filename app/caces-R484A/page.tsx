@@ -7,14 +7,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R484 — Ponts roulants et portiques",
+      "name": "Formation CACES R484A — Ponts roulants et portiques",
       "description": "Formation à la conduite en sécurité des ponts roulants et portiques, catégorie 1 (commande au sol) et catégorie 2 (commande en cabine), avec techniques d'élingage. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r484/"
+      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R484A/"
     },
     {
       "@type": "BreadcrumbList",
@@ -34,8 +34,8 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "CACES R484",
-          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-r484/"
+          "name": "CACES R484A",
+          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R484A/"
         }
       ]
     }
@@ -43,23 +43,23 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R484 — SECURIFORM",
-  description: "Formation CACES R484 avec SECURIFORM : commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
-  alternates: { canonical: "/caces-r484" },
+  title: "Formation CACES® R484A — SECURIFORM",
+  description: "Formation CACES R484A avec SECURIFORM : commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
+  alternates: { canonical: "/caces-R484A" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
-    url: "/caces-r484",
-    title: "Formation CACES® R484 — Ponts roulants et portiques — SECURIFORM",
-    description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484 avec SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-r484.jpg"],
+    url: "/caces-R484A",
+    title: "Formation CACES® R484A — Ponts roulants et portiques — SECURIFORM",
+    description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484A avec SECURIFORM, certificat valable 5 ans.",
+    images: ["/image/caces-R484A.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R484 — SECURIFORM",
+    title: "Formation CACES® R484A — SECURIFORM",
     description: "Conduite en sécurité des ponts roulants et portiques, avec SECURIFORM.",
-    images: ["/image/caces-r484.jpg"],
+    images: ["/image/caces-R484A.jpg"],
   },
 };
 
@@ -77,16 +77,16 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R484" style={{ backgroundImage: "url('/image/caces-r484.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R484A" style={{ backgroundImage: "url('/image/caces-R484A.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
           <span aria-hidden="true">›</span>
           <Link href="/caces">Conduite en sécurité et CACES®</Link>
           <span aria-hidden="true">›</span>
-          <span>CACES R484</span>
+          <span>CACES R484A</span>
         </p>
-        <h1>Formation CACES® R484 — Ponts roulants et portiques</h1>
+        <h1>Formation CACES® R484A — Ponts roulants et portiques</h1>
         <p>Formez-vous à la conduite en sécurité des ponts roulants et portiques, commande au sol ou en cabine, et aux techniques d'élingage indispensables au levage.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -101,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Deux catégories, selon le mode de commande</h2>
         <hr className="trait" />
-        <p>Le CACES R484 couvre les ponts roulants et portiques utilisés dans les ateliers industriels pour le levage de charges. Il se décline en deux catégories selon que l'opérateur commande l'équipement depuis le sol ou depuis une cabine. Certains équipements en sont exclus&nbsp;: ponts à bras articulé non conformes à la norme EN 15011, chariots suspendus, palans seuls, et grues d'atelier qui relèvent d'une autre recommandation.</p>
+        <p>Le CACES R484A couvre les ponts roulants et portiques utilisés dans les ateliers industriels pour le levage de charges. Il se décline en deux catégories selon que l'opérateur commande l'équipement depuis le sol ou depuis une cabine. Certains équipements en sont exclus&nbsp;: ponts à bras articulé non conformes à la norme EN 15011, chariots suspendus, palans seuls, et grues d'atelier qui relèvent d'une autre recommandation.</p>
       </div>
     </section>
 
@@ -113,7 +113,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les deux catégories du CACES R484</h2>
+          <h2 id="titre-categories">Les deux catégories du CACES R484A</h2>
           <hr className="trait" />
         </div>
         <div className="table-scroll reveal">
@@ -343,7 +343,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R484 est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R484A est valable 5 ans à compter de son obtention.</p>
       </div>
     </section>
 
@@ -371,12 +371,12 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Mon pont roulant a un bras articulé, est-il couvert par le R484&nbsp;?</summary>
-            <p>Non, les ponts à bras articulé non conformes à la norme EN 15011, les chariots suspendus, les palans seuls et les grues d'atelier ne relèvent pas du CACES R484. Contactez-nous pour identifier la formation adaptée à votre équipement.</p>
+            <summary>Mon pont roulant a un bras articulé, est-il couvert par le R484A&nbsp;?</summary>
+            <p>Non, les ponts à bras articulé non conformes à la norme EN 15011, les chariots suspendus, les palans seuls et les grues d'atelier ne relèvent pas du CACES R484A. Contactez-nous pour identifier la formation adaptée à votre équipement.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R484&nbsp;?</summary>
+            <summary>Quelle est la durée de validité du CACES R484A&nbsp;?</summary>
             <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances, notamment sur les techniques d'élingage.</p>
           </details>
 
@@ -397,7 +397,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation CACES® R484</h2>
+          <h2 id="titre-devis">Programmer une formation CACES® R484A</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>

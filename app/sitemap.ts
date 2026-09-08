@@ -22,12 +22,12 @@ const hubs: { path: string; priority: number }[] = [
 ];
 
 const pages: string[] = [
-  "/caces-r482a",
-  "/caces-r484",
-  "/caces-r485",
-  "/caces-r486a",
-  "/caces-r489",
-  "/caces-r490",
+  "/caces-R482B",
+  "/caces-R484A",
+  "/caces-R485A",
+  "/caces-R486B",
+  "/caces-R489A",
+  "/caces-R490A",
   "/habilitation-electricien",
   "/habilitation-non-electricien",
   "/sst-initiale",

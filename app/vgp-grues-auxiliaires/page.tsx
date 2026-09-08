@@ -204,7 +204,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il aussi former les opérateurs de ces grues&nbsp;?</summary>
-            <p>Oui, la conduite d'une grue auxiliaire relève du CACES R490, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur.</p>
+            <p>Oui, la conduite d'une grue auxiliaire relève du CACES R490A, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur.</p>
           </details>
 
           <details className="faq-item">
@@ -304,8 +304,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos opérateurs sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos grues auxiliaires&nbsp;; le CACES R490 certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
-            <Link className="btn btn-blanc" href="/caces-r490">Découvrir le CACES R490</Link>
+            <p>La VGP contrôle l'état de vos grues auxiliaires&nbsp;; le CACES R490A certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <Link className="btn btn-blanc" href="/caces-R490A">Découvrir le CACES R490A</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

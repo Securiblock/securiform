@@ -209,7 +209,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Faut-il former les opérateurs qui utilisent ces bras de levage&nbsp;?</summary>
-            <p>Selon le type d'équipement porteur, la conduite peut relever du CACES R482 ou R490&nbsp;: contactez-nous pour identifier la formation adaptée à votre matériel.</p>
+            <p>Selon le type d'équipement porteur, la conduite peut relever du CACES R482B ou R490A&nbsp;: contactez-nous pour identifier la formation adaptée à votre matériel.</p>
           </details>
 
         </div>

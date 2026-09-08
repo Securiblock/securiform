@@ -236,7 +236,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de l'attestation AIPR&nbsp;?</summary>
-            <p>Elle est valable 5 ans, quel que soit le niveau (Opérateur, Encadrant, Concepteur). Elle peut être portée à 10 ans pour les titulaires d'un CACES R482 intégrant l'option IPR.</p>
+            <p>Elle est valable 5 ans, quel que soit le niveau (Opérateur, Encadrant, Concepteur). Elle peut être portée à 10 ans pour les titulaires d'un CACES R482B intégrant l'option IPR.</p>
           </details>
 
           <details className="faq-item">

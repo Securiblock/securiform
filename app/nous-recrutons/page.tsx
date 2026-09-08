@@ -109,7 +109,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>CACES® et conduite en sécurité</h3>
-            <p>R482, R484, R485, R486A, R489, R490.</p>
+            <p>R482B, R484A, R485A, R486B, R489A, R490A.</p>
           </article>
 
           <article className="categorie-card reveal">
@@ -247,7 +247,7 @@ export default function Page() {
             </div>
             <div className="champ champ-pleine-largeur">
               <label htmlFor="domaine">Domaine(s) de formation maîtrisé(s)</label>
-              <input type="text" id="domaine" name="domaine" placeholder="Ex. : CACES R489, habilitation électrique..." />
+              <input type="text" id="domaine" name="domaine" placeholder="Ex. : CACES R489A, habilitation électrique..." />
             </div>
             <div className="champ champ-pleine-largeur">
               <label htmlFor="cv">CV (à joindre)</label>

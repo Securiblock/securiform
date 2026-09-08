@@ -7,14 +7,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R485 — Gerbeurs à conducteur accompagnant",
-      "description": "Formation à la conduite en sécurité des gerbeurs à conducteur accompagnant, catégories 1 (poste de conduite fixe) et 2 (poste de conduite élevable). Certificat valable 5 ans.",
+      "name": "Formation CACES R486B Catégorie A — Nacelles élévatrices",
+      "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, catégorie A de la recommandation R486B. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces-r485/"
+      "url": "https://securiform.fr/caces-R486B/"
     },
     {
       "@type": "BreadcrumbList",
@@ -34,8 +34,8 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "CACES R485",
-          "item": "https://securiform.fr/caces-r485/"
+          "name": "CACES R486B",
+          "item": "https://securiform.fr/caces-R486B/"
         }
       ]
     }
@@ -43,23 +43,23 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R485 — SECURIFORM",
-  description: "Formation CACES R485 avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, partout en France.",
-  alternates: { canonical: "/caces-r485" },
+  title: "Formation CACES® R486B — SECURIFORM",
+  description: "Formation CACES R486B Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 5 ans.",
+  alternates: { canonical: "/caces-R486B" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
-    url: "/caces-r485",
-    title: "Formation CACES® R485 — Gerbeurs à conducteur accompagnant — SECURIFORM",
-    description: "Gerbeurs à conducteur accompagnant, catégories 1 et 2. Formation SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-r485.jpg"],
+    url: "/caces-R486B",
+    title: "Formation CACES® R486B Catégorie A — Nacelles élévatrices — SECURIFORM",
+    description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 5 ans.",
+    images: ["/image/caces-R486B.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R485 — SECURIFORM",
-    description: "Conduite en sécurité des gerbeurs à conducteur accompagnant, avec SECURIFORM.",
-    images: ["/image/caces-r485.jpg"],
+    title: "Formation CACES® R486B Catégorie A — SECURIFORM",
+    description: "Conduite en sécurité des nacelles élévatrices à élévation verticale, avec SECURIFORM.",
+    images: ["/image/caces-R486B.jpg"],
   },
 };
 
@@ -77,17 +77,17 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R485" style={{ backgroundImage: "url('/image/caces-r485.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R486B Catégorie A" style={{ backgroundImage: "url('/image/caces-R486B.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
           <span aria-hidden="true">›</span>
           <Link href="/caces">Conduite en sécurité et CACES®</Link>
           <span aria-hidden="true">›</span>
-          <span>CACES R485A</span>
+          <span>CACES R486B</span>
         </p>
-        <h1>Formation CACES® R485A — Gerbeurs à conducteur accompagnant</h1>
-        <p>Formez-vous à la conduite en sécurité des gerbeurs à conducteur accompagnant, utilisés en entrepôt et en environnements de stockage à rayonnages étroits.</p>
+        <h1>Formation CACES® R486B Catégorie A — Nacelles élévatrices</h1>
+        <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale&nbsp;: nacelles à ciseaux et plateformes sur mât.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -99,9 +99,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Qu'est-ce qu'un gerbeur à conducteur accompagnant&nbsp;?</h2>
+        <h2 id="titre-intro">Qu'est-ce que la catégorie A du CACES R486B&nbsp;?</h2>
         <hr className="trait" />
-        <p>Contrairement aux chariots élévateurs du CACES R489A, sur lesquels le cariste prend place à bord, le gerbeur à conducteur accompagnant se pilote en marchant à côté ou derrière l'engin, à l'aide d'un timon. Cette différence de conduite implique des risques spécifiques&nbsp;: c'est pourquoi la recommandation CNAM R485A lui consacre une certification à part entière.</p>
+        <p>La recommandation CNAM R486B encadre la conduite des plateformes élévatrices mobiles de personnes (PEMP), plus couramment appelées nacelles. Elle distingue deux grandes catégories selon le mode d'élévation&nbsp;: la catégorie A regroupe les PEMP à élévation verticale, où la plateforme se déplace uniquement vers le haut ou le bas, sans mouvement horizontal complexe une fois en hauteur. C'est cette catégorie que prépare SECURIFORM.</p>
       </div>
     </section>
 
@@ -113,33 +113,34 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les deux catégories du CACES R485</h2>
+          <h2 id="titre-categories">Catégorie A ou catégorie B&nbsp;?</h2>
           <hr className="trait" />
+          <p>Un repère simple pour situer la catégorie A par rapport à l'autre grande famille de nacelles.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
             <thead>
               <tr>
                 <th scope="col">Catégorie</th>
-                <th scope="col">Type de poste de conduite</th>
-                <th scope="col">Usage typique</th>
+                <th scope="col">Type d'élévation</th>
+                <th scope="col">Exemples d'équipements</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Catégorie 1</td>
-                <td>Poste de conduite fixe, non élevable</td>
-                <td>Gerbage et dégerbage à faible hauteur</td>
+                <td>A</td>
+                <td>Élévation verticale, déplacement limité une fois en hauteur</td>
+                <td>Nacelles à ciseaux, plateformes sur mât vertical</td>
               </tr>
               <tr>
-                <td>Catégorie 2</td>
-                <td>Poste de conduite élevable avec la charge</td>
-                <td>Préparation de commandes et gerbage en hauteur</td>
+                <td>B</td>
+                <td>Élévation multidirectionnelle, déplacements combinés possibles en hauteur</td>
+                <td>Nacelles à bras articulé ou télescopique</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? Contactez-nous, nous vous aidons à l'identifier.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>SECURIFORM est spécialisé sur la catégorie A. Pour un besoin en catégorie B, nous consulter.</p>
       </div>
     </section>
 
@@ -152,15 +153,15 @@ export default function Page() {
         <div className="presentation-txt reveal">
           <span className="surtitre">Ce que couvre la formation</span>
           <h2 id="titre-programme">Un programme théorique et pratique complet</h2>
-          <p>La partie théorique aborde la réglementation applicable (recommandation R485 de la CNAM), la technologie du gerbeur (timon, fourches, mât de levage, batterie), les risques propres à la conduite accompagnée et les vérifications d'usage avant chaque utilisation.</p>
-          <p>La partie pratique se déroule sur un gerbeur réel&nbsp;: prise et dépose de charges, circulation en allées étroites, gerbage et dégerbage à différentes hauteurs, puis fin de poste et mise en charge de la batterie.</p>
+          <p>La partie théorique aborde la réglementation applicable (recommandation R486B de la CNAM), la technologie de la nacelle (vérins, stabilisateurs, dispositifs anti-écrasement), le port du harnais et de la longe, les zones à risque et les vérifications d'usage avant chaque utilisation.</p>
+          <p>La partie pratique se déroule sur une nacelle réelle&nbsp;: mise en station, élévation et utilisation en hauteur, gestion des situations d'urgence (procédure de secours en cas de blocage), puis redescente et rangement en sécurité.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
           <h3>Répartition type</h3>
           <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Théorie&nbsp;: réglementation, technologie, risques spécifiques</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Pratique&nbsp;: manœuvres en conditions réelles d'entrepôt</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Théorie&nbsp;: réglementation, technologie, EPI antichute</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Pratique&nbsp;: mise en œuvre complète sur nacelle réelle</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Procédure de secours en cas de blocage en hauteur</li>
             <li><span className="puce" aria-hidden="true">✓</span> Test final par un organisme testeur certifié INRS</li>
           </ul>
         </aside>
@@ -175,25 +176,26 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">La bonne méthode</span>
-          <h2 id="titre-etapes">Utiliser un gerbeur en 4 temps</h2>
+          <h2 id="titre-etapes">Utiliser une nacelle en 4 temps</h2>
           <hr className="trait" />
+          <p>Un enchaînement systématique, quelle que soit la durée de l'intervention.</p>
         </div>
         <div className="etapes">
           <div className="etape reveal">
             <h3>Vérifier</h3>
-            <p>Contrôler l'état des fourches, du mât et le niveau de charge de la batterie avant utilisation.</p>
+            <p>Contrôler l'état de la nacelle, des commandes et du sol avant toute mise en service.</p>
           </div>
           <div className="etape reveal">
-            <h3>Prendre la charge</h3>
-            <p>Engager les fourches avec précision, en gardant les pieds à l'écart de la zone de manœuvre.</p>
+            <h3>Mettre en station</h3>
+            <p>Positionner et stabiliser la nacelle, harnais et longe attachés dès la montée sur la plateforme.</p>
           </div>
           <div className="etape reveal">
-            <h3>Se déplacer</h3>
-            <p>Circuler à vitesse adaptée, en particulier dans les allées étroites entre les rayonnages.</p>
+            <h3>Travailler en hauteur</h3>
+            <p>Élever la plateforme progressivement, en respectant les zones dégagées et les distances de sécurité.</p>
           </div>
           <div className="etape reveal">
-            <h3>Gerber ou dégerber</h3>
-            <p>Positionner ou retirer la charge du rayonnage avec une visibilité dégagée sur la zone de dépose.</p>
+            <h3>Redescendre</h3>
+            <p>Ramener la plateforme au sol, couper l'alimentation et ranger la nacelle en sécurité.</p>
           </div>
         </div>
       </div>
@@ -207,29 +209,29 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Ce que la formation prévient</span>
-          <h2 id="titre-risques">Les principaux risques du gerbeur accompagnant</h2>
+          <h2 id="titre-risques">Les principaux risques de la nacelle élévatrice</h2>
           <hr className="trait" />
         </div>
         <div className="grille-categories cols-4">
 
           <article className="categorie-card reveal">
-            <h3>Écrasement des pieds</h3>
-            <p>Le conducteur marchant à côté de l'engin, ce risque est spécifique à ce mode de conduite. Prévenu par le port de chaussures de sécurité et une distance de sécurité constante.</p>
+            <h3>Basculement</h3>
+            <p>Lié à un sol instable ou une surcharge de la plateforme. Prévenu par la vérification du terrain et le respect de la charge maximale autorisée.</p>
           </article>
 
           <article className="categorie-card reveal">
-            <h3>Basculement de charge</h3>
-            <p>Lié à une charge mal centrée ou trop élevée par rapport à la capacité du gerbeur. Prévenu par le respect strict de la charge maximale admissible.</p>
+            <h3>Chute de hauteur</h3>
+            <p>En cas d'éjection de la plateforme. Prévenu par le port systématique du harnais et de la longe, attachés à un point d'ancrage dédié.</p>
           </article>
 
           <article className="categorie-card reveal">
-            <h3>Collision</h3>
-            <p>Avec un piéton ou un autre engin, notamment dans les allées étroites. Prévenu par une vitesse adaptée et une signalisation aux intersections.</p>
+            <h3>Écrasement</h3>
+            <p>Entre la plateforme et une structure fixe (poutre, plafond). Prévenu par une vigilance constante lors des déplacements en hauteur.</p>
           </article>
 
           <article className="categorie-card reveal">
-            <h3>Chute de charge en hauteur</h3>
-            <p>Pour les modèles de catégorie 2, lors du gerbage en hauteur. Prévenu par un positionnement stable avant toute élévation.</p>
+            <h3>Électrocution</h3>
+            <p>Par proximité d'une ligne électrique aérienne. Prévenu par le repérage systématique avant toute élévation.</p>
           </article>
 
         </div>
@@ -246,7 +248,7 @@ export default function Page() {
           <span className="surtitre">Combien de temps</span>
           <h2 id="titre-durees">Durée et validité</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et de la catégorie visée.</p>
+          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et du type de nacelle utilisé.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -272,7 +274,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R485 est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R486B Catégorie A est valable 5 ans à compter de son obtention.</p>
       </div>
     </section>
 
@@ -290,28 +292,28 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Quelle est la différence entre le CACES R485A et le CACES R489A&nbsp;?</summary>
-            <p>Le R485A concerne les gerbeurs à conducteur accompagnant, pilotés en marchant à côté de l'engin. Le R489A couvre les chariots élévateurs où le cariste prend place à bord. Les risques et la conduite étant différents, les certifications le sont aussi.</p>
+            <summary>Quelle est la différence entre la catégorie A et la catégorie B&nbsp;?</summary>
+            <p>La catégorie A concerne les nacelles à élévation verticale (ciseaux, mât), où le déplacement en hauteur est limité. La catégorie B couvre les nacelles à bras articulé ou télescopique, permettant des mouvements combinés une fois la plateforme élevée.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Comment choisir entre la catégorie 1 et la catégorie 2&nbsp;?</summary>
-            <p>Cela dépend de votre matériel&nbsp;: la catégorie 1 concerne les gerbeurs à poste de conduite fixe, la catégorie 2 les modèles où le conducteur peut être élevé avec la charge pour la préparation de commandes en hauteur.</p>
+            <summary>Le port du harnais est-il obligatoire sur une nacelle&nbsp;?</summary>
+            <p>Oui, le port du harnais avec longe, attaché à un point d'ancrage dédié de la plateforme, fait partie des règles de sécurité de base enseignées dès le début de la formation.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R485A&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans, comme le CACES R489A. Un recyclage est recommandé avant son expiration.</p>
+            <summary>Que faire en cas de blocage de la nacelle en hauteur&nbsp;?</summary>
+            <p>La formation intègre une sensibilisation aux procédures de secours&nbsp;: commandes de secours au sol, contact avec les personnes formées à leur utilisation, et consignes à respecter en attendant le dépannage.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Peut-on former une équipe aux catégories 1 et 2 en même temps&nbsp;?</summary>
-            <p>Oui, lorsque les stagiaires utilisent les deux types de gerbeurs, une session combinée est possible et permet d'optimiser le temps de formation.</p>
+            <summary>Quelle est la durée de validité du CACES R486B Catégorie A&nbsp;?</summary>
+            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances et prolonger la validité.</p>
           </details>
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R486A (nacelles), R489A (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -326,7 +328,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation CACES® R485A</h2>
+          <h2 id="titre-devis">Programmer une formation CACES® R486B</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>
@@ -356,11 +358,10 @@ export default function Page() {
               <input type="email" id="email" name="email" required />
             </div>
             <div className="champ">
-              <label htmlFor="categorie">Catégorie concernée</label>
-              <select id="categorie" name="categorie">
-                <option value="1">Catégorie 1 — poste fixe</option>
-                <option value="2">Catégorie 2 — poste élevable</option>
-                <option value="deux">Les deux catégories</option>
+              <label htmlFor="type">Type de nacelle</label>
+              <select id="type" name="type">
+                <option value="ciseaux">Nacelle à ciseaux</option>
+                <option value="mat">Plateforme sur mât vertical</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>
@@ -415,8 +416,8 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
-            <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos gerbeurs, au titre de la catégorie chariots élévateurs, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-chariots-elevateurs">VGP des chariots élévateurs</Link>
+            <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos nacelles élévatrices, tous les 6 mois conformément à la réglementation en vigueur.</p>
+            <Link className="btn btn-blanc" href="/vgp-nacelles-elevatrices">VGP des nacelles élévatrices</Link>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>
