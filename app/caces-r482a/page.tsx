@@ -86,7 +86,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R482A</span>
         </p>
-        <h1>Formation CACES® R482A — Engins de chantier</h1>
+        <h1>Formation CACES® R482A - Engins de chantier</h1>
         <p>Formez-vous à la conduite en sécurité des engins de chantier, quelle que soit la catégorie&nbsp;: pelles, chargeuses, bulldozers, compacteurs, tombereaux et plus encore.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -149,17 +149,17 @@ export default function Page() {
               </tr>
               <tr>
                 <td>C1</td>
-                <td>Engins de chargement à déplacement alterné</td>
+                <td>Engins de chargement à déplacement alternatif</td>
                 <td>Chargeuses sur pneus ≥ 6 t</td>
               </tr>
               <tr>
                 <td>C2</td>
-                <td>Engins de réglage à déplacement alterné</td>
+                <td>Engins de réglage à déplacement alternatif</td>
                 <td>Bulldozers, tracteurs à chenilles</td>
               </tr>
               <tr>
                 <td>C3</td>
-                <td>Engins de nivellement à déplacement alterné</td>
+                <td>Engins de nivellement à déplacement alternatif</td>
                 <td>Niveleuses (motor-graders)</td>
               </tr>
               <tr>
@@ -375,7 +375,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R484 (ponts roulants), R485 (gerbeurs), R486-A (nacelles), R489 (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs), R486B (nacelles), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>

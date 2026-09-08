@@ -84,9 +84,9 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <Link href="/caces">Conduite en sécurité et CACES®</Link>
           <span aria-hidden="true">›</span>
-          <span>CACES R485</span>
+          <span>CACES R485A</span>
         </p>
-        <h1>Formation CACES® R485 — Gerbeurs à conducteur accompagnant</h1>
+        <h1>Formation CACES® R485A — Gerbeurs à conducteur accompagnant</h1>
         <p>Formez-vous à la conduite en sécurité des gerbeurs à conducteur accompagnant, utilisés en entrepôt et en environnements de stockage à rayonnages étroits.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -101,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Qu'est-ce qu'un gerbeur à conducteur accompagnant&nbsp;?</h2>
         <hr className="trait" />
-        <p>Contrairement aux chariots élévateurs du CACES R489, sur lesquels le cariste prend place à bord, le gerbeur à conducteur accompagnant se pilote en marchant à côté ou derrière l'engin, à l'aide d'un timon. Cette différence de conduite implique des risques spécifiques&nbsp;: c'est pourquoi la recommandation CNAM R485 lui consacre une certification à part entière.</p>
+        <p>Contrairement aux chariots élévateurs du CACES R489A, sur lesquels le cariste prend place à bord, le gerbeur à conducteur accompagnant se pilote en marchant à côté ou derrière l'engin, à l'aide d'un timon. Cette différence de conduite implique des risques spécifiques&nbsp;: c'est pourquoi la recommandation CNAM R485A lui consacre une certification à part entière.</p>
       </div>
     </section>
 
@@ -290,8 +290,8 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Quelle est la différence entre le CACES R485 et le CACES R489&nbsp;?</summary>
-            <p>Le R485 concerne les gerbeurs à conducteur accompagnant, pilotés en marchant à côté de l'engin. Le R489 couvre les chariots élévateurs où le cariste prend place à bord. Les risques et la conduite étant différents, les certifications le sont aussi.</p>
+            <summary>Quelle est la différence entre le CACES R485A et le CACES R489A&nbsp;?</summary>
+            <p>Le R485A concerne les gerbeurs à conducteur accompagnant, pilotés en marchant à côté de l'engin. Le R489A couvre les chariots élévateurs où le cariste prend place à bord. Les risques et la conduite étant différents, les certifications le sont aussi.</p>
           </details>
 
           <details className="faq-item">
@@ -300,8 +300,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R485&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans, comme le CACES R489. Un recyclage est recommandé avant son expiration.</p>
+            <summary>Quelle est la durée de validité du CACES R485A&nbsp;?</summary>
+            <p>Le certificat est valable 5 ans, comme le CACES R489A. Un recyclage est recommandé avant son expiration.</p>
           </details>
 
           <details className="faq-item">
@@ -311,7 +311,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R486-A (nacelles), R489 (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également aux CACES R482 (engins de chantier), R484 (ponts roulants), R486A (nacelles), R489A (chariots de manutention) et R490 (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -326,7 +326,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation CACES® R485</h2>
+          <h2 id="titre-devis">Programmer une formation CACES® R485A</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>

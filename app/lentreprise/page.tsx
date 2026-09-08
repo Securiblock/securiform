@@ -240,7 +240,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <h3>Conduite en sécurité et CACES®</h3>
-            <p>R482, R484, R485, R486-A, R489, R490&nbsp;: toutes les recommandations de conduite en sécurité.</p>
+            <p>R482, R484, R485, R486A, R489, R490&nbsp;: toutes les recommandations de conduite en sécurité.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/caces" aria-label="Conduite en sécurité et CACES®" />
           </article>
