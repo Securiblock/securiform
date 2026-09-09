@@ -139,12 +139,12 @@ export default function Page() {
               </tr>
               <tr>
                 <td>B2</td>
-                <td>Engins de sondage et de forage</td>
+                <td>Engins de sondage et de forage à déplacement séquentiel</td>
                 <td>Machines de forage géotechnique</td>
               </tr>
               <tr>
                 <td>B3</td>
-                <td>Engins rail-route</td>
+                <td>Engins rail-route à déplacement séquentiel</td>
                 <td>Pelles hydrauliques circulant sur voie ferrée et route</td>
               </tr>
               <tr>
