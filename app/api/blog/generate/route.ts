@@ -40,6 +40,7 @@ export async function POST(request: Request) {
     generatedAt: now,
     status: "generated",
     image: previousImage,
+    category: topic.category,
   };
 
   saveArticle(article);

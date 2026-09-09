@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getArticle, saveArticle } from "@/lib/blog/articles";
+import { updateTopic } from "@/lib/blog/topics";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -32,8 +33,17 @@ export async function PUT(request: Request, { params }: Params) {
     content: typeof body.content === "string" ? body.content : existing.content,
     image:
       typeof body.image === "string" || body.image === null ? body.image : existing.image,
+    category:
+      typeof body.category === "string" || body.category === null
+        ? body.category
+        : existing.category,
   };
 
   saveArticle(updated);
+
+  if (updated.category !== existing.category) {
+    updateTopic(updated.id, { category: updated.category });
+  }
+
   return NextResponse.json(updated);
 }

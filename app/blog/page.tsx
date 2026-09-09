@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getPublishedArticles } from "@/lib/blog/content";
+import BlogSearch from "./blog-search";
 
 export const dynamic = "force-dynamic";
 
@@ -18,13 +19,6 @@ export const metadata: Metadata = {
     description: "Conseils et guides pratiques sur la sécurité au travail.",
   },
 };
-
-function formatDate(date: string): string {
-  if (!date) return "";
-  const d = new Date(date);
-  if (Number.isNaN(d.getTime())) return date;
-  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-}
 
 export default function BlogIndexPage() {
   const articles = getPublishedArticles();
@@ -57,32 +51,7 @@ export default function BlogIndexPage() {
               Aucun article publié pour le moment. Revenez bientôt !
             </p>
           ) : (
-            <div className="grille-categories cols-3">
-              {articles.map((article) => (
-                <article key={article.slug} className="categorie-card reveal">
-                  {article.image && (
-                    <div className="categorie-photo">
-                      <img src={article.image} alt={article.title} />
-                    </div>
-                  )}
-                  {article.date && (
-                    <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
-                      {formatDate(article.date)}
-                    </span>
-                  )}
-                  <h3>{article.title}</h3>
-                  <p>{article.description}</p>
-                  <span className="lien" style={{ marginTop: "1rem" }}>
-                    Lire l&apos;article
-                  </span>
-                  <Link
-                    className="card-cover"
-                    href={`/blog/${article.slug}`}
-                    aria-label={article.title}
-                  />
-                </article>
-              ))}
-            </div>
+            <BlogSearch articles={articles} />
           )}
         </div>
       </section>

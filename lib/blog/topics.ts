@@ -50,6 +50,7 @@ export function createTopic(input: NewTopicInput): Topic {
     publishedAt: null,
     slug: null,
     deletedAt: null,
+    category: input.category,
   };
   const topics = readAll();
   topics.push(topic);

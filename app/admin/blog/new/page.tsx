@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { TopicTone } from "@/lib/blog/types";
+import type { Category } from "@/lib/blog/categories";
 
 const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 const LENGTHS = [500, 800, 1000, 1500, 2000];
@@ -15,8 +16,17 @@ export default function NewTopicPage() {
   const [keywords, setKeywords] = useState("");
   const [tone, setTone] = useState<TopicTone>("professionnel");
   const [targetLength, setTargetLength] = useState(1000);
+  const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState<Category[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/blog/categories")
+      .then((res) => res.json())
+      .then(setCategories)
+      .catch(() => {});
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,7 +36,14 @@ export default function NewTopicPage() {
       const res = await fetch("/api/blog/topics", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, description, keywords, tone, targetLength }),
+        body: JSON.stringify({
+          title,
+          description,
+          keywords,
+          tone,
+          targetLength,
+          category: category || null,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Erreur lors de la création.");
@@ -80,6 +97,27 @@ export default function NewTopicPage() {
             placeholder="SEO, référencement, IA, Google"
             className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-red-600 focus:outline-none"
           />
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold">Catégorie</label>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-red-600 focus:outline-none"
+          >
+            <option value="">Aucune catégorie</option>
+            {categories.map((c) => (
+              <option key={c.id} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+          {categories.length === 0 && (
+            <p className="mt-1 text-xs text-slate-400">
+              Aucune catégorie créée pour l&apos;instant — gérez-les depuis le dashboard.
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-4">

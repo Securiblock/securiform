@@ -43,7 +43,8 @@
     "generatedAt": "2026-09-07T14:05:18.224Z",
     "publishedAt": "2026-09-07T14:26:02.110Z",
     "slug": "quest-ce-que-le-caces-obligatoire",
-    "deletedAt": null
+    "deletedAt": null,
+    "category": "sécurité"
   },
   {
     "id": "0609514e-fb07-4f49-b342-33c392f0f082",
@@ -66,12 +67,13 @@
     "keywords": [],
     "tone": "professionnel",
     "targetLength": 1000,
-    "status": "pending",
+    "status": "published",
     "createdAt": "2026-09-07T14:05:03.201Z",
-    "generatedAt": null,
-    "publishedAt": null,
-    "slug": null,
-    "deletedAt": null
+    "generatedAt": "2026-09-09T09:03:09.394Z",
+    "publishedAt": "2026-09-09T09:07:49.005Z",
+    "slug": "comment-prevenir-risques-incendie-entreprise",
+    "deletedAt": null,
+    "category": "sécurité"
   },
   {
     "id": "ed4d3199-84da-4991-83c6-a545ffe71aac",
@@ -86,5 +88,80 @@
     "publishedAt": null,
     "slug": "verifications-generales-periodiques-chariots-elevateurs",
     "deletedAt": "2026-09-08T14:00:04.356Z"
+  },
+  {
+    "id": "5271922f-d7e9-4698-9f75-aa413edbcb57",
+    "title": "CACES R489 : nouveautés 2025",
+    "description": "comment mettre vos salariés en conformité avec le nouveau référentiel chariot élévateur",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-09T09:02:53.836Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
+  },
+  {
+    "id": "2ae27b9e-995b-4cba-916f-4da1f6ab78ef",
+    "title": "Habilitation électrique B0 H0 BR BC",
+    "description": "comment choisir le bon niveau d'habilitation pour vos salariés",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-09T09:02:53.856Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
+  },
+  {
+    "id": "e4a0f8d7-9ce4-4446-8539-e26ee3f33947",
+    "title": "SST Sauveteur Secouriste du Travail",
+    "description": "pourquoi cette formation est obligatoire dans votre entreprise",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-09T09:02:53.878Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
+  },
+  {
+    "id": "652e9d7e-e16c-4e0c-9793-de800756ebf4",
+    "title": "Travail en hauteur",
+    "description": "quelles formations sont obligatoires pour vos équipes en 2025",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-09T09:02:53.897Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
+  },
+  {
+    "id": "ee5a1ee0-75ef-4268-b6c6-5012a4fccae4",
+    "title": "Plan de formation obligatoire",
+    "description": "comment anticiper les certifications et habilitations de vos salariés",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-09T09:02:53.925Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
   }
 ]

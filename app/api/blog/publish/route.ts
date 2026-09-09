@@ -55,6 +55,7 @@ export async function POST(request: Request) {
     slug: article.slug,
     readingTime: article.readingTime,
     image: article.image || null,
+    category: article.category || null,
     published: true,
   });
 

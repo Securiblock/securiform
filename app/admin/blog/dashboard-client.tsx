@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
+import type { Category } from "@/lib/blog/categories";
 import type { Topic, TopicStatus } from "@/lib/blog/types";
 import StatusBadge from "./status-badge";
 
@@ -17,15 +18,28 @@ const FILTERS: { value: FilterValue; label: string }[] = [
   { value: "trash", label: "Corbeille" },
 ];
 
-export default function BlogDashboard({ topics }: { topics: Topic[] }) {
+export default function BlogDashboard({
+  topics,
+  categories,
+}: {
+  topics: Topic[];
+  categories: Category[];
+}) {
   const [filter, setFilter] = useState<FilterValue>("all");
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [search, setSearch] = useState("");
   const [busyId, setBusyId] = useState<string | null>(null);
   const [quickAddOpen, setQuickAddOpen] = useState(false);
   const [quickAddText, setQuickAddText] = useState("");
+  const [quickAddCategory, setQuickAddCategory] = useState("");
   const [quickAddBusy, setQuickAddBusy] = useState(false);
   const [quickAddError, setQuickAddError] = useState<string | null>(null);
   const [autoGenBusy, setAutoGenBusy] = useState(false);
   const [autoGenMessage, setAutoGenMessage] = useState<string | null>(null);
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState("");
+  const [categoryBusy, setCategoryBusy] = useState<string | null>(null);
+  const [categoryError, setCategoryError] = useState<string | null>(null);
   const router = useRouter();
 
   const pendingCount = useMemo(
@@ -35,9 +49,24 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
   const trashCount = useMemo(() => topics.filter((t) => t.deletedAt).length, [topics]);
 
   const filtered = useMemo(() => {
-    if (filter === "trash") return topics.filter((t) => t.deletedAt);
-    return topics.filter((t) => !t.deletedAt && (filter === "all" || t.status === filter));
-  }, [topics, filter]);
+    const byStatus =
+      filter === "trash"
+        ? topics.filter((t) => t.deletedAt)
+        : topics.filter((t) => !t.deletedAt && (filter === "all" || t.status === filter));
+
+    const byCategory = categoryFilter
+      ? byStatus.filter((t) => t.category === categoryFilter)
+      : byStatus;
+
+    const q = search.trim().toLowerCase();
+    if (!q) return byCategory;
+    return byCategory.filter(
+      (t) =>
+        t.title.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q) ||
+        t.keywords.some((k) => k.toLowerCase().includes(q))
+    );
+  }, [topics, filter, categoryFilter, search]);
 
   async function handleTrash(id: string, title: string) {
     if (!confirm(`Envoyer « ${title} » à la corbeille ?`)) return;
@@ -115,11 +144,13 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
             keywords: [],
             tone: "professionnel",
             targetLength: 1000,
+            category: quickAddCategory || null,
           }),
         });
         if (!res.ok) throw new Error((await res.json()).error || `Échec pour « ${titlePart} ».`);
       }
       setQuickAddText("");
+      setQuickAddCategory("");
       setQuickAddOpen(false);
       router.refresh();
     } catch (err) {
@@ -146,6 +177,47 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
       setAutoGenMessage(err instanceof Error ? err.message : "Erreur inconnue.");
     } finally {
       setAutoGenBusy(false);
+    }
+  }
+
+  async function handleAddCategory() {
+    if (!newCategoryName.trim()) return;
+    setCategoryBusy("new");
+    setCategoryError(null);
+    try {
+      const res = await fetch("/api/blog/categories", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: newCategoryName.trim() }),
+      });
+      if (!res.ok) throw new Error((await res.json()).error || "Échec de la création.");
+      setNewCategoryName("");
+      router.refresh();
+    } catch (err) {
+      setCategoryError(err instanceof Error ? err.message : "Erreur inconnue.");
+    } finally {
+      setCategoryBusy(null);
+    }
+  }
+
+  async function handleDeleteCategory(id: string, name: string) {
+    if (
+      !confirm(
+        `Supprimer la catégorie « ${name} » ? Les articles déjà classés dedans la garderont, mais elle ne sera plus proposée pour les nouveaux sujets.`
+      )
+    ) {
+      return;
+    }
+    setCategoryBusy(id);
+    setCategoryError(null);
+    try {
+      const res = await fetch(`/api/blog/categories/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error((await res.json()).error || "Échec de la suppression.");
+      router.refresh();
+    } catch (err) {
+      setCategoryError(err instanceof Error ? err.message : "Erreur inconnue.");
+    } finally {
+      setCategoryBusy(null);
     }
   }
 
@@ -176,6 +248,13 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
         <div className="flex gap-3">
           <button
             type="button"
+            onClick={() => setCategoriesOpen((v) => !v)}
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            🏷️ Catégories
+          </button>
+          <button
+            type="button"
             onClick={() => setQuickAddOpen((v) => !v)}
             className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
           >
@@ -189,6 +268,62 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
           </Link>
         </div>
       </div>
+
+      {categoriesOpen && (
+        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
+          <h2 className="mb-3 text-sm font-bold">Catégories</h2>
+
+          {categories.length === 0 ? (
+            <p className="mb-3 text-sm text-slate-400">Aucune catégorie pour l&apos;instant.</p>
+          ) : (
+            <ul className="mb-3 flex flex-wrap gap-2">
+              {categories.map((c) => (
+                <li
+                  key={c.id}
+                  className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 py-1 pl-3 pr-2 text-sm"
+                >
+                  {c.name}
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteCategory(c.id, c.name)}
+                    disabled={categoryBusy === c.id}
+                    aria-label={`Supprimer la catégorie ${c.name}`}
+                    className="text-slate-400 hover:text-red-600 disabled:opacity-50"
+                  >
+                    {categoryBusy === c.id ? "..." : "✕"}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {categoryError && <p className="mb-3 text-sm text-red-600">{categoryError}</p>}
+
+          <div className="flex gap-3">
+            <input
+              type="text"
+              value={newCategoryName}
+              onChange={(e) => setNewCategoryName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleAddCategory();
+                }
+              }}
+              placeholder="Nom de la nouvelle catégorie"
+              className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+            <button
+              type="button"
+              onClick={handleAddCategory}
+              disabled={categoryBusy === "new" || !newCategoryName.trim()}
+              className="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
+            >
+              {categoryBusy === "new" ? "Ajout..." : "Ajouter"}
+            </button>
+          </div>
+        </div>
+      )}
 
       {quickAddOpen && (
         <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
@@ -206,6 +341,23 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
             placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
           />
+          <div className="mt-3">
+            <label className="mb-1 block text-xs font-semibold text-slate-500">
+              Catégorie (appliquée à tous les sujets ajoutés)
+            </label>
+            <select
+              value={quickAddCategory}
+              onChange={(e) => setQuickAddCategory(e.target.value)}
+              className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            >
+              <option value="">Aucune catégorie</option>
+              {categories.map((c) => (
+                <option key={c.id} value={c.name}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </div>
           {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}
           <div className="mt-3 flex gap-3">
             <button
@@ -246,6 +398,30 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
       </div>
       {autoGenMessage && <p className="mb-6 text-sm text-slate-600">{autoGenMessage}</p>}
 
+      <div className="mb-4 flex flex-wrap gap-3">
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Rechercher un sujet (titre, description, mots-clés)..."
+          className="w-full max-w-md rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+        />
+        {categories.length > 0 && (
+          <select
+            value={categoryFilter}
+            onChange={(e) => setCategoryFilter(e.target.value)}
+            className="rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          >
+            <option value="">Toutes les catégories</option>
+            {categories.map((c) => (
+              <option key={c.id} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+
       <div className="mb-6 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
           <button
@@ -270,6 +446,7 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
             <tr>
               <th className="px-5 py-3">Titre</th>
               <th className="px-5 py-3">Description</th>
+              <th className="px-5 py-3">Catégorie</th>
               <th className="px-5 py-3">Statut</th>
               <th className="px-5 py-3">Actions</th>
             </tr>
@@ -277,8 +454,12 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
           <tbody>
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={4} className="px-5 py-10 text-center text-slate-400">
-                  {filter === "trash" ? "La corbeille est vide." : "Aucun sujet pour ce filtre."}
+                <td colSpan={5} className="px-5 py-10 text-center text-slate-400">
+                  {search.trim()
+                    ? `Aucun sujet ne correspond à « ${search.trim()} ».`
+                    : filter === "trash"
+                      ? "La corbeille est vide."
+                      : "Aucun sujet pour ce filtre."}
                 </td>
               </tr>
             )}
@@ -288,6 +469,7 @@ export default function BlogDashboard({ topics }: { topics: Topic[] }) {
                 <td className="max-w-xs truncate px-5 py-4 text-slate-500">
                   {topic.description}
                 </td>
+                <td className="px-5 py-4 text-slate-500">{topic.category || "—"}</td>
                 <td className="px-5 py-4">
                   <StatusBadge status={topic.status} />
                 </td>

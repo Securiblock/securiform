@@ -15,6 +15,9 @@ export interface Topic {
   publishedAt: string | null;
   slug: string | null;
   deletedAt: string | null;
+  // Stored as plain text, not a reference to lib/blog/categories.ts — so
+  // deleting a category later never orphans a topic/article that used it.
+  category: string | null;
 }
 
 export type NewTopicInput = {
@@ -23,6 +26,7 @@ export type NewTopicInput = {
   keywords: string[];
   tone: TopicTone;
   targetLength: number;
+  category: string | null;
 };
 
 export interface Article {
@@ -35,4 +39,5 @@ export interface Article {
   generatedAt: string;
   status: Extract<TopicStatus, "generated" | "approved" | "published">;
   image: string | null;
+  category: string | null;
 }
