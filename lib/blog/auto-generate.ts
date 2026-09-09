@@ -41,6 +41,7 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
     generatedAt: now,
     status: "generated",
     image: null,
+    category: topic.category,
   };
   saveArticle(article);
   updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug });

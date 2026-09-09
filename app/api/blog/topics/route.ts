@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     keywords,
     tone: body.tone,
     targetLength,
+    category: typeof body.category === "string" && body.category.trim() ? body.category.trim() : null,
   };
 
   const topic = createTopic(input);

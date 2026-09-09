@@ -12,12 +12,16 @@ export type PublishedArticle = {
   date: string;
   readingTime: number;
   image: string | null;
+  category: string | null;
   html: string;
 };
 
-export type ArticleSummary = Omit<PublishedArticle, "html">;
+// `content` here is the raw Markdown body, kept only so /blog can search
+// inside article text client-side — it's not rendered from this type.
+export type ArticleSummary = Omit<PublishedArticle, "html"> & { content: string };
 
-// Listing for /blog — only frontmatter, no Markdown rendering needed here.
+// Listing for /blog — frontmatter + raw content, no Markdown-to-HTML
+// rendering needed here (that only happens on the article page itself).
 export function getPublishedArticles(): ArticleSummary[] {
   if (!existsSync(BLOG_CONTENT_DIR)) return [];
 
@@ -25,7 +29,7 @@ export function getPublishedArticles(): ArticleSummary[] {
   for (const file of readdirSync(BLOG_CONTENT_DIR)) {
     if (!file.endsWith(".mdx")) continue;
     const slug = file.replace(/\.mdx$/, "");
-    const { data } = matter(readFileSync(join(BLOG_CONTENT_DIR, file), "utf8"));
+    const { data, content } = matter(readFileSync(join(BLOG_CONTENT_DIR, file), "utf8"));
     if (!data.published) continue;
 
     summaries.push({
@@ -35,6 +39,8 @@ export function getPublishedArticles(): ArticleSummary[] {
       date: data.date || "",
       readingTime: data.readingTime || 1,
       image: data.image || null,
+      category: data.category || null,
+      content,
     });
   }
 
@@ -56,6 +62,7 @@ export function getPublishedArticle(slug: string): PublishedArticle | undefined 
     date: data.date || "",
     readingTime: data.readingTime || 1,
     image: data.image || null,
+    category: data.category || null,
     html: marked.parse(content, { async: false }) as string,
   };
 }

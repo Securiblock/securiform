@@ -488,6 +488,7 @@ export default function Home() {
             <div className="grille-categories cols-3">
               {latestArticles.map((article) => (
                 <article key={article.slug} className="categorie-card reveal">
+                  {article.category && <span className="categorie-badge">{article.category}</span>}
                   {article.image && (
                     <div className="categorie-photo">
                       <img src={article.image} alt={article.title} />

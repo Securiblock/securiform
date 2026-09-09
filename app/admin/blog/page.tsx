@@ -1,3 +1,4 @@
+import { getCategories } from "@/lib/blog/categories";
 import { getTopics } from "@/lib/blog/topics";
 import BlogDashboard from "./dashboard-client";
 
@@ -8,5 +9,6 @@ export const dynamic = "force-dynamic";
 
 export default function BlogAdminPage() {
   const topics = getTopics();
-  return <BlogDashboard topics={topics} />;
+  const categories = getCategories();
+  return <BlogDashboard topics={topics} categories={categories} />;
 }

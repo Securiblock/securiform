@@ -33,6 +33,10 @@ export default async function TopicDetailPage({ params }: Params) {
             {topic.keywords.length ? topic.keywords.join(", ") : "—"}
           </dd>
         </div>
+        <div>
+          <dt className="font-semibold text-slate-500">Catégorie</dt>
+          <dd className="mt-1">{topic.category || "—"}</dd>
+        </div>
         <div className="flex gap-10">
           <div>
             <dt className="font-semibold text-slate-500">Ton</dt>

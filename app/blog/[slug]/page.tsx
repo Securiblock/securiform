@@ -40,6 +40,11 @@ export default async function BlogArticlePage({ params }: Params) {
             <span aria-hidden="true">&rsaquo;</span>
             <span>Blog</span>
           </p>
+          {article.category && (
+            <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
+              {article.category}
+            </span>
+          )}
           <h1>{article.title}</h1>
           <p>{article.description}</p>
         </div>

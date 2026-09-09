@@ -3,7 +3,8 @@
 import { marked } from "marked";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { Category } from "@/lib/blog/categories";
 import type { Article, Topic, TopicTone } from "@/lib/blog/types";
 
 const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
@@ -17,6 +18,8 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [metaDescription, setMetaDescription] = useState(article.metaDescription);
   const [content, setContent] = useState(article.content);
   const [image, setImage] = useState(article.image || "");
+  const [category, setCategory] = useState(article.category || "");
+  const [categories, setCategories] = useState<Category[]>([]);
   const [dirty, setDirty] = useState(false);
   const [busy, setBusy] = useState<null | "save" | "publish" | "regenerate" | "unpublish">(
     null
@@ -36,8 +39,16 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [regenKeywords, setRegenKeywords] = useState(topic.keywords.join(", "));
   const [regenTone, setRegenTone] = useState<TopicTone>(topic.tone);
   const [regenTargetLength, setRegenTargetLength] = useState(topic.targetLength);
+  const [regenCategory, setRegenCategory] = useState(topic.category || "");
 
   const previewHtml = useMemo(() => marked.parse(content, { async: false }) as string, [content]);
+
+  useEffect(() => {
+    fetch("/api/blog/categories")
+      .then((res) => res.json())
+      .then(setCategories)
+      .catch(() => {});
+  }, []);
 
   function markDirty<T>(setter: (v: T) => void) {
     return (value: T) => {
@@ -54,7 +65,13 @@ export default function ArticleEditor({ topic, article }: Props) {
       const res = await fetch(`/api/blog/articles/${article.slug}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, metaDescription, content, image: image || null }),
+        body: JSON.stringify({
+          title,
+          metaDescription,
+          content,
+          image: image || null,
+          category: category || null,
+        }),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Échec de la sauvegarde.");
       setDirty(false);
@@ -131,6 +148,7 @@ export default function ArticleEditor({ topic, article }: Props) {
           keywords,
           tone: regenTone,
           targetLength: regenTargetLength,
+          category: regenCategory || null,
         }),
       });
       if (!putRes.ok) throw new Error((await putRes.json()).error || "Échec de la mise à jour du sujet.");
@@ -220,6 +238,22 @@ export default function ArticleEditor({ topic, article }: Props) {
             className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
           />
           <p className="mt-1 text-xs text-slate-400">{metaDescription.length} caractères</p>
+        </div>
+
+        <div>
+          <label className="mb-1 block text-sm font-semibold">Catégorie</label>
+          <select
+            value={category}
+            onChange={(e) => markDirty(setCategory)(e.target.value)}
+            className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          >
+            <option value="">Aucune catégorie</option>
+            {categories.map((c) => (
+              <option key={c.id} value={c.name}>
+                {c.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>
@@ -387,6 +421,21 @@ export default function ArticleEditor({ topic, article }: Props) {
                   placeholder="SEO, référencement, IA"
                   className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
                 />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-semibold">Catégorie</label>
+                <select
+                  value={regenCategory}
+                  onChange={(e) => setRegenCategory(e.target.value)}
+                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+                >
+                  <option value="">Aucune catégorie</option>
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.name}>
+                      {c.name}
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
