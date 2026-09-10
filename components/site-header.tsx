@@ -11,6 +11,8 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <>
       <div className="topbar">

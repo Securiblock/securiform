@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import PhoneIcon from "./phone-icon";
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/admin")) return null;
 
   return (
     <footer className="footer">

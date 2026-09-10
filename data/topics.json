@@ -15,21 +15,8 @@
     "generatedAt": "2026-09-07T12:45:42.567Z",
     "publishedAt": "2026-09-07T12:56:02.046Z",
     "slug": "comment-passer-le-caces",
-    "deletedAt": null
-  },
-  {
-    "id": "3fadf280-9bf9-4c63-a4d9-22d78c3db70d",
-    "title": "Pourquoi se former sur la sécurité ?",
-    "description": "Pourquoi se former sur la sécurité ?",
-    "keywords": [],
-    "tone": "professionnel",
-    "targetLength": 1000,
-    "status": "generated",
-    "createdAt": "2026-09-07T13:17:16.366Z",
-    "generatedAt": "2026-09-07T13:17:28.907Z",
-    "publishedAt": null,
-    "slug": "pourquoi-se-former-sur-la-securite",
-    "deletedAt": "2026-09-08T14:00:06.784Z"
+    "deletedAt": null,
+    "category": "caces"
   },
   {
     "id": "bc5dadf9-b707-44c9-89c4-c1ed47a70086",
@@ -47,20 +34,6 @@
     "category": "sécurité"
   },
   {
-    "id": "0609514e-fb07-4f49-b342-33c392f0f082",
-    "title": "Habilitation électrique : quelles différences entre B0, B1, B2, BR et BC ?",
-    "description": "Démystifier les niveaux d'habilitation électrique basse et haute tension, qui doit les passer, ce que chaque niveau autorise à faire sur le terrain, et comment se préparer à l'examen.",
-    "keywords": [],
-    "tone": "professionnel",
-    "targetLength": 1000,
-    "status": "generated",
-    "createdAt": "2026-09-07T14:05:03.176Z",
-    "generatedAt": "2026-09-08T08:36:56.156Z",
-    "publishedAt": null,
-    "slug": "habilitation-electrique-differences-b0-b1-b2-br-bc",
-    "deletedAt": "2026-09-08T14:00:01.921Z"
-  },
-  {
     "id": "5c290e68-e5cd-4a97-8dc1-d08942fd44d2",
     "title": "Comment prévenir les risques d'incendie en entreprise ?",
     "description": "Les obligations réglementaires de l'employeur, les équipements indispensables, l'importance de former ses équipes à la manipulation des extincteurs et aux procédures d'évacuation.",
@@ -76,33 +49,19 @@
     "category": "sécurité"
   },
   {
-    "id": "ed4d3199-84da-4991-83c6-a545ffe71aac",
-    "title": "Vérifications Générales Périodiques des chariots élévateurs",
-    "description": "explique en détail les vgp",
-    "keywords": [],
-    "tone": "décontracté",
-    "targetLength": 1000,
-    "status": "generated",
-    "createdAt": "2026-09-08T07:59:04.920Z",
-    "generatedAt": "2026-09-08T08:27:55.996Z",
-    "publishedAt": null,
-    "slug": "verifications-generales-periodiques-chariots-elevateurs",
-    "deletedAt": "2026-09-08T14:00:04.356Z"
-  },
-  {
     "id": "5271922f-d7e9-4698-9f75-aa413edbcb57",
     "title": "CACES R489 : nouveautés 2025",
     "description": "comment mettre vos salariés en conformité avec le nouveau référentiel chariot élévateur",
     "keywords": [],
     "tone": "professionnel",
     "targetLength": 1000,
-    "status": "pending",
+    "status": "generated",
     "createdAt": "2026-09-09T09:02:53.836Z",
-    "generatedAt": null,
+    "generatedAt": "2026-09-10T12:02:34.601Z",
     "publishedAt": null,
-    "slug": null,
+    "slug": "caces-r489-nouveautes-2025",
     "deletedAt": null,
-    "category": null
+    "category": "caces"
   },
   {
     "id": "2ae27b9e-995b-4cba-916f-4da1f6ab78ef",
@@ -111,13 +70,13 @@
     "keywords": [],
     "tone": "professionnel",
     "targetLength": 1000,
-    "status": "pending",
+    "status": "generated",
     "createdAt": "2026-09-09T09:02:53.856Z",
-    "generatedAt": null,
+    "generatedAt": "2026-09-10T08:34:09.786Z",
     "publishedAt": null,
-    "slug": null,
+    "slug": "habilitation-electrique-b0-h0-br-bc-choisir-niveau",
     "deletedAt": null,
-    "category": null
+    "category": "sécurité"
   },
   {
     "id": "e4a0f8d7-9ce4-4446-8539-e26ee3f33947",
@@ -163,5 +122,35 @@
     "slug": null,
     "deletedAt": null,
     "category": null
+  },
+  {
+    "id": "3f3d04ae-20a6-4ae6-a3f9-4f9bf0f3b986",
+    "title": "VGP : Pourquoi et quand faire vérifier vos engins de chantier ?",
+    "description": "Un guide pratique pour comprendre les obligations de périodicité des Vérifications Générales Périodiques et éviter les sanctions en cas d'accident.",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "pending",
+    "createdAt": "2026-09-10T09:04:48.587Z",
+    "generatedAt": null,
+    "publishedAt": null,
+    "slug": null,
+    "deletedAt": null,
+    "category": null
+  },
+  {
+    "id": "58d56c90-23fc-4252-93de-d95f7f0cb776",
+    "title": "AIPR : Opérateur, encadrant ou concepteur, quel profil pour quelle formation ?",
+    "description": "Clarification des rôles et des responsabilités liés à l'Autorisation d'Intervention à Proximité des Réseaux pour bien choisir son niveau de certification.",
+    "keywords": [],
+    "tone": "professionnel",
+    "targetLength": 1000,
+    "status": "published",
+    "createdAt": "2026-09-10T09:04:48.614Z",
+    "generatedAt": "2026-09-10T13:14:12.797Z",
+    "publishedAt": "2026-09-10T13:00:34.664Z",
+    "slug": "aipr-operateur-encadrant-ou-concepteur-quel-profil-pour-quelle-formation",
+    "deletedAt": null,
+    "category": "sécurité"
   }
 ]

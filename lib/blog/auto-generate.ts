@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { saveArticle } from "./articles";
+import { getCategories } from "./categories";
 import { generateArticle } from "./gemini";
 import { getTopics, updateTopic } from "./topics";
 import type { Article } from "./types";
@@ -28,7 +29,9 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
     return { generated: false, reason: "Aucun sujet en attente dans la file." };
   }
 
-  const generated = await generateArticle(topic);
+  const categoryNames = getCategories().map((c) => c.name);
+  const generated = await generateArticle(topic, categoryNames);
+  const category = topic.category || generated.suggestedCategory;
 
   const now = new Date().toISOString();
   const article: Article = {
@@ -41,10 +44,10 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
     generatedAt: now,
     status: "generated",
     image: null,
-    category: topic.category,
+    category,
   };
   saveArticle(article);
-  updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug });
+  updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug, category });
 
   const emailSent = await sendReviewEmail(topic.id, article.title);
 
