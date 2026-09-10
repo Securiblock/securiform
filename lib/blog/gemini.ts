@@ -10,9 +10,15 @@ export type GeneratedArticle = {
   metaDescription: string;
   content: string;
   readingTime: number;
+  suggestedCategory: string | null;
 };
 
-function buildPrompt(topic: Topic): string {
+function buildPrompt(topic: Topic, existingCategories: string[]): string {
+  const categoryInstructions =
+    existingCategories.length > 0
+      ? `Choisis la catégorie la plus pertinente parmi CELLES-CI UNIQUEMENT (reprends le nom exactement à l'identique) : ${existingCategories.join(", ")}. Si aucune ne convient vraiment, mets null.`
+      : `Aucune catégorie n'existe encore, mets null.`;
+
   return `
 Tu es un expert en rédaction SEO spécialisé dans le secteur de la formation professionnelle à la sécurité, aux habilitations et aux certifications CACES.
 
@@ -25,7 +31,7 @@ Génère un article de blog complet, informatif et 100% textuel en français ave
 **Longueur cible :** environ ${topic.targetLength} mots
 
 **Règles de rédaction strictes :**
-- Aucun bullet point, aucune liste à puces ou numérotée : uniquement des paragraphes structurés et cohérents
+- Aucun bullet point, aucune liste à puces ou numérotée dans le corps de l'article : uniquement des paragraphes structurés et cohérents (seule exception : la section finale « À retenir », voir structure ci-dessous)
 - Rédaction naturelle et fluide, jamais robotique
 - Champ sémantique riche autour de la formation professionnelle, sécurité au travail, habilitations électriques, CACES, prévention des risques et réglementation
 - Intègre naturellement SECURIFORM dans le corps du texte en mettant en avant : son expertise en formation, la qualité de ses formateurs, ses certifications, la variété de ses formations (CACES, habilitations, SST, etc.) et son accompagnement personnalisé
@@ -38,7 +44,8 @@ Génère un article de blog complet, informatif et 100% textuel en français ave
 - 4 à 6 sections avec balises H2 couvrant le sujet en profondeur
 - Des sous-sections H3 si le sujet le nécessite
 - Une conclusion avec un call-to-action invitant à contacter SECURIFORM ou à consulter leur catalogue de formations
-- Utilise le Markdown pour le formatage des titres uniquement
+- Termine l'article par une dernière section « ## À retenir » contenant une liste à puces Markdown de 4 points clés qui résument l'article, chacun au format "**Titre court** : explication brève" (c'est la seule section de tout l'article où une liste à puces est autorisée)
+- Utilise le Markdown pour le formatage des titres et de cette liste finale uniquement
 
 **Bonnes pratiques SEO à appliquer :**
 - Le mot-clé principal doit apparaître dans le H1, dans les 100 premiers mots et naturellement dans le texte
@@ -47,13 +54,16 @@ Génère un article de blog complet, informatif et 100% textuel en français ave
 - Chaque section H2 doit apporter une réponse concrète et de la valeur
 - Méta-description accrocheuse entre 150 et 160 caractères
 
+**Catégorie :** ${categoryInstructions}
+
 **Réponds UNIQUEMENT avec un objet JSON valide (sans backticks, sans markdown autour du JSON) :**
 {
   "title": "Titre H1 SEO optimisé de l'article",
   "slug": "titre-en-kebab-case",
   "metaDescription": "Description SEO entre 150 et 160 caractères, avec le mot-clé principal",
-  "content": "Contenu complet de l'article en Markdown, uniquement des paragraphes, aucune liste",
-  "readingTime": nombre_de_minutes_de_lecture
+  "content": "Contenu complet de l'article en Markdown, paragraphes uniquement sauf la liste à puces de la section finale « À retenir »",
+  "readingTime": nombre_de_minutes_de_lecture,
+  "suggestedCategory": "nom exact d'une catégorie existante, ou null"
 }
 `.trim();
 }
@@ -114,10 +124,13 @@ async function callGemini(prompt: string, maxOutputTokens = 4096): Promise<strin
   return text;
 }
 
-export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
-  const text = await callGemini(buildPrompt(topic));
+export async function generateArticle(
+  topic: Topic,
+  existingCategories: string[] = []
+): Promise<GeneratedArticle> {
+  const text = await callGemini(buildPrompt(topic, existingCategories));
 
-  let parsed: Partial<GeneratedArticle>;
+  let parsed: Partial<GeneratedArticle> & { suggestedCategory?: unknown };
   try {
     parsed = JSON.parse(extractJson(text));
   } catch {
@@ -128,6 +141,14 @@ export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
     throw new Error("La réponse de Gemini est incomplète (titre ou contenu manquant).");
   }
 
+  // Only trust the suggestion if it exactly matches one of the categories we
+  // actually offered — Gemini can invent names despite instructions.
+  const suggestedCategory =
+    typeof parsed.suggestedCategory === "string" &&
+    existingCategories.includes(parsed.suggestedCategory)
+      ? parsed.suggestedCategory
+      : null;
+
   return {
     title: parsed.title,
     slug: parsed.slug ? slugify(parsed.slug) : slugify(parsed.title),
@@ -137,6 +158,7 @@ export async function generateArticle(topic: Topic): Promise<GeneratedArticle> {
       typeof parsed.readingTime === "number" && parsed.readingTime > 0
         ? parsed.readingTime
         : Math.max(1, Math.round(parsed.content.split(/\s+/).length / 200)),
+    suggestedCategory,
   };
 }
 
@@ -175,4 +197,81 @@ export async function suggestImageIdeas(title: string, content: string): Promise
   }
 
   return parsed as string[];
+}
+
+export type TopicSuggestion = { title: string; description: string };
+
+// Catalogue réel des formations SECURIFORM (extrait des pages du site) —
+// permet à Gemini de proposer des sujets ancrés dans l'offre réelle plutôt
+// que des thèmes génériques hors catalogue.
+const FORMATIONS_CATALOGUE = `
+- CACES® : R482B (engins de chantier), R489A (chariots de manutention), R486B (nacelles élévatrices), R484A (ponts roulants et portiques), R485A (gerbeurs à conducteur accompagnant), R490A (grues auxiliaires de chargement)
+- VGP (Vérifications Générales Périodiques) : chariots élévateurs, nacelles élévatrices, grues auxiliaires, pelleteuses, ponts roulants, chargeuses, chariots télescopiques, compacteurs, hayons élévateurs, bras de levage, tombereaux, accessoires de levage
+- Habilitation électrique : personnel électricien, personnel non-électricien
+- Incendie et évacuation : manipulation d'extincteurs, évacuation, équipier de première intervention
+- Travaux en hauteur et échafaudages : travaux en hauteur, échafaudages fixes, échafaudages roulants
+- Secourisme : SST initiale, MAC SST, gestes qui sauvent
+- Gestes et postures
+- AIPR : opérateurs, encadrants, concepteurs
+- Formations spécifiques : tondeuses auto-portées, tronçonneuse thermique, balayeuses routières
+`.trim();
+
+function buildTopicSuggestionsPrompt(
+  existingTitles: string[],
+  count: number,
+  brief: string
+): string {
+  const existingList =
+    existingTitles.length > 0
+      ? existingTitles.map((t) => `- ${t}`).join("\n")
+      : "(aucun sujet pour l'instant)";
+  const briefLine = brief.trim()
+    ? `**Consignes particulières à respecter :** ${brief.trim()}`
+    : "";
+
+  return `
+Tu es stratège de contenu SEO pour le blog d'un organisme de formation professionnelle à la sécurité au travail (SECURIFORM).
+
+Voici le catalogue réel des formations proposées par SECURIFORM — privilégie des sujets ancrés dans cette offre réelle (obligations légales, préparation, renouvellement, cas concrets, différences entre catégories...) plutôt que des thèmes trop génériques ou hors catalogue :
+${FORMATIONS_CATALOGUE}
+
+Voici les sujets d'articles déjà traités (publiés ou en file d'attente) — NE PROPOSE RIEN QUI FASSE DOUBLON OU SOIT TROP PROCHE DE CETTE LISTE :
+${existingList}
+
+${briefLine}
+
+Propose ${count} nouveaux sujets d'articles de blog, originaux et pertinents pour ce secteur, qui n'existent pas encore dans la liste ci-dessus.
+
+**Réponds UNIQUEMENT avec un tableau JSON valide de ${count} objets, sans backticks ni markdown autour :**
+[{"title": "Titre du sujet", "description": "Description du sujet en 1 à 2 phrases"}]
+`.trim();
+}
+
+export async function suggestTopics(
+  existingTitles: string[],
+  count: number,
+  brief: string
+): Promise<TopicSuggestion[]> {
+  const text = await callGemini(buildTopicSuggestionsPrompt(existingTitles, count, brief), 2048);
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(extractJson(text));
+  } catch {
+    throw new Error("Impossible d'analyser les suggestions de sujets de Gemini. Réessayez.");
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("Réponse de suggestions de sujets inattendue.");
+  }
+
+  return parsed
+    .filter(
+      (item): item is TopicSuggestion =>
+        typeof item === "object" &&
+        item !== null &&
+        typeof (item as TopicSuggestion).title === "string" &&
+        typeof (item as TopicSuggestion).description === "string"
+    )
+    .slice(0, count);
 }

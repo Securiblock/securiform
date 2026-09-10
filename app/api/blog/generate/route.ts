@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getArticle, saveArticle } from "@/lib/blog/articles";
+import { getCategories } from "@/lib/blog/categories";
 import { generateArticle } from "@/lib/blog/gemini";
 import { getTopic, updateTopic } from "@/lib/blog/topics";
 import type { Article } from "@/lib/blog/types";
@@ -16,9 +17,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
   }
 
+  const categoryNames = getCategories().map((c) => c.name);
+
   let generated;
   try {
-    generated = await generateArticle(topic);
+    generated = await generateArticle(topic, categoryNames);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Erreur inconnue lors de la génération.";
     return NextResponse.json({ error: message }, { status: 502 });
@@ -28,6 +31,10 @@ export async function POST(request: Request) {
   // de la perdre à chaque nouvelle génération.
   const previousImage =
     topic.slug === generated.slug ? getArticle(generated.slug)?.image ?? null : null;
+
+  // Le sujet a déjà une catégorie choisie manuellement -> on la garde telle
+  // quelle. Sinon on reprend la suggestion de Gemini (peut rester null).
+  const category = topic.category || generated.suggestedCategory;
 
   const now = new Date().toISOString();
   const article: Article = {
@@ -40,7 +47,7 @@ export async function POST(request: Request) {
     generatedAt: now,
     status: "generated",
     image: previousImage,
-    category: topic.category,
+    category,
   };
 
   saveArticle(article);
@@ -48,6 +55,7 @@ export async function POST(request: Request) {
     status: "generated",
     generatedAt: now,
     slug: article.slug,
+    category,
   });
 
   return NextResponse.json({ article, topic: updatedTopic });

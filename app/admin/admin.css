@@ -4,3 +4,17 @@
 @import "tailwindcss/theme.css";
 @import "tailwindcss/utilities.css";
 @plugin "@tailwindcss/typography";
+
+/* Mirrors the public site's "À retenir" red block (see .article-content in
+   app/globals.css) so the editor preview matches what actually publishes. */
+.prose h2.a-retenir{
+  background:linear-gradient(150deg,var(--rouge) 0%,var(--rouge-fonce) 100%);
+  color:#fff;padding:1.3rem 1.5rem .7rem;border-radius:10px 10px 0 0;margin:1.8rem 0 0;
+}
+.prose h2.a-retenir+ul{
+  background:linear-gradient(150deg,var(--rouge) 0%,var(--rouge-fonce) 100%);
+  margin:0 0 1.5rem;padding:0 1.5rem 1.3rem;border-radius:0 0 10px 10px;list-style:none;
+}
+.prose h2.a-retenir+ul li{color:#fff;padding-left:0}
+.prose h2.a-retenir+ul li::marker{content:none}
+.prose h2.a-retenir+ul li strong{color:#fff}

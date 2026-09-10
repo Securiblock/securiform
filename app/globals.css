@@ -431,9 +431,58 @@ h3{font-size:26px}
 }
 
 /* --- Article de blog (contenu Markdown généré) --- */
-.article-content{max-width:760px;margin-inline:auto;font-size:19px;color:var(--noir)}
-.article-content h2{font-size:30px;margin:2.6rem 0 1.2rem}
-.article-content h3{font-size:22px;margin:2rem 0 1rem}
+.article-content{max-width:760px;margin-inline:auto;font-size:19px;color:var(--noir);counter-reset:section}
+.article-content>p:first-of-type{font-size:23px;font-weight:500;color:var(--gris);line-height:1.6}
+.article-content h2{
+  counter-increment:section;
+  display:flex;align-items:center;gap:1.1rem;
+  font-size:30px;margin:3.4rem 0 1.4rem;
+}
+.article-content h2::before{
+  content:counter(section);
+  flex-shrink:0;width:46px;height:46px;border-radius:11px;
+  display:grid;place-items:center;
+  font-family:var(--titre);font-weight:700;font-size:21px;color:#fff;
+}
+/* Un badge carré différent (couleur + légère rotation) toutes les 4 sections,
+   pour casser la monotonie visuelle sans sortir de la palette de marque. */
+.article-content h2:nth-of-type(4n+1)::before{background:var(--rouge);transform:rotate(-5deg)}
+.article-content h2:nth-of-type(4n+2)::before{background:var(--noir);transform:rotate(4deg)}
+.article-content h2:nth-of-type(4n+3)::before{background:var(--rouge-fonce);transform:rotate(-3deg)}
+.article-content h2:nth-of-type(4n)::before{background:var(--gris);transform:rotate(3deg)}
+/* Section finale "À retenir" (voir lib/blog/gemini.ts) : bloc rouge plein,
+   comme les encarts "Nos valeurs" de l'accueil, au lieu du badge numéroté. */
+.article-content h2.a-retenir{
+  display:block;color:#fff;
+  background:linear-gradient(150deg,var(--rouge) 0%,var(--rouge-fonce) 100%);
+  padding:1.8rem 2.2rem 1rem;border-radius:14px 14px 0 0;
+  margin:3.4rem 0 0;box-shadow:var(--ombre);
+}
+.article-content h2.a-retenir::before{display:none}
+.article-content h2.a-retenir+ul{
+  background:linear-gradient(150deg,var(--rouge) 0%,var(--rouge-fonce) 100%);
+  color:#fff;list-style:none;margin:0 0 2.5rem;padding:0 2.2rem 1.8rem;
+  border-radius:0 0 14px 14px;box-shadow:var(--ombre);
+}
+.article-content h2.a-retenir+ul li{
+  display:flex;gap:.9rem;align-items:flex-start;
+  padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.22);
+  font-size:19px;font-weight:600;margin-bottom:0;
+}
+.article-content h2.a-retenir+ul li:last-child{border-bottom:none}
+.article-content h2.a-retenir+ul li::before{
+  content:"✓";flex-shrink:0;width:28px;height:28px;border-radius:50%;
+  background:#fff;color:var(--rouge);display:grid;place-items:center;
+  font-size:15px;font-weight:700;margin-top:.15rem;
+}
+.article-content h3{
+  display:flex;align-items:center;gap:.7rem;
+  font-size:22px;margin:2rem 0 1rem;
+}
+.article-content h3::before{
+  content:"";flex-shrink:0;width:10px;height:10px;border-radius:3px;
+  background:var(--rouge);transform:rotate(45deg);
+}
 .article-content p{margin-bottom:1.3rem;line-height:1.7}
 .article-content ul,.article-content ol{margin:0 0 1.3rem 1.4rem;color:var(--noir)}
 .article-content ul{list-style:disc}

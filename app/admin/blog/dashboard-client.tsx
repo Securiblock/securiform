@@ -13,7 +13,6 @@ const FILTERS: { value: FilterValue; label: string }[] = [
   { value: "all", label: "Tous" },
   { value: "pending", label: "En attente" },
   { value: "generated", label: "Généré" },
-  { value: "approved", label: "Validé" },
   { value: "published", label: "Publié" },
   { value: "trash", label: "Corbeille" },
 ];
@@ -21,9 +20,11 @@ const FILTERS: { value: FilterValue; label: string }[] = [
 export default function BlogDashboard({
   topics,
   categories,
+  images,
 }: {
   topics: Topic[];
   categories: Category[];
+  images: Record<string, string>;
 }) {
   const [filter, setFilter] = useState<FilterValue>("all");
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -40,6 +41,11 @@ export default function BlogDashboard({
   const [newCategoryName, setNewCategoryName] = useState("");
   const [categoryBusy, setCategoryBusy] = useState<string | null>(null);
   const [categoryError, setCategoryError] = useState<string | null>(null);
+  const [suggestOpen, setSuggestOpen] = useState(false);
+  const [suggestCount, setSuggestCount] = useState(5);
+  const [suggestBrief, setSuggestBrief] = useState("");
+  const [suggestBusy, setSuggestBusy] = useState(false);
+  const [suggestError, setSuggestError] = useState<string | null>(null);
   const router = useRouter();
 
   const pendingCount = useMemo(
@@ -221,6 +227,31 @@ export default function BlogDashboard({
     }
   }
 
+  async function handleSuggestTopics() {
+    setSuggestBusy(true);
+    setSuggestError(null);
+    try {
+      const res = await fetch("/api/blog/suggest-topics", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ count: suggestCount, brief: suggestBrief }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Échec de la suggestion.");
+
+      const lines: string[] = data.suggestions.map(
+        (s: { title: string; description: string }) => `${s.title} | ${s.description}`
+      );
+      setQuickAddText((prev) => (prev.trim() ? `${prev.trim()}\n${lines.join("\n")}` : lines.join("\n")));
+      setQuickAddOpen(true);
+      setSuggestOpen(false);
+    } catch (err) {
+      setSuggestError(err instanceof Error ? err.message : "Erreur inconnue.");
+    } finally {
+      setSuggestBusy(false);
+    }
+  }
+
   async function handlePurge(id: string, title: string) {
     if (
       !confirm(
@@ -243,9 +274,16 @@ export default function BlogDashboard({
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="text-2xl font-bold">Articles de blog</h1>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={() => setSuggestOpen((v) => !v)}
+            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            ✨ Suggestions IA
+          </button>
           <button
             type="button"
             onClick={() => setCategoriesOpen((v) => !v)}
@@ -268,6 +306,57 @@ export default function BlogDashboard({
           </Link>
         </div>
       </div>
+
+      {suggestOpen && (
+        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
+          <h2 className="mb-1 text-sm font-bold">Suggestions de sujets (Gemini)</h2>
+          <p className="mb-3 text-xs text-slate-500">
+            Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en
+            file pour éviter les doublons, et propose de nouvelles idées. Elles
+            s&apos;ajoutent à l&apos;ajout rapide pour relecture avant création.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <div>
+              <label className="mb-1 block text-xs font-semibold text-slate-500">
+                Nombre de sujets
+              </label>
+              <input
+                type="number"
+                min={1}
+                max={10}
+                value={suggestCount}
+                onChange={(e) =>
+                  setSuggestCount(Math.min(10, Math.max(1, Number(e.target.value) || 1)))
+                }
+                className="w-24 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+              />
+            </div>
+            <div className="min-w-[220px] flex-1">
+              <label className="mb-1 block text-xs font-semibold text-slate-500">
+                Description / consignes (optionnel)
+              </label>
+              <input
+                type="text"
+                value={suggestBrief}
+                onChange={(e) => setSuggestBrief(e.target.value)}
+                placeholder="ex. sujets orientés BTP, ou sur les nouveautés réglementaires"
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+              />
+            </div>
+          </div>
+          {suggestError && <p className="mt-3 text-sm text-red-600">{suggestError}</p>}
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={handleSuggestTopics}
+              disabled={suggestBusy}
+              className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
+            >
+              {suggestBusy ? "Génération... (10-15 s)" : "✨ Générer des suggestions"}
+            </button>
+          </div>
+        </div>
+      )}
 
       {categoriesOpen && (
         <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
@@ -299,7 +388,7 @@ export default function BlogDashboard({
 
           {categoryError && <p className="mb-3 text-sm text-red-600">{categoryError}</p>}
 
-          <div className="flex gap-3">
+          <div className="flex flex-wrap gap-3">
             <input
               type="text"
               value={newCategoryName}
@@ -380,7 +469,7 @@ export default function BlogDashboard({
         </div>
       )}
 
-      <div className="mb-6 flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4">
+      <div className="mb-6 flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-slate-600">
           <span className="font-semibold">Génération automatique</span> — tous les 2 jours en
           production (Vercel Cron), un sujet en attente est généré et vous recevez un email
@@ -391,7 +480,7 @@ export default function BlogDashboard({
           type="button"
           onClick={handleAutoGenerateNow}
           disabled={autoGenBusy}
-          className="shrink-0 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
+          className="shrink-0 self-start rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 sm:self-auto"
         >
           {autoGenBusy ? "..." : "🧪 Tester maintenant"}
         </button>
@@ -440,8 +529,8 @@ export default function BlogDashboard({
         ))}
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
-        <table className="w-full text-left text-sm">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+        <table className="w-full min-w-[720px] text-left text-sm">
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
               <th className="px-5 py-3">Titre</th>
@@ -465,7 +554,18 @@ export default function BlogDashboard({
             )}
             {filtered.map((topic) => (
               <tr key={topic.id} className="border-t border-slate-100">
-                <td className="px-5 py-4 font-medium text-slate-900">{topic.title}</td>
+                <td
+                  className="bg-cover bg-center px-5 py-4 font-medium text-slate-900"
+                  style={
+                    images[topic.id]
+                      ? {
+                          backgroundImage: `linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)), url(${images[topic.id]})`,
+                        }
+                      : undefined
+                  }
+                >
+                  {topic.title}
+                </td>
                 <td className="max-w-xs truncate px-5 py-4 text-slate-500">
                   {topic.description}
                 </td>
