@@ -5,7 +5,7 @@ import type { NewTopicInput, TopicTone } from "@/lib/blog/types";
 const VALID_TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 
 export async function GET() {
-  return NextResponse.json(getTopics());
+  return NextResponse.json(await getTopics());
 }
 
 export async function POST(request: Request) {
@@ -40,6 +40,6 @@ export async function POST(request: Request) {
     category: typeof body.category === "string" && body.category.trim() ? body.category.trim() : null,
   };
 
-  const topic = createTopic(input);
+  const topic = await createTopic(input);
   return NextResponse.json(topic, { status: 201 });
 }

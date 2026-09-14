@@ -20,7 +20,8 @@ export type AutoGenerateResult =
 // "test now" button in the admin dashboard — see app/api/cron/generate-article
 // and app/api/blog/generate-next.
 export async function runAutoGenerate(): Promise<AutoGenerateResult> {
-  const queue = getTopics()
+  const allTopics = await getTopics();
+  const queue = allTopics
     .filter((t) => t.status === "pending" && !t.deletedAt)
     .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
 
@@ -29,7 +30,7 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
     return { generated: false, reason: "Aucun sujet en attente dans la file." };
   }
 
-  const categoryNames = getCategories().map((c) => c.name);
+  const categoryNames = (await getCategories()).map((c) => c.name);
   const generated = await generateArticle(topic, categoryNames);
   const category = topic.category || generated.suggestedCategory;
 
@@ -46,8 +47,8 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
     image: null,
     category,
   };
-  saveArticle(article);
-  updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug, category });
+  await saveArticle(article);
+  await updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug, category });
 
   const emailSent = await sendReviewEmail(topic.id, article.title);
 

@@ -3,8 +3,9 @@ import { getPublishedArticles } from "@/lib/blog/content";
 
 const BASE_URL = "https://securiform.fr";
 
-// Reads content/blog/*.mdx at request time (for the article list below), so
-// this can't be prerendered once at build time — force it to stay live.
+// Reads published_articles from the database at request time (for the
+// article list below), so this can't be prerendered once at build time —
+// force it to stay live.
 export const dynamic = "force-dynamic";
 
 const hubs: { path: string; priority: number }[] = [
@@ -66,9 +67,9 @@ const pages: string[] = [
 
 const legal: string[] = ["/mentions-legales", "/conditions-generales-de-vente"];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  const articles = getPublishedArticles();
+  const articles = await getPublishedArticles();
 
   return [
     ...hubs.map(({ path, priority }) => ({

@@ -1,15 +1,13 @@
-import { existsSync, unlinkSync } from "fs";
-import { join } from "path";
 import { NextResponse } from "next/server";
 import { deleteArticle, getArticle, saveArticle } from "@/lib/blog/articles";
-import { setPublishedFlag } from "@/lib/blog/content";
+import { deletePublishedArticle, setPublishedFlag } from "@/lib/blog/content";
 import { deleteTopic, getTopic, isTopicStatus, trashTopic, updateTopic } from "@/lib/blog/topics";
 
 type Params = { params: Promise<{ id: string }> };
 
 export async function GET(_request: Request, { params }: Params) {
   const { id } = await params;
-  const topic = getTopic(id);
+  const topic = await getTopic(id);
   if (!topic) {
     return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
   }
@@ -18,7 +16,7 @@ export async function GET(_request: Request, { params }: Params) {
 
 export async function PUT(request: Request, { params }: Params) {
   const { id } = await params;
-  const existing = getTopic(id);
+  const existing = await getTopic(id);
   if (!existing) {
     return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
   }
@@ -31,13 +29,13 @@ export async function PUT(request: Request, { params }: Params) {
     return NextResponse.json({ error: "Statut invalide." }, { status: 400 });
   }
 
-  const updated = updateTopic(id, body);
+  const updated = await updateTopic(id, body);
 
   // Restoring a topic that was published while trashed: bring its page back
   // online. (Trashing already took it offline — see DELETE below.)
   const isRestore = body.deletedAt === null && existing.deletedAt !== null;
   if (isRestore && existing.status === "published" && existing.slug) {
-    setPublishedFlag(existing.slug, true);
+    await setPublishedFlag(existing.slug, true);
   }
 
   // Moving a published topic to any other status (the "Dépublier" action)
@@ -46,9 +44,9 @@ export async function PUT(request: Request, { params }: Params) {
   const isUnpublish =
     existing.status === "published" && body.status !== undefined && body.status !== "published";
   if (isUnpublish && existing.slug) {
-    setPublishedFlag(existing.slug, false);
-    const article = getArticle(existing.slug);
-    if (article) saveArticle({ ...article, status: "approved" });
+    await setPublishedFlag(existing.slug, false);
+    const article = await getArticle(existing.slug);
+    if (article) await saveArticle({ ...article, status: "approved" });
   }
 
   return NextResponse.json(updated);
@@ -59,30 +57,29 @@ export async function DELETE(request: Request, { params }: Params) {
   const permanent = new URL(request.url).searchParams.get("permanent") === "true";
 
   if (!permanent) {
-    const existing = getTopic(id);
-    const trashed = trashTopic(id);
+    const existing = await getTopic(id);
+    const trashed = await trashTopic(id);
     if (!trashed) {
       return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
     }
     // Trashing a published topic takes its page offline immediately —
     // otherwise it'd still be publicly reachable while "deleted" in admin.
     if (existing?.status === "published" && existing.slug) {
-      setPublishedFlag(existing.slug, false);
+      await setPublishedFlag(existing.slug, false);
     }
     return NextResponse.json({ success: true, trashed: true });
   }
 
-  const topic = getTopic(id);
+  const topic = await getTopic(id);
   if (!topic) {
     return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
   }
 
   if (topic.slug) {
-    deleteArticle(topic.slug);
-    const mdxFile = join(process.cwd(), "content", "blog", `${topic.slug}.mdx`);
-    if (existsSync(mdxFile)) unlinkSync(mdxFile);
+    await deleteArticle(topic.slug);
+    await deletePublishedArticle(topic.slug);
   }
 
-  deleteTopic(id);
+  await deleteTopic(id);
   return NextResponse.json({ success: true, trashed: false });
 }

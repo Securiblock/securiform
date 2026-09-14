@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "slug manquant." }, { status: 400 });
   }
 
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!article) {
     return NextResponse.json({ error: "Article introuvable." }, { status: 404 });
   }

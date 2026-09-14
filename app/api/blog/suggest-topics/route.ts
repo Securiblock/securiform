@@ -11,9 +11,8 @@ export async function POST(request: Request) {
       : 5;
   const brief = typeof body?.brief === "string" ? body.brief : "";
 
-  const existingTitles = getTopics()
-    .filter((t) => !t.deletedAt)
-    .map((t) => t.title);
+  const allTopics = await getTopics();
+  const existingTitles = allTopics.filter((t) => !t.deletedAt).map((t) => t.title);
 
   try {
     const suggestions = await suggestTopics(existingTitles, count, brief);

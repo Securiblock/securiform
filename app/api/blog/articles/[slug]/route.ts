@@ -6,7 +6,7 @@ type Params = { params: Promise<{ slug: string }> };
 
 export async function GET(_request: Request, { params }: Params) {
   const { slug } = await params;
-  const article = getArticle(slug);
+  const article = await getArticle(slug);
   if (!article) {
     return NextResponse.json({ error: "Article introuvable." }, { status: 404 });
   }
@@ -15,7 +15,7 @@ export async function GET(_request: Request, { params }: Params) {
 
 export async function PUT(request: Request, { params }: Params) {
   const { slug } = await params;
-  const existing = getArticle(slug);
+  const existing = await getArticle(slug);
   if (!existing) {
     return NextResponse.json({ error: "Article introuvable." }, { status: 404 });
   }
@@ -39,10 +39,10 @@ export async function PUT(request: Request, { params }: Params) {
         : existing.category,
   };
 
-  saveArticle(updated);
+  await saveArticle(updated);
 
   if (updated.category !== existing.category) {
-    updateTopic(updated.id, { category: updated.category });
+    await updateTopic(updated.id, { category: updated.category });
   }
 
   return NextResponse.json(updated);

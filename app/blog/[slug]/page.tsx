@@ -14,7 +14,7 @@ function formatArticleDate(date: string): string {
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const article = getPublishedArticle(slug);
+  const article = await getPublishedArticle(slug);
   if (!article) return {};
 
   return {
@@ -35,11 +35,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function BlogArticlePage({ params }: Params) {
   const { slug } = await params;
-  const article = getPublishedArticle(slug);
+  const article = await getPublishedArticle(slug);
   if (!article) notFound();
 
   const relatedArticles = article.category
-    ? getPublishedArticles()
+    ? (await getPublishedArticles())
         .filter((a) => a.category === article.category && a.slug !== article.slug)
         .slice(0, 3)
     : [];

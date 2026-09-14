@@ -7,11 +7,11 @@ type Params = { params: Promise<{ id: string }> };
 
 export default async function EditArticlePage({ params }: Params) {
   const { id } = await params;
-  const topic = getTopic(id);
+  const topic = await getTopic(id);
   if (!topic) notFound();
   if (!topic.slug) redirect(`/admin/blog/${id}`);
 
-  const article = getArticle(topic.slug);
+  const article = await getArticle(topic.slug);
   if (!article) redirect(`/admin/blog/${id}`);
 
   return <ArticleEditor key={article.generatedAt} topic={topic} article={article} />;

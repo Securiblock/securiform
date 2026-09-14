@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createCategory, getCategories } from "@/lib/blog/categories";
 
 export async function GET() {
-  return NextResponse.json(getCategories());
+  return NextResponse.json(await getCategories());
 }
 
 export async function POST(request: Request) {
@@ -12,6 +12,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Le nom de la catégorie est obligatoire." }, { status: 400 });
   }
 
-  const category = createCategory(name);
+  const category = await createCategory(name);
   return NextResponse.json(category, { status: 201 });
 }
