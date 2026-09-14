@@ -256,7 +256,7 @@ const formations = [
     img: "/image/formation-specifiques.jpg",
     alt: "Formations spécifiques SECURIFORM",
     title: "Formations spécifiques",
-    text: "Tondeuses auto-portées, balayeuses routières, tronçonneuse thermique, gestes qui sauvent… sur mesure.",
+    text: "Tondeuses auto-portées, balayeuses routières, tronçonneuses thermiques, gestes qui sauvent… sur mesure.",
     href: "/formations-specifiques",
   },
 ];

@@ -7,8 +7,8 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Utilisation en sécurité d'une tronçonneuse thermique à chaîne",
-      "description": "Formation à l'utilisation en sécurité d'une tronçonneuse thermique à chaîne, couvrant le risque de rebond, les équipements de protection individuelle, les vérifications avant utilisation et la technique d'abattage.",
+      "name": "Utilisation en sécurité d'une tronçonneuses thermiques à chaîne",
+      "description": "Formation à l'utilisation en sécurité d'une tronçonneuses thermiques à chaîne, couvrant le risque de rebond, les équipements de protection individuelle, les vérifications avant utilisation et la technique d'abattage.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -34,7 +34,7 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Tronçonneuse thermique",
+          "name": "tronçonneuses thermiques",
           "item": "https://securiform.fr/utilisation-en-securite-dune-tronconneuse-thermique-a-chaine/"
         }
       ]
@@ -44,21 +44,21 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Utilisation sécurisée d'une tronçonneuse — SECURIFORM",
-  description: "Formation SECURIFORM à l'utilisation sécurisée d'une tronçonneuse thermique : risque de rebond, équipements de protection, vérifications.",
+  description: "Formation SECURIFORM à l'utilisation sécurisée d'une tronçonneuses thermiques : risque de rebond, équipements de protection, vérifications.",
   alternates: { canonical: "/tronconneuse-thermique" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/tronconneuse-thermique",
-    title: "Utilisation en sécurité d'une tronçonneuse thermique à chaîne — SECURIFORM",
+    title: "Utilisation en sécurité d'une tronçonneuses thermiques à chaîne — SECURIFORM",
     description: "Formation SECURIFORM au risque de rebond, aux équipements de protection et à la technique de coupe en sécurité.",
     images: ["/image/formation-tronconneuse.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utilisation en sécurité d'une tronçonneuse thermique — SECURIFORM",
-    description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuse thermique, avec SECURIFORM.",
+    title: "Utilisation en sécurité d'une tronçonneuses thermiques — SECURIFORM",
+    description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuses thermiques, avec SECURIFORM.",
     images: ["/image/formation-tronconneuse.jpg"],
   },
 };
@@ -77,16 +77,16 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuse thermique" style={{ backgroundImage: "url('/image/formation-tronconneuse.jpg')" }}>
+<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuses thermiques" style={{ backgroundImage: "url('/image/formation-tronconneuse.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
           <span aria-hidden="true">›</span>
           <Link href="/formations-specifiques">Formations spécifiques</Link>
           <span aria-hidden="true">›</span>
-          <span>Tronçonneuse thermique</span>
+          <span>tronçonneuses thermiques</span>
         </p>
-        <h1>Utilisation en sécurité d'une tronçonneuse thermique à chaîne</h1>
+        <h1>Utilisation en sécurité d'une tronçonneuses thermiques à chaîne</h1>
         <p>Prise en main, entretien et bonnes pratiques de coupe&nbsp;: une formation centrée sur le risque le plus caractéristique de cet outil, le rebond.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -267,7 +267,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation tronçonneuse thermique</h2>
+          <h2 id="titre-devis">Programmer une formation tronçonneuses thermiques</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>

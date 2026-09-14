@@ -8,7 +8,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations travaux en hauteur et échafaudages",
-      "description": "Formation au port du harnais anti-chute, formation échafaudages fixes (recommandation R408) et formation échafaudages roulants (recommandation R457), conformément au Code du travail.",
+      "description": "Formation au Port du harnais anti-chute, formation échafaudages fixes (recommandation R408) et formation échafaudages roulants (recommandation R457), conformément au Code du travail.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Travaux en hauteur et échafaudages — SECURIFORM",
-  description: "SECURIFORM forme au port du harnais anti-chute et au montage d'échafaudages fixes (R408) et roulants (R457), partout en France.",
+  description: "SECURIFORM forme au Port du harnais anti-chute et au montage d'échafaudages fixes (R408) et roulants (R457), partout en France.",
   alternates: { canonical: "/travaux-hauteur-echafaudages" },
   openGraph: {
     type: "article",
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-harnais.jpg" alt="Formation port du harnais anti-chute" loading="lazy" />
+              <img src="/image/formation-harnais.jpg" alt="Formation Port du harnais anti-chute" loading="lazy" />
             </div>
             <h3>Travaux en hauteur</h3>
             <p>Port du harnais anti-chute, longes, antichutes à rappel automatique et points d'ancrage&nbsp;: les bons réflexes pour travailler en hauteur en sécurité.</p>
@@ -121,7 +121,7 @@ export default function Page() {
               <img src="/image/formation-echafaudage-fixe.jpg" alt="Formation échafaudages fixes R408" loading="lazy" />
             </div>
             <h3>Échafaudages fixes (R408)</h3>
-            <p>Montage, utilisation, démontage et réception d'échafaudages de pied ancrés à la façade, pour les travaux de longue durée.</p>
+            <p>Utilisation, montage-démontage, utilisation, démontage et réception d'échafaudages de pied ancrés à la façade, pour les travaux de longue durée.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/echafaudages-fixes" aria-label="Formation échafaudages fixes" />
           </article>
