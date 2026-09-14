@@ -50,11 +50,22 @@ function markKeyTakeawaysHeading(html: string): string {
   return html.replace("<h2>À retenir</h2>", '<h2 class="a-retenir">À retenir</h2>');
 }
 
+// The homepage renders its "derniers articles" teaser statically (see
+// app/page.tsx), so `next build` calls this at build time to prerender it —
+// in an environment with no DATABASE_URL (CI, a fresh checkout) or a
+// momentarily unreachable database, that would otherwise fail the entire
+// build over a promotional block. Degrade to an empty list instead; /blog
+// and /admin/blog are force-dynamic and always show the real, live list.
 export async function getPublishedArticles(): Promise<ArticleSummary[]> {
-  const rows = (await sql`
-    SELECT * FROM published_articles WHERE published = true ORDER BY date DESC
-  `) as PublishedRow[];
-  return rows.map(rowToSummary);
+  try {
+    const rows = (await sql`
+      SELECT * FROM published_articles WHERE published = true ORDER BY date DESC
+    `) as PublishedRow[];
+    return rows.map(rowToSummary);
+  } catch (err) {
+    console.warn("getPublishedArticles: base de données inaccessible, liste vide.", err);
+    return [];
+  }
 }
 
 export async function getPublishedArticle(slug: string): Promise<PublishedArticle | undefined> {
