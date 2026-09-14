@@ -303,8 +303,8 @@ export default async function Home() {
             <div className="stat-label">Taux de satisfaction</div>
           </div>
           <div className="reveal">
-            <div className="stat-num" data-count="1" data-suffix="h">
-              0h
+            <div className="stat-num" data-count="60" data-suffix="mins">
+              0mins
             </div>
             <div className="stat-label">
               Délai moyen de traitement de votre demande
