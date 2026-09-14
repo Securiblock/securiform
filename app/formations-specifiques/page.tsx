@@ -8,7 +8,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations spécifiques",
-      "description": "Formations sur mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses auto-portées, utilisation de tronçonneuse thermique à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
+      "description": "Formations sur mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses auto-portées, utilisation de tronçonneuses thermiques à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations spécifiques — SECURIFORM",
-  description: "SECURIFORM propose des formations sur mesure : tondeuses auto-portées, tronçonneuse thermique, balayeuses routières, gestes qui sauvent.",
+  description: "SECURIFORM propose des formations sur mesure : tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
   alternates: { canonical: "/formations-specifiques" },
   openGraph: {
     type: "article",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/formations-specifiques",
     title: "Formations spécifiques — SECURIFORM",
-    description: "Tondeuses auto-portées, tronçonneuse thermique, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
+    description: "Tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
     images: ["/image/formation-specifiques.jpg"],
   },
   twitter: {
@@ -118,12 +118,12 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tronconneuse.jpg" alt="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" loading="lazy" />
+              <img src="/image/formation-tronconneuse.jpg" alt="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" loading="lazy" />
             </div>
-            <h3>Tronçonneuse thermique</h3>
-            <p>Utilisation en sécurité d'une tronçonneuse thermique à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
+            <h3>tronçonneuses thermiques</h3>
+            <p>Utilisation en sécurité d'une tronçonneuses thermiques à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
             <span className="lien">Découvrir</span>
-            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" />
+            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" />
           </article>
 
           <article className="formation-card reveal">
@@ -257,7 +257,7 @@ export default function Page() {
               <label htmlFor="formation">Votre besoin</label>
               <select id="formation" name="formation">
                 <option value="tondeuse">Tondeuse auto-portée</option>
-                <option value="tronconneuse">Tronçonneuse thermique</option>
+                <option value="tronconneuse">tronçonneuses thermiques</option>
                 <option value="balayeuse">Balayeuse routière</option>
                 <option value="gestes">Sensibilisation gestes qui sauvent</option>
                 <option value="autre">Autre équipement / besoin spécifique</option>

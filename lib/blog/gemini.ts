@@ -213,7 +213,7 @@ const FORMATIONS_CATALOGUE = `
 - Secourisme : SST initiale, MAC SST, gestes qui sauvent
 - Gestes et postures
 - AIPR : opérateurs, encadrants, concepteurs
-- Formations spécifiques : tondeuses auto-portées, tronçonneuse thermique, balayeuses routières
+- Formations spécifiques : tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières
 `.trim();
 
 function buildTopicSuggestionsPrompt(
