@@ -185,7 +185,7 @@ export default function Page() {
           <div className="stat-label">Taux de satisfaction</div>
         </div>
         <div className="reveal">
-          <div className="stat-num" data-count="24" data-suffix="h">0h</div>
+          <div className="stat-num" data-count="1" data-suffix="h">0h</div>
           <div className="stat-label">Délai moyen de traitement de votre demande</div>
         </div>
       </div>

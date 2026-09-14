@@ -12,12 +12,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "topicId manquant." }, { status: 400 });
   }
 
-  const topic = getTopic(topicId);
+  const topic = await getTopic(topicId);
   if (!topic) {
     return NextResponse.json({ error: "Sujet introuvable." }, { status: 404 });
   }
 
-  const categoryNames = getCategories().map((c) => c.name);
+  const categoryNames = (await getCategories()).map((c) => c.name);
 
   let generated;
   try {
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
   // Régénération sur le même slug : on garde l'image déjà choisie plutôt que
   // de la perdre à chaque nouvelle génération.
   const previousImage =
-    topic.slug === generated.slug ? getArticle(generated.slug)?.image ?? null : null;
+    topic.slug === generated.slug ? (await getArticle(generated.slug))?.image ?? null : null;
 
   // Le sujet a déjà une catégorie choisie manuellement -> on la garde telle
   // quelle. Sinon on reprend la suggestion de Gemini (peut rester null).
@@ -50,8 +50,8 @@ export async function POST(request: Request) {
     category,
   };
 
-  saveArticle(article);
-  const updatedTopic = updateTopic(topic.id, {
+  await saveArticle(article);
+  const updatedTopic = await updateTopic(topic.id, {
     status: "generated",
     generatedAt: now,
     slug: article.slug,

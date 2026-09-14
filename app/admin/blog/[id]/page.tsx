@@ -8,7 +8,7 @@ type Params = { params: Promise<{ id: string }> };
 
 export default async function TopicDetailPage({ params }: Params) {
   const { id } = await params;
-  const topic = getTopic(id);
+  const topic = await getTopic(id);
   if (!topic) notFound();
 
   return (

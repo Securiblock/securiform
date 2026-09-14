@@ -276,8 +276,8 @@ const vgpLinks = [
   { href: "/vgp-accessoires-levage", label: "Accessoires de levage" },
 ];
 
-export default function Home() {
-  const latestArticles = getPublishedArticles().slice(0, 3);
+export default async function Home() {
+  const latestArticles = (await getPublishedArticles()).slice(0, 3);
 
   return (
     <>
@@ -303,7 +303,7 @@ export default function Home() {
             <div className="stat-label">Taux de satisfaction</div>
           </div>
           <div className="reveal">
-            <div className="stat-num" data-count="24" data-suffix="h">
+            <div className="stat-num" data-count="1" data-suffix="h">
               0h
             </div>
             <div className="stat-label">

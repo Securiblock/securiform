@@ -1,6 +1,5 @@
 import { randomUUID } from "crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { dirname, join } from "path";
+import { sql } from "./db";
 
 export interface Category {
   id: string;
@@ -8,46 +7,38 @@ export interface Category {
   createdAt: string;
 }
 
-const CATEGORIES_FILE = join(process.cwd(), "data", "categories.json");
+type CategoryRow = { id: string; name: string; created_at: string };
 
-function ensureFile() {
-  const dir = dirname(CATEGORIES_FILE);
-  if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-  if (!existsSync(CATEGORIES_FILE)) writeFileSync(CATEGORIES_FILE, "[]\n", "utf8");
+function rowToCategory(row: CategoryRow): Category {
+  return { id: row.id, name: row.name, createdAt: row.created_at };
 }
 
-function readAll(): Category[] {
-  ensureFile();
-  try {
-    return JSON.parse(readFileSync(CATEGORIES_FILE, "utf8")) as Category[];
-  } catch {
-    return [];
-  }
+export async function getCategories(): Promise<Category[]> {
+  const rows = (await sql`SELECT * FROM categories ORDER BY name`) as CategoryRow[];
+  // localeCompare("fr") sorts accented letters the way French speakers
+  // expect (é right after e); Postgres's default collation doesn't, so the
+  // ORDER BY above is just a reasonable pre-sort and this is the real one.
+  return rows.map(rowToCategory).sort((a, b) => a.name.localeCompare(b.name, "fr"));
 }
 
-function writeAll(categories: Category[]) {
-  ensureFile();
-  writeFileSync(CATEGORIES_FILE, JSON.stringify(categories, null, 2) + "\n", "utf8");
+export async function getCategory(id: string): Promise<Category | undefined> {
+  const rows = (await sql`SELECT * FROM categories WHERE id = ${id}`) as CategoryRow[];
+  return rows[0] ? rowToCategory(rows[0]) : undefined;
 }
 
-export function getCategories(): Category[] {
-  return readAll().sort((a, b) => a.name.localeCompare(b.name, "fr"));
-}
-
-export function getCategory(id: string): Category | undefined {
-  return readAll().find((c) => c.id === id);
-}
-
-export function createCategory(name: string): Category {
+export async function createCategory(name: string): Promise<Category> {
   const trimmed = name.trim();
-  const categories = readAll();
 
-  const existing = categories.find((c) => c.name.toLowerCase() === trimmed.toLowerCase());
-  if (existing) return existing;
+  const existingRows = (await sql`
+    SELECT * FROM categories WHERE lower(name) = lower(${trimmed})
+  `) as CategoryRow[];
+  if (existingRows[0]) return rowToCategory(existingRows[0]);
 
   const category: Category = { id: randomUUID(), name: trimmed, createdAt: new Date().toISOString() };
-  categories.push(category);
-  writeAll(categories);
+  await sql`
+    INSERT INTO categories (id, name, created_at)
+    VALUES (${category.id}, ${category.name}, ${category.createdAt})
+  `;
   return category;
 }
 
@@ -55,10 +46,7 @@ export function createCategory(name: string): Category {
 // that already carry this category name as plain text keep it (see
 // lib/blog/types.ts: category is stored denormalized, not by reference, so
 // nothing breaks or goes orphaned when a category is deleted here).
-export function deleteCategory(id: string): boolean {
-  const categories = readAll();
-  const next = categories.filter((c) => c.id !== id);
-  if (next.length === categories.length) return false;
-  writeAll(next);
-  return true;
+export async function deleteCategory(id: string): Promise<boolean> {
+  const rows = (await sql`DELETE FROM categories WHERE id = ${id} RETURNING id`) as { id: string }[];
+  return rows.length > 0;
 }

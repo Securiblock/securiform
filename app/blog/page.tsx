@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
-  const articles = getPublishedArticles();
+export default async function BlogIndexPage() {
+  const articles = await getPublishedArticles();
 
   return (
     <>

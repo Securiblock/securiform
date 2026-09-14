@@ -1,48 +1,72 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from "fs";
-import { join } from "path";
+import { sql } from "./db";
 import type { Article } from "./types";
 
-const ARTICLES_DIR = join(process.cwd(), "data", "articles");
+type ArticleRow = {
+  id: string;
+  slug: string;
+  title: string;
+  meta_description: string;
+  content: string;
+  reading_time: number;
+  generated_at: string;
+  status: string;
+  image: string | null;
+  category: string | null;
+};
 
-function ensureDir() {
-  if (!existsSync(ARTICLES_DIR)) mkdirSync(ARTICLES_DIR, { recursive: true });
+function rowToArticle(row: ArticleRow): Article {
+  return {
+    id: row.id,
+    slug: row.slug,
+    title: row.title,
+    metaDescription: row.meta_description,
+    content: row.content,
+    readingTime: row.reading_time,
+    generatedAt: row.generated_at,
+    status: row.status as Article["status"],
+    image: row.image,
+    category: row.category,
+  };
 }
 
-function fileFor(slug: string) {
-  return join(ARTICLES_DIR, `${slug}.json`);
+export async function getAllArticles(): Promise<Article[]> {
+  const rows = (await sql`SELECT * FROM articles`) as ArticleRow[];
+  return rows.map(rowToArticle);
 }
 
-export function getAllArticles(): Article[] {
-  if (!existsSync(ARTICLES_DIR)) return [];
-
-  const articles: Article[] = [];
-  for (const file of readdirSync(ARTICLES_DIR)) {
-    if (!file.endsWith(".json")) continue;
-    try {
-      articles.push(JSON.parse(readFileSync(join(ARTICLES_DIR, file), "utf8")) as Article);
-    } catch {
-      // Skip unreadable/corrupt files rather than failing the whole list.
-    }
-  }
-  return articles;
+export async function getArticle(slug: string): Promise<Article | undefined> {
+  const rows = (await sql`SELECT * FROM articles WHERE slug = ${slug}`) as ArticleRow[];
+  return rows[0] ? rowToArticle(rows[0]) : undefined;
 }
 
-export function getArticle(slug: string): Article | undefined {
-  const file = fileFor(slug);
-  if (!existsSync(file)) return undefined;
-  try {
-    return JSON.parse(readFileSync(file, "utf8")) as Article;
-  } catch {
-    return undefined;
-  }
+// Upsert on id: a topic's draft article is replaced wholesale on every
+// generate/regenerate/save, and its slug can change between regenerations
+// (Gemini re-derives it from the new title) — ON CONFLICT (id) covers that,
+// ON CONFLICT (slug) would wrongly collide if a regenerate reused an old
+// slug from a different, unrelated topic.
+export async function saveArticle(article: Article): Promise<void> {
+  await sql`
+    INSERT INTO articles (
+      id, slug, title, meta_description, content, reading_time,
+      generated_at, status, image, category
+    ) VALUES (
+      ${article.id}, ${article.slug}, ${article.title}, ${article.metaDescription},
+      ${article.content}, ${article.readingTime}, ${article.generatedAt},
+      ${article.status}, ${article.image}, ${article.category}
+    )
+    ON CONFLICT (id) DO UPDATE SET
+      slug = EXCLUDED.slug,
+      title = EXCLUDED.title,
+      meta_description = EXCLUDED.meta_description,
+      content = EXCLUDED.content,
+      reading_time = EXCLUDED.reading_time,
+      generated_at = EXCLUDED.generated_at,
+      status = EXCLUDED.status,
+      image = EXCLUDED.image,
+      category = EXCLUDED.category
+  `;
 }
 
-export function saveArticle(article: Article): void {
-  ensureDir();
-  writeFileSync(fileFor(article.slug), JSON.stringify(article, null, 2) + "\n", "utf8");
-}
-
-export function deleteArticle(slug: string): void {
-  const file = fileFor(slug);
-  if (existsSync(file)) unlinkSync(file);
+export async function deleteArticle(slug: string): Promise<void> {
+  await sql`DELETE FROM articles WHERE slug = ${slug}`;
 }
