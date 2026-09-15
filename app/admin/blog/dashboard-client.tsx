@@ -565,6 +565,17 @@ export default function BlogDashboard({
                   }
                 >
                   {topic.title}
+                  {topic.status === "published" && topic.slug && (
+                    <a
+                      href={`/blog/${topic.slug}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="mt-0.5 block text-xs font-normal text-red-600 hover:underline"
+                    >
+                      🔗 Voir l&apos;article publié
+                    </a>
+                  )}
                 </td>
                 <td className="max-w-xs truncate px-5 py-4 text-slate-500">
                   {topic.description}
