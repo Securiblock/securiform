@@ -18,7 +18,19 @@ export default async function TopicDetailPage({ params }: Params) {
       </Link>
 
       <div className="mb-6 flex items-start justify-between gap-4">
-        <h1 className="text-2xl font-bold">{topic.title}</h1>
+        <div>
+          <h1 className="text-2xl font-bold">{topic.title}</h1>
+          {topic.status === "published" && topic.slug && (
+            <a
+              href={`/blog/${topic.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-block text-sm font-medium text-red-600 hover:underline"
+            >
+              🔗 Voir l&apos;article publié
+            </a>
+          )}
+        </div>
         <StatusBadge status={topic.status} />
       </div>
 
