@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BlogSlider from "@/components/blog-slider";
 import HeroSlider, { type Slide } from "@/components/hero-slider";
 import { getPublishedArticles } from "@/lib/blog/content";
 
@@ -8,13 +9,6 @@ import { getPublishedArticles } from "@/lib/blog/content";
 // prerendered like the rest of it. The "derniers articles" teaser below is
 // a promo block, not the canonical article list, so picking up new posts
 // only on the next deploy is an acceptable trade for keeping this page fast.
-function formatArticleDate(date: string): string {
-  if (!date) return "";
-  const d = new Date(date);
-  if (Number.isNaN(d.getTime())) return date;
-  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
-}
-
 export const metadata: Metadata = {
   title: "SECURIFORM — Formations sécurité au travail en France",
   description:
@@ -277,7 +271,7 @@ const vgpLinks = [
 ];
 
 export default async function Home() {
-  const latestArticles = (await getPublishedArticles()).slice(0, 3);
+  const latestArticles = (await getPublishedArticles()).slice(0, 8);
 
   return (
     <>
@@ -485,39 +479,13 @@ export default async function Home() {
               <hr className="trait" />
               <p>Conseils et guides pratiques sur la sécurité au travail.</p>
             </div>
-            <div className="grille-categories cols-3">
-              {latestArticles.map((article) => (
-                <article key={article.slug} className="categorie-card reveal">
-                  {article.category && <span className="categorie-badge">{article.category}</span>}
-                  {article.image && (
-                    <div className="categorie-photo">
-                      <img src={article.image} alt={article.title} />
-                    </div>
-                  )}
-                  {article.date && (
-                    <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
-                      {formatArticleDate(article.date)}
-                    </span>
-                  )}
-                  <h3>{article.title}</h3>
-                  <p>{article.description}</p>
-                  <span className="lien" style={{ marginTop: "1rem" }}>
-                    Lire l&apos;article
-                  </span>
-                  <Link
-                    className="card-cover"
-                    href={`/blog/${article.slug}`}
-                    aria-label={article.title}
-                  />
-                </article>
-              ))}
-            </div>
-            <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
-              <Link className="btn btn-contour" href="/blog">
-                Voir tous les articles
-              </Link>
-            </p>
           </div>
+          <BlogSlider articles={latestArticles} />
+          <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
+            <Link className="btn btn-contour" href="/blog">
+              Voir tous les articles
+            </Link>
+          </p>
         </section>
       )}
     </>

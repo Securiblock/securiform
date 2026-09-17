@@ -159,6 +159,55 @@ h3{font-size:26px}
 }
 .slider-arrows button:hover{background:var(--rouge);border-color:var(--rouge)}
 
+/* ===================== BLOG SLIDER (pleine largeur, comme le hero) ===================== */
+.blog-slide{
+  display:grid;grid-template-columns:1fr 1fr;align-items:stretch;
+  background:var(--blanc);height:460px;
+}
+.blog-slide-photo{overflow:hidden;height:100%}
+.blog-slide-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.blog-slide-content{
+  padding:3rem clamp(1.5rem,6vw,6rem);
+  display:flex;flex-direction:column;justify-content:center;overflow:hidden;
+}
+.blog-slide-content>*{max-width:560px}
+.blog-slide-badge{
+  align-self:flex-start;
+  font-family:var(--titre);font-weight:700;font-size:14px;text-transform:uppercase;
+  letter-spacing:.05em;background:var(--rouge-pale);color:var(--rouge);
+  padding:.3rem .7rem;border-radius:999px;
+}
+.blog-slide-content h3{
+  font-size:30px;margin:.4rem 0 .8rem;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.blog-slide-content p{
+  color:var(--gris);margin-bottom:1.3rem;
+  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+}
+.blog-slider-controls{
+  display:flex;align-items:center;justify-content:center;gap:1.6rem;
+  margin-top:1.8rem;width:min(1200px,92%);margin-inline:auto;
+}
+.blog-slider-dots{display:flex;gap:.55rem}
+.blog-slider-dots button{
+  width:10px;height:10px;border-radius:50%;border:none;cursor:pointer;
+  background:#D9D9DE;transition:var(--transition);
+}
+.blog-slider-dots button[aria-selected="true"]{background:var(--rouge);width:26px;border-radius:5px}
+.blog-slider-arrows{display:flex;gap:.6rem}
+.blog-slider-arrows button{
+  width:42px;height:42px;border-radius:50%;border:2px solid #ECECEF;
+  background:#fff;color:var(--noir);font-size:20px;cursor:pointer;transition:var(--transition);
+  display:grid;place-items:center;
+}
+.blog-slider-arrows button:hover{background:var(--rouge);border-color:var(--rouge);color:#fff}
+@media (max-width:768px){
+  .blog-slide{grid-template-columns:1fr;height:auto}
+  .blog-slide-photo{aspect-ratio:16/10;height:auto}
+  .blog-slide-content{padding:1.8rem}
+}
+
 /* ===================== BANDEAU CHIFFRES ===================== */
 .stats{background:var(--rouge);color:#fff;padding:2.6rem 0}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}

@@ -88,6 +88,30 @@ export default async function BlogArticlePage({ params }: Params) {
         </div>
       </section>
 
+      <section className="cta" aria-labelledby="titre-cta-article">
+        <div className="container">
+          <h2 id="titre-cta-article">Une question sur cet article&nbsp;?</h2>
+          <p>
+            Notre équipe vous répond rapidement, et notre boutique propose le
+            matériel de sécurité dont vous avez besoin.
+          </p>
+          <div className="cta-actions">
+            <Link className="btn btn-blanc" href="/nous-contacter">
+              Nous contacter
+            </Link>
+            <a
+              className="btn btn-contour"
+              style={{ borderColor: "#fff", color: "#fff" }}
+              href="https://www.securistore.fr/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Voir la boutique
+            </a>
+          </div>
+        </div>
+      </section>
+
       {relatedArticles.length > 0 && (
         <section className="section section-alt" aria-labelledby="titre-lies">
           <div className="container">
