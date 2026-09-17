@@ -175,10 +175,10 @@ Voici un article de blog :
 **Titre :** ${title}
 **Extrait :** ${excerpt}
 
-Propose 5 idées d'images à la une pour illustrer cet article. Chaque idée doit être une description concrète et visuelle (ce qu'on verrait sur la photo : lieu, action, équipement, personnes), utilisable telle quelle comme requête de recherche sur une banque d'images (Unsplash, Pexels...). Pas de texte à ajouter sur l'image, pas de logo, pas de typographie — uniquement des scènes réalistes en lien avec la formation professionnelle et la sécurité au travail.
+Propose 3 idées d'images à la une pour illustrer cet article. Chaque idée doit être une description concrète et visuelle (ce qu'on verrait sur la photo : lieu, action, équipement, personnes), utilisable telle quelle comme requête de recherche sur une banque d'images (Unsplash, Pexels...). Pas de texte à ajouter sur l'image, pas de logo, pas de typographie — uniquement des scènes réalistes en lien avec la formation professionnelle et la sécurité au travail.
 
-**Réponds UNIQUEMENT avec un tableau JSON de 5 chaînes de texte en français, sans backticks ni markdown autour :**
-["idée 1", "idée 2", "idée 3", "idée 4", "idée 5"]
+**Réponds UNIQUEMENT avec un tableau JSON de 3 chaînes de texte en français, sans backticks ni markdown autour :**
+["idée 1", "idée 2", "idée 3"]
 `.trim();
 }
 

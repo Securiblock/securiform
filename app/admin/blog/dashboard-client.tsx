@@ -4,10 +4,12 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
-import type { Topic, TopicStatus } from "@/lib/blog/types";
+import type { Topic, TopicStatus, TopicTone } from "@/lib/blog/types";
 import StatusBadge from "./status-badge";
 
 type FilterValue = "all" | TopicStatus | "trash";
+
+const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 
 const FILTERS: { value: FilterValue; label: string }[] = [
   { value: "all", label: "Tous" },
@@ -42,7 +44,6 @@ export default function BlogDashboard({
   const [busyId, setBusyId] = useState<string | null>(null);
   const [quickAddOpen, setQuickAddOpen] = useState(false);
   const [quickAddText, setQuickAddText] = useState("");
-  const [quickAddCategory, setQuickAddCategory] = useState("");
   const [quickAddBusy, setQuickAddBusy] = useState(false);
   const [quickAddError, setQuickAddError] = useState<string | null>(null);
   const [autoGenBusy, setAutoGenBusy] = useState(false);
@@ -150,7 +151,8 @@ export default function BlogDashboard({
     setQuickAddError(null);
     try {
       for (const line of lines) {
-        const [titlePart, descriptionPart] = line.split("|").map((p) => p.trim());
+        const [titlePart, descriptionPart, tonePart] = line.split("|").map((p) => p.trim());
+        const tone = TONES.includes(tonePart as TopicTone) ? (tonePart as TopicTone) : "professionnel";
         const res = await fetch("/api/blog/topics", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -158,15 +160,14 @@ export default function BlogDashboard({
             title: titlePart,
             description: descriptionPart || titlePart,
             keywords: [],
-            tone: "professionnel",
+            tone,
             targetLength: 1000,
-            category: quickAddCategory || null,
+            category: null,
           }),
         });
         if (!res.ok) throw new Error((await res.json()).error || `Échec pour « ${titlePart} ».`);
       }
       setQuickAddText("");
-      setQuickAddCategory("");
       setQuickAddOpen(false);
       router.refresh();
     } catch (err) {
@@ -249,9 +250,10 @@ export default function BlogDashboard({
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Échec de la suggestion.");
 
-      const lines: string[] = data.suggestions.map(
-        (s: { title: string; description: string }) => `${s.title} | ${s.description}`
-      );
+      const lines: string[] = data.suggestions.map((s: { title: string; description: string }) => {
+        const tone = TONES[Math.floor(Math.random() * TONES.length)];
+        return `${s.title} | ${s.description} | ${tone}`;
+      });
       setQuickAddText((prev) => (prev.trim() ? `${prev.trim()}\n${lines.join("\n")}` : lines.join("\n")));
       setQuickAddOpen(true);
       setSuggestOpen(false);
@@ -431,7 +433,10 @@ export default function BlogDashboard({
             Un sujet par ligne. Optionnel : ajoutez une description après un « | »
             (ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description,
             le titre sert aussi de description — vous pourrez l&apos;affiner plus
-            tard. Tous les sujets sont créés en ton « professionnel », 1000 mots.
+            tard. Tous les sujets sont créés en ton « professionnel », 1000 mots
+            (les suggestions IA arrivent déjà avec leur propre ton varié). La
+            catégorie est choisie automatiquement par l&apos;IA à la génération
+            de chaque article.
           </p>
           <textarea
             value={quickAddText}
@@ -440,23 +445,6 @@ export default function BlogDashboard({
             placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
           />
-          <div className="mt-3">
-            <label className="mb-1 block text-xs font-semibold text-slate-500">
-              Catégorie (appliquée à tous les sujets ajoutés)
-            </label>
-            <select
-              value={quickAddCategory}
-              onChange={(e) => setQuickAddCategory(e.target.value)}
-              className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-            >
-              <option value="">Aucune catégorie</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.name}>
-                  {c.name}
-                </option>
-              ))}
-            </select>
-          </div>
           {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}
           <div className="mt-3 flex gap-3">
             <button
