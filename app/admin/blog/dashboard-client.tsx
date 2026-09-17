@@ -17,6 +17,16 @@ const FILTERS: { value: FilterValue; label: string }[] = [
   { value: "trash", label: "Corbeille" },
 ];
 
+function formatShortDate(iso: string): string {
+  return new Date(iso).toLocaleString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
 export default function BlogDashboard({
   topics,
   categories,
@@ -530,20 +540,29 @@ export default function BlogDashboard({
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
-        <table className="w-full min-w-[720px] text-left text-sm">
+        <table className="w-full min-w-[1150px] table-fixed text-left text-sm">
+          <colgroup>
+            <col className="w-[20%]" />
+            <col className="w-[18%]" />
+            <col className="w-[8%]" />
+            <col className="w-[8%]" />
+            <col className="w-[18%]" />
+            <col className="w-[28%]" />
+          </colgroup>
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
               <th className="px-5 py-3">Titre</th>
               <th className="px-5 py-3">Description</th>
               <th className="px-5 py-3">Catégorie</th>
               <th className="px-5 py-3">Statut</th>
+              <th className="px-5 py-3">Dates</th>
               <th className="px-5 py-3">Actions</th>
             </tr>
           </thead>
           <tbody>
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-5 py-10 text-center text-slate-400">
+                <td colSpan={6} className="px-5 py-10 text-center text-slate-400">
                   {search.trim()
                     ? `Aucun sujet ne correspond à « ${search.trim()} ».`
                     : filter === "trash"
@@ -564,28 +583,35 @@ export default function BlogDashboard({
                       : undefined
                   }
                 >
-                  {topic.title}
-                  {topic.status === "published" && topic.slug && (
-                    <a
-                      href={`/blog/${topic.slug}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-0.5 block text-xs font-normal text-red-600 hover:underline"
-                    >
-                      🔗 Voir l&apos;article publié
-                    </a>
-                  )}
+                  <div className="flex flex-col gap-1">
+                    <span>{topic.title}</span>
+                    {topic.status === "published" && topic.slug && (
+                      <a
+                        href={`/blog/${topic.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-xs font-normal whitespace-normal text-red-600 hover:underline"
+                      >
+                        🔗 Voir l&apos;article publié
+                      </a>
+                    )}
+                  </div>
                 </td>
-                <td className="max-w-xs truncate px-5 py-4 text-slate-500">
+                <td className="px-5 py-4 text-slate-500">
                   {topic.description}
                 </td>
                 <td className="px-5 py-4 text-slate-500">{topic.category || "—"}</td>
                 <td className="px-5 py-4">
                   <StatusBadge status={topic.status} />
                 </td>
+                <td className="px-5 py-4 text-xs text-slate-500">
+                  <div>Créé : {formatShortDate(topic.createdAt)}</div>
+                  {topic.generatedAt && <div>Généré : {formatShortDate(topic.generatedAt)}</div>}
+                  {topic.publishedAt && <div>Publié : {formatShortDate(topic.publishedAt)}</div>}
+                </td>
                 <td className="px-5 py-4">
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-x-3 gap-y-1">
                     {filter === "trash" ? (
                       <>
                         <button

@@ -59,9 +59,23 @@ export default async function TopicDetailPage({ params }: Params) {
             <dd className="mt-1">{topic.targetLength} mots</dd>
           </div>
         </div>
-        <div>
-          <dt className="font-semibold text-slate-500">Créé le</dt>
-          <dd className="mt-1">{new Date(topic.createdAt).toLocaleString("fr-FR")}</dd>
+        <div className="flex flex-wrap gap-x-10 gap-y-4">
+          <div>
+            <dt className="font-semibold text-slate-500">Créé le</dt>
+            <dd className="mt-1">{new Date(topic.createdAt).toLocaleString("fr-FR")}</dd>
+          </div>
+          {topic.generatedAt && (
+            <div>
+              <dt className="font-semibold text-slate-500">Généré le</dt>
+              <dd className="mt-1">{new Date(topic.generatedAt).toLocaleString("fr-FR")}</dd>
+            </div>
+          )}
+          {topic.publishedAt && (
+            <div>
+              <dt className="font-semibold text-slate-500">Publié le</dt>
+              <dd className="mt-1">{new Date(topic.publishedAt).toLocaleString("fr-FR")}</dd>
+            </div>
+          )}
         </div>
       </dl>
 

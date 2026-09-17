@@ -239,6 +239,10 @@ export default function Page() {
         <div className="formations-grid">
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-caces.jpg" alt="Formation conduite en sécurité et CACES®" loading="lazy" />
+            </div>
             <h3>Conduite en sécurité et CACES®</h3>
             <p>R482B, R484A, R485A, R486B, R489A, R490A&nbsp;: toutes les recommandations de conduite en sécurité.</p>
             <span className="lien">Découvrir</span>
@@ -246,6 +250,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-habilitation-electrique.jpg" alt="Formation habilitation électrique" loading="lazy" />
+            </div>
             <h3>Habilitation électrique</h3>
             <p>Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques.</p>
             <span className="lien">Découvrir</span>
@@ -253,6 +261,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-secourisme-sst.jpg" alt="Formation secourisme SST" loading="lazy" />
+            </div>
             <h3>Secourisme (SST)</h3>
             <p>Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail.</p>
             <span className="lien">Découvrir</span>
@@ -260,6 +272,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-incendie.jpg" alt="Formation incendie et évacuation" loading="lazy" />
+            </div>
             <h3>Incendie et évacuation</h3>
             <p>Extincteurs, RIA, Équipiers de Première Intervention, exercices d'évacuation.</p>
             <span className="lien">Découvrir</span>
@@ -267,6 +283,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-travaux-hauteur.jpg" alt="Formation travaux en hauteur et échafaudages" loading="lazy" />
+            </div>
             <h3>Travaux en hauteur et échafaudages</h3>
             <p>Port du harnais, échafaudages fixes (R408) et roulants (R457).</p>
             <span className="lien">Découvrir</span>
@@ -274,6 +294,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-gestes-postures.jpg" alt="Formation gestes et postures" loading="lazy" />
+            </div>
             <h3>Gestes et postures</h3>
             <p>Prévention des troubles musculosquelettiques et techniques de manutention.</p>
             <span className="lien">Découvrir</span>
@@ -281,6 +305,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-aipr.jpg" alt="Formation AIPR" loading="lazy" />
+            </div>
             <h3>AIPR</h3>
             <p>Opérateur, Encadrant, Concepteur&nbsp;: l'autorisation d'intervention à proximité des réseaux.</p>
             <span className="lien">Découvrir</span>
@@ -288,6 +316,10 @@ export default function Page() {
           </article>
 
           <article className="formation-card reveal">
+            <div className="formation-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/image/formation-specifiques.jpg" alt="Formations spécifiques SECURIFORM" loading="lazy" />
+            </div>
             <h3>Formations spécifiques</h3>
             <p>Des formations sur mesure pour vos équipements et risques particuliers.</p>
             <span className="lien">Découvrir</span>
