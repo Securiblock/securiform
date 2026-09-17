@@ -28,7 +28,7 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [error, setError] = useState<string | null>(null);
 
   const [imageIdeas, setImageIdeas] = useState<string[] | null>(null);
-  const [imageIdeasBusy, setImageIdeasBusy] = useState(false);
+  const [imageIdeasBusy, setImageIdeasBusy] = useState(true);
   const [imageIdeasError, setImageIdeasError] = useState<string | null>(null);
   const [imageUploading, setImageUploading] = useState(false);
   const [imageUploadError, setImageUploadError] = useState<string | null>(null);
@@ -53,6 +53,26 @@ export default function ArticleEditor({ topic, article }: Props) {
       .then((res) => res.json())
       .then(setCategories)
       .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    fetch("/api/blog/image-ideas", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ slug: article.slug }),
+    })
+      .then(async (res) => {
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Échec de la génération d'idées.");
+        setImageIdeas(data.ideas);
+      })
+      .catch((err) => {
+        setImageIdeasError(err instanceof Error ? err.message : "Erreur inconnue.");
+      })
+      .finally(() => {
+        setImageIdeasBusy(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function markDirty<T>(setter: (v: T) => void) {
@@ -174,25 +194,6 @@ export default function ArticleEditor({ topic, article }: Props) {
     }
   }
 
-  async function handleImageIdeas() {
-    setImageIdeasBusy(true);
-    setImageIdeasError(null);
-    try {
-      const res = await fetch("/api/blog/image-ideas", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: article.slug }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Échec de la génération d'idées.");
-      setImageIdeas(data.ideas);
-    } catch (err) {
-      setImageIdeasError(err instanceof Error ? err.message : "Erreur inconnue.");
-    } finally {
-      setImageIdeasBusy(false);
-    }
-  }
-
   async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = ""; // allow re-selecting the same file later
@@ -265,26 +266,16 @@ export default function ArticleEditor({ topic, article }: Props) {
           <label className="mb-1 block text-sm font-semibold">Image à la une</label>
           <p className="mb-1 text-xs text-slate-500">
             Envoyez une image depuis votre ordinateur (jpg, png, webp ou gif, 5 Mo
-            max). Pas d&apos;idée ? Demandez des suggestions à Gemini ci-dessous,
+            max). Pas d&apos;idée ? Gemini vous suggère 3 pistes ci-dessous —
             cherchez une photo qui correspond, puis envoyez-la.
           </p>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <input
-              type="file"
-              accept="image/jpeg,image/png,image/webp,image/gif"
-              onChange={handleImageUpload}
-              disabled={imageUploading}
-              className="w-full min-w-0 rounded-lg border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-sm file:font-semibold disabled:opacity-50"
-            />
-            <button
-              type="button"
-              onClick={handleImageIdeas}
-              disabled={imageIdeasBusy}
-              className="shrink-0 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
-            >
-              {imageIdeasBusy ? "..." : "💡 Idées d'images"}
-            </button>
-          </div>
+          <input
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/gif"
+            onChange={handleImageUpload}
+            disabled={imageUploading}
+            className="w-full min-w-0 rounded-lg border border-slate-300 px-3 py-2 text-sm file:mr-3 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-1.5 file:text-sm file:font-semibold disabled:opacity-50"
+          />
           {imageUploading && <p className="mt-2 text-sm text-slate-500">Envoi en cours...</p>}
           {imageUploadError && <p className="mt-2 text-sm text-red-600">{imageUploadError}</p>}
 
@@ -305,6 +296,9 @@ export default function ArticleEditor({ topic, article }: Props) {
             </div>
           )}
 
+          {imageIdeasBusy && (
+            <p className="mt-2 text-sm text-slate-500">💡 Gemini réfléchit à des idées d&apos;images...</p>
+          )}
           {imageIdeasError && <p className="mt-2 text-sm text-red-600">{imageIdeasError}</p>}
           {imageIdeas && (
             <ul className="mt-3 space-y-1.5 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">
