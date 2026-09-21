@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import BlogSlider from "@/components/blog-slider";
 import HeroSlider, { type Slide } from "@/components/hero-slider";
 import { getPublishedArticles } from "@/lib/blog/content";
+
+function formatArticleDate(date: string): string {
+  if (!date) return "";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return date;
+  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+}
 
 // Deliberately NOT forced dynamic, unlike /blog and /admin/blog: the
 // homepage is the highest-traffic page on the site and stays statically
@@ -271,7 +277,7 @@ const vgpLinks = [
 ];
 
 export default async function Home() {
-  const latestArticles = (await getPublishedArticles()).slice(0, 8);
+  const latestArticles = (await getPublishedArticles()).slice(0, 3);
 
   return (
     <>
@@ -479,13 +485,38 @@ export default async function Home() {
               <hr className="trait" />
               <p>Conseils et guides pratiques sur la sécurité au travail.</p>
             </div>
+
+            <div className="grille-categories cols-3">
+              {latestArticles.map((article) => (
+                <article key={article.slug} className="categorie-card reveal">
+                  {article.category && <span className="categorie-badge">{article.category}</span>}
+                  {article.image && (
+                    <div className="categorie-photo">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={article.image} alt={article.title} />
+                    </div>
+                  )}
+                  {article.date && (
+                    <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
+                      {formatArticleDate(article.date)}
+                    </span>
+                  )}
+                  <h3>{article.title}</h3>
+                  <p>{article.description}</p>
+                  <span className="lien" style={{ marginTop: "1rem" }}>
+                    Lire l&apos;article
+                  </span>
+                  <Link className="card-cover" href={`/blog/${article.slug}`} aria-label={article.title} />
+                </article>
+              ))}
+            </div>
+
+            <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
+              <Link className="btn btn-contour" href="/blog">
+                Voir tous les articles
+              </Link>
+            </p>
           </div>
-          <BlogSlider articles={latestArticles} />
-          <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
-            <Link className="btn btn-contour" href="/blog">
-              Voir tous les articles
-            </Link>
-          </p>
         </section>
       )}
     </>
