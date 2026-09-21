@@ -26,7 +26,7 @@ export default async function BlogIndexPage() {
 
   return (
     <>
-      <section className="section" aria-label="Blog" style={{ paddingTop: 0, paddingBottom: 15 }}>
+      <section className="section" aria-label="Blog" style={{ paddingBottom: 15 }}>
         <h1 style={{ position: "absolute", left: "-9999px" }}>
           Blog SECURIFORM — Conseils et guides pratiques sur la sécurité au travail
         </h1>

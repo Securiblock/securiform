@@ -4,11 +4,27 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import type { ArticleSummary } from "@/lib/blog/content";
 
-function formatArticleDate(date: string): string {
+const RELATIVE_UNITS: { unit: Intl.RelativeTimeFormatUnit; seconds: number }[] = [
+  { unit: "year", seconds: 31536000 },
+  { unit: "month", seconds: 2592000 },
+  { unit: "week", seconds: 604800 },
+  { unit: "day", seconds: 86400 },
+  { unit: "hour", seconds: 3600 },
+  { unit: "minute", seconds: 60 },
+];
+const relativeFormatter = new Intl.RelativeTimeFormat("fr", { numeric: "auto" });
+
+function formatRelativeDate(date: string): string {
   if (!date) return "";
   const d = new Date(date);
   if (Number.isNaN(d.getTime())) return date;
-  return d.toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  const seconds = (Date.now() - d.getTime()) / 1000;
+  for (const { unit, seconds: unitSeconds } of RELATIVE_UNITS) {
+    if (seconds >= unitSeconds) {
+      return relativeFormatter.format(-Math.floor(seconds / unitSeconds), unit);
+    }
+  }
+  return relativeFormatter.format(0, "day");
 }
 
 // Adapted from components/hero-slider.tsx (same autoplay/swipe/keyboard
@@ -96,15 +112,27 @@ export default function BlogSlider({ articles }: { articles: ArticleSummary[] })
         )}
         <div className="blog-slide-content">
           {article.category && <span className="blog-slide-badge">{article.category}</span>}
-          {article.date && (
-            <span className="surtitre" style={{ display: "block", margin: ".8rem 0 .4rem" }}>
-              {formatArticleDate(article.date)}
-            </span>
-          )}
           <h3>{article.title}</h3>
-          <p>{article.description}</p>
-          <Link className="lien" href={`/blog/${article.slug}`}>
-            Lire l&apos;article →
+          <div className="blog-slide-meta">
+            {article.date && (
+              <span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" strokeWidth="2" />
+                  <path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+                {formatRelativeDate(article.date)}
+              </span>
+            )}
+            <span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2" />
+                <path d="M12 7v5l3.5 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              Temps de lecture&nbsp;: {article.readingTime}&nbsp;min
+            </span>
+          </div>
+          <Link className="blog-slide-cta" href={`/blog/${article.slug}`}>
+            Lire la suite
           </Link>
         </div>
       </article>
@@ -132,21 +160,6 @@ export default function BlogSlider({ articles }: { articles: ArticleSummary[] })
             >
               ›
             </button>
-          </div>
-          <div className="blog-slider-dots" role="tablist" aria-label="Choisir un article">
-            {articles.map((a, i) => (
-              <button
-                key={a.slug}
-                type="button"
-                role="tab"
-                aria-label={`Aller à l'article ${i + 1}`}
-                aria-selected={i === index}
-                onClick={() => {
-                  go(i);
-                  restart();
-                }}
-              />
-            ))}
           </div>
         </div>
       )}
