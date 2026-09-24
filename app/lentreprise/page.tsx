@@ -36,7 +36,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "L'entreprise SECURIFORM — Organisme certifié Qualiopi",
-  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent partout en France.",
+  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent dans la moitié nord de la France.",
   alternates: { canonical: "/lentreprise" },
   openGraph: {
     type: "website",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/lentreprise",
     title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
-    description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent partout en France.",
+    description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent dans la moitié nord de la France.",
     images: ["/image/logo-securiform.png"],
   },
   twitter: {
@@ -77,7 +77,7 @@ export default function Page() {
           <span>L'entreprise</span>
         </p>
         <h1>L'entreprise</h1>
-        <p>Organisme de formation à la sécurité au travail, certifié Qualiopi, SECURIFORM accompagne les entreprises sur tout le territoire français.</p>
+        <p>Organisme de formation à la sécurité au travail, certifié Qualiopi, SECURIFORM accompagne les entreprises dans la moitié nord de la France.</p>
         <Link href="/nous-contacter" className="btn btn-plein">Nous contacter</Link>
       </div>
     </section>
@@ -99,7 +99,7 @@ export default function Page() {
           <h3>En bref</h3>
           <ul className="valeurs">
             <li><span className="puce" aria-hidden="true">✓</span> Organisme de formation certifié Qualiopi depuis 2021</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Interventions sur toute la France, en centre ou sur site</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Interventions dans la moitié nord de la France, en centre ou sur site</li>
             <li><span className="puce" aria-hidden="true">✓</span> 8 domaines de formation à la sécurité au travail</li>
             <li><span className="puce" aria-hidden="true">✓</span> Vérifications Générales Périodiques (VGP) d'équipements</li>
           </ul>
@@ -185,7 +185,7 @@ export default function Page() {
           <div className="stat-label">Taux de satisfaction</div>
         </div>
         <div className="reveal">
-          <div className="stat-num" data-count="60" data-suffix="min">0mins</div>
+          <div className="stat-num" data-count="60" data-suffix="min">0min</div>
           <div className="stat-label">Délai moyen de traitement de votre demande</div>
         </div>
       </div>
@@ -349,8 +349,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>SECURIFORM intervient-il partout en France&nbsp;?</summary>
-            <p>Oui, nos formateurs se déplacent sur l'ensemble du territoire français, aussi bien pour des formations en centre que directement sur vos sites.</p>
+            <summary>SECURIFORM intervient-il dans la moitié nord de la France&nbsp;?</summary>
+            <p>Oui, nos formateurs se déplacent dans la moitié nord de la France, aussi bien pour des formations en centre que directement sur vos sites.</p>
           </details>
 
           <details className="faq-item">
@@ -365,7 +365,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Comment rejoindre l'équipe de formateurs SECURIFORM&nbsp;?</summary>
-            <p>SECURIFORM recrute régulièrement des formateurs sur toute la France&nbsp;: consultez notre page Nous recrutons ou contactez-nous directement pour échanger sur votre profil.</p>
+            <p>SECURIFORM recrute régulièrement des formateurs dans la moitié nord de la France&nbsp;: consultez notre page Nous recrutons ou contactez-nous directement pour échanger sur votre profil.</p>
           </details>
 
         </div>
@@ -381,7 +381,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -394,7 +394,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

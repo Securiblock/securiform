@@ -457,7 +457,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -470,7 +470,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

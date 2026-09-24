@@ -8,7 +8,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations spécifiques",
-      "description": "Formations sur mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses auto-portées, utilisation de tronçonneuses thermiques à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
+      "description": "Formations sur mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses autoportées, utilisation de tronçonneuses thermiques à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations spécifiques — SECURIFORM",
-  description: "SECURIFORM propose des formations sur mesure : tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
+  description: "SECURIFORM propose des formations sur mesure : tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
   alternates: { canonical: "/formations-specifiques" },
   openGraph: {
     type: "article",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/formations-specifiques",
     title: "Formations spécifiques — SECURIFORM",
-    description: "Tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
+    description: "Tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
     images: ["/image/formation-specifiques.jpg"],
   },
   twitter: {
@@ -108,12 +108,12 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tondeuse.jpg" alt="Conduite en sécurité de tondeuses auto-portées" loading="lazy" />
+              <img src="/image/formation-tondeuse.jpg" alt="Conduite en sécurité de tondeuses autoportées" loading="lazy" />
             </div>
-            <h3>Tondeuses auto-portées</h3>
-            <p>Conduite en sécurité des tondeuses auto-portées utilisées pour l'entretien de grands espaces verts.</p>
+            <h3>Tondeuses autoportées</h3>
+            <p>Conduite en sécurité des tondeuses autoportées utilisées pour l'entretien de grands espaces verts.</p>
             <span className="lien">Découvrir</span>
-            <Link className="card-cover" href="/tondeuses-autoportees" aria-label="Conduite en sécurité de tondeuses auto-portées" />
+            <Link className="card-cover" href="/tondeuses-autoportees" aria-label="Conduite en sécurité de tondeuses autoportées" />
           </article>
 
           <article className="formation-card reveal">
@@ -256,7 +256,7 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="formation">Votre besoin</label>
               <select id="formation" name="formation">
-                <option value="tondeuse">Tondeuse auto-portée</option>
+                <option value="tondeuse">Tondeuse autoportée</option>
                 <option value="tronconneuse">tronçonneuses thermiques</option>
                 <option value="balayeuse">Balayeuse routière</option>
                 <option value="gestes">Sensibilisation gestes qui sauvent</option>
@@ -282,7 +282,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -295,7 +295,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

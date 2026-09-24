@@ -113,7 +113,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les six catégories du CACES R489A</h2>
+          <h2 id="titre-categories">Les sept catégories du CACES R489A</h2>
           <hr className="trait" />
         </div>
         <div className="table-scroll reveal">
@@ -122,40 +122,56 @@ export default function Page() {
               <tr>
                 <th scope="col">Catégorie</th>
                 <th scope="col">Type de chariot</th>
-                <th scope="col">Exemples</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>1</td>
-                <td>Transpalettes et gerbeurs à conducteur porté, à petite levée</td>
-                <td>Transpalettes électriques, gerbeurs légers</td>
+                <td>1A</td>
+                <td>Transpalettes à conducteur porté</td>
+                <td>Préparateurs de commande sans élévation du poste de conduite (hauteur de levée ≤ 1.20m)</td>
               </tr>
               <tr>
-                <td>2</td>
-                <td>Chariots tracteurs et à plateau porteur (≤ 6&nbsp;000 kg)</td>
-                <td>Tracteurs de convois, chariots à plateau</td>
+                <td>1B</td>
+                <td>Gerbeurs à conducteur porté</td>
+                <td>hauteur de levée &gt; 1.20m</td>
+              </tr>
+              <tr>
+                <td>2A</td>
+                <td>Chariots à plateau porteur</td>
+                <td>capacité de charge ≤ 2 tonnes</td>
+              </tr>
+              <tr>
+                <td>2B</td>
+                <td>Chariots tracteurs industriels</td>
+                <td>capacité de traction ≤ 25 tonnes</td>
               </tr>
               <tr>
                 <td>3</td>
-                <td>Chariots élévateurs en porte-à-faux (≤ 6&nbsp;000 kg)</td>
-                <td>Chariots élévateurs standards d'entrepôt</td>
+                <td>Chariots élévateurs frontaux en porte-à-faux</td>
+                <td>capacité nominale ≤ 6 tonnes</td>
               </tr>
               <tr>
                 <td>4</td>
-                <td>Chariots élévateurs en porte-à-faux (&gt; 6&nbsp;000 kg)</td>
-                <td>Chariots élévateurs lourds, ports et industries</td>
+                <td>Chariots élévateurs frontaux en porte-à-faux</td>
+                <td>capacité nominale &gt; 6 tonnes</td>
               </tr>
-              <tr>
+               <tr>
                 <td>5</td>
                 <td>Chariots élévateurs à mât rétractable</td>
-                <td>Chariots pour allées étroites en entrepôt</td>
+                <td></td>
               </tr>
               <tr>
                 <td>6</td>
-                <td>Conduite hors production</td>
-                <td>Déplacement, transfert, chargement sur porteur, essais</td>
+                <td>Chariots élévateurs à poste de conduite élevable</td>
+                <td>hauteur de plancher &gt; 1.20m</td>
               </tr>
+              <tr>
+                <td>7</td>
+                <td>Conduite hors-production des chariots de toute les catégories</td>
+                <td></td>
+              </tr>
+              
             </tbody>
           </table>
         </div>
@@ -410,7 +426,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -423,7 +439,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

@@ -123,64 +123,71 @@ export default function Page() {
               <tr>
                 <th scope="col">Catégorie</th>
                 <th scope="col">Type d'engins</th>
-                <th scope="col">Exemples</th>
+                <th scope="col"></th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>A</td>
-                <td>Engins compacts (≤ 6 t)</td>
-                <td>Mini-pelles, mini-chargeuses, petits compacteurs</td>
+                <td>Engins compacts</td>
+                <td><li>Pelles hydroliques, à chenilles ou sur pneumatiques, de masse ≤ 6 tonnes</li>
+                <li>Chargeuses, à chenilles ou sur pneumatiques, de masse ≤ 6 tonnes</li>
+                <li>Chargeuses-pelleteuses de masse ≤ 6 tonnes</li>
+                <li>Moto-basculeurs de masse ≤ 6 tonnes</li>
+                <li>Compacteurs de masse ≤ 6 tonnes</li>
+                <li>Tracteurs agricoles de puissance ≤ 100 cv (73.6 kW)</li></td>
               </tr>
               <tr>
                 <td>B1</td>
                 <td>Engins d'extraction à déplacement séquentiel</td>
-                <td>Pelles hydrauliques ≥ 6 t, pelles multifonctions</td>
+                <td><li>Pelles hydroliques, à chenilles ou sur pneumatiques, de masse &gt; 6 tonnes</li>
+                <li>Pelles multifonctions</li></td>
               </tr>
               <tr>
                 <td>B2</td>
                 <td>Engins de sondage et de forage à déplacement séquentiel</td>
-                <td>Machines de forage géotechnique</td>
+                <td><li>Machines automotrices de sondage ou de forage</li></td>
               </tr>
               <tr>
                 <td>B3</td>
                 <td>Engins rail-route à déplacement séquentiel</td>
-                <td>Pelles hydrauliques circulant sur voie ferrée et route</td>
+                <td><li>Pelles hydrauliques rail-route</li></td>
               </tr>
               <tr>
                 <td>C1</td>
                 <td>Engins de chargement à déplacement alternatif</td>
-                <td>Chargeuses sur pneus ≥ 6 t</td>
+                <td><li>Chargeuses sur pneumatiques de masse ≥ 6 tonnes</li>
+                <li>Chargeuses-pelleteuses de masse ≥ 6 tonnes</li></td>
               </tr>
               <tr>
                 <td>C2</td>
                 <td>Engins de réglage à déplacement alternatif</td>
-                <td>Bulldozers, tracteurs à chenilles</td>
+                <td><li>Bouteurs</li><li>Chargeuses à chenilles de masse &gt; 6 tonnes</li></td>
               </tr>
               <tr>
                 <td>C3</td>
                 <td>Engins de nivellement à déplacement alternatif</td>
-                <td>Niveleuses (motor-graders)</td>
+                <td><li>Niveleuses automotrices</li></td>
               </tr>
               <tr>
                 <td>D</td>
                 <td>Engins de compactage</td>
-                <td>Compacteurs à cylindres, compacteurs pneumatiques</td>
+                <td><li>Compacteurs à cylindres, à pneumatiques ou mixtes, de masse &gt; 6 tonnes</li><li>Compacteurs à pieds dameurs de masse &gt; 6 tonnes</li></td>
               </tr>
               <tr>
                 <td>E</td>
                 <td>Engins de transport</td>
-                <td>Tombereaux, décapeuses</td>
+                <td><li>Tombereaux rigides ou articulés</li><li>Moto-basculeurs de masse &gt; 6 tonnes</li><li>Tracteurs agricoles de puissance &gt; 100 cv (73.6 kW)</li></td>
               </tr>
               <tr>
                 <td>F</td>
                 <td>Chariots de manutention tout-terrain</td>
-                <td>Chariots télescopiques, chariots à flèche</td>
+                <td><li>Chariots de manutention tout-terrain à conducteur porté, à mât</li><li>Chariots de manutention tout-terrain à conducteur porté, à flèche téléscopique</li></td>
               </tr>
               <tr>
                 <td>G</td>
                 <td>Conduite hors production (option)</td>
-                <td>Transfert, chargement sur porte-engin, maintenance</td>
+                <td><li>Transfert, chargement sur porte-engin, maintenance</li></td>
               </tr>
             </tbody>
           </table>
@@ -455,7 +462,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -468,7 +475,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

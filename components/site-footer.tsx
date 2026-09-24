@@ -26,7 +26,7 @@ export default function SiteFooter() {
           </div>
           <p className="footer-desc">
             Organisme de formation à la sécurité au travail. Interventions
-            sur toute la France. Réactivité, conseil, service client.
+            dans la moitié nord de la France. Réactivité, conseil, service client.
           </p>
           <a
             className="qualiopi"
@@ -88,6 +88,12 @@ export default function SiteFooter() {
               </a>
             </li>
             <li>
+              <Link href="/vgp">Vérifications Générales Périodiques</Link>
+            </li>
+            <li>
+              <Link href="/statistiques">Rapports d&apos;activité</Link>
+            </li>
+            <li>
               <Link href="/mentions-legales">Mentions légales</Link>
             </li>
             <li>
@@ -127,12 +133,6 @@ export default function SiteFooter() {
             </li>
             <li>
               <Link href="/nous-recrutons">Nous recrutons</Link>
-            </li>
-            <li>
-              <Link href="/vgp">Vérifications Générales Périodiques</Link>
-            </li>
-            <li>
-              <Link href="/statistiques">Rapports d&apos;activité</Link>
             </li>
           </ul>
         </div>
