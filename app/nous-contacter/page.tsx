@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     url: "/nous-contacter",
     title: "Nous contacter — SECURIFORM",
     description: "Devis, renseignements, service client : contactez SECURIFORM à Villeneuve d'Ascq ou par téléphone au 03 20 67 34 90.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nous contacter — SECURIFORM",
     description: "Contactez SECURIFORM pour vos demandes de devis, renseignements ou service client.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 

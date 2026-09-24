@@ -17,7 +17,7 @@ export default function SiteFooter() {
         <div>
           <div className="logo">
             <Image
-              src="/image/logo-securiform-blanc.png"
+              src="/image/logo-securiform-blanc.webp"
               alt="SECURIFORM"
               className="logo-img"
               width={180}

@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-grues-auxiliaires",
     title: "VGP des grues auxiliaires — SECURIFORM",
     description: "VGP des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 6 mois.",
-    images: ["/image/vgp-grues-auxiliaires.jpg"],
+    images: ["/image/vgp-grues-auxiliaires.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des grues auxiliaires — SECURIFORM",
     description: "Vérification Générale Périodique de vos grues auxiliaires, avec SECURIFORM.",
-    images: ["/image/vgp-grues-auxiliaires.jpg"],
+    images: ["/image/vgp-grues-auxiliaires.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des grues auxiliaires" style={{ backgroundImage: "url('/image/vgp-grues-auxiliaires.jpg')" }}>
+<section className="page-hero" aria-label="VGP des grues auxiliaires" style={{ backgroundImage: "url('/image/vgp-grues-auxiliaires.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

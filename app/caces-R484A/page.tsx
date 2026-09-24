@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R484A",
     title: "Formation CACES® R484A — Ponts roulants et portiques — SECURIFORM",
     description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484A avec SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-R484A.jpg"],
+    images: ["/image/caces-R484A.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R484A — SECURIFORM",
     description: "Conduite en sécurité des ponts roulants et portiques, avec SECURIFORM.",
-    images: ["/image/caces-R484A.jpg"],
+    images: ["/image/caces-R484A.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R484A" style={{ backgroundImage: "url('/image/caces-R484A.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R484A" style={{ backgroundImage: "url('/image/caces-R484A.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

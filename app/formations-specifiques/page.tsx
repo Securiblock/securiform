@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/formations-specifiques",
     title: "Formations spécifiques — SECURIFORM",
     description: "Tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
-    images: ["/image/formation-specifiques.jpg"],
+    images: ["/image/formation-specifiques.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations spécifiques — SECURIFORM",
     description: "Des formations sur mesure, adaptées aux équipements et aux risques propres à votre entreprise.",
-    images: ["/image/formation-specifiques.jpg"],
+    images: ["/image/formation-specifiques.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations spécifiques" style={{ backgroundImage: "url('/image/formation-specifiques.jpg')" }}>
+<section className="page-hero" aria-label="Formations spécifiques" style={{ backgroundImage: "url('/image/formation-specifiques.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tondeuse.jpg" alt="Conduite en sécurité de tondeuses autoportées" loading="lazy" />
+              <img src="/image/formation-tondeuse.webp" alt="Conduite en sécurité de tondeuses autoportées" loading="lazy" />
             </div>
             <h3>Tondeuses autoportées</h3>
             <p>Conduite en sécurité des tondeuses autoportées utilisées pour l'entretien de grands espaces verts.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tronconneuse.jpg" alt="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" loading="lazy" />
+              <img src="/image/formation-tronconneuse.webp" alt="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" loading="lazy" />
             </div>
             <h3>tronçonneuses thermiques</h3>
             <p>Utilisation en sécurité d'une tronçonneuses thermiques à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
@@ -128,7 +128,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-balayeuse.jpg" alt="Conduite en sécurité de balayeuses routières" loading="lazy" />
+              <img src="/image/formation-balayeuse.webp" alt="Conduite en sécurité de balayeuses routières" loading="lazy" />
             </div>
             <h3>Balayeuses routières</h3>
             <p>Conduite en sécurité des balayeuses routières, pour l'entretien de la voirie et des espaces publics.</p>
@@ -138,7 +138,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-gestes-qui-sauvent.jpg" alt="Sensibilisation aux gestes qui sauvent" loading="lazy" />
+              <img src="/image/formation-gestes-qui-sauvent.webp" alt="Sensibilisation aux gestes qui sauvent" loading="lazy" />
             </div>
             <h3>Gestes qui sauvent</h3>
             <p>Une sensibilisation accessible à tous aux gestes de premiers secours essentiels, sans prérequis.</p>

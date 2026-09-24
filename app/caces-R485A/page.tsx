@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R485A",
     title: "Formation CACES® R485A — Gerbeurs à conducteur accompagnant — SECURIFORM",
     description: "Gerbeurs à conducteur accompagnant, catégories 1 et 2. Formation SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-R485A.jpg"],
+    images: ["/image/caces-R485A.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R485A — SECURIFORM",
     description: "Conduite en sécurité des gerbeurs à conducteur accompagnant, avec SECURIFORM.",
-    images: ["/image/caces-R485A.jpg"],
+    images: ["/image/caces-R485A.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R485A" style={{ backgroundImage: "url('/image/caces-R485A.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R485A" style={{ backgroundImage: "url('/image/caces-R485A.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

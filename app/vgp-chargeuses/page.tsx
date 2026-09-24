@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-chargeuses",
     title: "VGP des chargeuses — SECURIFORM",
     description: "VGP des chargeuses avec SECURIFORM : équipements concernés, éléments contrôlés, registre de sécurité. Fréquence de 6 mois.",
-    images: ["/image/vgp-chargeuses.jpg"],
+    images: ["/image/vgp-chargeuses.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des chargeuses — SECURIFORM",
     description: "Vérification Générale Périodique de vos chargeuses, avec SECURIFORM.",
-    images: ["/image/vgp-chargeuses.jpg"],
+    images: ["/image/vgp-chargeuses.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des chargeuses" style={{ backgroundImage: "url('/image/vgp-chargeuses.jpg')" }}>
+<section className="page-hero" aria-label="VGP des chargeuses" style={{ backgroundImage: "url('/image/vgp-chargeuses.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

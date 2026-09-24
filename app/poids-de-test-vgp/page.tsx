@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/poids-de-test-vgp",
     title: "Poids de test VGP — SECURIFORM",
     description: "Blocs béton de masse certifiée, épreuves de charge, protocole en 6 étapes : tout savoir sur les poids de test lors d'une VGP.",
-    images: ["/image/vgp-accessoires-levage.jpg"],
+    images: ["/image/vgp-accessoires-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Poids de test VGP — SECURIFORM",
     description: "Comprendre l'épreuve de charge lors d'une VGP et le rôle des blocs béton certifiés.",
-    images: ["/image/vgp-accessoires-levage.jpg"],
+    images: ["/image/vgp-accessoires-levage.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Poids de test VGP" style={{ backgroundImage: "url('/image/vgp-accessoires-levage.jpg')" }}>
+<section className="page-hero" aria-label="Poids de test VGP" style={{ backgroundImage: "url('/image/vgp-accessoires-levage.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

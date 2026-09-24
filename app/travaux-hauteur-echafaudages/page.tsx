@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/travaux-hauteur-echafaudages",
     title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
     description: "Port du harnais anti-chute, échafaudages fixes (R408) et roulants (R457) : SECURIFORM forme vos équipes dans la moitié nord de la France.",
-    images: ["/image/formation-travaux-hauteur.jpg"],
+    images: ["/image/formation-travaux-hauteur.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
     description: "Harnais anti-chute, échafaudages fixes et roulants : préparez vos équipes avec SECURIFORM.",
-    images: ["/image/formation-travaux-hauteur.jpg"],
+    images: ["/image/formation-travaux-hauteur.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations travaux en hauteur et échafaudages" style={{ backgroundImage: "url('/image/formation-travaux-hauteur.jpg')" }}>
+<section className="page-hero" aria-label="Formations travaux en hauteur et échafaudages" style={{ backgroundImage: "url('/image/formation-travaux-hauteur.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-harnais.jpg" alt="Formation Port du harnais anti-chute" loading="lazy" />
+              <img src="/image/formation-harnais.webp" alt="Formation Port du harnais anti-chute" loading="lazy" />
             </div>
             <h3>Travaux en hauteur</h3>
             <p>Port du harnais anti-chute, longes, antichutes à rappel automatique et points d'ancrage&nbsp;: les bons réflexes pour travailler en hauteur en sécurité.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-echafaudage-fixe.jpg" alt="Formation échafaudages fixes R408" loading="lazy" />
+              <img src="/image/formation-echafaudage-fixe.webp" alt="Formation échafaudages fixes R408" loading="lazy" />
             </div>
             <h3>Échafaudages fixes (R408)</h3>
             <p>Utilisation, montage-démontage, utilisation, démontage et réception d'échafaudages de pied ancrés à la façade, pour les travaux de longue durée.</p>
@@ -128,7 +128,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-echafaudage-roulant.jpg" alt="Formation échafaudages roulants R457" loading="lazy" />
+              <img src="/image/formation-echafaudage-roulant.webp" alt="Formation échafaudages roulants R457" loading="lazy" />
             </div>
             <h3>Échafaudages roulants (R457)</h3>
             <p>Montage, stabilisation et déplacement en sécurité des échafaudages mobiles, adaptés aux interventions ponctuelles.</p>

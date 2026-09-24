@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     url: "/conditions-generales-de-vente",
     title: "Conditions générales de vente — SECURIFORM",
     description: "Conditions générales de vente applicables à l'ensemble de l'offre de services SECURIFORM.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conditions générales de vente — SECURIFORM",
     description: "Conditions générales de vente SECURIFORM.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 
