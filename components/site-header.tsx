@@ -25,7 +25,7 @@ export default function SiteHeader() {
             <PhoneIcon className="icone-tel" />
             03 20 67 34 90
           </a>
-          <span className="zone">Interventions sur la France entière</span>
+          <span className="zone">Interventions dans la moitié nord de la France</span>
         </div>
       </div>
 

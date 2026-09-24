@@ -7,8 +7,8 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Conduite en sécurité de tondeuses auto-portées",
-      "description": "Formation à la conduite en sécurité des tondeuses auto-portées utilisées pour l'entretien de grands espaces verts, couvrant les risques de retournement, les vérifications avant utilisation et les règles de conduite sur pente.",
+      "name": "Conduite en sécurité de tondeuses autoportées",
+      "description": "Formation à la conduite en sécurité des tondeuses autoportées utilisées pour l'entretien de grands espaces verts, couvrant les risques de retournement, les vérifications avant utilisation et les règles de conduite sur pente.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -34,7 +34,7 @@ const jsonLd = {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Tondeuses auto-portées",
+          "name": "Tondeuses autoportées",
           "item": "https://securiform.fr/conduite-en-securite-de-balayeuses-routieres/"
         }
       ]
@@ -43,22 +43,22 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite de tondeuses auto-portées — SECURIFORM",
-  description: "Formation SECURIFORM à la conduite des tondeuses auto-portées : risques de retournement, vérifications, règles de conduite.",
+  title: "Conduite de tondeuses autoportées — SECURIFORM",
+  description: "Formation SECURIFORM à la conduite des tondeuses autoportées : risques de retournement, vérifications, règles de conduite.",
   alternates: { canonical: "/tondeuses-autoportees" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/tondeuses-autoportees",
-    title: "Conduite en sécurité de tondeuses auto-portées — SECURIFORM",
-    description: "Formation SECURIFORM aux bons réflexes de conduite des tondeuses auto-portées, pour les équipes espaces verts.",
+    title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
+    description: "Formation SECURIFORM aux bons réflexes de conduite des tondeuses autoportées, pour les équipes espaces verts.",
     images: ["/image/formation-tondeuse.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conduite en sécurité de tondeuses auto-portées — SECURIFORM",
-    description: "Formez vos équipes espaces verts à la conduite en sécurité des tondeuses auto-portées.",
+    title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
+    description: "Formez vos équipes espaces verts à la conduite en sécurité des tondeuses autoportées.",
     images: ["/image/formation-tondeuse.jpg"],
   },
 };
@@ -77,17 +77,17 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Conduite en sécurité de tondeuses auto-portées" style={{ backgroundImage: "url('/image/formation-tondeuse.jpg')" }}>
+<section className="page-hero" aria-label="Conduite en sécurité de tondeuses autoportées" style={{ backgroundImage: "url('/image/formation-tondeuse.jpg')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
           <span aria-hidden="true">›</span>
           <Link href="/formations-specifiques">Formations spécifiques</Link>
           <span aria-hidden="true">›</span>
-          <span>Tondeuses auto-portées</span>
+          <span>Tondeuses autoportées</span>
         </p>
-        <h1>Conduite en sécurité de tondeuses auto-portées</h1>
-        <p>Pour les équipes espaces verts et collectivités&nbsp;: les bons réflexes pour conduire une tondeuse auto-portée en toute sécurité, notamment sur terrain en pente.</p>
+        <h1>Conduite en sécurité de tondeuses autoportées</h1>
+        <p>Pour les équipes espaces verts et collectivités&nbsp;: les bons réflexes pour conduire une tondeuse autoportée en toute sécurité, notamment sur terrain en pente.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -101,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Un engin courant, des risques à ne pas sous-estimer</h2>
         <hr className="trait" />
-        <p>La tondeuse auto-portée ne fait pas partie du champ des CACES®, mais son utilisation présente des risques réels&nbsp;: retournement sur pente, projection de débris, coupure par les lames. Une formation dédiée permet à vos équipes d'entretien d'espaces verts d'acquérir les bons réflexes, quel que soit le terrain rencontré.</p>
+        <p>La tondeuse autoportée ne fait pas partie du champ des CACES®, mais son utilisation présente des risques réels&nbsp;: retournement sur pente, projection de débris, coupure par les lames. Une formation dédiée permet à vos équipes d'entretien d'espaces verts d'acquérir les bons réflexes, quel que soit le terrain rencontré.</p>
       </div>
     </section>
 
@@ -227,8 +227,8 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Un CACES® est-il nécessaire pour conduire une tondeuse auto-portée&nbsp;?</summary>
-            <p>Non, la tondeuse auto-portée ne relève d'aucune recommandation CACES®. Une formation à la conduite en sécurité reste néanmoins fortement recommandée, notamment sur des terrains en pente.</p>
+            <summary>Un CACES® est-il nécessaire pour conduire une tondeuse autoportée&nbsp;?</summary>
+            <p>Non, la tondeuse autoportée ne relève d'aucune recommandation CACES®. Une formation à la conduite en sécurité reste néanmoins fortement recommandée, notamment sur des terrains en pente.</p>
           </details>
 
           <details className="faq-item">
@@ -258,7 +258,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation tondeuses auto-portées</h2>
+          <h2 id="titre-devis">Programmer une formation tondeuses autoportées</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
         </div>
@@ -306,7 +306,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -319,7 +319,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

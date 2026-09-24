@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Conduite en sécurité et CACES® — SECURIFORM",
-  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, partout en France.",
+  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, dans la moitié nord de la France.",
   alternates: { canonical: "/caces" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® partout en France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® dans la moitié nord de la France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
     images: ["/image/formation-caces.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, partout en France.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, dans la moitié nord de la France.",
     images: ["/image/formation-caces.jpg"],
   },
 };
@@ -299,7 +299,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de mon CACES®&nbsp;?</summary>
-            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486B), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement(R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
+            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486B), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement (R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
           </details>
 
           <details className="faq-item">
@@ -356,7 +356,7 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
-                <option value="R482B">R482B— Engins de chantier</option>
+                <option value="R482B">R482B — Engins de chantier</option>
                 <option value="R489A">R489A — Chariots de manutention</option>
                 <option value="R486B">R486B — Nacelles élévatrices</option>
                 <option value="R484A">R484A — Ponts roulants et portiques</option>
@@ -384,7 +384,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -397,7 +397,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

@@ -56,7 +56,7 @@ export default function NotFound() {
       <section className="cta" aria-labelledby="titre-contact-404">
         <div className="container">
           <h2 id="titre-contact-404">Toujours pas trouvé&nbsp;?</h2>
-          <p>Notre équipe vous aide à identifier la bonne formation, partout en France.</p>
+          <p>Notre équipe vous aide à identifier la bonne formation, dans la moitié nord de la France.</p>
           <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
           <div className="cta-actions">
             <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

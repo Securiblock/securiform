@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation secourisme (SST) — SECURIFORM",
-  description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, partout en France.",
+  description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, dans la moitié nord de la France.",
   alternates: { canonical: "/secourisme" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/secourisme",
     title: "Formation secourisme (SST) — SECURIFORM",
-    description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, partout en France.",
+    description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation secourisme (SST) — SECURIFORM",
-    description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, partout en France.",
+    description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.jpg"],
   },
 };
@@ -313,7 +313,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -326,7 +326,7 @@ export default function Page() {
 <section className="cta" aria-labelledby="titre-contact">
       <div className="container reveal">
         <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
-        <p>Notre équipe vous répond rapidement et construit avec vous la formation adaptée aux risques de votre entreprise, partout en France.</p>
+        <p>Notre équipe vous répond dans l'heure et s'assure de l'adéquation de nos formations aux risques de votre entreprise.</p>
         <a className="cta-tel" href="tel:+33320673490">03 20 67 34 90</a>
         <div className="cta-actions">
           <Link className="btn btn-blanc" href="/nous-contacter">Nous contacter</Link>

@@ -46,8 +46,7 @@ export default function HeroSlider({ slides }: { slides: Slide[] }) {
   return (
     <section className="hero" aria-label="Nos domaines de formation" ref={heroRef}>
       <h1 style={{ position: "absolute", left: "-9999px" }}>
-        SECURIFORM — Organisme de formation à la sécurité au travail sur
-        toute la France
+        SECURIFORM — Organisme de formation à la sécurité au travail dans la moitié nord de la France
       </h1>
       <div
         className="slider"

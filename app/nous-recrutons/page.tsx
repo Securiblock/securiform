@@ -9,7 +9,7 @@ const jsonLd = {
     {
       "@type": "WebPage",
       "name": "Nous recrutons",
-      "description": "Page de recrutement de formateurs certifiés en sécurité au travail pour SECURIFORM, sur toute la France.",
+      "description": "Page de recrutement de formateurs certifiés en sécurité au travail pour SECURIFORM, dans la moitié nord de la France.",
       "url": "https://securiform.fr/nous-recrutons/"
     },
     {
@@ -34,7 +34,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Nous recrutons — Devenez formateur SECURIFORM",
-  description: "SECURIFORM recrute des formateurs certifiés en sécurité au travail sur toute la France. Rejoignez notre équipe.",
+  description: "SECURIFORM recrute des formateurs certifiés en sécurité au travail dans la moitié nord de la France. Rejoignez notre équipe.",
   alternates: { canonical: "/nous-recrutons" },
   openGraph: {
     type: "website",
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/nous-recrutons",
     title: "Nous recrutons — SECURIFORM",
-    description: "Formateurs certifiés en sécurité au travail, rejoignez SECURIFORM sur toute la France.",
+    description: "Formateurs certifiés en sécurité au travail, rejoignez SECURIFORM dans la moitié nord de la France.",
     images: ["/image/logo-securiform.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nous recrutons — SECURIFORM",
-    description: "SECURIFORM recrute des formateurs certifiés sur toute la France.",
+    description: "SECURIFORM recrute des formateurs certifiés dans la moitié nord de la France.",
     images: ["/image/logo-securiform.png"],
   },
 };
@@ -75,7 +75,7 @@ export default function Page() {
           <span>Nous recrutons</span>
         </p>
         <h1>Nous recrutons</h1>
-        <p>Afin de renforcer l'équipe SECURIFORM, nous recrutons des formateurs certifiés en sécurité au travail sur toute la France.</p>
+        <p>Afin de renforcer l'équipe SECURIFORM, nous recrutons des formateurs certifiés en sécurité au travail dans la moitié nord de la France.</p>
         <a href="#candidature" className="btn btn-plein">Postuler</a>
       </div>
     </section>
@@ -89,7 +89,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Rejoindre une équipe en développement</h2>
         <hr className="trait" />
-        <p>SECURIFORM accompagne les entreprises dans le domaine de la sécurité au travail sur tout le territoire français, avec pour valeurs la réactivité, le conseil et le service client. Pour répondre à une demande croissante, nous recherchons régulièrement des formateurs certifiés capables d'intervenir dans nos différents domaines d'expertise, partout en France.</p>
+        <p>SECURIFORM accompagne les entreprises dans le domaine de la sécurité au travail dans la moitié nord de la France, avec pour valeurs la réactivité, le conseil et le service client. Pour répondre à une demande croissante, nous recherchons régulièrement des formateurs certifiés capables d'intervenir dans nos différents domaines d'expertise, dans la moitié nord de la France.</p>
       </div>
     </section>
 
@@ -161,7 +161,7 @@ export default function Page() {
           <span className="surtitre">Ce que nous recherchons</span>
           <h2 id="titre-profil">Le profil d'un formateur SECURIFORM</h2>
           <p>Au-delà des certifications requises dans votre domaine, nous accordons une grande importance à l'expérience de terrain et à la pédagogie&nbsp;: nos formateurs doivent être capables de transmettre des savoir-faire concrets, adaptés aux réalités et aux risques propres à chaque entreprise cliente.</p>
-          <p>Une bonne mobilité géographique est un atout précieux, nos interventions ayant lieu partout en France, directement dans les locaux ou sur les chantiers de nos clients.</p>
+          <p>Une bonne mobilité géographique est un atout précieux, nos interventions ayant lieu dans la moitié nord de la France, directement dans les locaux ou sur les chantiers de nos clients.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="Ce qui compte pour nous">
           <h3>Ce qui compte pour nous</h3>
@@ -169,7 +169,7 @@ export default function Page() {
             <li><span className="puce" aria-hidden="true">✓</span> Certifications à jour dans votre domaine d'expertise</li>
             <li><span className="puce" aria-hidden="true">✓</span> Expérience de terrain solide</li>
             <li><span className="puce" aria-hidden="true">✓</span> Sens de la pédagogie et de l'adaptation</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Mobilité sur toute la France</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Mobilité dans la moitié nord de la France</li>
           </ul>
         </aside>
       </div>
@@ -194,8 +194,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Les interventions ont-elles lieu partout en France&nbsp;?</summary>
-            <p>Oui, SECURIFORM intervient sur tout le territoire français&nbsp;: une bonne mobilité géographique est donc appréciée, même si certaines missions peuvent être proposées sur une zone plus restreinte selon les besoins.</p>
+            <summary>Les interventions ont-elles lieu dans la moitié nord de la France&nbsp;?</summary>
+            <p>Oui, SECURIFORM intervient dans la moitié nord de la France&nbsp;: une bonne mobilité géographique est donc appréciée, même si certaines missions peuvent être proposées sur une zone plus restreinte selon les besoins.</p>
           </details>
 
           <details className="faq-item">

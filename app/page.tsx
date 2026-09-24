@@ -18,21 +18,21 @@ function formatArticleDate(date: string): string {
 export const metadata: Metadata = {
   title: "SECURIFORM — Formations sécurité au travail en France",
   description:
-    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, partout en France.",
+    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, dans la moitié nord de la France.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/",
-    title: "SECURIFORM — Formations sécurité au travail partout en France",
+    title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
     description:
       "Habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, VGP. Organisme certifié Qualiopi, 99,5 % de réussite.",
     images: ["/image/slide-1-habilitation-electrique.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SECURIFORM — Formations sécurité au travail partout en France",
+    title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
     description:
       "Habilitation électrique, CACES®, SST, incendie, travaux en hauteur, VGP. Organisme certifié Qualiopi.",
     images: ["/image/slide-1-habilitation-electrique.jpg"],
@@ -49,7 +49,7 @@ const jsonLd = {
       url: "https://securiform.fr/",
       logo: "https://securiform.fr/image/logo-securiform.png",
       description:
-        "Organisme de formation à la sécurité au travail intervenant sur toute la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
+        "Organisme de formation à la sécurité au travail intervenant dans la moitié nord de la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
       telephone: "+33320673490",
       areaServed: "FR",
       hasCredential: "Certification Qualiopi",
@@ -144,7 +144,7 @@ const slides: Slide[] = [
     tag: "Habilitation électrique",
     heading: (
       <>
-        Préparation à l&apos;habilitation <span className="accent">électrique</span>
+        Préparation à l&apos;<span className="accent">habilitation électrique</span>
       </>
     ),
     text: "Nous préparons à l'habilitation électrique pour personnel électricien et non-électricien, en basse et haute tensions : H0B0, BE Manœuvre-BS, HE Manœuvre, B1-B2-BR-BE essai-BC, B1L-B2L-BRL-BCL, H1-H2-HE essai-HC.",
@@ -156,7 +156,7 @@ const slides: Slide[] = [
     tag: "Conduite en sécurité & CACES®",
     heading: (
       <>
-        Formations à la conduite <span className="accent">en sécurité</span>
+        Formations à la <span className="accent">conduite en sécurité</span>
       </>
     ),
     text: "Nous préparons à l'autorisation de conduite selon les recommandations suivantes : R482B, R484A, R485A, R486B, R489A et R490A. Pour le passage du CACES®, nous consulter.",
@@ -192,10 +192,10 @@ const slides: Slide[] = [
     tag: "Travaux en hauteur",
     heading: (
       <>
-        Formations travaux <span className="accent">en hauteur</span>
+        Formations <span className="accent">travaux en hauteur</span>
       </>
     ),
-    text: "Nous proposons des formations au port du harnais anti-chute ainsi qu'aux échafaudages fixes et roulants.",
+    text: "Nous proposons des formations au port du harnais anti-chute, à l'utilisation de systèmes de sécurité définitifs, à la pose de systèmes de sécurité provisoires ainsi qu'aux échafaudages fixes et roulants.",
     href: "/travaux-hauteur-echafaudages",
     image: "/image/slide-5-travaux-hauteur.jpg",
     ariaLabel: "5 sur 5",
@@ -214,7 +214,7 @@ const formations = [
     img: "/image/formation-habilitation-electrique.jpg",
     alt: "Formation habilitation électrique",
     title: "Habilitation électrique",
-    text: "Personnel électricien et non-électricien, basse et haute tensions : H0B0, BS, BR, B1-B2, H1-H2, HC…",
+    text: "Personnel électricien et non-électricien, basse et haute tensions : H0B0, BS, B1, B2, BR, BC, H1-H2, HC…",
     href: "/habilitation-electrique",
   },
   {
@@ -235,7 +235,7 @@ const formations = [
     img: "/image/formation-travaux-hauteur.jpg",
     alt: "Formation travaux en hauteur et échafaudages",
     title: "Travaux en hauteur & échafaudages",
-    text: "Port du harnais anti-chute, échafaudages fixes et roulants : montage, utilisation et vérification.",
+    text: "Port du harnais anti-chute, échafaudages fixes et roulants : utilisation, montage-démontage et vérification.",
     href: "/travaux-hauteur-echafaudages",
   },
   {
@@ -256,7 +256,7 @@ const formations = [
     img: "/image/formation-specifiques.jpg",
     alt: "Formations spécifiques SECURIFORM",
     title: "Formations spécifiques",
-    text: "Tondeuses auto-portées, balayeuses routières, tronçonneuses thermiques, gestes qui sauvent… sur mesure.",
+    text: "Tondeuses autoportées, balayeuses routières, tronçonneuses thermiques, gestes qui sauvent… sur mesure.",
     href: "/formations-specifiques",
   },
 ];
@@ -271,7 +271,7 @@ const vgpLinks = [
   { href: "/vgp-chariots-telescopiques", label: "Chariots télescopiques" },
   { href: "/vgp-compacteurs", label: "Compacteurs" },
   { href: "/vgp-hayons-elevateurs", label: "Hayons élévateurs" },
-  { href: "/vgp-bras-de-levage", label: "Bras de levage" },
+  { href: "/vgp-bras-de-levage", label: "Bras de levage…" },
   { href: "/vgp-tombereaux", label: "Tombereaux" },
   { href: "/vgp-accessoires-levage", label: "Accessoires de levage" },
 ];
@@ -304,7 +304,7 @@ export default async function Home() {
           </div>
           <div className="reveal">
             <div className="stat-num" data-count="60" data-suffix="min">
-              0mins
+              0min
             </div>
             <div className="stat-label">
               Délai moyen de traitement de votre demande
@@ -317,7 +317,7 @@ export default async function Home() {
         <div className="container presentation">
           <div className="presentation-txt reveal">
             <span className="surtitre">Qui sommes-nous&nbsp;?</span>
-            <h2 id="titre-entreprise">SECURIFORM, votre partenaire sécurité</h2>
+            <h2 id="titre-entreprise">SÉCURIFORM, votre partenaire sécurité</h2>
             <p>
               Notre vocation est de mettre nos compétences à votre service
               afin de répondre à vos obligations réglementaires.
@@ -356,7 +356,7 @@ export default async function Home() {
                 <span className="puce" aria-hidden="true">
                   ✓
                 </span>{" "}
-                Service client : un accompagnement sur toute la France
+                Service client : un interlocuteur unique à votre écoute pour toutes vos demandes
               </li>
               <li>
                 <span className="puce" aria-hidden="true">
@@ -381,7 +381,7 @@ export default async function Home() {
             <hr className="trait" />
             <p>
               SECURIFORM vous accompagne dans le domaine de la sécurité au
-              travail sur tout le territoire français. Notre équipe cherche
+              travail dans la moitié nord de la France. Notre équipe cherche
               à se différencier chaque jour par ses valeurs : réactivité,
               conseil, service client.
             </p>
@@ -411,7 +411,7 @@ export default async function Home() {
             <h2 id="titre-recrute">Nous recrutons</h2>
             <p>
               Afin de renforcer l&apos;équipe <strong>SECURIFORM</strong>,
-              nous recrutons des formateurs sur toute la France.
+              nous recrutons des formateurs dans la moitié nord de la France.
             </p>
           </div>
           <Link className="btn btn-plein" href="/nous-recrutons">
@@ -424,9 +424,9 @@ export default async function Home() {
         <div className="container reveal">
           <h2 id="titre-contact">Vous avez une question&nbsp;?</h2>
           <p>
-            Notre équipe vous répond rapidement et construit avec vous la
-            formation adaptée aux risques de votre entreprise, partout en
-            France.
+            Notre équipe vous répond dans l&apos;heure et s&apos;assure de
+            l&apos;adéquation de nos formations aux risques de votre
+            entreprise.
           </p>
           <a className="cta-tel" href="tel:+33320673490">
             03 20 67 34 90
@@ -455,11 +455,10 @@ export default async function Home() {
               </span>
               <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
               <p>
-                Au-delà de la formation, SECURIFORM réalise les
+                Au-delà de la formation sécurité, SECURIFORM réalise les
                 Vérifications Générales Périodiques de vos équipements de
                 travail et de levage, conformément à la réglementation en
-                vigueur. Un interlocuteur unique pour former vos équipes et
-                maintenir vos machines en conformité.
+                vigueur.
               </p>
               <Link className="btn btn-blanc" href="/vgp">
                 Découvrir les VGP
