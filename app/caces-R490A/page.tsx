@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R490A",
     title: "Formation CACES® R490A — Grues auxiliaires de chargement — SECURIFORM",
     description: "Conduite en sécurité des grues auxiliaires de chargement, options télécommande et treuil. Formation SECURIFORM, certificat valable 10 ans.",
-    images: ["/image/caces-R490A.jpg"],
+    images: ["/image/caces-R490A.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R490A — SECURIFORM",
     description: "Conduite en sécurité des grues auxiliaires de chargement, avec SECURIFORM.",
-    images: ["/image/caces-R490A.jpg"],
+    images: ["/image/caces-R490A.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R490A" style={{ backgroundImage: "url('/image/caces-R490A.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R490A" style={{ backgroundImage: "url('/image/caces-R490A.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

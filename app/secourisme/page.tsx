@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/secourisme",
     title: "Formation secourisme (SST) — SECURIFORM",
     description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
-    images: ["/image/formation-secourisme-sst.jpg"],
+    images: ["/image/formation-secourisme-sst.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation secourisme (SST) — SECURIFORM",
     description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
-    images: ["/image/formation-secourisme-sst.jpg"],
+    images: ["/image/formation-secourisme-sst.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation secourisme (SST)" style={{ backgroundImage: "url('/image/formation-secourisme-sst.jpg')" }}>
+<section className="page-hero" aria-label="Formation secourisme (SST)" style={{ backgroundImage: "url('/image/formation-secourisme-sst.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-sst-initiale.jpg" alt="Formation initiale Sauveteur Secouriste du Travail" loading="lazy" />
+              <img src="/image/formation-sst-initiale.webp" alt="Formation initiale Sauveteur Secouriste du Travail" loading="lazy" />
             </div>
             <h3>Formation initiale SST</h3>
             <p>14 heures réparties sur 2 jours&nbsp;: protection, alerte, gestes de premiers secours et rôle préventif du SST. Certificat valable 24 mois.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-sst-mac.jpg" alt="MAC SST — maintien et actualisation des compétences" loading="lazy" />
+              <img src="/image/formation-sst-mac.webp" alt="MAC SST — maintien et actualisation des compétences" loading="lazy" />
             </div>
             <h3>MAC SST (recyclage)</h3>
             <p>7 heures pour maintenir et actualiser ses compétences, à réaliser avant l'expiration des 24 mois de validité du certificat.</p>

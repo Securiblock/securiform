@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     url: "/lentreprise",
     title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
     description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent dans la moitié nord de la France.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "L'entreprise — SECURIFORM",
     description: "Découvrez la mission, les valeurs et la certification Qualiopi de SECURIFORM.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 
@@ -241,7 +241,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-caces.jpg" alt="Formation conduite en sécurité et CACES®" loading="lazy" />
+              <img src="/image/formation-caces.webp" alt="Formation conduite en sécurité et CACES®" loading="lazy" />
             </div>
             <h3>Conduite en sécurité et CACES®</h3>
             <p>R482B, R484A, R485A, R486B, R489A, R490A&nbsp;: toutes les recommandations de conduite en sécurité.</p>
@@ -252,7 +252,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-habilitation-electrique.jpg" alt="Formation habilitation électrique" loading="lazy" />
+              <img src="/image/formation-habilitation-electrique.webp" alt="Formation habilitation électrique" loading="lazy" />
             </div>
             <h3>Habilitation électrique</h3>
             <p>Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques.</p>
@@ -263,7 +263,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-secourisme-sst.jpg" alt="Formation secourisme SST" loading="lazy" />
+              <img src="/image/formation-secourisme-sst.webp" alt="Formation secourisme SST" loading="lazy" />
             </div>
             <h3>Secourisme (SST)</h3>
             <p>Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail.</p>
@@ -274,7 +274,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-incendie.jpg" alt="Formation incendie et évacuation" loading="lazy" />
+              <img src="/image/formation-incendie.webp" alt="Formation incendie et évacuation" loading="lazy" />
             </div>
             <h3>Incendie et évacuation</h3>
             <p>Extincteurs, RIA, Équipiers de Première Intervention, exercices d'évacuation.</p>
@@ -285,7 +285,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-travaux-hauteur.jpg" alt="Formation travaux en hauteur et échafaudages" loading="lazy" />
+              <img src="/image/formation-travaux-hauteur.webp" alt="Formation travaux en hauteur et échafaudages" loading="lazy" />
             </div>
             <h3>Travaux en hauteur et échafaudages</h3>
             <p>Port du harnais, échafaudages fixes (R408) et roulants (R457).</p>
@@ -296,7 +296,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-gestes-postures.jpg" alt="Formation gestes et postures" loading="lazy" />
+              <img src="/image/formation-gestes-postures.webp" alt="Formation gestes et postures" loading="lazy" />
             </div>
             <h3>Gestes et postures</h3>
             <p>Prévention des troubles musculosquelettiques et techniques de manutention.</p>
@@ -307,7 +307,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-aipr.jpg" alt="Formation AIPR" loading="lazy" />
+              <img src="/image/formation-aipr.webp" alt="Formation AIPR" loading="lazy" />
             </div>
             <h3>AIPR</h3>
             <p>Opérateur, Encadrant, Concepteur&nbsp;: l'autorisation d'intervention à proximité des réseaux.</p>
@@ -318,7 +318,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <div className="formation-photo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/image/formation-specifiques.jpg" alt="Formations spécifiques SECURIFORM" loading="lazy" />
+              <img src="/image/formation-specifiques.webp" alt="Formations spécifiques SECURIFORM" loading="lazy" />
             </div>
             <h3>Formations spécifiques</h3>
             <p>Des formations sur mesure pour vos équipements et risques particuliers.</p>

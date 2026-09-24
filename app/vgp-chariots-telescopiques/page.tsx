@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-chariots-telescopiques",
     title: "VGP des chariots télescopiques — SECURIFORM",
     description: "VGP des chariots télescopiques avec SECURIFORM : systèmes hydrauliques, structure, dispositifs de sécurité. Fréquence de 6 mois.",
-    images: ["/image/vgp-chariots-telescopiques.jpg"],
+    images: ["/image/vgp-chariots-telescopiques.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des chariots télescopiques — SECURIFORM",
     description: "Vérification Générale Périodique de vos chariots télescopiques, avec SECURIFORM.",
-    images: ["/image/vgp-chariots-telescopiques.jpg"],
+    images: ["/image/vgp-chariots-telescopiques.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des chariots télescopiques" style={{ backgroundImage: "url('/image/vgp-chariots-telescopiques.jpg')" }}>
+<section className="page-hero" aria-label="VGP des chariots télescopiques" style={{ backgroundImage: "url('/image/vgp-chariots-telescopiques.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
     description:
       "Habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, VGP. Organisme certifié Qualiopi, 99,5 % de réussite.",
-    images: ["/image/slide-1-habilitation-electrique.jpg"],
+    images: ["/image/slide-1-habilitation-electrique.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
     description:
       "Habilitation électrique, CACES®, SST, incendie, travaux en hauteur, VGP. Organisme certifié Qualiopi.",
-    images: ["/image/slide-1-habilitation-electrique.jpg"],
+    images: ["/image/slide-1-habilitation-electrique.webp"],
   },
 };
 
@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": "https://securiform.fr/#organization",
       name: "SECURIFORM",
       url: "https://securiform.fr/",
-      logo: "https://securiform.fr/image/logo-securiform.png",
+      logo: "https://securiform.fr/image/logo-securiform.webp",
       description:
         "Organisme de formation à la sécurité au travail intervenant dans la moitié nord de la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
       telephone: "+33320673490",
@@ -149,7 +149,7 @@ const slides: Slide[] = [
     ),
     text: "Nous préparons à l'habilitation électrique pour personnel électricien et non-électricien, en basse et haute tensions : H0B0, BE Manœuvre-BS, HE Manœuvre, B1-B2-BR-BE essai-BC, B1L-B2L-BRL-BCL, H1-H2-HE essai-HC.",
     href: "/habilitation-electrique",
-    image: "/image/slide-1-habilitation-electrique.jpg",
+    image: "/image/slide-1-habilitation-electrique.webp",
     ariaLabel: "1 sur 5",
   },
   {
@@ -161,7 +161,7 @@ const slides: Slide[] = [
     ),
     text: "Nous préparons à l'autorisation de conduite selon les recommandations suivantes : R482B, R484A, R485A, R486B, R489A et R490A. Pour le passage du CACES®, nous consulter.",
     href: "/caces",
-    image: "/image/slide-2-caces.jpg",
+    image: "/image/slide-2-caces.webp",
     ariaLabel: "2 sur 5",
   },
   {
@@ -173,7 +173,7 @@ const slides: Slide[] = [
     ),
     text: "SECURIFORM est habilitée centre de formation Sauveteur Secouriste du Travail (SST).",
     href: "/secourisme",
-    image: "/image/slide-3-secourisme.jpg",
+    image: "/image/slide-3-secourisme.webp",
     ariaLabel: "3 sur 5",
   },
   {
@@ -185,7 +185,7 @@ const slides: Slide[] = [
     ),
     text: "Nous proposons des formations aux moyens de lutte contre l'incendie (manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention) et à l'évacuation des locaux. Nous restons à votre service pour développer une formation spécifique aux risques liés à votre entreprise.",
     href: "/incendie-evacuation",
-    image: "/image/slide-4-incendie.jpg",
+    image: "/image/slide-4-incendie.webp",
     ariaLabel: "4 sur 5",
   },
   {
@@ -197,63 +197,63 @@ const slides: Slide[] = [
     ),
     text: "Nous proposons des formations au port du harnais anti-chute, à l'utilisation de systèmes de sécurité définitifs, à la pose de systèmes de sécurité provisoires ainsi qu'aux échafaudages fixes et roulants.",
     href: "/travaux-hauteur-echafaudages",
-    image: "/image/slide-5-travaux-hauteur.jpg",
+    image: "/image/slide-5-travaux-hauteur.webp",
     ariaLabel: "5 sur 5",
   },
 ];
 
 const formations = [
   {
-    img: "/image/formation-caces.jpg",
+    img: "/image/formation-caces.webp",
     alt: "Formation conduite en sécurité et CACES®",
     title: "Conduite en sécurité et CACES®",
     text: "R482B, R484A, R485A, R486B, R489A et R490A : préparation à l'autorisation de conduite et au passage du CACES®.",
     href: "/caces",
   },
   {
-    img: "/image/formation-habilitation-electrique.jpg",
+    img: "/image/formation-habilitation-electrique.webp",
     alt: "Formation habilitation électrique",
     title: "Habilitation électrique",
     text: "Personnel électricien et non-électricien, basse et haute tensions : H0B0, BS, B1, B2, BR, BC, H1-H2, HC…",
     href: "/habilitation-electrique",
   },
   {
-    img: "/image/formation-secourisme-sst.jpg",
+    img: "/image/formation-secourisme-sst.webp",
     alt: "Formation secourisme SST",
     title: "Secourisme (SST)",
     text: "Centre habilité pour la formation Sauveteur Secouriste du Travail : formation initiale et maintien des acquis (MAC).",
     href: "/secourisme",
   },
   {
-    img: "/image/formation-incendie.jpg",
+    img: "/image/formation-incendie.webp",
     alt: "Formation incendie et évacuation",
     title: "Incendie & évacuation",
     text: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux.",
     href: "/incendie-evacuation",
   },
   {
-    img: "/image/formation-travaux-hauteur.jpg",
+    img: "/image/formation-travaux-hauteur.webp",
     alt: "Formation travaux en hauteur et échafaudages",
     title: "Travaux en hauteur & échafaudages",
     text: "Port du harnais anti-chute, échafaudages fixes et roulants : utilisation, montage-démontage et vérification.",
     href: "/travaux-hauteur-echafaudages",
   },
   {
-    img: "/image/formation-aipr.jpg",
+    img: "/image/formation-aipr.webp",
     alt: "Formation AIPR",
     title: "Formations AIPR",
     text: "Autorisation d'Intervention à Proximité des Réseaux pour opérateurs, encadrants et concepteurs.",
     href: "/aipr",
   },
   {
-    img: "/image/formation-gestes-postures.jpg",
+    img: "/image/formation-gestes-postures.webp",
     alt: "Formation gestes et postures",
     title: "Gestes et postures",
     text: "Prévenir les troubles musculo-squelettiques et adopter les bons gestes au poste de travail.",
     href: "/gestes-postures",
   },
   {
-    img: "/image/formation-specifiques.jpg",
+    img: "/image/formation-specifiques.webp",
     alt: "Formations spécifiques SECURIFORM",
     title: "Formations spécifiques",
     text: "Tondeuses autoportées, balayeuses routières, tronçonneuses thermiques, gestes qui sauvent… sur mesure.",

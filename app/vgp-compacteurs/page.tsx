@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-compacteurs",
     title: "VGP des compacteurs — SECURIFORM",
     description: "VGP des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques. Fréquence de 12 mois.",
-    images: ["/image/vgp-compacteurs.jpg"],
+    images: ["/image/vgp-compacteurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des compacteurs — SECURIFORM",
     description: "Vérification Générale Périodique de vos compacteurs, avec SECURIFORM.",
-    images: ["/image/vgp-compacteurs.jpg"],
+    images: ["/image/vgp-compacteurs.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des compacteurs" style={{ backgroundImage: "url('/image/vgp-compacteurs.jpg')" }}>
+<section className="page-hero" aria-label="VGP des compacteurs" style={{ backgroundImage: "url('/image/vgp-compacteurs.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

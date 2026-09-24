@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     url: "/mentions-legales",
     title: "Mentions légales — SECURIFORM",
     description: "Informations légales relatives à l'éditeur et à l'hébergement du site SECURIFORM.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mentions légales — SECURIFORM",
     description: "Informations légales du site SECURIFORM.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 

@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/habilitation-electricien",
     title: "Formation personnel électricien — SECURIFORM",
     description: "B1-B2-BR-BC, H1-H2-HC : formation SECURIFORM pour le personnel électricien, en basse et haute tension.",
-    images: ["/image/formation-habilitation-electricien.jpg"],
+    images: ["/image/formation-habilitation-electricien.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation personnel électricien — SECURIFORM",
     description: "Formez vos électriciens à la consignation, aux travaux BT/HTA, avec SECURIFORM.",
-    images: ["/image/formation-habilitation-electricien.jpg"],
+    images: ["/image/formation-habilitation-electricien.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation personnel électricien" style={{ backgroundImage: "url('/image/formation-habilitation-electricien.jpg')" }}>
+<section className="page-hero" aria-label="Formation personnel électricien" style={{ backgroundImage: "url('/image/formation-habilitation-electricien.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

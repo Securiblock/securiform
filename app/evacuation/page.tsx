@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/evacuation",
     title: "Formation évacuation — SECURIFORM",
     description: "Guides-files, serre-files, organisation d'exercices : formation SECURIFORM à l'évacuation des locaux.",
-    images: ["/image/formation-evacuation.jpg"],
+    images: ["/image/formation-evacuation.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation évacuation — SECURIFORM",
     description: "Formez vos guides-files et serre-files à organiser une évacuation efficace, avec SECURIFORM.",
-    images: ["/image/formation-evacuation.jpg"],
+    images: ["/image/formation-evacuation.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation évacuation" style={{ backgroundImage: "url('/image/formation-evacuation.jpg')" }}>
+<section className="page-hero" aria-label="Formation évacuation" style={{ backgroundImage: "url('/image/formation-evacuation.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

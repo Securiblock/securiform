@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/gestes-qui-sauvent",
     title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
     description: "Une sensibilisation courte et accessible à tous, pour diffuser les gestes qui sauvent dans votre entreprise.",
-    images: ["/image/formation-gestes-qui-sauvent.jpg"],
+    images: ["/image/formation-gestes-qui-sauvent.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
     description: "Formez l'ensemble de vos collaborateurs aux gestes qui sauvent, sans prérequis, avec SECURIFORM.",
-    images: ["/image/formation-gestes-qui-sauvent.jpg"],
+    images: ["/image/formation-gestes-qui-sauvent.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Sensibilisation aux gestes qui sauvent" style={{ backgroundImage: "url('/image/formation-gestes-qui-sauvent.jpg')" }}>
+<section className="page-hero" aria-label="Sensibilisation aux gestes qui sauvent" style={{ backgroundImage: "url('/image/formation-gestes-qui-sauvent.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

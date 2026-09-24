@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/habilitation-electrique",
     title: "Préparation à l'habilitation électrique — SECURIFORM",
     description: "Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques/hybrides : SECURIFORM prépare vos équipes à l'habilitation électrique dans la moitié nord de la France.",
-    images: ["/image/formation-habilitation-electrique.jpg"],
+    images: ["/image/formation-habilitation-electrique.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Préparation à l'habilitation électrique — SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B1-B2-BR-BC, H1-H2-HC : préparez vos équipes à l'habilitation électrique avec SECURIFORM.",
-    images: ["/image/formation-habilitation-electrique.jpg"],
+    images: ["/image/formation-habilitation-electrique.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Préparation à l'habilitation électrique" style={{ backgroundImage: "url('/image/formation-habilitation-electrique.jpg')" }}>
+<section className="page-hero" aria-label="Préparation à l'habilitation électrique" style={{ backgroundImage: "url('/image/formation-habilitation-electrique.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-habilitation-non-electricien.jpg" alt="Formation habilitation électrique personnel non-électricien" loading="lazy" />
+              <img src="/image/formation-habilitation-non-electricien.webp" alt="Formation habilitation électrique personnel non-électricien" loading="lazy" />
             </div>
             <h3>Personnel non-électricien</h3>
             <p>Pour toute personne amenée à travailler ou circuler à proximité d'installations électriques sans intervenir dessus&nbsp;: chargés de chantier, personnel de nettoyage, de manutention, etc. Habilitations H0, B0, BS, BE/HE Manœuvre.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-habilitation-electricien.jpg" alt="Formation habilitation électrique personnel électricien" loading="lazy" />
+              <img src="/image/formation-habilitation-electricien.webp" alt="Formation habilitation électrique personnel électricien" loading="lazy" />
             </div>
             <h3>Personnel électricien</h3>
             <p>Pour les électriciens réalisant des travaux, interventions, essais ou consignations sur des installations basse ou haute tension&nbsp;: B1-B2-BR-BC-BE essai, H1-H2-HC-HE essai.</p>

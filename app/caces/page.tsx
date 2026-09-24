@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
     description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® dans la moitié nord de la France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
-    images: ["/image/formation-caces.jpg"],
+    images: ["/image/formation-caces.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
     description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, dans la moitié nord de la France.",
-    images: ["/image/formation-caces.jpg"],
+    images: ["/image/formation-caces.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations à la conduite en sécurité et CACES®" style={{ backgroundImage: "url('/image/formation-caces.jpg')" }}>
+<section className="page-hero" aria-label="Formations à la conduite en sécurité et CACES®" style={{ backgroundImage: "url('/image/formation-caces.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R482B.jpg" alt="CACES R482B — engins de chantier" loading="lazy" />
+              <img src="/image/caces-R482B.webp" alt="CACES R482B — engins de chantier" loading="lazy" />
             </div>
             <span className="categorie-badge">10 ans</span>
             <span className="categorie-code">R482B</span>
@@ -120,7 +120,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R489A.jpg" alt="CACES R489A — chariots de manutention" loading="lazy" />
+              <img src="/image/caces-R489A.webp" alt="CACES R489A — chariots de manutention" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R489A</span>
@@ -132,7 +132,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R486B.jpg" alt="CACES R486B — nacelles élévatrices" loading="lazy" />
+              <img src="/image/caces-R486B.webp" alt="CACES R486B — nacelles élévatrices" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R486B</span>
@@ -144,7 +144,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R484A.jpg" alt="CACES R484A — ponts roulants et portiques" loading="lazy" />
+              <img src="/image/caces-R484A.webp" alt="CACES R484A — ponts roulants et portiques" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R484A</span>
@@ -156,7 +156,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R485A.jpg" alt="CACES R485A — gerbeurs à conducteur accompagnant" loading="lazy" />
+              <img src="/image/caces-R485A.webp" alt="CACES R485A — gerbeurs à conducteur accompagnant" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R485A</span>
@@ -168,7 +168,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R490A.jpg" alt="CACES R490A — grues auxiliaires de chargement" loading="lazy" />
+              <img src="/image/caces-R490A.webp" alt="CACES R490A — grues auxiliaires de chargement" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R490A</span>

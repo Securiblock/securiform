@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/sst-initiale",
     title: "Formation initiale SST — SECURIFORM",
     description: "Cadre légal, programme en 10 modules, rôle préventif du SST : formation initiale SST avec SECURIFORM, 14h, certificat valable 24 mois.",
-    images: ["/image/formation-sst-initiale.jpg"],
+    images: ["/image/formation-sst-initiale.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation initiale SST — SECURIFORM",
     description: "Devenez Sauveteur Secouriste du Travail avec SECURIFORM, centre habilité INRS.",
-    images: ["/image/formation-sst-initiale.jpg"],
+    images: ["/image/formation-sst-initiale.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation initiale SST" style={{ backgroundImage: "url('/image/formation-sst-initiale.jpg')" }}>
+<section className="page-hero" aria-label="Formation initiale SST" style={{ backgroundImage: "url('/image/formation-sst-initiale.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

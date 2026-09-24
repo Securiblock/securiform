@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R486B",
     title: "Formation CACES® R486B Catégorie A — Nacelles élévatrices — SECURIFORM",
     description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-R486B.jpg"],
+    images: ["/image/caces-R486B.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R486B Catégorie A — SECURIFORM",
     description: "Conduite en sécurité des nacelles élévatrices à élévation verticale, avec SECURIFORM.",
-    images: ["/image/caces-R486B.jpg"],
+    images: ["/image/caces-R486B.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R486B Catégorie A" style={{ backgroundImage: "url('/image/caces-R486B.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R486B Catégorie A" style={{ backgroundImage: "url('/image/caces-R486B.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/equipier-premiere-intervention",
     title: "Formation Équipier de Première Intervention — SECURIFORM",
     description: "RIA, extincteurs, coupures d'énergie, limites de l'intervention : formation SECURIFORM aux Équipiers de Première Intervention.",
-    images: ["/image/formation-epi.jpg"],
+    images: ["/image/formation-epi.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation Équipier de Première Intervention — SECURIFORM",
     description: "Formez vos référents internes à intervenir sur un début d'incendie, avec SECURIFORM.",
-    images: ["/image/formation-epi.jpg"],
+    images: ["/image/formation-epi.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation Équipier de Première Intervention" style={{ backgroundImage: "url('/image/formation-epi.jpg')" }}>
+<section className="page-hero" aria-label="Formation Équipier de Première Intervention" style={{ backgroundImage: "url('/image/formation-epi.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

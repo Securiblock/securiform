@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     url: "/nous-recrutons",
     title: "Nous recrutons — SECURIFORM",
     description: "Formateurs certifiés en sécurité au travail, rejoignez SECURIFORM dans la moitié nord de la France.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nous recrutons — SECURIFORM",
     description: "SECURIFORM recrute des formateurs certifiés dans la moitié nord de la France.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 

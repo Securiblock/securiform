@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/echafaudages-roulants",
     title: "Formation échafaudages roulants R457 — SECURIFORM",
     description: "Stabilisation, blocage des roues, déplacement sécurisé : formation SECURIFORM aux échafaudages roulants R457.",
-    images: ["/image/formation-echafaudage-roulant.jpg"],
+    images: ["/image/formation-echafaudage-roulant.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation échafaudages roulants R457 — SECURIFORM",
     description: "Formez vos équipes à la stabilisation et au déplacement sécurisé des échafaudages roulants, avec SECURIFORM.",
-    images: ["/image/formation-echafaudage-roulant.jpg"],
+    images: ["/image/formation-echafaudage-roulant.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation échafaudages roulants" style={{ backgroundImage: "url('/image/formation-echafaudage-roulant.jpg')" }}>
+<section className="page-hero" aria-label="Formation échafaudages roulants" style={{ backgroundImage: "url('/image/formation-echafaudage-roulant.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

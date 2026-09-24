@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-concepteurs",
     title: "Formation concepteurs AIPR — SECURIFORM",
     description: "Guichet Unique, investigations complémentaires, clauses DCE : formation SECURIFORM concepteurs AIPR.",
-    images: ["/image/formation-aipr-concepteur.jpg"],
+    images: ["/image/formation-aipr-concepteur.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation concepteurs AIPR — SECURIFORM",
     description: "Formez vos maîtres d'ouvrage et maîtres d'œuvre à piloter un projet en conformité AIPR, avec SECURIFORM.",
-    images: ["/image/formation-aipr-concepteur.jpg"],
+    images: ["/image/formation-aipr-concepteur.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation concepteurs AIPR" style={{ backgroundImage: "url('/image/formation-aipr-concepteur.jpg')" }}>
+<section className="page-hero" aria-label="Formation concepteurs AIPR" style={{ backgroundImage: "url('/image/formation-aipr-concepteur.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
