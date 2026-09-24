@@ -37,6 +37,16 @@ export default function ScrollEffects() {
       revealEls.forEach((el) => revealObserver?.observe(el));
     }
 
+    // 60+ minutes reads better as hours ("1h", "1h30") than "60min".
+    function formatStat(value: number, decimals: number, suffix: string): string {
+      if (suffix === "min" && value >= 60) {
+        const hours = Math.floor(value / 60);
+        const minutes = Math.round(value % 60);
+        return minutes === 0 ? `${hours}h` : `${hours}h${String(minutes).padStart(2, "0")}`;
+      }
+      return value.toFixed(decimals).replace(".", ",") + suffix;
+    }
+
     function animateCounter(el: Element) {
       const target = parseFloat((el as HTMLElement).dataset.count || "0");
       const suffix = (el as HTMLElement).dataset.suffix || "";
@@ -45,7 +55,7 @@ export default function ScrollEffects() {
       ).length;
 
       if (reduced) {
-        el.textContent = target.toFixed(decimals).replace(".", ",") + suffix;
+        el.textContent = formatStat(target, decimals, suffix);
         return;
       }
 
@@ -53,9 +63,7 @@ export default function ScrollEffects() {
       const start = performance.now();
       function step(t: number) {
         const p = Math.min((t - start) / duration, 1);
-        el.textContent =
-          (target * (1 - Math.pow(1 - p, 3))).toFixed(decimals).replace(".", ",") +
-          suffix;
+        el.textContent = formatStat(target * (1 - Math.pow(1 - p, 3)), decimals, suffix);
         if (p < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
