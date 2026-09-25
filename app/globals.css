@@ -604,3 +604,63 @@ h3{font-size:26px}
   .vgp-liste{grid-template-columns:1fr}
   .grille-categories{grid-template-columns:1fr}
 }
+/* ===================== CHATBOT ===================== */
+.chat{position:fixed;right:24px;bottom:24px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:14px;font-size:16px;line-height:1.5}
+.chat-toggle{
+  width:62px;height:62px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--rouge);color:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 24px rgba(206,34,34,.35);transition:var(--transition);
+}
+.chat-toggle:hover{background:var(--rouge-fonce);transform:translateY(-2px)}
+.chat-panel{
+  width:min(380px,calc(100vw - 32px));height:min(560px,calc(100vh - 140px));
+  background:var(--blanc);border-radius:16px;box-shadow:0 18px 50px rgba(28,28,30,.22);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.chat-head{background:var(--rouge);color:#fff;padding:.9rem 1rem .9rem 1.2rem;display:flex;align-items:center;justify-content:space-between;gap:.8rem}
+.chat-head strong{display:block;font-family:var(--titre);font-size:21px;text-transform:uppercase;letter-spacing:.03em;line-height:1.2}
+.chat-head span{font-size:13px;opacity:.85}
+.chat-close{background:none;border:none;color:#fff;cursor:pointer;padding:.3rem;border-radius:6px;display:grid;place-items:center}
+.chat-close:hover{background:rgba(255,255,255,.15)}
+.chat-close:focus-visible,.chat-toggle:focus-visible{outline-color:var(--noir)}
+.chat-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.7rem;background:var(--gris-clair)}
+.chat-msg{max-width:88%;padding:.65rem .9rem;border-radius:14px;word-wrap:break-word}
+.chat-msg p + p,.chat-msg p + ul,.chat-msg ul + p{margin-top:.5rem}
+.chat-msg ul{list-style:disc;padding-left:1.2rem}
+.chat-msg-bot{align-self:flex-start;background:var(--blanc);color:var(--noir);border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(28,28,30,.06)}
+.chat-msg-bot a{color:var(--rouge);font-weight:600;text-decoration:underline}
+.chat-msg-user{align-self:flex-end;background:var(--rouge);color:#fff;border-bottom-right-radius:4px;white-space:pre-wrap}
+.chat-typing{display:flex;gap:5px;padding:.9rem 1rem}
+.chat-typing span{width:8px;height:8px;border-radius:50%;background:var(--gris);opacity:.4;animation:chat-dot 1.2s infinite ease-in-out}
+.chat-typing span:nth-child(2){animation-delay:.2s}
+.chat-typing span:nth-child(3){animation-delay:.4s}
+@keyframes chat-dot{0%,80%,100%{opacity:.25;transform:none}40%{opacity:1;transform:translateY(-3px)}}
+.chat-error{align-self:stretch;background:var(--rouge-pale);color:var(--rouge-fonce);border-radius:10px;padding:.6rem .8rem;font-size:15px}
+.chat-suggestions{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;margin-top:.2rem}
+.chat-suggestions button{
+  background:var(--blanc);border:1.5px solid var(--rouge);color:var(--rouge);border-radius:999px;
+  padding:.4rem .9rem;font:inherit;font-size:15px;font-weight:600;cursor:pointer;text-align:left;transition:var(--transition);
+}
+.chat-suggestions button:hover{background:var(--rouge);color:#fff}
+.chat-form{display:flex;align-items:flex-end;gap:.5rem;padding:.7rem;border-top:1px solid #e6e6ea}
+.chat-form textarea{
+  flex:1;resize:none;border:1.5px solid #d9d9de;border-radius:10px;padding:.55rem .75rem;
+  font:inherit;font-size:16px;max-height:120px;field-sizing:content;
+}
+.chat-form textarea:focus{outline:none;border-color:var(--rouge)}
+.chat-form button{
+  width:44px;height:44px;flex-shrink:0;border:none;border-radius:10px;cursor:pointer;
+  background:var(--rouge);color:#fff;display:grid;place-items:center;transition:var(--transition);
+}
+.chat-form button:hover:not(:disabled){background:var(--rouge-fonce)}
+.chat-form button:disabled{opacity:.45;cursor:default}
+.chat-mention{font-size:12px;color:var(--gris);padding:0 .9rem .7rem;line-height:1.4}
+.chat-mention a{color:var(--rouge);font-weight:600;white-space:nowrap}
+@media (max-width:520px){
+  .chat{right:16px;bottom:16px}
+  .chat-toggle{width:56px;height:56px}
+  /* Full screen on phones: a floating panel would end up under the sticky header. */
+  .chat.is-open{z-index:110}
+  .chat.is-open .chat-toggle{display:none}
+  .chat-panel{position:fixed;inset:0;width:100%;height:100dvh;border-radius:0}
+}

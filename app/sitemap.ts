@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPublishedArticles } from "@/lib/blog/content";
+import { hubs, legal, pages } from "@/lib/site-pages";
 
 const BASE_URL = "https://securiform.fr";
 
@@ -7,65 +8,6 @@ const BASE_URL = "https://securiform.fr";
 // article list below), so this can't be prerendered once at build time —
 // force it to stay live.
 export const dynamic = "force-dynamic";
-
-const hubs: { path: string; priority: number }[] = [
-  { path: "/", priority: 1 },
-  { path: "/caces", priority: 0.9 },
-  { path: "/habilitation-electrique", priority: 0.9 },
-  { path: "/secourisme", priority: 0.9 },
-  { path: "/incendie-evacuation", priority: 0.9 },
-  { path: "/travaux-hauteur-echafaudages", priority: 0.9 },
-  { path: "/aipr", priority: 0.9 },
-  { path: "/vgp", priority: 0.9 },
-  { path: "/blog", priority: 0.8 },
-  { path: "/formations-specifiques", priority: 0.8 },
-  { path: "/gestes-postures", priority: 0.8 },
-];
-
-const pages: string[] = [
-  "/caces-R482B",
-  "/caces-R484A",
-  "/caces-R485A",
-  "/caces-R486B",
-  "/caces-R489A",
-  "/caces-R490A",
-  "/habilitation-electricien",
-  "/habilitation-non-electricien",
-  "/sst-initiale",
-  "/sst-mac",
-  "/evacuation",
-  "/manipulation-extincteurs",
-  "/equipier-premiere-intervention",
-  "/echafaudages-fixes",
-  "/echafaudages-roulants",
-  "/travaux-en-hauteur",
-  "/aipr-concepteurs",
-  "/aipr-encadrants",
-  "/aipr-operateurs",
-  "/vgp-accessoires-levage",
-  "/vgp-bras-de-levage",
-  "/vgp-chargeuses",
-  "/vgp-chariots-elevateurs",
-  "/vgp-chariots-telescopiques",
-  "/vgp-compacteurs",
-  "/vgp-grues-auxiliaires",
-  "/vgp-hayons-elevateurs",
-  "/vgp-nacelles-elevatrices",
-  "/vgp-pelleteuses",
-  "/vgp-ponts-roulants",
-  "/vgp-tombereaux",
-  "/tondeuses-autoportees",
-  "/tronconneuse-thermique",
-  "/balayeuses-routieres",
-  "/gestes-qui-sauvent",
-  "/poids-de-test-vgp",
-  "/statistiques",
-  "/lentreprise",
-  "/nous-contacter",
-  "/nous-recrutons",
-];
-
-const legal: string[] = ["/mentions-legales", "/conditions-generales-de-vente"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();

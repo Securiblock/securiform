@@ -33,11 +33,11 @@ export default function SiteHeader() {
         <div className="container header-inner">
           <Link href="/" className="logo" aria-label="SECURIFORM — Accueil">
             <Image
-              src="/image/logo-securiform.png"
+              src="/image/logo-securiform.webp"
               alt="SECURIFORM"
               className="logo-img"
-              width={180}
-              height={52}
+              width={1024}
+              height={205}
               priority
             />
           </Link>

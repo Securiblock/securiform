@@ -47,7 +47,7 @@ const jsonLd = {
       "@id": "https://securiform.fr/#organization",
       name: "SECURIFORM",
       url: "https://securiform.fr/",
-      logo: "https://securiform.fr/image/logo-securiform.png",
+      logo: "https://securiform.fr/image/logo-securiform.webp",
       description:
         "Organisme de formation à la sécurité au travail intervenant dans la moitié nord de la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
       telephone: "+33320673490",

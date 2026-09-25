@@ -168,7 +168,7 @@ export default function Page() {
               </tr>
               <tr>
                 <td>7</td>
-                <td>Conduite hors-production des chariots de toute les catégories</td>
+                <td>Conduite hors-production des chariots de toutes les catégories</td>
                 <td></td>
               </tr>
               

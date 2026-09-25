@@ -55,13 +55,13 @@ export const metadata: Metadata = {
     url: "/nous-contacter",
     title: "Nous contacter — SECURIFORM",
     description: "Devis, renseignements, service client : contactez SECURIFORM à Villeneuve d'Ascq ou par téléphone au 03 20 67 34 90.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nous contacter — SECURIFORM",
     description: "Contactez SECURIFORM pour vos demandes de devis, renseignements ou service client.",
-    images: ["/image/logo-securiform.png"],
+    images: ["/image/logo-securiform.webp"],
   },
 };
 
@@ -203,7 +203,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Sous quel délai vais-je recevoir une réponse&nbsp;?</summary>
-            <p>Notre délai moyen de traitement des demandes est de 24 heures. Pour une réponse immédiate, le téléphone reste le moyen le plus rapide de nous joindre.</p>
+            <p>Notre délai moyen de traitement des demandes est de 1 heure. Pour une réponse immédiate, le téléphone reste le moyen le plus rapide de nous joindre.</p>
           </details>
 
           <details className="faq-item">
