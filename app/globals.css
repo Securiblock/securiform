@@ -59,6 +59,8 @@ h3{font-size:26px}
 .btn-contour:hover{background:var(--rouge);color:#fff}
 .btn-blanc{border-color:#fff;background:#fff;color:var(--rouge)}
 .btn-blanc:hover{background:transparent;color:#fff}
+.btn-sombre{border-color:var(--noir);background:var(--noir);color:#fff}
+.btn-sombre:hover{background:#000;border-color:#000;transform:translateY(-2px)}
 
 /* ===================== TOP BAR ===================== */
 .topbar{background:var(--noir);color:#fff;font-size:16px;padding:.45rem 0}
@@ -298,6 +300,14 @@ h3{font-size:26px}
 .cta-tel:hover{text-decoration:underline}
 .cta-actions{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
 
+.map-placeholder{
+  background:var(--gris-clair);border-radius:12px;padding:2rem;
+  text-align:center;
+}
+.map-placeholder p{color:var(--gris);margin-bottom:1.2rem}
+.map-placeholder-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap}
+.map-placeholder-actions .btn{padding:.6rem 1.3rem;font-size:16px}
+
 /* ===================== VGP (FIN DE PAGE) ===================== */
 .vgp{
   background:var(--noir);color:#fff;border-radius:16px;padding:3rem;
@@ -318,7 +328,7 @@ h3{font-size:26px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:3rem}
 .footer h3{color:#fff;font-size:20px;margin-bottom:1.2rem;letter-spacing:.08em}
 .footer li{margin-bottom:.65rem}
-.footer a:hover{color:#FF8A8A}
+.footer a:hover,.footer button:hover{color:#FF8A8A}
 .footer .logo{color:#fff;font-size:28px;margin-bottom:1rem}
 .footer-desc{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:1.2rem}
 .qualiopi{
@@ -458,6 +468,8 @@ h3{font-size:26px}
 }
 .champ-pleine-largeur{grid-column:1 / -1}
 .form-devis .btn{margin-top:.6rem}
+.form-mention{font-size:14px;color:var(--gris);line-height:1.5;margin-top:1rem}
+.form-mention a{color:var(--rouge);font-weight:600}
 
 /* --- Carte document (PDF téléchargeable) — page statistiques --- */
 .doc-card{
@@ -663,4 +675,39 @@ h3{font-size:26px}
   .chat.is-open{z-index:110}
   .chat.is-open .chat-toggle{display:none}
   .chat-panel{position:fixed;inset:0;width:100%;height:100dvh;border-radius:0}
+}
+
+/* ===================== COOKIE CONSENT ===================== */
+.cookie-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:95;
+  background:var(--blanc);box-shadow:0 -8px 30px rgba(28,28,30,.14);
+  border-top:1px solid #ECECEF;
+}
+.cookie-banner-inner{
+  width:min(1200px,92%);margin-inline:auto;
+  padding:1.4rem 0 1.6rem;
+  display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem 2rem;
+}
+.cookie-banner-text{flex:1 1 380px}
+.cookie-banner-text strong{display:block;font-family:var(--titre);font-size:19px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.3rem}
+.cookie-banner-text p{font-size:15px;color:var(--gris);line-height:1.5}
+.cookie-banner-text a{color:var(--rouge);font-weight:600}
+.cookie-banner-options{
+  flex:1 1 100%;display:flex;flex-direction:column;gap:.7rem;
+  background:var(--gris-clair);border-radius:10px;padding:1rem 1.2rem;
+}
+.cookie-option{display:flex;align-items:flex-start;gap:.7rem;font-size:15px;cursor:pointer}
+.cookie-option input{margin-top:.25rem;flex-shrink:0}
+.cookie-option span{color:var(--noir)}
+.cookie-banner-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 1.2rem}
+.cookie-banner-actions .btn{padding:.7rem 1.6rem;font-size:16px}
+.cookie-customize{
+  background:none;border:none;color:var(--gris);font-weight:600;font-size:15px;
+  text-decoration:underline;cursor:pointer;
+}
+.cookie-customize:hover{color:var(--rouge)}
+@media (max-width:600px){
+  .cookie-banner-inner{padding:1.2rem 0 1.4rem;gap:1rem}
+  .cookie-banner-actions{width:100%}
+  .cookie-banner-actions .btn{flex:1 1 auto;text-align:center}
 }

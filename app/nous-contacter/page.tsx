@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import ConsentGatedMap from "@/components/consent-gated-map";
 import FileInput from "@/components/file-input";
 
 const jsonLd = {
@@ -107,8 +108,11 @@ export default function Page() {
           <p>Nos formateurs et vérificateurs se déplacent dans la moitié nord de la France pour les formations, et principalement dans les Hauts-de-France pour les VGP. Notre équipe administrative vous répond depuis nos locaux de Villeneuve d'Ascq.</p>
 
           <div className="table-scroll reveal" style={{ "marginTop": "2rem" }}>
-            <iframe title="Localisation de SECURIFORM, 17 rue du Carillon, 59650 Villeneuve d'Ascq" src="https://www.google.com/maps?q=17+rue+du+Carillon,+59650+Villeneuve-d%27Ascq&amp;output=embed" width="100%" height="320" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style={{ "border": "0", "borderRadius": "12px" }}>
-            </iframe>
+            <ConsentGatedMap
+              title="Localisation de SECURIFORM, 17 rue du Carillon, 59650 Villeneuve d'Ascq"
+              src="https://www.google.com/maps?q=17+rue+du+Carillon,+59650+Villeneuve-d%27Ascq&output=embed"
+              mapsUrl="https://www.google.com/maps/search/?api=1&query=17+rue+du+Carillon,+59650+Villeneuve-d%27Ascq"
+            />
           </div>
         </div>
 
@@ -150,6 +154,10 @@ export default function Page() {
               <textarea id="message" name="message" rows={4} required />
             </div>
             <button type="submit" className="btn btn-plein">Envoyer</button>
+            <p className="form-mention">
+              Les informations recueillies via ce formulaire sont utilisées exclusivement par SECURIFORM pour traiter votre demande. En savoir plus dans notre{" "}
+              <Link href="/politique-de-confidentialite">politique de confidentialité</Link>.
+            </p>
           </form>
         </div>
 

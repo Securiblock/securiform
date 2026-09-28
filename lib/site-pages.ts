@@ -57,4 +57,9 @@ export const pages: string[] = [
   "/nous-recrutons",
 ];
 
-export const legal: string[] = ["/mentions-legales", "/conditions-generales-de-vente"];
+export const legal: string[] = [
+  "/mentions-legales",
+  "/conditions-generales-de-vente",
+  "/politique-de-confidentialite",
+  "/politique-cookies",
+];
