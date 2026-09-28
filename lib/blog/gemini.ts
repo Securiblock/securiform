@@ -2,7 +2,7 @@ import type { Topic } from "./types";
 
 // If Google has retired this model by the time you read this, swap it here
 // (or set GEMINI_MODEL in .env.local) — see https://ai.google.dev/gemini-api/docs/models
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
+export const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 
 export type GeneratedArticle = {
   title: string;

@@ -20,8 +20,8 @@ export default function SiteFooter() {
               src="/image/logo-securiform-blanc.webp"
               alt="SECURIFORM"
               className="logo-img"
-              width={180}
-              height={52}
+              width={298}
+              height={69}
             />
           </div>
           <p className="footer-desc">

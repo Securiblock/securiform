@@ -36,8 +36,8 @@ export default function SiteHeader() {
               src="/image/logo-securiform.webp"
               alt="SECURIFORM"
               className="logo-img"
-              width={180}
-              height={52}
+              width={1024}
+              height={205}
               priority
             />
           </Link>

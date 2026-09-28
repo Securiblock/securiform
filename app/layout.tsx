@@ -3,6 +3,7 @@ import { Rajdhani, Quicksand } from "next/font/google";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ScrollEffects from "@/components/scroll-effects";
+import ChatWidget from "@/components/chat-widget";
 import "./globals.css";
 
 const rajdhani = Rajdhani({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main id="main">{children}</main>
         <SiteFooter />
         <ScrollEffects />
+        <ChatWidget />
       </body>
     </html>
   );

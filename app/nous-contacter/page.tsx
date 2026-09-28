@@ -203,7 +203,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Sous quel délai vais-je recevoir une réponse&nbsp;?</summary>
-            <p>Notre délai moyen de traitement des demandes est de 24 heures. Pour une réponse immédiate, le téléphone reste le moyen le plus rapide de nous joindre.</p>
+            <p>Notre délai moyen de traitement des demandes est de 1 heure. Pour une réponse immédiate, le téléphone reste le moyen le plus rapide de nous joindre.</p>
           </details>
 
           <details className="faq-item">

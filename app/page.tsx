@@ -271,9 +271,9 @@ const vgpLinks = [
   { href: "/vgp-chariots-telescopiques", label: "Chariots télescopiques" },
   { href: "/vgp-compacteurs", label: "Compacteurs" },
   { href: "/vgp-hayons-elevateurs", label: "Hayons élévateurs" },
-  { href: "/vgp-bras-de-levage", label: "Bras de levage…" },
+  { href: "/vgp-bras-de-levage", label: "Bras de levage" },
   { href: "/vgp-tombereaux", label: "Tombereaux" },
-  { href: "/vgp-accessoires-levage", label: "Accessoires de levage" },
+  { href: "/vgp-accessoires-levage", label: "Accessoires de levage…" },
 ];
 
 export default async function Home() {
