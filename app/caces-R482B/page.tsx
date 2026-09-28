@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R482B",
     title: "Formation CACES® R482B — Engins de chantier — SECURIFORM",
     description: "Toutes les catégories du CACES R482B (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
-    images: ["/image/caces-R482B.jpg"],
+    images: ["/image/caces-R482B.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R482B — SECURIFORM",
     description: "Toutes les catégories d'engins de chantier du CACES R482B, avec SECURIFORM.",
-    images: ["/image/caces-R482B.jpg"],
+    images: ["/image/caces-R482B.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R482B" style={{ backgroundImage: "url('/image/caces-R482B.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R482B" style={{ backgroundImage: "url('/image/caces-R482B.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/sst-mac",
     title: "MAC SST — Recyclage Sauveteur Secouriste du Travail — SECURIFORM",
     description: "7 heures pour maintenir vos compétences SST à jour, avant l'expiration de votre certificat. Avec SECURIFORM, centre habilité INRS.",
-    images: ["/image/formation-sst-mac.jpg"],
+    images: ["/image/formation-sst-mac.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "MAC SST — SECURIFORM",
     description: "Renouvelez votre certificat SST avec le recyclage MAC, avec SECURIFORM.",
-    images: ["/image/formation-sst-mac.jpg"],
+    images: ["/image/formation-sst-mac.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="MAC SST — recyclage" style={{ backgroundImage: "url('/image/formation-sst-mac.jpg')" }}>
+<section className="page-hero" aria-label="MAC SST — recyclage" style={{ backgroundImage: "url('/image/formation-sst-mac.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

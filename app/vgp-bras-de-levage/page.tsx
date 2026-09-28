@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-bras-de-levage",
     title: "VGP des bras de levage — SECURIFORM",
     description: "VGP des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques. Fréquence de 6 mois.",
-    images: ["/image/vgp-bras-de-levage.jpg"],
+    images: ["/image/vgp-bras-de-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des bras de levage — SECURIFORM",
     description: "Vérification Générale Périodique de vos bras de levage, avec SECURIFORM.",
-    images: ["/image/vgp-bras-de-levage.jpg"],
+    images: ["/image/vgp-bras-de-levage.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des bras de levage" style={{ backgroundImage: "url('/image/vgp-bras-de-levage.jpg')" }}>
+<section className="page-hero" aria-label="VGP des bras de levage" style={{ backgroundImage: "url('/image/vgp-bras-de-levage.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

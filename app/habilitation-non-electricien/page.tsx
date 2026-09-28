@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/habilitation-non-electricien",
     title: "Formation personnel non-électricien — SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B0L : formation SECURIFORM pour tout personnel non-électricien travaillant en environnement électrique.",
-    images: ["/image/formation-habilitation-non-electricien.jpg"],
+    images: ["/image/formation-habilitation-non-electricien.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation personnel non-électricien — SECURIFORM",
     description: "Formez votre personnel non-électricien aux bons réflexes en environnement électrique, avec SECURIFORM.",
-    images: ["/image/formation-habilitation-non-electricien.jpg"],
+    images: ["/image/formation-habilitation-non-electricien.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation personnel non-électricien" style={{ backgroundImage: "url('/image/formation-habilitation-non-electricien.jpg')" }}>
+<section className="page-hero" aria-label="Formation personnel non-électricien" style={{ backgroundImage: "url('/image/formation-habilitation-non-electricien.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/gestes-postures",
     title: "Formation gestes et postures — SECURIFORM",
     description: "Prévention des TMS, techniques de manutention, ergonomie des postes : SECURIFORM forme vos équipes dans la moitié nord de la France.",
-    images: ["/image/formation-gestes-postures.jpg"],
+    images: ["/image/formation-gestes-postures.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation gestes et postures — SECURIFORM",
     description: "Prévenez les troubles musculosquelettiques avec une formation gestes et postures SECURIFORM.",
-    images: ["/image/formation-gestes-postures.jpg"],
+    images: ["/image/formation-gestes-postures.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation gestes et postures" style={{ backgroundImage: "url('/image/formation-gestes-postures.jpg')" }}>
+<section className="page-hero" aria-label="Formation gestes et postures" style={{ backgroundImage: "url('/image/formation-gestes-postures.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

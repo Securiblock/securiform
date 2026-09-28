@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/caces-R489A",
     title: "Formation CACES® R489A — Chariots de manutention — SECURIFORM",
     description: "Catégories 1 à 6 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Formation SECURIFORM, certificat valable 5 ans.",
-    images: ["/image/caces-R489A.jpg"],
+    images: ["/image/caces-R489A.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation CACES® R489A — SECURIFORM",
     description: "Conduite en sécurité des chariots de manutention à conducteur porté, avec SECURIFORM.",
-    images: ["/image/caces-R489A.jpg"],
+    images: ["/image/caces-R489A.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R489A" style={{ backgroundImage: "url('/image/caces-R489A.jpg')" }}>
+<section className="page-hero" aria-label="Formation CACES R489A" style={{ backgroundImage: "url('/image/caces-R489A.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

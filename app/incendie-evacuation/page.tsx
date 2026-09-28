@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/incendie-evacuation",
     title: "Formations incendie et évacuation — SECURIFORM",
     description: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux : SECURIFORM forme vos équipes dans la moitié nord de la France.",
-    images: ["/image/formation-incendie.jpg"],
+    images: ["/image/formation-incendie.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations incendie et évacuation — SECURIFORM",
     description: "Extincteurs, RIA, EPI, évacuation : préparez vos équipes à la sécurité incendie avec SECURIFORM.",
-    images: ["/image/formation-incendie.jpg"],
+    images: ["/image/formation-incendie.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations incendie et évacuation" style={{ backgroundImage: "url('/image/formation-incendie.jpg')" }}>
+<section className="page-hero" aria-label="Formations incendie et évacuation" style={{ backgroundImage: "url('/image/formation-incendie.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-extincteurs.jpg" alt="Formation à la manipulation des extincteurs" loading="lazy" />
+              <img src="/image/formation-extincteurs.webp" alt="Formation à la manipulation des extincteurs" loading="lazy" />
             </div>
             <h3>Manipulation des extincteurs</h3>
             <p>Reconnaître un début d'incendie, choisir l'extincteur adapté et l'utiliser efficacement sur feu réel ou simulé.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-evacuation.jpg" alt="Formation à l'évacuation des locaux" loading="lazy" />
+              <img src="/image/formation-evacuation.webp" alt="Formation à l'évacuation des locaux" loading="lazy" />
             </div>
             <h3>Évacuation des locaux</h3>
             <p>Préparer et encadrer un exercice d'évacuation&nbsp;: consignes, guides-files, serre-files, point de rassemblement.</p>
@@ -128,7 +128,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-epi.jpg" alt="Formation Équipier de Première Intervention" loading="lazy" />
+              <img src="/image/formation-epi.webp" alt="Formation Équipier de Première Intervention" loading="lazy" />
             </div>
             <h3>Équipier de Première Intervention</h3>
             <p>Former les référents internes capables d'intervenir sur un début d'incendie avec extincteurs et RIA, avant l'arrivée des secours.</p>

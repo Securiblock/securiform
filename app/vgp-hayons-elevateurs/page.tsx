@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-hayons-elevateurs",
     title: "VGP des hayons élévateurs — SECURIFORM",
     description: "VGP des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques. Fréquence de 6 mois.",
-    images: ["/image/vgp-hayons-elevateurs.jpg"],
+    images: ["/image/vgp-hayons-elevateurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des hayons élévateurs — SECURIFORM",
     description: "Vérification Générale Périodique de vos hayons élévateurs, avec SECURIFORM.",
-    images: ["/image/vgp-hayons-elevateurs.jpg"],
+    images: ["/image/vgp-hayons-elevateurs.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des hayons élévateurs" style={{ backgroundImage: "url('/image/vgp-hayons-elevateurs.jpg')" }}>
+<section className="page-hero" aria-label="VGP des hayons élévateurs" style={{ backgroundImage: "url('/image/vgp-hayons-elevateurs.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

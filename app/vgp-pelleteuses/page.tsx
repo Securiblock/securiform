@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-pelleteuses",
     title: "VGP des pelleteuses — SECURIFORM",
     description: "VGP des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations. Fréquence de 12 mois.",
-    images: ["/image/vgp-pelleteuses.jpg"],
+    images: ["/image/vgp-pelleteuses.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des pelleteuses — SECURIFORM",
     description: "Vérification Générale Périodique de vos pelleteuses, avec SECURIFORM.",
-    images: ["/image/vgp-pelleteuses.jpg"],
+    images: ["/image/vgp-pelleteuses.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des pelleteuses" style={{ backgroundImage: "url('/image/vgp-pelleteuses.jpg')" }}>
+<section className="page-hero" aria-label="VGP des pelleteuses" style={{ backgroundImage: "url('/image/vgp-pelleteuses.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/manipulation-extincteurs",
     title: "Formation manipulation des extincteurs — SECURIFORM",
     description: "Triangle du feu, classes de feu, technique d'utilisation : formation SECURIFORM à la manipulation des extincteurs.",
-    images: ["/image/formation-extincteurs.jpg"],
+    images: ["/image/formation-extincteurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation manipulation des extincteurs — SECURIFORM",
     description: "Formez vos équipes à réagir efficacement face à un début d'incendie, avec SECURIFORM.",
-    images: ["/image/formation-extincteurs.jpg"],
+    images: ["/image/formation-extincteurs.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation manipulation des extincteurs" style={{ backgroundImage: "url('/image/formation-extincteurs.jpg')" }}>
+<section className="page-hero" aria-label="Formation manipulation des extincteurs" style={{ backgroundImage: "url('/image/formation-extincteurs.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

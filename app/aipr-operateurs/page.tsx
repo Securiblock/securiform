@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-operateurs",
     title: "Formation opérateurs AIPR — SECURIFORM",
     description: "Classes de précision, distances de sécurité, règle du mètre : formation SECURIFORM opérateurs AIPR.",
-    images: ["/image/formation-aipr-operateur.jpg"],
+    images: ["/image/formation-aipr-operateur.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation opérateurs AIPR — SECURIFORM",
     description: "Formez vos conducteurs d'engins et canalisateurs à intervenir en sécurité près des réseaux, avec SECURIFORM.",
-    images: ["/image/formation-aipr-operateur.jpg"],
+    images: ["/image/formation-aipr-operateur.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation opérateurs AIPR" style={{ backgroundImage: "url('/image/formation-aipr-operateur.jpg')" }}>
+<section className="page-hero" aria-label="Formation opérateurs AIPR" style={{ backgroundImage: "url('/image/formation-aipr-operateur.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

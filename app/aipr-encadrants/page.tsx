@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/aipr-encadrants",
     title: "Formation encadrants AIPR — SECURIFORM",
     description: "Procédures DT-DICT, préparation de chantier, marquage : formation SECURIFORM encadrants AIPR.",
-    images: ["/image/formation-aipr-encadrant.jpg"],
+    images: ["/image/formation-aipr-encadrant.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation encadrants AIPR — SECURIFORM",
     description: "Formez vos chefs de chantier à organiser des interventions sécurisées près des réseaux, avec SECURIFORM.",
-    images: ["/image/formation-aipr-encadrant.jpg"],
+    images: ["/image/formation-aipr-encadrant.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation encadrants AIPR" style={{ backgroundImage: "url('/image/formation-aipr-encadrant.jpg')" }}>
+<section className="page-hero" aria-label="Formation encadrants AIPR" style={{ backgroundImage: "url('/image/formation-aipr-encadrant.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

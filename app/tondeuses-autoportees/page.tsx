@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/tondeuses-autoportees",
     title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des tondeuses autoportées, pour les équipes espaces verts.",
-    images: ["/image/formation-tondeuse.jpg"],
+    images: ["/image/formation-tondeuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
     description: "Formez vos équipes espaces verts à la conduite en sécurité des tondeuses autoportées.",
-    images: ["/image/formation-tondeuse.jpg"],
+    images: ["/image/formation-tondeuse.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Conduite en sécurité de tondeuses autoportées" style={{ backgroundImage: "url('/image/formation-tondeuse.jpg')" }}>
+<section className="page-hero" aria-label="Conduite en sécurité de tondeuses autoportées" style={{ backgroundImage: "url('/image/formation-tondeuse.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

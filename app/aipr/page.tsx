@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     url: "/aipr",
     title: "Formations AIPR — SECURIFORM",
     description: "Opérateur, Encadrant, Concepteur : SECURIFORM prépare vos équipes à l'AIPR dans la moitié nord de la France.",
-    images: ["/image/formation-aipr.jpg"],
+    images: ["/image/formation-aipr.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations AIPR — SECURIFORM",
     description: "Opérateur, Encadrant, Concepteur : préparez vos équipes à l'AIPR avec SECURIFORM.",
-    images: ["/image/formation-aipr.jpg"],
+    images: ["/image/formation-aipr.webp"],
   },
 };
 
@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formations AIPR" style={{ backgroundImage: "url('/image/formation-aipr.jpg')" }}>
+<section className="page-hero" aria-label="Formations AIPR" style={{ backgroundImage: "url('/image/formation-aipr.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -108,7 +108,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-aipr-operateur.jpg" alt="Formation AIPR Opérateur" loading="lazy" />
+              <img src="/image/formation-aipr-operateur.webp" alt="Formation AIPR Opérateur" loading="lazy" />
             </div>
             <h3>Opérateur</h3>
             <p>Pour les conducteurs d'engins, opérateurs de nacelles et grues, canalisateurs et ouvriers réalisant des fouilles à proximité des réseaux.</p>
@@ -118,7 +118,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-aipr-encadrant.jpg" alt="Formation AIPR Encadrant" loading="lazy" />
+              <img src="/image/formation-aipr-encadrant.webp" alt="Formation AIPR Encadrant" loading="lazy" />
             </div>
             <h3>Encadrant</h3>
             <p>Pour les chefs de chantier, conducteurs de travaux et chefs d'équipe qui préparent et supervisent les interventions à proximité des réseaux.</p>
@@ -128,7 +128,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-aipr-concepteur.jpg" alt="Formation AIPR Concepteur" loading="lazy" />
+              <img src="/image/formation-aipr-concepteur.webp" alt="Formation AIPR Concepteur" loading="lazy" />
             </div>
             <h3>Concepteur</h3>
             <p>Pour les bureaux d'études, maîtres d'ouvrage et maîtres d'œuvre qui pilotent un projet de travaux, de sa conception à la réception.</p>

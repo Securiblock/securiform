@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/travaux-en-hauteur",
     title: "Formation travaux en hauteur — SECURIFORM",
     description: "Hiérarchie des protections, harnais, points d'ancrage, lignes de vie : formation SECURIFORM aux travaux en hauteur.",
-    images: ["/image/formation-harnais.jpg"],
+    images: ["/image/formation-harnais.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation travaux en hauteur — SECURIFORM",
     description: "Formez vos équipes aux bons réflexes du travail en hauteur, avec SECURIFORM.",
-    images: ["/image/formation-harnais.jpg"],
+    images: ["/image/formation-harnais.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation travaux en hauteur" style={{ backgroundImage: "url('/image/formation-harnais.jpg')" }}>
+<section className="page-hero" aria-label="Formation travaux en hauteur" style={{ backgroundImage: "url('/image/formation-harnais.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

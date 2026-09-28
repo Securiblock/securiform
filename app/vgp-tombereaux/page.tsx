@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-tombereaux",
     title: "VGP des tombereaux — SECURIFORM",
     description: "VGP des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement. Fréquence de 6 ou 12 mois.",
-    images: ["/image/vgp-tombereaux.jpg"],
+    images: ["/image/vgp-tombereaux.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des tombereaux — SECURIFORM",
     description: "Vérification Générale Périodique de vos tombereaux, avec SECURIFORM.",
-    images: ["/image/vgp-tombereaux.jpg"],
+    images: ["/image/vgp-tombereaux.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des tombereaux" style={{ backgroundImage: "url('/image/vgp-tombereaux.jpg')" }}>
+<section className="page-hero" aria-label="VGP des tombereaux" style={{ backgroundImage: "url('/image/vgp-tombereaux.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

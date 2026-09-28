@@ -52,13 +52,13 @@ export const metadata: Metadata = {
     url: "/vgp",
     title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
     description: "Chariots élévateurs, nacelles, grues auxiliaires, ponts roulants : SECURIFORM réalise vos VGP dans les Hauts-de-France.",
-    images: ["/image/vgp-chariots-elevateurs.jpg"],
+    images: ["/image/vgp-chariots-elevateurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
     description: "Faites vérifier vos équipements de levage et de manutention avec SECURIFORM, dans les Hauts-de-France.",
-    images: ["/image/vgp-chariots-elevateurs.jpg"],
+    images: ["/image/vgp-chariots-elevateurs.webp"],
   },
 };
 
@@ -76,7 +76,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Vérifications Générales Périodiques" style={{ backgroundImage: "url('/image/vgp-chariots-elevateurs.jpg')" }}>
+<section className="page-hero" aria-label="Vérifications Générales Périodiques" style={{ backgroundImage: "url('/image/vgp-chariots-elevateurs.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -119,7 +119,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-chariots-elevateurs.jpg" alt="VGP des chariots élévateurs" loading="lazy" />
+              <img src="/image/vgp-chariots-elevateurs.webp" alt="VGP des chariots élévateurs" loading="lazy" />
             </div>
             <h3>Chariots élévateurs</h3>
             <p>Vérification des chariots de manutention utilisés en entrepôt, industrie et logistique.</p>
@@ -130,7 +130,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-nacelles-elevatrices.jpg" alt="VGP des nacelles élévatrices" loading="lazy" />
+              <img src="/image/vgp-nacelles-elevatrices.webp" alt="VGP des nacelles élévatrices" loading="lazy" />
             </div>
             <h3>Nacelles élévatrices</h3>
             <p>Vérification des plateformes élévatrices mobiles de personnes (PEMP).</p>
@@ -141,7 +141,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-grues-auxiliaires.jpg" alt="VGP des grues auxiliaires" loading="lazy" />
+              <img src="/image/vgp-grues-auxiliaires.webp" alt="VGP des grues auxiliaires" loading="lazy" />
             </div>
             <h3>Grues auxiliaires</h3>
             <p>Vérification des grues de chargement montées sur véhicules porteurs.</p>
@@ -152,7 +152,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">12 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-ponts-roulants.jpg" alt="VGP des ponts roulants" loading="lazy" />
+              <img src="/image/vgp-ponts-roulants.webp" alt="VGP des ponts roulants" loading="lazy" />
             </div>
             <h3>Ponts roulants</h3>
             <p>Vérification des ponts roulants et portiques de levage en ateliers industriels.</p>
@@ -163,7 +163,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-chargeuses.jpg" alt="VGP des chargeuses" loading="lazy" />
+              <img src="/image/vgp-chargeuses.webp" alt="VGP des chargeuses" loading="lazy" />
             </div>
             <h3>Chargeuses</h3>
             <p>Vérification des chargeuses utilisées en BTP, carrières et travaux publics.</p>
@@ -174,7 +174,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-chariots-telescopiques.jpg" alt="VGP des chariots télescopiques" loading="lazy" />
+              <img src="/image/vgp-chariots-telescopiques.webp" alt="VGP des chariots télescopiques" loading="lazy" />
             </div>
             <h3>Chariots télescopiques</h3>
             <p>Vérification des chariots télescopiques utilisés pour la manutention en hauteur.</p>
@@ -185,7 +185,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">12 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-compacteurs.jpg" alt="VGP des compacteurs" loading="lazy" />
+              <img src="/image/vgp-compacteurs.webp" alt="VGP des compacteurs" loading="lazy" />
             </div>
             <h3>Compacteurs</h3>
             <p>Vérification des compacteurs utilisés pour les travaux de terrassement et de voirie.</p>
@@ -196,7 +196,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-hayons-elevateurs.jpg" alt="VGP des hayons élévateurs" loading="lazy" />
+              <img src="/image/vgp-hayons-elevateurs.webp" alt="VGP des hayons élévateurs" loading="lazy" />
             </div>
             <h3>Hayons élévateurs</h3>
             <p>Vérification des hayons élévateurs montés sur véhicules de livraison et de transport.</p>
@@ -207,7 +207,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-bras-de-levage.jpg" alt="VGP des bras de levage" loading="lazy" />
+              <img src="/image/vgp-bras-de-levage.webp" alt="VGP des bras de levage" loading="lazy" />
             </div>
             <h3>Bras de levage</h3>
             <p>Vérification des bras de levage utilisés pour des opérations de manutention ciblées.</p>
@@ -218,7 +218,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">12 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-tombereaux.jpg" alt="VGP des tombereaux" loading="lazy" />
+              <img src="/image/vgp-tombereaux.webp" alt="VGP des tombereaux" loading="lazy" />
             </div>
             <h3>Tombereaux</h3>
             <p>Vérification des tombereaux utilisés pour le transport de matériaux sur chantier.</p>
@@ -229,7 +229,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">12 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-pelleteuses.jpg" alt="VGP des pelleteuses" loading="lazy" />
+              <img src="/image/vgp-pelleteuses.webp" alt="VGP des pelleteuses" loading="lazy" />
             </div>
             <h3>Pelleteuses</h3>
             <p>Vérification des pelleteuses équipées pour des opérations de levage.</p>
@@ -240,7 +240,7 @@ export default function Page() {
           <article className="formation-card reveal">
             <span className="categorie-badge">6 mois</span>
             <div className="formation-photo">
-              <img src="/image/vgp-accessoires-levage.jpg" alt="VGP des accessoires de levage" loading="lazy" />
+              <img src="/image/vgp-accessoires-levage.webp" alt="VGP des accessoires de levage" loading="lazy" />
             </div>
             <h3>Accessoires de levage</h3>
             <p>Vérification des élingues, chaînes, palonniers et autres accessoires de levage.</p>

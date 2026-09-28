@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/balayeuses-routieres",
     title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des balayeuses routières, pour les équipes de nettoyage urbain.",
-    images: ["/image/formation-balayeuse.jpg"],
+    images: ["/image/formation-balayeuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
     description: "Formez vos équipes à la conduite en sécurité des balayeuses routières, au milieu de la circulation.",
-    images: ["/image/formation-balayeuse.jpg"],
+    images: ["/image/formation-balayeuse.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Conduite en sécurité de balayeuses routières" style={{ backgroundImage: "url('/image/formation-balayeuse.jpg')" }}>
+<section className="page-hero" aria-label="Conduite en sécurité de balayeuses routières" style={{ backgroundImage: "url('/image/formation-balayeuse.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

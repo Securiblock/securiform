@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-accessoires-levage",
     title: "VGP des accessoires de levage — SECURIFORM",
     description: "VGP des accessoires de levage avec SECURIFORM : élingues, manilles, crochets, palonniers. Fréquence de 6 mois, directive Machines.",
-    images: ["/image/vgp-accessoires-levage.jpg"],
+    images: ["/image/vgp-accessoires-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des accessoires de levage — SECURIFORM",
     description: "Vérification Générale Périodique de vos accessoires de levage, avec SECURIFORM.",
-    images: ["/image/vgp-accessoires-levage.jpg"],
+    images: ["/image/vgp-accessoires-levage.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des accessoires de levage" style={{ backgroundImage: "url('/image/vgp-accessoires-levage.jpg')" }}>
+<section className="page-hero" aria-label="VGP des accessoires de levage" style={{ backgroundImage: "url('/image/vgp-accessoires-levage.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

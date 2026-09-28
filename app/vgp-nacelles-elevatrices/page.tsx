@@ -58,13 +58,13 @@ export const metadata: Metadata = {
     url: "/vgp-nacelles-elevatrices",
     title: "VGP des nacelles élévatrices — SECURIFORM",
     description: "VGP des nacelles élévatrices (PEMP) avec SECURIFORM : inspection visuelle et essais de fonctionnement. Fréquence de 6 mois.",
-    images: ["/image/vgp-nacelles-elevatrices.jpg"],
+    images: ["/image/vgp-nacelles-elevatrices.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "VGP des nacelles élévatrices — SECURIFORM",
     description: "Vérification Générale Périodique de vos nacelles élévatrices, avec SECURIFORM.",
-    images: ["/image/vgp-nacelles-elevatrices.jpg"],
+    images: ["/image/vgp-nacelles-elevatrices.webp"],
   },
 };
 
@@ -82,7 +82,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="VGP des nacelles élévatrices" style={{ backgroundImage: "url('/image/vgp-nacelles-elevatrices.jpg')" }}>
+<section className="page-hero" aria-label="VGP des nacelles élévatrices" style={{ backgroundImage: "url('/image/vgp-nacelles-elevatrices.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

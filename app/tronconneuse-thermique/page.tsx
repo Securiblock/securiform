@@ -53,13 +53,13 @@ export const metadata: Metadata = {
     url: "/tronconneuse-thermique",
     title: "Utilisation en sécurité d'une tronçonneuses thermiques à chaîne — SECURIFORM",
     description: "Formation SECURIFORM au risque de rebond, aux équipements de protection et à la technique de coupe en sécurité.",
-    images: ["/image/formation-tronconneuse.jpg"],
+    images: ["/image/formation-tronconneuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Utilisation en sécurité d'une tronçonneuses thermiques — SECURIFORM",
     description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuses thermiques, avec SECURIFORM.",
-    images: ["/image/formation-tronconneuse.jpg"],
+    images: ["/image/formation-tronconneuse.webp"],
   },
 };
 
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuses thermiques" style={{ backgroundImage: "url('/image/formation-tronconneuse.jpg')" }}>
+<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuses thermiques" style={{ backgroundImage: "url('/image/formation-tronconneuse.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
