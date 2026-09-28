@@ -106,28 +106,46 @@ export default function Page() {
         <span className="surtitre">Article 2</span>
         <h2 id="titre-direction">Directeur de la publication</h2>
         <hr className="trait" />
-        <p>Le directeur de la publication est le représentant légal de la société SECURIFORM (LOVIJEC, Président). <em>[Le nom de la personne physique assurant la direction de la publication doit être précisé ici par l'éditeur du site.]</em></p>
+        <p>Le directeur de la publication est Monsieur Jérôme CAILLIEZ.</p>
       </div>
     </section>
 
 
-    
 
-    
+
+
 <section className="section" aria-labelledby="titre-hebergeur">
       <div className="container section-head reveal">
         <span className="surtitre">Article 3</span>
         <h2 id="titre-hebergeur">Hébergeur du site</h2>
         <hr className="trait" />
-        <p><em>[Coordonnées de l'hébergeur à compléter&nbsp;: raison sociale, adresse du siège social et numéro de téléphone de l'hébergeur du site.]</em></p>
+        <p>
+          Vercel Inc.<br />
+          440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br />
+          <a href="https://vercel.com/legal/privacy-notice" style={{ color: "var(--rouge)" }}>vercel.com/legal/privacy-notice</a>
+        </p>
+        <p style={{ marginTop: "1rem" }}><em>[À VALIDER : Vercel Inc. est la société qui héberge techniquement le site — à confirmer que c&apos;est bien la bonne entité à citer ici (et non un revendeur ou une entité intermédiaire), et qu&apos;aucun numéro de téléphone dédié n&apos;est requis pour ce type d&apos;hébergeur.]</em></p>
       </div>
     </section>
 
 
-    
 
-    
-<section className="section section-alt" aria-labelledby="titre-propriete">
+
+
+<section className="section section-alt" aria-labelledby="titre-declaration">
+      <div className="container section-head reveal">
+        <span className="surtitre">Article 3 bis</span>
+        <h2 id="titre-declaration">Déclaration d&apos;activité</h2>
+        <hr className="trait" />
+        <p>SECURIFORM est un organisme de formation professionnelle enregistré sous le numéro de déclaration d&apos;activité <em>[À COMPLÉTER : numéro de déclaration d&apos;activité (NDA)]</em> auprès du préfet de région <em>[À COMPLÉTER : région]</em>. Cet enregistrement ne vaut pas agrément de l&apos;État.</p>
+      </div>
+    </section>
+
+
+
+
+
+<section className="section" aria-labelledby="titre-propriete">
       <div className="container section-head reveal">
         <span className="surtitre">Article 4</span>
         <h2 id="titre-propriete">Propriété intellectuelle</h2>
@@ -146,7 +164,7 @@ export default function Page() {
         <span className="surtitre">Article 5</span>
         <h2 id="titre-donnees">Données personnelles</h2>
         <hr className="trait" />
-        <p>Les informations recueillies via les formulaires de ce site (demande de devis, candidature, contact) sont destinées exclusivement à SECURIFORM et sont nécessaires au traitement de votre demande. Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'opposition et de suppression des données vous concernant. Pour exercer ce droit, vous pouvez nous contacter via notre page&nbsp;<Link href="/nous-contacter" style={{ "color": "var(--rouge)" }}>Nous contacter</Link>.</p>
+        <p>Les informations recueillies via les formulaires de ce site (demande de devis, candidature, contact) sont destinées exclusivement à SECURIFORM et sont nécessaires au traitement de votre demande. Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement, de limitation et de portabilité des données vous concernant. Pour le détail des traitements réalisés et les modalités d'exercice de ces droits, consultez notre&nbsp;<Link href="/politique-de-confidentialite" style={{ "color": "var(--rouge)" }}>politique de confidentialité</Link>, ou contactez-nous via notre page&nbsp;<Link href="/nous-contacter" style={{ "color": "var(--rouge)" }}>Nous contacter</Link>.</p>
       </div>
     </section>
 
@@ -159,7 +177,7 @@ export default function Page() {
         <span className="surtitre">Article 6</span>
         <h2 id="titre-cookies">Cookies</h2>
         <hr className="trait" />
-        <p>Ce site peut utiliser des cookies pour mesurer l'audience, améliorer l'expérience de navigation, ou stocker et accéder à certaines informations sur votre appareil. Vous pouvez à tout moment accepter, refuser ou paramétrer le dépôt de ces cookies via les réglages de votre navigateur.</p>
+        <p>Ce site dépose des cookies et traceurs strictement nécessaires à son fonctionnement, ainsi qu'un contenu tiers (Google Maps) soumis à votre consentement. Vous pouvez à tout moment accepter, refuser ou paramétrer ces traceurs via le lien « Gérer mes cookies » en bas de page. Le détail de chaque cookie (nom, émetteur, finalité, durée) figure dans notre&nbsp;<Link href="/politique-cookies" style={{ "color": "var(--rouge)" }}>politique de cookies</Link>.</p>
       </div>
     </section>
 

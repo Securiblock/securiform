@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { reopenConsentBanner } from "@/lib/consent";
 import PhoneIcon from "./phone-icon";
 
 export default function SiteFooter() {
@@ -102,9 +103,34 @@ export default function SiteFooter() {
               </Link>
             </li>
             <li>
-              <a href="http://securiform.fr/wp-content/uploads/2022/12/Conditions-generales-dutilisation.pdf">
+              <a href="/pdf/Conditions-generales-dutilisation.pdf">
                 Conditions générales d&apos;utilisation
               </a>
+            </li>
+            <li>
+              <Link href="/politique-de-confidentialite">
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link href="/politique-cookies">Politique de cookies</Link>
+            </li>
+            <li>
+              <button
+                type="button"
+                onClick={reopenConsentBanner}
+                style={{
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  font: "inherit",
+                  color: "inherit",
+                  cursor: "pointer",
+                  textAlign: "left",
+                }}
+              >
+                Gérer mes cookies
+              </button>
             </li>
             <li>
               <a href="https://securiform.fr/wp-content/uploads/2023/05/Accueil-des-personnes-en-situation-de-handicap.pdf">

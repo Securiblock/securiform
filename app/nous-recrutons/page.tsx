@@ -259,6 +259,10 @@ export default function Page() {
             </div>
           </div>
           <button type="submit" className="btn btn-plein">Envoyer ma candidature</button>
+          <p className="form-mention">
+            Les informations et le CV transmis via ce formulaire sont utilisés exclusivement par SECURIFORM pour étudier votre candidature. En savoir plus dans notre{" "}
+            <Link href="/politique-de-confidentialite">politique de confidentialité</Link>.
+          </p>
         </form>
       </div>
     </section>

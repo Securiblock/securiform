@@ -262,7 +262,8 @@ export default function ChatWidget() {
             </button>
           </form>
           <p className="chat-mention">
-            Ne partagez pas de données personnelles. Messages traités par Google Gemini.
+            Ne partagez pas de données personnelles. Messages traités par Google Gemini (voir
+            notre <Link href="/politique-de-confidentialite">politique de confidentialité</Link>).
             Pour un devis&nbsp;: <a href="tel:+33320673490">03 20 67 34 90</a>
           </p>
         </div>

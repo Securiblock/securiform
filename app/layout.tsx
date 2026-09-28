@@ -4,6 +4,7 @@ import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import ScrollEffects from "@/components/scroll-effects";
 import ChatWidget from "@/components/chat-widget";
+import CookieConsent from "@/components/cookie-consent";
 import "./globals.css";
 
 const rajdhani = Rajdhani({
@@ -52,6 +53,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteFooter />
         <ScrollEffects />
         <ChatWidget />
+        <CookieConsent />
       </body>
     </html>
   );
