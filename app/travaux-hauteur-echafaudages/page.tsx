@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Travaux en hauteur et échafaudages — SECURIFORM",
-  description: "SECURIFORM forme au port du harnais anti-chute et au montage d'échafaudages fixes (R408) et roulants (R457), dans la moitié nord de la France.",
+  description: "SECURIFORM forme au port du harnais anti-chute et au montage d'échafaudages fixes (R408) et roulants (R457), sur toute la moitié nord de la France.",
   alternates: { canonical: "/travaux-hauteur-echafaudages" },
   openGraph: {
     type: "article",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/travaux-hauteur-echafaudages",
     title: "Formations travaux en hauteur et échafaudages — SECURIFORM",
-    description: "Port du harnais anti-chute, échafaudages fixes (R408) et roulants (R457) : SECURIFORM forme vos équipes dans la moitié nord de la France.",
+    description: "Port du harnais anti-chute, échafaudages fixes (R408) et roulants (R457) : SECURIFORM forme vos équipes sur toute la moitié nord de la France.",
     images: ["/image/formation-travaux-hauteur.webp"],
   },
   twitter: {
@@ -334,7 +334,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

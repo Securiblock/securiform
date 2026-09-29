@@ -27,7 +27,7 @@ export default function SiteFooter() {
           </div>
           <p className="footer-desc">
             Organisme de formation à la sécurité au travail. Interventions
-            dans la moitié nord de la France. Réactivité, conseil, service client.
+            sur toute la moitié nord de la France. Réactivité, conseil, service client.
           </p>
           <a
             className="qualiopi"

@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation secourisme (SST) — SECURIFORM",
-  description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, dans la moitié nord de la France.",
+  description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, sur toute la moitié nord de la France.",
   alternates: { canonical: "/secourisme" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/secourisme",
     title: "Formation secourisme (SST) — SECURIFORM",
-    description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
+    description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, sur toute la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formation secourisme (SST) — SECURIFORM",
-    description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, dans la moitié nord de la France.",
+    description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, sur toute la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.webp"],
   },
 };
@@ -313,7 +313,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

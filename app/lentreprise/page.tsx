@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CarteInterventions from "@/components/carte-interventions";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -36,7 +37,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "L'entreprise SECURIFORM — Organisme certifié Qualiopi",
-  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent dans la moitié nord de la France.",
+  description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent sur toute la moitié nord de la France.",
   alternates: { canonical: "/lentreprise" },
   openGraph: {
     type: "website",
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/lentreprise",
     title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
-    description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent dans la moitié nord de la France.",
+    description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent sur toute la moitié nord de la France.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
@@ -77,7 +78,7 @@ export default function Page() {
           <span>L'entreprise</span>
         </p>
         <h1>L'entreprise</h1>
-        <p>Organisme de formation à la sécurité au travail, certifié Qualiopi, SECURIFORM accompagne les entreprises dans la moitié nord de la France.</p>
+        <p>Organisme de formation à la sécurité au travail, certifié Qualiopi, SECURIFORM accompagne les entreprises et les collectivités locales sur toute la moitié nord de la France.</p>
         <Link href="/nous-contacter" className="btn btn-plein">Nous contacter</Link>
       </div>
     </section>
@@ -99,9 +100,8 @@ export default function Page() {
           <h3>En bref</h3>
           <ul className="valeurs">
             <li><span className="puce" aria-hidden="true">✓</span> Organisme de formation certifié Qualiopi depuis 2021</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Interventions dans la moitié nord de la France, en centre ou sur site</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Interventions sur toute la moitié nord de la France</li>
             <li><span className="puce" aria-hidden="true">✓</span> 8 domaines de formation à la sécurité au travail</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Vérifications Générales Périodiques (VGP) d'équipements</li>
           </ul>
         </aside>
       </div>
@@ -123,7 +123,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Réactivité</h3>
-            <p>Une réponse rapide à chacune de vos demandes, pour organiser vos formations sans retarder votre activité.</p>
+            <p>Une réponse dans l'heure à chacune de vos demandes, pour organiser vos formations sans retarder votre activité.</p>
           </article>
 
           <article className="categorie-card reveal">
@@ -138,7 +138,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Qualité</h3>
-            <p>Des formateurs expérimentés et une démarche continue d'amélioration, formalisée par la certification Qualiopi.</p>
+            <p>Des formateurs expérimentés et une démarche d'amélioration continue, formalisée par la certification Qualiopi.</p>
           </article>
 
         </div>
@@ -157,7 +157,6 @@ export default function Page() {
             <li><span className="puce" aria-hidden="true">✓</span> Certification Qualiopi obtenue et renouvelée</li>
             <li><span className="puce" aria-hidden="true">✓</span> Basée sur un référentiel national de 7 critères qualité</li>
             <li><span className="puce" aria-hidden="true">✓</span> Contrôlée par un organisme certificateur indépendant</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Condition d'accès aux financements mutualisés (OPCO)</li>
           </ul>
           <a className="btn btn-blanc" href="https://securiform.fr/wp-content/uploads/2026/03/Certificat-Qualiopi-renouvellement.pdf" style={{ "marginTop": "1.5rem" }}>Voir le certificat</a>
         </div>
@@ -165,7 +164,7 @@ export default function Page() {
           <span className="surtitre">Une garantie pour vous</span>
           <h2 id="titre-qualiopi">Qu'est-ce que la certification Qualiopi&nbsp;?</h2>
           <p>Qualiopi est la certification qualité délivrée par les organismes accrédités par le Comité français d'accréditation (Cofrac), au nom de l'État. Elle atteste que les processus mis en œuvre par un organisme de formation respectent un référentiel national exigeant, portant notamment sur l'information du public, l'adaptation des prestations, la qualification des formateurs et l'amélioration continue.</p>
-          <p>Pour les entreprises clientes, cette certification est aussi une condition pratique&nbsp;: elle conditionne l'accès aux financements mutualisés (OPCO, CPF, France Travail) pour la prise en charge de vos formations. SECURIFORM est certifié Qualiopi depuis 2021 et fait renouveler sa certification selon les échéances fixées par le référentiel national.</p>
+          <p>Pour les entreprises clientes, cette certification est aussi une condition pratique&nbsp;: elle conditionne l'accès aux financements mutualisés (OPCO, CPF, France Travail) pour la prise en charge de ses formations. SECURIFORM est certifié Qualiopi depuis 2021 et fait renouveler sa certification selon les échéances fixées par le référentiel national.</p>
         </div>
       </div>
     </section>
@@ -201,24 +200,25 @@ export default function Page() {
           <span className="surtitre">Comment nous travaillons</span>
           <h2 id="titre-methode">Notre méthode, projet après projet</h2>
           <hr className="trait" />
-          <p>Que votre besoin concerne une seule habilitation ou l'ensemble d'un site, la démarche reste la même.</p>
+          <p>Quelle que soit votre demande, notre démarche reste la même.</p>
         </div>
         <div className="etapes">
           <div className="etape reveal">
             <h3>Diagnostic</h3>
-            <p>Nous identifions avec vous les postes concernés, les risques réels et les obligations réglementaires applicables.</p>
+            <p>Au cours d'un entretien téléphonique, nous nous assurons de la cohérence de votre demande avec les risques propres à votre entreprise et la réglementation en vigueur.</p>
           </div>
           <div className="etape reveal">
-            <h3>Proposition</h3>
-            <p>Nous vous proposons les formations adaptées, en centre ou sur site, avec un planning réaliste pour votre activité.</p>
+            <h3>Proposition chiffrée</h3>
+            <p>Nous vous adressons dans l'heure un devis sur mesure, avec, le cas échéant, un planning d'intervention.</p>
           </div>
           <div className="etape reveal">
             <h3>Formation</h3>
-            <p>Nos formateurs interviennent avec une pédagogie pratique, au plus près de votre matériel et de vos conditions réelles.</p>
+            <p>Nos formateurs interviennent avec une pédagogie pratique, au plus près de votre matériel et de vos conditions réelles de travail.</p>
           </div>
           <div className="etape reveal">
             <h3>Suivi</h3>
-            <p>Nous vous accompagnons ensuite sur le renouvellement des habilitations et l'évolution de vos besoins.</p>
+            <p>À l'issue de notre intervention, nous nous assurons de votre satisfaction et restons à votre service durant toute la durée de validité de la formation.</p>
+            <p>Quelques semaines avant l'échéance, nous vous alertons sur la nécessité du renouvellement de la formation.</p>
           </div>
         </div>
       </div>
@@ -234,7 +234,7 @@ export default function Page() {
           <span className="surtitre">Notre offre complète</span>
           <h2 id="titre-formations">Toutes nos formations en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Huit domaines de formation à la sécurité au travail, chacun présenté en détail sur sa propre page.</p>
+          <p>8 domaines de formation à la sécurité au travail, chacun présenté en détail sur sa propre page.</p>
         </div>
         <div className="formations-grid">
 
@@ -266,7 +266,7 @@ export default function Page() {
               <img src="/image/formation-secourisme-sst.webp" alt="Formation secourisme SST" loading="lazy" />
             </div>
             <h3>Secourisme (SST)</h3>
-            <p>Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail.</p>
+            <p>Formation initiale et MAC Sauveteur Secouriste du Travail.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/secourisme" aria-label="Secourisme SST" />
           </article>
@@ -277,7 +277,7 @@ export default function Page() {
               <img src="/image/formation-incendie.webp" alt="Formation incendie et évacuation" loading="lazy" />
             </div>
             <h3>Incendie et évacuation</h3>
-            <p>Extincteurs, RIA, Équipiers de Première Intervention, exercices d'évacuation.</p>
+            <p>Manipulation d'extincteur et de RIA, Équipier de Première Intervention, exercices d'évacuation.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/incendie-evacuation" aria-label="Incendie et évacuation" />
           </article>
@@ -310,7 +310,7 @@ export default function Page() {
               <img src="/image/formation-aipr.webp" alt="Formation AIPR" loading="lazy" />
             </div>
             <h3>AIPR</h3>
-            <p>Opérateur, Encadrant, Concepteur&nbsp;: l'autorisation d'intervention à proximité des réseaux.</p>
+            <p>Autorisation d'Intervention à Proximité des Réseaux, 3 niveaux&nbsp;: Opérateur, Encadrant, Concepteur.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/aipr" aria-label="Formations AIPR" />
           </article>
@@ -345,27 +345,28 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Qu'apporte concrètement la certification Qualiopi à mon entreprise&nbsp;?</summary>
-            <p>Elle vous garantit que nos formations respectent un référentiel qualité national contrôlé par un organisme indépendant, et elle vous permet de faire prendre en charge vos formations par les financements mutualisés comme les OPCO.</p>
+            <p>Elle vous garantit que nos formations respectent un référentiel qualité national contrôlé par un organisme indépendant, et vous permet une éventuelle prise en charge de vos formations par votre OPCO.</p>
           </details>
 
           <details className="faq-item">
-            <summary>SECURIFORM intervient-il dans la moitié nord de la France&nbsp;?</summary>
-            <p>Oui, nos formateurs se déplacent dans la moitié nord de la France, aussi bien pour des formations en centre que directement sur vos sites.</p>
+            <summary>Quelle est la zone géographique d'intervention de SECURIFORM&nbsp;?</summary>
+            <p>Nos formateurs se déplacent sur toute la moitié nord de la France, directement sur vos sites&nbsp;: Hauts-de-France, Grand Est, Normandie et Île-de-France.</p>
+            <CarteInterventions />
           </details>
 
           <details className="faq-item">
             <summary>Faut-il choisir entre formation en centre et formation sur site&nbsp;?</summary>
-            <p>Non, les deux formules coexistent selon vos besoins&nbsp;: le centre convient bien aux sessions régulières multi-entreprises, la formation sur site permet de s'entraîner directement avec votre matériel et vos configurations réelles.</p>
+            <p>La formation en centre est plus adaptée pour le CACES® ou lorsque vous avez peu de salariés à former. En revanche, une formation dans vos locaux est souvent plus économique et s'avère plus efficace, car elle permet de prendre en considération les spécificités de votre site.</p>
           </details>
 
           <details className="faq-item">
             <summary>Et si mon besoin ne correspond à aucune formation du catalogue&nbsp;?</summary>
-            <p>SECURIFORM conçoit aussi des formations sur mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page Formations spécifiques pour plus de détails.</p>
+            <p>SECURIFORM conçoit aussi des formations sur mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page <Link href="/formations-specifiques">Formations spécifiques</Link> pour plus de détails ou contactez-nous au <a href="tel:+33320673490">03&nbsp;20&nbsp;67&nbsp;34&nbsp;90</a>.</p>
           </details>
 
           <details className="faq-item">
             <summary>Comment rejoindre l'équipe de formateurs SECURIFORM&nbsp;?</summary>
-            <p>SECURIFORM recrute régulièrement des formateurs dans la moitié nord de la France&nbsp;: consultez notre page Nous recrutons ou contactez-nous directement pour échanger sur votre profil.</p>
+            <p>SECURIFORM recrute régulièrement des formateurs sur toute la moitié nord de la France&nbsp;: consultez notre page Nous recrutons ou contactez-nous directement pour échanger sur votre profil.</p>
           </details>
 
         </div>
@@ -381,7 +382,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

@@ -353,7 +353,7 @@ export default function Page() {
         <span className="surtitre">Notre zone d'intervention</span>
         <h2 id="titre-zone">Des VGP réalisées dans les Hauts-de-France</h2>
         <hr className="trait" />
-        <p>Nos vérificateurs interviennent sur l'ensemble de la région Hauts-de-France&nbsp;: Lille, Roubaix, Tourcoing, Villeneuve-d'Ascq, Douai, Valenciennes, Lens, Béthune, Arras, Cambrai, Dunkerque, Calais, Saint-Omer, Boulogne-sur-Mer et Amiens, ainsi que les communes environnantes. Pour vos formations, SECURIFORM reste par ailleurs à votre service dans la moitié nord de la France.</p>
+        <p>Nos vérificateurs interviennent sur l'ensemble de la région Hauts-de-France&nbsp;: Lille, Roubaix, Tourcoing, Villeneuve-d'Ascq, Douai, Valenciennes, Lens, Béthune, Arras, Cambrai, Dunkerque, Calais, Saint-Omer, Boulogne-sur-Mer et Amiens, ainsi que les communes environnantes. Pour vos formations, SECURIFORM reste par ailleurs à votre service sur toute la moitié nord de la France.</p>
       </div>
     </section>
 
@@ -392,7 +392,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Intervenez-vous en dehors des Hauts-de-France&nbsp;?</summary>
-            <p>Nos VGP sont principalement réalisées dans les Hauts-de-France. Pour vos besoins de formation (CACES®, habilitation électrique, secourisme…), SECURIFORM intervient en revanche dans la moitié nord de la France&nbsp;: n'hésitez pas à nous consulter.</p>
+            <p>Nos VGP sont principalement réalisées dans les Hauts-de-France. Pour vos besoins de formation (CACES®, habilitation électrique, secourisme…), SECURIFORM intervient en revanche sur toute la moitié nord de la France&nbsp;: n'hésitez pas à nous consulter.</p>
           </details>
 
         </div>
@@ -473,7 +473,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
@@ -505,7 +505,7 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formations</span>
             <h2 id="titre-formations">Besoin de former vos équipes&nbsp;?</h2>
-            <p>Au-delà des VGP, SECURIFORM prépare vos équipes à la sécurité au travail dans la moitié nord de la France&nbsp;: conduite en sécurité, habilitation électrique, secourisme et bien plus.</p>
+            <p>Au-delà des VGP, SECURIFORM prépare vos équipes à la sécurité au travail sur toute la moitié nord de la France&nbsp;: conduite en sécurité, habilitation électrique, secourisme et bien plus.</p>
             <Link className="btn btn-blanc" href="/#formations">Découvrir nos formations</Link>
           </div>
           <nav className="vgp-liste" aria-label="Nos formations">

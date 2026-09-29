@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation gestes et postures — SECURIFORM",
-  description: "SECURIFORM forme aux gestes et postures de manutention pour prévenir les TMS, conformément au Code du travail, dans la moitié nord de la France.",
+  description: "SECURIFORM forme aux gestes et postures de manutention pour prévenir les TMS, conformément au Code du travail, sur toute la moitié nord de la France.",
   alternates: { canonical: "/gestes-postures" },
   openGraph: {
     type: "article",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/gestes-postures",
     title: "Formation gestes et postures — SECURIFORM",
-    description: "Prévention des TMS, techniques de manutention, ergonomie des postes : SECURIFORM forme vos équipes dans la moitié nord de la France.",
+    description: "Prévention des TMS, techniques de manutention, ergonomie des postes : SECURIFORM forme vos équipes sur toute la moitié nord de la France.",
     images: ["/image/formation-gestes-postures.webp"],
   },
   twitter: {
@@ -308,7 +308,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

@@ -450,6 +450,7 @@ h3{font-size:26px}
 }
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item p{font-size:17px;color:var(--gris);padding-bottom:1.4rem;max-width:760px}
+.faq-item p a{color:var(--rouge);font-weight:600}
 
 /* --- Formulaire de devis --- */
 .form-devis{
@@ -619,7 +620,7 @@ h3{font-size:26px}
 /* ===================== CHATBOT ===================== */
 .chat{position:fixed;right:24px;bottom:24px;z-index:80;display:flex;flex-direction:column;align-items:flex-end;gap:14px;font-size:16px;line-height:1.5}
 .chat-toggle{
-  width:62px;height:62px;border-radius:50%;border:none;cursor:pointer;
+  width:62px;height:62px;border-radius:50%;border:3px solid #fff;cursor:pointer;
   background:var(--rouge);color:#fff;display:grid;place-items:center;
   box-shadow:0 8px 24px rgba(206,34,34,.35);transition:var(--transition);
 }
@@ -710,4 +711,53 @@ h3{font-size:26px}
   .cookie-banner-inner{padding:1.2rem 0 1.4rem;gap:1rem}
   .cookie-banner-actions{width:100%}
   .cookie-banner-actions .btn{flex:1 1 auto;text-align:center}
+}
+
+/* ===================== CARTE DES ZONES D'INTERVENTION ===================== */
+.carte-zone{
+  display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:2rem;align-items:start;
+  padding-bottom:1.6rem;
+}
+.carte-svg{width:100%;height:auto;overflow:visible;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.carte-region{fill:#fff;stroke:#C9C9CF;stroke-width:1;stroke-linejoin:round}
+.carte-region.is-couverte{fill:var(--rouge);stroke:#fff;stroke-width:1.5;cursor:pointer;transition:fill .2s ease}
+.carte-region.is-couverte:focus{outline:none}
+.carte-region.is-couverte:focus-visible{stroke:var(--noir);stroke-width:2.5}
+/* Empreinte laissée sous la région soulevée */
+.carte-region.is-socle{fill:#7A1414}
+/* Copie soulevée : toujours dans le DOM, seules opacité et position varient */
+.carte-eleve{
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(0);
+  filter:drop-shadow(0 8px 8px rgba(28,28,30,.35));
+  transition:opacity .22s ease,transform .22s ease;
+  will-change:opacity,transform;
+}
+.carte-eleve.is-active{opacity:1;transform:translateY(-7px)}
+.carte-eleve .carte-region.is-active{fill:var(--rouge-fonce)}
+.carte-ville circle{fill:#fff;stroke:var(--noir);stroke-width:1.5}
+.carte-ville text{
+  font-family:var(--titre);font-weight:700;font-size:15px;fill:#fff;
+  paint-order:stroke;stroke:var(--noir);stroke-width:3px;stroke-linejoin:round;
+}
+.carte-info{font-size:17px;color:var(--gris)}
+.carte-legende{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.carte-puce{
+  font-family:var(--titre);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;
+  padding:.35rem .8rem;border-radius:999px;border:2px solid var(--rouge);background:#fff;color:var(--rouge);
+  cursor:pointer;transition:background-color .2s ease,color .2s ease;
+}
+.carte-puce:hover,.carte-puce.is-active{background:var(--rouge);color:#fff}
+/* Hauteur fixe = liste la plus longue (5 villes) : rien ne bouge au survol */
+.carte-detail{min-height:12.5em}
+.faq-item .carte-detail p{padding-bottom:.4rem}
+.carte-detail h4{font-family:var(--titre);font-size:24px;line-height:1.2;text-transform:uppercase;color:var(--rouge);margin-bottom:.3rem}
+.carte-detail li{padding-left:1.1rem;position:relative;color:var(--noir);line-height:1.5}
+.carte-detail li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--rouge)}
+@media (max-width:760px){
+  .carte-zone{grid-template-columns:1fr;gap:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .carte-eleve{transition:none}
 }

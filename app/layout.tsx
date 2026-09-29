@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, dans la moitié nord de la France.",
+    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, sur toute la moitié nord de la France.",
   robots: {
     index: true,
     follow: true,
