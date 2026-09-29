@@ -105,7 +105,7 @@ export default function Page() {
           <h2 id="titre-contact-form">SECURIFORM</h2>
           <p>17 rue du Carillon<br />59650 Villeneuve d'Ascq</p>
           <p>Téléphone&nbsp;: <a href="tel:+33320673490" style={{ "color": "var(--rouge)", "fontWeight": "700" }}>03 20 67 34 90</a></p>
-          <p>Nos formateurs et vérificateurs se déplacent dans la moitié nord de la France pour les formations, et principalement dans les Hauts-de-France pour les VGP. Notre équipe administrative vous répond depuis nos locaux de Villeneuve d'Ascq.</p>
+          <p>Nos formateurs et vérificateurs se déplacent sur toute la moitié nord de la France pour les formations, et principalement dans les Hauts-de-France pour les VGP. Notre équipe administrative vous répond depuis nos locaux de Villeneuve d'Ascq.</p>
 
           <div className="table-scroll reveal" style={{ "marginTop": "2rem" }}>
             <ConsentGatedMap
@@ -215,8 +215,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Puis-je vous contacter pour une formation dans la moitié nord de la France&nbsp;?</summary>
-            <p>Oui, nos formateurs interviennent dans la moitié nord de la France. Nos vérificateurs VGP se déplacent quant à eux principalement dans les Hauts-de-France.</p>
+            <summary>Puis-je vous contacter pour une formation sur toute la moitié nord de la France&nbsp;?</summary>
+            <p>Oui, nos formateurs interviennent sur toute la moitié nord de la France. Nos vérificateurs VGP se déplacent quant à eux principalement dans les Hauts-de-France.</p>
           </details>
 
           <details className="faq-item">
@@ -242,7 +242,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

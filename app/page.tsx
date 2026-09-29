@@ -18,21 +18,21 @@ function formatArticleDate(date: string): string {
 export const metadata: Metadata = {
   title: "SECURIFORM — Formations sécurité au travail en France",
   description:
-    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, dans la moitié nord de la France.",
+    "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, sur toute la moitié nord de la France.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/",
-    title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
+    title: "SECURIFORM — Formations sécurité au travail sur toute la moitié nord de la France",
     description:
       "Habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, VGP. Organisme certifié Qualiopi, 99,5 % de réussite.",
     images: ["/image/slide-1-habilitation-electrique.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SECURIFORM — Formations sécurité au travail dans la moitié nord de la France",
+    title: "SECURIFORM — Formations sécurité au travail sur toute la moitié nord de la France",
     description:
       "Habilitation électrique, CACES®, SST, incendie, travaux en hauteur, VGP. Organisme certifié Qualiopi.",
     images: ["/image/slide-1-habilitation-electrique.webp"],
@@ -49,7 +49,7 @@ const jsonLd = {
       url: "https://securiform.fr/",
       logo: "https://securiform.fr/image/logo-securiform.webp",
       description:
-        "Organisme de formation à la sécurité au travail intervenant dans la moitié nord de la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
+        "Organisme de formation à la sécurité au travail intervenant sur toute la moitié nord de la France : habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, Vérifications Générales Périodiques (VGP).",
       telephone: "+33320673490",
       areaServed: "FR",
       hasCredential: "Certification Qualiopi",
@@ -381,7 +381,7 @@ export default async function Home() {
             <hr className="trait" />
             <p>
               SECURIFORM vous accompagne dans le domaine de la sécurité au
-              travail dans la moitié nord de la France. Notre équipe cherche
+              travail sur toute la moitié nord de la France. Notre équipe cherche
               à se différencier chaque jour par ses valeurs : réactivité,
               conseil, service client.
             </p>
@@ -411,7 +411,7 @@ export default async function Home() {
             <h2 id="titre-recrute">Nous recrutons</h2>
             <p>
               Afin de renforcer l&apos;équipe <strong>SECURIFORM</strong>,
-              nous recrutons des formateurs dans la moitié nord de la France.
+              nous recrutons des formateurs sur toute la moitié nord de la France.
             </p>
           </div>
           <Link className="btn btn-plein" href="/nous-recrutons">

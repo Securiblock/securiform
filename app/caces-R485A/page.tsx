@@ -44,7 +44,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R485A — SECURIFORM",
-  description: "Formation CACES R485A avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, dans la moitié nord de la France.",
+  description: "Formation CACES R485A avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces-R485A" },
   openGraph: {
     type: "article",
@@ -383,7 +383,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

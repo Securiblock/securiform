@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Conduite en sécurité et CACES® — SECURIFORM",
-  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, dans la moitié nord de la France.",
+  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® dans la moitié nord de la France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® sur toute la moitié nord de la France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
     images: ["/image/formation-caces.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
-    description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, dans la moitié nord de la France.",
+    description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, sur toute la moitié nord de la France.",
     images: ["/image/formation-caces.webp"],
   },
 };
@@ -384,7 +384,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

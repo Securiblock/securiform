@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/incendie-evacuation",
     title: "Formations incendie et évacuation — SECURIFORM",
-    description: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux : SECURIFORM forme vos équipes dans la moitié nord de la France.",
+    description: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux : SECURIFORM forme vos équipes sur toute la moitié nord de la France.",
     images: ["/image/formation-incendie.webp"],
   },
   twitter: {
@@ -333,7 +333,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>

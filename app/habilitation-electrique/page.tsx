@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Préparation à l'habilitation électrique — SECURIFORM",
-  description: "SECURIFORM prépare à l'habilitation électrique le personnel électricien et non-électricien, basse et haute tension, dans la moitié nord de la France.",
+  description: "SECURIFORM prépare à l'habilitation électrique le personnel électricien et non-électricien, basse et haute tension, sur toute la moitié nord de la France.",
   alternates: { canonical: "/habilitation-electrique" },
   openGraph: {
     type: "article",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/habilitation-electrique",
     title: "Préparation à l'habilitation électrique — SECURIFORM",
-    description: "Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques/hybrides : SECURIFORM prépare vos équipes à l'habilitation électrique dans la moitié nord de la France.",
+    description: "Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques/hybrides : SECURIFORM prépare vos équipes à l'habilitation électrique sur toute la moitié nord de la France.",
     images: ["/image/formation-habilitation-electrique.webp"],
   },
   twitter: {
@@ -365,7 +365,7 @@ export default function Page() {
         <div>
           <span className="surtitre">Rejoignez-nous</span>
           <h2 id="titre-recrute">Nous recrutons</h2>
-          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs dans la moitié nord de la France.</p>
+          <p>Afin de renforcer l'équipe <strong>SECURIFORM</strong>, nous recrutons des formateurs sur toute la moitié nord de la France.</p>
         </div>
         <Link className="btn btn-plein" href="/nous-recrutons">En savoir +</Link>
       </div>
