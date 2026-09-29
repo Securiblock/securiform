@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des tombereaux — SECURIFORM",
+  title: "VGP des tombereaux - SECURIFORM",
   description: "VGP des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement. Fréquence de 6 ou 12 mois.",
   alternates: { canonical: "/vgp-tombereaux" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-tombereaux",
-    title: "VGP des tombereaux — SECURIFORM",
+    title: "VGP des tombereaux - SECURIFORM",
     description: "VGP des tombereaux avec SECURIFORM : châssis, freinage, direction, mécanismes de déversement. Fréquence de 6 ou 12 mois.",
     images: ["/image/vgp-tombereaux.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des tombereaux — SECURIFORM",
+    title: "VGP des tombereaux - SECURIFORM",
     description: "Vérification Générale Périodique de vos tombereaux, avec SECURIFORM.",
     images: ["/image/vgp-tombereaux.webp"],
   },
@@ -106,7 +106,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Garantir la sécurité sur chantier</h2>
         <hr className="trait" />
-        <p>Les Vérifications Générales Périodiques des tombereaux sont primordiales pour assurer la sécurité lors de leur utilisation sur les chantiers. Elles visent à détecter toute anomalie&nbsp;— usure, défaillance mécanique&nbsp;— pouvant engendrer des risques pour les opérateurs ou leur environnement. La VGP ne remplace pas la maintenance régulière, mais permet de garantir que l'équipement respecte les normes de sécurité en vigueur.</p>
+        <p>Les Vérifications Générales Périodiques des tombereaux sont primordiales pour assurer la sécurité lors de leur utilisation sur les chantiers. Elles visent à détecter toute anomalie (usure, défaillance mécanique) pouvant engendrer des risques pour les opérateurs ou leur environnement. La VGP ne remplace pas la maintenance régulière, mais permet de garantir que l'équipement respecte les normes de sécurité en vigueur.</p>
       </div>
     </section>
 

@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des chariots télescopiques — SECURIFORM",
+  title: "VGP des chariots télescopiques - SECURIFORM",
   description: "VGP des chariots télescopiques avec SECURIFORM : systèmes hydrauliques, structure, dispositifs de sécurité. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-chariots-telescopiques" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-chariots-telescopiques",
-    title: "VGP des chariots télescopiques — SECURIFORM",
+    title: "VGP des chariots télescopiques - SECURIFORM",
     description: "VGP des chariots télescopiques avec SECURIFORM : systèmes hydrauliques, structure, dispositifs de sécurité. Fréquence de 6 mois.",
     images: ["/image/vgp-chariots-telescopiques.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des chariots télescopiques — SECURIFORM",
+    title: "VGP des chariots télescopiques - SECURIFORM",
     description: "Vérification Générale Périodique de vos chariots télescopiques, avec SECURIFORM.",
     images: ["/image/vgp-chariots-telescopiques.webp"],
   },
@@ -106,7 +106,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Un équipement polyvalent, une vigilance accrue</h2>
         <hr className="trait" />
-        <p>Les chariots télescopiques transportent des charges à hauteur variable et peuvent recevoir différents accessoires&nbsp;: godets, fourches ou treuils. Cette polyvalence, combinée à leur capacité à supporter de lourdes charges à des hauteurs importantes, justifie l'importance d'inspections régulières. La VGP évalue les éléments critiques de l'équipement&nbsp;— systèmes hydrauliques, structure, dispositifs de sécurité&nbsp;— sans constituer une validation complète de la conformité.</p>
+        <p>Les chariots télescopiques transportent des charges à hauteur variable et peuvent recevoir différents accessoires&nbsp;: godets, fourches ou treuils. Cette polyvalence, combinée à leur capacité à supporter de lourdes charges à des hauteurs importantes, justifie l'importance d'inspections régulières. La VGP évalue les éléments critiques de l'équipement (systèmes hydrauliques, structure, dispositifs de sécurité) sans constituer une validation complète de la conformité.</p>
       </div>
     </section>
 
@@ -174,7 +174,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 6 mois</h2>
         <hr className="trait" />
-        <p>Les chariots télescopiques doivent être soumis à une VGP tous les 6 mois. Des conditions d'utilisation particulières&nbsp;— environnements agressifs (poussière, humidité), usage intensif&nbsp;— peuvent justifier des contrôles plus fréquents. Ces inspections doivent être réalisées par des professionnels compétents ou des organismes agréés.</p>
+        <p>Les chariots télescopiques doivent être soumis à une VGP tous les 6 mois. Des conditions d'utilisation particulières (environnements agressifs , poussière, humidité, usage intensif) peuvent justifier des contrôles plus fréquents. Ces inspections doivent être réalisées par des professionnels compétents ou des organismes agréés.</p>
       </div>
     </section>
 

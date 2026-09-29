@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation travaux en hauteur — SECURIFORM",
+  title: "Formation travaux en hauteur - SECURIFORM",
   description: "Formation SECURIFORM aux travaux en hauteur : hiérarchie des protections, harnais, points d'ancrage, longes, lignes de vie.",
   alternates: { canonical: "/travaux-en-hauteur" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/travaux-en-hauteur",
-    title: "Formation travaux en hauteur — SECURIFORM",
+    title: "Formation travaux en hauteur - SECURIFORM",
     description: "Hiérarchie des protections, harnais, points d'ancrage, lignes de vie : formation SECURIFORM aux travaux en hauteur.",
     images: ["/image/formation-harnais.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation travaux en hauteur — SECURIFORM",
+    title: "Formation travaux en hauteur - SECURIFORM",
     description: "Formez vos équipes aux bons réflexes du travail en hauteur, avec SECURIFORM.",
     images: ["/image/formation-harnais.webp"],
   },
@@ -101,7 +102,7 @@ export default function Page() {
         <span className="surtitre">Le principe fondamental</span>
         <h2 id="titre-hierarchie">Toujours privilégier la protection collective</h2>
         <hr className="trait" />
-        <p>Les articles R4323-59 et R4323-60 du Code du travail fixent une règle non négociable&nbsp;: les protections collectives (garde-corps, filets, planchers) doivent toujours être envisagées en premier. Le harnais individuel n'intervient qu'en dernier recours, lorsque la protection collective est techniquement impossible&nbsp;— une impossibilité qui doit être démontrée et documentée par l'employeur.</p>
+        <p>Les articles R4323-59 et R4323-60 du Code du travail fixent une règle non négociable&nbsp;: les protections collectives (garde-corps, filets, planchers) doivent toujours être envisagées en premier. Le harnais individuel n'intervient qu'en dernier recours, lorsque la protection collective est techniquement impossible&nbsp;: une impossibilité qui doit être démontrée et documentée par l'employeur.</p>
       </div>
     </section>
 
@@ -127,12 +128,12 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>1 — Priorité absolue</td>
+                <td>1 : Priorité absolue</td>
                 <td>Garde-corps, filets de sécurité, planchers pleins</td>
                 <td>Systématiquement, dès que techniquement possible</td>
               </tr>
               <tr>
-                <td>2 — Dernier recours</td>
+                <td>2 : Dernier recours</td>
                 <td>Harnais, longes, antichutes à rappel automatique</td>
                 <td>Uniquement si la protection collective est impossible</td>
               </tr>
@@ -240,7 +241,7 @@ export default function Page() {
               </tr>
               <tr>
                 <td>Latéral (sur les hanches)</td>
-                <td>Maintien en position de travail uniquement&nbsp;— jamais pour arrêter une chute</td>
+                <td>Maintien en position de travail uniquement&nbsp;: jamais pour arrêter une chute</td>
               </tr>
             </tbody>
           </table>
@@ -342,6 +343,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="travaux-en-hauteur" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -436,7 +441,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

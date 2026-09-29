@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des accessoires de levage — SECURIFORM",
+  title: "VGP des accessoires de levage - SECURIFORM",
   description: "VGP des accessoires de levage avec SECURIFORM : élingues, manilles, crochets, palonniers. Fréquence de 6 mois, directive Machines.",
   alternates: { canonical: "/vgp-accessoires-levage" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-accessoires-levage",
-    title: "VGP des accessoires de levage — SECURIFORM",
+    title: "VGP des accessoires de levage - SECURIFORM",
     description: "VGP des accessoires de levage avec SECURIFORM : élingues, manilles, crochets, palonniers. Fréquence de 6 mois, directive Machines.",
     images: ["/image/vgp-accessoires-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des accessoires de levage — SECURIFORM",
+    title: "VGP des accessoires de levage - SECURIFORM",
     description: "Vérification Générale Périodique de vos accessoires de levage, avec SECURIFORM.",
     images: ["/image/vgp-accessoires-levage.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 6 mois</h2>
         <hr className="trait" />
-        <p>Les accessoires de levage doivent être inspectés au moins tous les 6 mois. Des conditions d'utilisation spécifiques&nbsp;— corrosion, usage intensif&nbsp;— peuvent justifier des contrôles plus fréquents. Chaque inspection doit être réalisée par une personne compétente, salarié formé ou prestataire externe spécialisé dans les équipements de levage.</p>
+        <p>Les accessoires de levage doivent être inspectés au moins tous les 6 mois. Des conditions d'utilisation spécifiques (corrosion, usage intensif) peuvent justifier des contrôles plus fréquents. Chaque inspection doit être réalisée par une personne compétente, salarié formé ou prestataire externe spécialisé dans les équipements de levage.</p>
       </div>
     </section>
 

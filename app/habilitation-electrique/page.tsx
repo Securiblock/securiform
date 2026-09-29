@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Préparation à l'habilitation électrique — SECURIFORM",
+  title: "Préparation à l'habilitation électrique - SECURIFORM",
   description: "SECURIFORM prépare à l'habilitation électrique le personnel électricien et non-électricien, basse et haute tension, sur toute la moitié nord de la France.",
   alternates: { canonical: "/habilitation-electrique" },
   openGraph: {
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/habilitation-electrique",
-    title: "Préparation à l'habilitation électrique — SECURIFORM",
+    title: "Préparation à l'habilitation électrique - SECURIFORM",
     description: "Personnel électricien et non-électricien, basse et haute tensions, véhicules électriques/hybrides : SECURIFORM prépare vos équipes à l'habilitation électrique sur toute la moitié nord de la France.",
     images: ["/image/formation-habilitation-electrique.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Préparation à l'habilitation électrique — SECURIFORM",
+    title: "Préparation à l'habilitation électrique - SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B1-B2-BR-BC, H1-H2-HC : préparez vos équipes à l'habilitation électrique avec SECURIFORM.",
     images: ["/image/formation-habilitation-electrique.webp"],
   },
@@ -93,7 +94,7 @@ export default function Page() {
         <span className="surtitre">Nos formations</span>
         <h2 id="titre-intro">Deux parcours, adaptés à votre niveau d'exposition au risque électrique</h2>
         <hr className="trait" />
-        <p>L'habilitation électrique n'est pas un simple diplôme : c'est une autorisation que votre employeur vous délivre, sur la base d'une formation, d'une aptitude médicale et de votre connaissance des lieux. SECURIFORM prépare les deux publics concernés — personnel non-électricien et personnel électricien — en basse comme en haute tension.</p>
+        <p>L'habilitation électrique n'est pas un simple diplôme : c'est une autorisation que votre employeur vous délivre, sur la base d'une formation, d'une aptitude médicale et de votre connaissance des lieux. SECURIFORM prépare les deux publics concernés (personnel non-électricien et personnel électricien) en basse comme en haute tension.</p>
       </div>
     </section>
 
@@ -304,6 +305,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="habilitation-electrique" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -398,7 +403,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation échafaudages roulants R457 — SECURIFORM",
+  title: "Formation échafaudages roulants R457 - SECURIFORM",
   description: "Formation SECURIFORM aux échafaudages roulants R457 : blocage des roues, stabilisateurs, procédure de déplacement sécurisé.",
   alternates: { canonical: "/echafaudages-roulants" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/echafaudages-roulants",
-    title: "Formation échafaudages roulants R457 — SECURIFORM",
+    title: "Formation échafaudages roulants R457 - SECURIFORM",
     description: "Stabilisation, blocage des roues, déplacement sécurisé : formation SECURIFORM aux échafaudages roulants R457.",
     images: ["/image/formation-echafaudage-roulant.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation échafaudages roulants R457 — SECURIFORM",
+    title: "Formation échafaudages roulants R457 - SECURIFORM",
     description: "Formez vos équipes à la stabilisation et au déplacement sécurisé des échafaudages roulants, avec SECURIFORM.",
     images: ["/image/formation-echafaudage-roulant.webp"],
   },
@@ -121,8 +122,8 @@ export default function Page() {
             <thead>
               <tr>
                 <th scope="col">Critère</th>
-                <th scope="col">R408 — Échafaudage fixe</th>
-                <th scope="col">R457 — Échafaudage roulant</th>
+                <th scope="col">R408 : Échafaudage fixe</th>
+                <th scope="col">R457 : Échafaudage roulant</th>
               </tr>
             </thead>
             <tbody>
@@ -204,7 +205,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Rétracter et débloquer</h3>
-            <p>Les stabilisateurs sont repliés, puis les freins sont débloqués&nbsp;— jamais avant l'évacuation complète.</p>
+            <p>Les stabilisateurs sont repliés, puis les freins sont débloqués&nbsp;: jamais avant l'évacuation complète.</p>
           </div>
           <div className="etape reveal">
             <h3>Pousser et guider</h3>
@@ -287,6 +288,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="echafaudages-roulants" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -380,7 +385,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

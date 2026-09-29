@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des compacteurs — SECURIFORM",
+  title: "VGP des compacteurs - SECURIFORM",
   description: "VGP des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-compacteurs" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-compacteurs",
-    title: "VGP des compacteurs — SECURIFORM",
+    title: "VGP des compacteurs - SECURIFORM",
     description: "VGP des compacteurs avec SECURIFORM : système de compression, rouleaux, parties mécaniques. Fréquence de 12 mois.",
     images: ["/image/vgp-compacteurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des compacteurs — SECURIFORM",
+    title: "VGP des compacteurs - SECURIFORM",
     description: "Vérification Générale Périodique de vos compacteurs, avec SECURIFORM.",
     images: ["/image/vgp-compacteurs.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 12 mois</h2>
         <hr className="trait" />
-        <p>Les compacteurs doivent être vérifiés tous les 12 mois. Selon l'utilisation et les conditions spécifiques du chantier&nbsp;— poussière, terrains difficiles&nbsp;— la fréquence des contrôles peut être augmentée. Ces vérifications permettent de s'assurer que les machines restent aptes à fonctionner en toute sécurité et de prévenir pannes ou accidents dus à une défaillance technique.</p>
+        <p>Les compacteurs doivent être vérifiés tous les 12 mois. Selon l'utilisation et les conditions spécifiques du chantier (poussière, terrains difficiles) la fréquence des contrôles peut être augmentée. Ces vérifications permettent de s'assurer que les machines restent aptes à fonctionner en toute sécurité et de prévenir pannes ou accidents dus à une défaillance technique.</p>
       </div>
     </section>
 

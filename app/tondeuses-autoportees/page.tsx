@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite de tondeuses autoportées — SECURIFORM",
+  title: "Conduite de tondeuses autoportées - SECURIFORM",
   description: "Formation SECURIFORM à la conduite des tondeuses autoportées : risques de retournement, vérifications, règles de conduite.",
   alternates: { canonical: "/tondeuses-autoportees" },
   openGraph: {
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/tondeuses-autoportees",
-    title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
+    title: "Conduite en sécurité de tondeuses autoportées - SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des tondeuses autoportées, pour les équipes espaces verts.",
     images: ["/image/formation-tondeuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conduite en sécurité de tondeuses autoportées — SECURIFORM",
+    title: "Conduite en sécurité de tondeuses autoportées - SECURIFORM",
     description: "Formez vos équipes espaces verts à la conduite en sécurité des tondeuses autoportées.",
     images: ["/image/formation-tondeuse.webp"],
   },
@@ -339,7 +339,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

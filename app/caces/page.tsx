@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +39,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite en sécurité et CACES® — SECURIFORM",
+  title: "Conduite en sécurité et CACES® - SECURIFORM",
   description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces" },
   openGraph: {
@@ -45,13 +47,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces",
-    title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
+    title: "Formations à la conduite en sécurité et CACES® - SECURIFORM",
     description: "R482B, R484A, R485A, R486B, R489A, R490A : SECURIFORM prépare vos équipes au CACES® sur toute la moitié nord de la France. Tests réalisés par un organisme testeur certifié, référencé INRS.",
     images: ["/image/formation-caces.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formations à la conduite en sécurité et CACES® — SECURIFORM",
+    title: "Formations à la conduite en sécurité et CACES® - SECURIFORM",
     description: "R482B, R484A, R485A, R486B, R489A, R490A : préparez vos équipes au CACES® avec SECURIFORM, sur toute la moitié nord de la France.",
     images: ["/image/formation-caces.webp"],
   },
@@ -108,74 +110,74 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R482B.webp" alt="CACES R482B — engins de chantier" loading="lazy" />
+              <img src="/image/caces-R482B.webp" alt="CACES R482B : engins de chantier" loading="lazy" />
             </div>
             <span className="categorie-badge">10 ans</span>
             <span className="categorie-code">R482B</span>
             <h3>Engins de chantier</h3>
             <p>Pelles, chargeuses, engins de terrassement, compacteurs et chariots télescopiques utilisés en BTP, carrières et travaux publics.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R482B" aria-label="Formation CACES R482B — engins de chantier" />
+            <Link className="card-cover" href="/caces-R482B" aria-label="Formation CACES R482B : engins de chantier" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R489A.webp" alt="CACES R489A — chariots de manutention" loading="lazy" />
+              <img src="/image/caces-R489A.webp" alt="CACES R489A : chariots de manutention" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R489A</span>
             <h3>Chariots de manutention</h3>
             <p>Transpalettes, gerbeurs et chariots élévateurs en porte-à-faux, pour l'entrepôt, la logistique et la distribution.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R489A" aria-label="Formation CACES R489A — chariots de manutention" />
+            <Link className="card-cover" href="/caces-R489A" aria-label="Formation CACES R489A : chariots de manutention" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R486B.webp" alt="CACES R486B — nacelles élévatrices" loading="lazy" />
+              <img src="/image/caces-R486B.webp" alt="CACES R486B : nacelles élévatrices" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R486B</span>
             <h3>Nacelles élévatrices (PEMP)</h3>
             <p>Plateformes élévatrices mobiles de personnes à élévation verticale, pour les interventions en hauteur ponctuelles.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B Catégorie A — nacelles élévatrices" />
+            <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B Catégorie A : nacelles élévatrices" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R484A.webp" alt="CACES R484A — ponts roulants et portiques" loading="lazy" />
+              <img src="/image/caces-R484A.webp" alt="CACES R484A : ponts roulants et portiques" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R484A</span>
             <h3>Ponts roulants et portiques</h3>
             <p>Conduite des ponts roulants et portiques de levage utilisés en ateliers et environnements industriels.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R484A" aria-label="Formation CACES R484A — ponts roulants et portiques" />
+            <Link className="card-cover" href="/caces-R484A" aria-label="Formation CACES R484A : ponts roulants et portiques" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R485A.webp" alt="CACES R485A — gerbeurs à conducteur accompagnant" loading="lazy" />
+              <img src="/image/caces-R485A.webp" alt="CACES R485A : gerbeurs à conducteur accompagnant" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R485A</span>
             <h3>Gerbeurs à conducteur accompagnant</h3>
             <p>Conduite de gerbeurs accompagnants pour la manutention en entrepôt et environnements spécialisés.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R485A" aria-label="Formation CACES R485A — gerbeurs à conducteur accompagnant" />
+            <Link className="card-cover" href="/caces-R485A" aria-label="Formation CACES R485A : gerbeurs à conducteur accompagnant" />
           </article>
 
           <article className="categorie-card reveal">
             <div className="categorie-photo">
-              <img src="/image/caces-R490A.webp" alt="CACES R490A — grues auxiliaires de chargement" loading="lazy" />
+              <img src="/image/caces-R490A.webp" alt="CACES R490A : grues auxiliaires de chargement" loading="lazy" />
             </div>
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R490A</span>
             <h3>Grues auxiliaires de chargement</h3>
             <p>Grues de chargement montées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R490A" aria-label="Formation CACES R490A — grues auxiliaires de chargement" />
+            <Link className="card-cover" href="/caces-R490A" aria-label="Formation CACES R490A : grues auxiliaires de chargement" />
           </article>
 
         </div>
@@ -187,56 +189,16 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-tableau">
+<section className="section" id="comparateur" aria-labelledby="titre-tableau">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien choisir</span>
           <h2 id="titre-tableau">Quelle recommandation pour quel engin&nbsp;?</h2>
           <hr className="trait" />
-          <p>Un premier repère pour identifier la formation adaptée à votre matériel. SECURIFORM affine ensuite ce choix avec vous selon vos équipements exacts.</p>
+          <p>Engins concernés, durée de formation et validité des 6 CACES® en un coup d'œil. SECURIFORM affine ensuite ce choix avec vous selon vos équipements exacts.</p>
         </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Type d'engin</th>
-                <th scope="col">Recommandation</th>
-                <th scope="col">Validité</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Chariot élévateur, transpalette, gerbeur porté</td>
-                <td>R489A</td>
-                <td>5 ans</td>
-              </tr>
-              <tr>
-                <td>Pelle, chargeuse, engin de terrassement</td>
-                <td>R482B</td>
-                <td>10 ans</td>
-              </tr>
-              <tr>
-                <td>Nacelle, plateforme élévatrice (PEMP)</td>
-                <td>R486B</td>
-                <td>5 ans</td>
-              </tr>
-              <tr>
-                <td>Pont roulant, portique</td>
-                <td>R484A</td>
-                <td>5 ans</td>
-              </tr>
-              <tr>
-                <td>Gerbeur à conducteur accompagnant</td>
-                <td>R485A</td>
-                <td>5 ans</td>
-              </tr>
-              <tr>
-                <td>Grue auxiliaire de chargement sur porteur</td>
-                <td>R490A</td>
-                <td>5 ans</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="reveal">
+          <ComparateurCaces />
         </div>
       </div>
     </section>
@@ -320,6 +282,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -356,12 +322,12 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
-                <option value="R482B">R482B — Engins de chantier</option>
-                <option value="R489A">R489A — Chariots de manutention</option>
-                <option value="R486B">R486B — Nacelles élévatrices</option>
-                <option value="R484A">R484A — Ponts roulants et portiques</option>
-                <option value="R485A">R485A — Gerbeurs à conducteur accompagnant</option>
-                <option value="R490A">R490A — Grues auxiliaires de chargement</option>
+                <option value="R482B">R482B : Engins de chantier</option>
+                <option value="R489A">R489A : Chariots de manutention</option>
+                <option value="R486B">R486B : Nacelles élévatrices</option>
+                <option value="R484A">R484A : Ponts roulants et portiques</option>
+                <option value="R485A">R485A : Gerbeurs à conducteur accompagnant</option>
+                <option value="R490A">R490A : Grues auxiliaires de chargement</option>
                 <option value="autre">Autre / je ne sais pas encore</option>
               </select>
             </div>
@@ -417,7 +383,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

@@ -31,7 +31,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Mentions légales — SECURIFORM",
+  title: "Mentions légales - SECURIFORM",
   description: "Mentions légales du site SECURIFORM : éditeur, hébergeur, propriété intellectuelle, données personnelles et cookies.",
   alternates: { canonical: "/mentions-legales" },
   openGraph: {
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/mentions-legales",
-    title: "Mentions légales — SECURIFORM",
+    title: "Mentions légales - SECURIFORM",
     description: "Informations légales relatives à l'éditeur et à l'hébergement du site SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mentions légales — SECURIFORM",
+    title: "Mentions légales - SECURIFORM",
     description: "Informations légales du site SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
@@ -124,7 +124,7 @@ export default function Page() {
           440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br />
           <a href="https://vercel.com/legal/privacy-notice" style={{ color: "var(--rouge)" }}>vercel.com/legal/privacy-notice</a>
         </p>
-        <p style={{ marginTop: "1rem" }}><em>[À VALIDER : Vercel Inc. est la société qui héberge techniquement le site — à confirmer que c&apos;est bien la bonne entité à citer ici (et non un revendeur ou une entité intermédiaire), et qu&apos;aucun numéro de téléphone dédié n&apos;est requis pour ce type d&apos;hébergeur.]</em></p>
+        <p style={{ marginTop: "1rem" }}><em>[À VALIDER : Vercel Inc. est la société qui héberge techniquement le site : à confirmer que c&apos;est bien la bonne entité à citer ici (et non un revendeur ou une entité intermédiaire), et qu&apos;aucun numéro de téléphone dédié n&apos;est requis pour ce type d&apos;hébergeur.]</em></p>
       </div>
     </section>
 

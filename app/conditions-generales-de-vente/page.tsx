@@ -31,7 +31,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conditions générales de vente — SECURIFORM",
+  title: "Conditions générales de vente - SECURIFORM",
   description: "Conditions générales de vente SECURIFORM : formations inter/intra-entreprise, facturation, annulation, responsabilité, protection des données.",
   alternates: { canonical: "/conditions-generales-de-vente" },
   openGraph: {
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/conditions-generales-de-vente",
-    title: "Conditions générales de vente — SECURIFORM",
+    title: "Conditions générales de vente - SECURIFORM",
     description: "Conditions générales de vente applicables à l'ensemble de l'offre de services SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conditions générales de vente — SECURIFORM",
+    title: "Conditions générales de vente - SECURIFORM",
     description: "Conditions générales de vente SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },

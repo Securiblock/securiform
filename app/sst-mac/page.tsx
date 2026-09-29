@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "MAC SST — Maintien et Actualisation des Compétences",
+      "name": "MAC SST : Maintien et Actualisation des Compétences",
       "description": "Recyclage obligatoire de 7 heures pour les Sauveteurs Secouristes du Travail, à réaliser tous les 24 mois avant l'expiration du certificat initial, couvrant la révision des acquis, l'actualisation des compétences et l'évaluation du maintien des acquis.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Recyclage MAC SST — SECURIFORM",
+  title: "Recyclage MAC SST - SECURIFORM",
   description: "Recyclage MAC SST avec SECURIFORM : 7h pour maintenir vos compétences, tous les 24 mois avant expiration du certificat.",
   alternates: { canonical: "/sst-mac" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/sst-mac",
-    title: "MAC SST — Recyclage Sauveteur Secouriste du Travail — SECURIFORM",
+    title: "MAC SST - Recyclage Sauveteur Secouriste du Travail - SECURIFORM",
     description: "7 heures pour maintenir vos compétences SST à jour, avant l'expiration de votre certificat. Avec SECURIFORM, centre habilité INRS.",
     images: ["/image/formation-sst-mac.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MAC SST — SECURIFORM",
+    title: "MAC SST - SECURIFORM",
     description: "Renouvelez votre certificat SST avec le recyclage MAC, avec SECURIFORM.",
     images: ["/image/formation-sst-mac.webp"],
   },
@@ -77,7 +78,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="MAC SST — recyclage" style={{ backgroundImage: "url('/image/formation-sst-mac.webp')" }}>
+<section className="page-hero" aria-label="MAC SST : recyclage" style={{ backgroundImage: "url('/image/formation-sst-mac.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -86,7 +87,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>MAC SST</span>
         </p>
-        <h1>MAC SST — Recyclage Sauveteur Secouriste du Travail</h1>
+        <h1>MAC SST : Recyclage Sauveteur Secouriste du Travail</h1>
         <p>7 heures pour maintenir vos réflexes à jour et prolonger votre certificat SST de 24 mois supplémentaires.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -273,6 +274,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="sst-mac" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -362,7 +367,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

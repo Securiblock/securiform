@@ -31,7 +31,7 @@ export default function GenerateAction({ topic }: { topic: Topic }) {
   }
 
   async function handleUnpublish() {
-    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé — vous pourrez le republier plus tard.")) {
+    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.")) {
       return;
     }
     setUnpublishing(true);

@@ -9,7 +9,7 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "ContactPage",
-      "name": "Nous contacter — SECURIFORM",
+      "name": "Nous contacter - SECURIFORM",
       "url": "https://securiform.fr/nous-contacter/"
     },
     {
@@ -46,7 +46,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Nous contacter — SECURIFORM",
+  title: "Nous contacter - SECURIFORM",
   description: "Contactez SECURIFORM, organisme de formation à Villeneuve d'Ascq (59650) : devis, renseignements, service client. 03 20 67 34 90.",
   alternates: { canonical: "/nous-contacter" },
   openGraph: {
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/nous-contacter",
-    title: "Nous contacter — SECURIFORM",
+    title: "Nous contacter - SECURIFORM",
     description: "Devis, renseignements, service client : contactez SECURIFORM à Villeneuve d'Ascq ou par téléphone au 03 20 67 34 90.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nous contacter — SECURIFORM",
+    title: "Nous contacter - SECURIFORM",
     description: "Contactez SECURIFORM pour vos demandes de devis, renseignements ou service client.",
     images: ["/image/logo-securiform.webp"],
   },

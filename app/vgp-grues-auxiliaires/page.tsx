@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des grues auxiliaires — SECURIFORM",
+  title: "VGP des grues auxiliaires - SECURIFORM",
   description: "VGP des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-grues-auxiliaires" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-grues-auxiliaires",
-    title: "VGP des grues auxiliaires — SECURIFORM",
+    title: "VGP des grues auxiliaires - SECURIFORM",
     description: "VGP des grues auxiliaires avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 6 mois.",
     images: ["/image/vgp-grues-auxiliaires.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des grues auxiliaires — SECURIFORM",
+    title: "VGP des grues auxiliaires - SECURIFORM",
     description: "Vérification Générale Périodique de vos grues auxiliaires, avec SECURIFORM.",
     images: ["/image/vgp-grues-auxiliaires.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 6 mois</h2>
         <hr className="trait" />
-        <p>Les grues auxiliaires doivent être inspectées au moins tous les 6 mois. Des conditions de travail spécifiques&nbsp;— exposition à la corrosion, usage intensif&nbsp;— peuvent justifier des contrôles plus fréquents. Chaque vérification doit être réalisée par une personne qualifiée, salarié formé ou prestataire externe spécialisé dans les équipements de levage.</p>
+        <p>Les grues auxiliaires doivent être inspectées au moins tous les 6 mois. Des conditions de travail spécifiques (exposition à la corrosion, usage intensif) peuvent justifier des contrôles plus fréquents. Chaque vérification doit être réalisée par une personne qualifiée, salarié formé ou prestataire externe spécialisé dans les équipements de levage.</p>
       </div>
     </section>
 

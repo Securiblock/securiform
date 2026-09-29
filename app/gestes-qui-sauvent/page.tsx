@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
+  title: "Sensibilisation aux gestes qui sauvent - SECURIFORM",
   description: "Sensibilisation SECURIFORM aux gestes qui sauvent : accessible à tous, sans prérequis, en quelques heures. Alerter les secours, gestes essentiels.",
   alternates: { canonical: "/gestes-qui-sauvent" },
   openGraph: {
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/gestes-qui-sauvent",
-    title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
+    title: "Sensibilisation aux gestes qui sauvent - SECURIFORM",
     description: "Une sensibilisation courte et accessible à tous, pour diffuser les gestes qui sauvent dans votre entreprise.",
     images: ["/image/formation-gestes-qui-sauvent.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sensibilisation aux gestes qui sauvent — SECURIFORM",
+    title: "Sensibilisation aux gestes qui sauvent - SECURIFORM",
     description: "Formez l'ensemble de vos collaborateurs aux gestes qui sauvent, sans prérequis, avec SECURIFORM.",
     images: ["/image/formation-gestes-qui-sauvent.webp"],
   },
@@ -153,7 +153,7 @@ export default function Page() {
           <span className="surtitre">Le geste le plus simple, et le plus décisif</span>
           <h2 id="titre-alerte">Bien alerter les secours</h2>
           <p>Composer le 15 (SAMU), le 18 (pompiers) ou le 112 (numéro d'urgence européen) est un geste accessible à tous, sans aucune formation préalable&nbsp;: c'est souvent la première chose que cette sensibilisation cherche à ancrer solidement.</p>
-          <p>Une alerte efficace précise la localisation exacte, la nature de la situation, le nombre de personnes concernées et leur état apparent&nbsp;— puis suit les instructions données par l'opérateur, qui peut guider les premiers gestes en attendant l'arrivée des secours.</p>
+          <p>Une alerte efficace précise la localisation exacte, la nature de la situation, le nombre de personnes concernées et leur état apparent&nbsp;: puis suit les instructions données par l'opérateur, qui peut guider les premiers gestes en attendant l'arrivée des secours.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="Une alerte efficace">
           <h3>Une alerte efficace</h3>
@@ -310,7 +310,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

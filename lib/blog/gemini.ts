@@ -118,7 +118,7 @@ async function callGemini(prompt: string, maxOutputTokens = 4096): Promise<strin
   const text: string | undefined = data?.candidates?.[0]?.content?.parts?.[0]?.text;
   if (!text) {
     throw new Error(
-      "Réponse Gemini vide ou inattendue. La demande a peut-être été bloquée (filtre de sécurité) — réessayez avec une description différente."
+      "Réponse Gemini vide ou inattendue. La demande a peut-être été bloquée (filtre de sécurité) : réessayez avec une description différente."
     );
   }
   return text;

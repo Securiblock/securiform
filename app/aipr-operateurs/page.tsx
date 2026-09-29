@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation opérateurs AIPR — SECURIFORM",
+  title: "Formation opérateurs AIPR - SECURIFORM",
   description: "Formation SECURIFORM opérateurs AIPR : classes de précision DT-DICT, distances de sécurité, règle du mètre et règle des 4A.",
   alternates: { canonical: "/aipr-operateurs" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/aipr-operateurs",
-    title: "Formation opérateurs AIPR — SECURIFORM",
+    title: "Formation opérateurs AIPR - SECURIFORM",
     description: "Classes de précision, distances de sécurité, règle du mètre : formation SECURIFORM opérateurs AIPR.",
     images: ["/image/formation-aipr-operateur.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation opérateurs AIPR — SECURIFORM",
+    title: "Formation opérateurs AIPR - SECURIFORM",
     description: "Formez vos conducteurs d'engins et canalisateurs à intervenir en sécurité près des réseaux, avec SECURIFORM.",
     images: ["/image/formation-aipr-operateur.webp"],
   },
@@ -234,7 +235,7 @@ export default function Page() {
         <div className="presentation-txt reveal">
           <span className="surtitre">Le réflexe à avoir</span>
           <h2 id="titre-anomalie">En cas de découverte anormale</h2>
-          <p>Réseau découvert à un endroit inattendu, fuite détectée, contact accidentel&nbsp;: la formation opérateur reprend et approfondit la règle des 4A déjà enseignée dans nos formations AIPR&nbsp;— Arrêter, Alerter, Aménager, Afficher — avec un accent particulier sur la documentation de l'incident&nbsp;: photos, heure, lieu exact, témoins.</p>
+          <p>Réseau découvert à un endroit inattendu, fuite détectée, contact accidentel&nbsp;: la formation opérateur reprend et approfondit la règle des 4A déjà enseignée dans nos formations AIPR (Arrêter, Alerter, Aménager, Afficher) avec un accent particulier sur la documentation de l'incident&nbsp;: photos, heure, lieu exact, témoins.</p>
           <p>Cette traçabilité protège à la fois les personnes et l'entreprise en cas de contentieux ultérieur avec l'exploitant du réseau ou les assurances.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="À retenir">
@@ -294,6 +295,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="aipr-operateurs" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -383,7 +388,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

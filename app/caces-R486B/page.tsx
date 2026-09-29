@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R486B Catégorie A — Nacelles élévatrices",
+      "name": "Formation CACES R486B Catégorie A : Nacelles élévatrices",
       "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, catégorie A de la recommandation R486B. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +45,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R486B — SECURIFORM",
+  title: "Formation CACES® R486B - SECURIFORM",
   description: "Formation CACES R486B Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-R486B" },
   openGraph: {
@@ -51,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R486B",
-    title: "Formation CACES® R486B Catégorie A — Nacelles élévatrices — SECURIFORM",
+    title: "Formation CACES® R486B Catégorie A - Nacelles élévatrices - SECURIFORM",
     description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R486B.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R486B Catégorie A — SECURIFORM",
+    title: "Formation CACES® R486B Catégorie A - SECURIFORM",
     description: "Conduite en sécurité des nacelles élévatrices à élévation verticale, avec SECURIFORM.",
     images: ["/image/caces-R486B.webp"],
   },
@@ -86,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R486B</span>
         </p>
-        <h1>Formation CACES® R486B Catégorie A — Nacelles élévatrices</h1>
+        <h1>Formation CACES® R486B Catégorie A : Nacelles élévatrices</h1>
         <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale&nbsp;: nacelles à ciseaux et plateformes sur mât.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -279,6 +281,21 @@ export default function Page() {
     </section>
 
 
+<section className="section" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R486B avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R486B" />
+        </div>
+      </div>
+    </section>
+
+
     
 
     
@@ -324,6 +341,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R486B" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -417,7 +438,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos nacelles élévatrices, tous les 6 mois conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-nacelles-elevatrices">VGP des nacelles élévatrices</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp-nacelles-elevatrices">VGP des nacelles élévatrices</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

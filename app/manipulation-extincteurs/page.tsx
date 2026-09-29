@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation manipulation des extincteurs — SECURIFORM",
+  title: "Formation manipulation des extincteurs - SECURIFORM",
   description: "Formation SECURIFORM à la manipulation des extincteurs : triangle du feu, classes A à F, pratique sur feu réel.",
   alternates: { canonical: "/manipulation-extincteurs" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/manipulation-extincteurs",
-    title: "Formation manipulation des extincteurs — SECURIFORM",
+    title: "Formation manipulation des extincteurs - SECURIFORM",
     description: "Triangle du feu, classes de feu, technique d'utilisation : formation SECURIFORM à la manipulation des extincteurs.",
     images: ["/image/formation-extincteurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation manipulation des extincteurs — SECURIFORM",
+    title: "Formation manipulation des extincteurs - SECURIFORM",
     description: "Formez vos équipes à réagir efficacement face à un début d'incendie, avec SECURIFORM.",
     images: ["/image/formation-extincteurs.webp"],
   },
@@ -166,25 +167,25 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>A — solides</td>
+                <td>A : solides</td>
                 <td>Bois, papier, textiles</td>
                 <td>Eau, poudre</td>
                 <td>—</td>
               </tr>
               <tr>
-                <td>B — liquides</td>
+                <td>B : liquides</td>
                 <td>Essence, solvants, peintures</td>
                 <td>Mousse, poudre</td>
                 <td>Eau (le feu s'étend)</td>
               </tr>
               <tr>
-                <td>C — gaz</td>
+                <td>C : gaz</td>
                 <td>Propane, butane, méthane</td>
                 <td>Poudre (après coupure du gaz)</td>
                 <td>Intervenir sans couper l'alimentation</td>
               </tr>
               <tr>
-                <td>D — métaux</td>
+                <td>D : métaux</td>
                 <td>Magnésium, sodium</td>
                 <td>Poudre spéciale métaux</td>
                 <td>Eau et CO2 (réaction violente possible)</td>
@@ -196,7 +197,7 @@ export default function Page() {
                 <td>Eau et mousse (risque d'électrocution)</td>
               </tr>
               <tr>
-                <td>F — huiles de cuisson</td>
+                <td>F : huiles de cuisson</td>
                 <td>Friteuses professionnelles</td>
                 <td>Produit chimique humide dédié</td>
                 <td>Eau (explosion de vapeur)</td>
@@ -361,6 +362,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="manipulation-extincteurs" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -450,7 +455,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

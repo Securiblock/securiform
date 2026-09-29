@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formations incendie et évacuation — SECURIFORM",
+  title: "Formations incendie et évacuation - SECURIFORM",
   description: "SECURIFORM forme à la manipulation des extincteurs et RIA, à l'évacuation des locaux et aux Équipiers de Première Intervention.",
   alternates: { canonical: "/incendie-evacuation" },
   openGraph: {
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/incendie-evacuation",
-    title: "Formations incendie et évacuation — SECURIFORM",
+    title: "Formations incendie et évacuation - SECURIFORM",
     description: "Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux : SECURIFORM forme vos équipes sur toute la moitié nord de la France.",
     images: ["/image/formation-incendie.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formations incendie et évacuation — SECURIFORM",
+    title: "Formations incendie et évacuation - SECURIFORM",
     description: "Extincteurs, RIA, EPI, évacuation : préparez vos équipes à la sécurité incendie avec SECURIFORM.",
     images: ["/image/formation-incendie.webp"],
   },
@@ -272,6 +273,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="incendie-evacuation" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -366,7 +371,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

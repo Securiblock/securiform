@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation personnel électricien — SECURIFORM",
+  title: "Formation personnel électricien - SECURIFORM",
   description: "Formation SECURIFORM pour personnel électricien : basse et haute tension, véhicules électriques. Consignation en 5 étapes, recyclage 3 ans.",
   alternates: { canonical: "/habilitation-electricien" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/habilitation-electricien",
-    title: "Formation personnel électricien — SECURIFORM",
+    title: "Formation personnel électricien - SECURIFORM",
     description: "B1-B2-BR-BC, H1-H2-HC : formation SECURIFORM pour le personnel électricien, en basse et haute tension.",
     images: ["/image/formation-habilitation-electricien.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation personnel électricien — SECURIFORM",
+    title: "Formation personnel électricien - SECURIFORM",
     description: "Formez vos électriciens à la consignation, aux travaux BT/HTA, avec SECURIFORM.",
     images: ["/image/formation-habilitation-electricien.webp"],
   },
@@ -309,6 +310,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="habilitation-electricien" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -345,14 +350,14 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="symbole">Symbole souhaité</label>
               <select id="symbole" name="symbole">
-                <option value="b1">B1 / B1V — exécutant BT</option>
-                <option value="b2">B2 / B2V — chargé de travaux BT</option>
-                <option value="br">BR — intervention générale</option>
-                <option value="bc">BC — chargé de consignation BT</option>
-                <option value="h1">H1 / H1V — exécutant HTA</option>
-                <option value="h2">H2 / H2V — chargé de travaux HTA</option>
-                <option value="hc">HC — chargé de consignation HTA</option>
-                <option value="vehicules">B1L / B2L / BRL / BCL — véhicules électriques</option>
+                <option value="b1">B1 / B1V : exécutant BT</option>
+                <option value="b2">B2 / B2V : chargé de travaux BT</option>
+                <option value="br">BR : intervention générale</option>
+                <option value="bc">BC : chargé de consignation BT</option>
+                <option value="h1">H1 / H1V : exécutant HTA</option>
+                <option value="h2">H2 / H2V : chargé de travaux HTA</option>
+                <option value="hc">HC : chargé de consignation HTA</option>
+                <option value="vehicules">B1L / B2L / BRL / BCL : véhicules électriques</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>
@@ -408,7 +413,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

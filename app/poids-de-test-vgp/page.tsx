@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Poids de test VGP — SECURIFORM",
+  title: "Poids de test VGP - SECURIFORM",
   description: "VGP obligatoire : utilisez des blocs béton de masse certifiée pour tester la capacité de charge de vos engins de levage.",
   alternates: { canonical: "/poids-de-test-vgp" },
   openGraph: {
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/poids-de-test-vgp",
-    title: "Poids de test VGP — SECURIFORM",
+    title: "Poids de test VGP - SECURIFORM",
     description: "Blocs béton de masse certifiée, épreuves de charge, protocole en 6 étapes : tout savoir sur les poids de test lors d'une VGP.",
     images: ["/image/vgp-accessoires-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Poids de test VGP — SECURIFORM",
+    title: "Poids de test VGP - SECURIFORM",
     description: "Comprendre l'épreuve de charge lors d'une VGP et le rôle des blocs béton certifiés.",
     images: ["/image/vgp-accessoires-levage.webp"],
   },
@@ -246,7 +246,7 @@ export default function Page() {
           <span className="surtitre">Des repères concrets</span>
           <h2 id="titre-charges">Charges de test recommandées par type d'engin</h2>
           <hr className="trait" />
-          <p>Ordres de grandeur couramment utilisés, pour une épreuve à 110&nbsp;% de la charge nominale&nbsp;— la configuration la plus fréquente.</p>
+          <p>Ordres de grandeur couramment utilisés, pour une épreuve à 110&nbsp;% de la charge nominale&nbsp;: la configuration la plus fréquente.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">

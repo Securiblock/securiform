@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R482B — Chariots de manutention",
+      "name": "Formation CACES R489A : Chariots de manutention",
       "description": "Formation à la conduite en sécurité des chariots de manutention à conducteur porté, couvrant les catégories 1 à 6 de la recommandation R489A : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +45,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R489A — SECURIFORM",
+  title: "Formation CACES® R489A - SECURIFORM",
   description: "Formation CACES R489A avec SECURIFORM : catégories 1 à 6, transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. 5 ans.",
   alternates: { canonical: "/caces-R489A" },
   openGraph: {
@@ -51,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R489A",
-    title: "Formation CACES® R489A — Chariots de manutention — SECURIFORM",
+    title: "Formation CACES® R489A - Chariots de manutention - SECURIFORM",
     description: "Catégories 1 à 6 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R489A.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R489A — SECURIFORM",
+    title: "Formation CACES® R489A - SECURIFORM",
     description: "Conduite en sécurité des chariots de manutention à conducteur porté, avec SECURIFORM.",
     images: ["/image/caces-R489A.webp"],
   },
@@ -86,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R489A</span>
         </p>
-        <h1>Formation CACES® R489A — Chariots de manutention</h1>
+        <h1>Formation CACES® R489A : Chariots de manutention</h1>
         <p>Formez-vous à la conduite en sécurité des chariots de manutention à conducteur porté&nbsp;: transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -294,11 +296,11 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Formation initiale débutant — une catégorie</td>
+                <td>Formation initiale débutant : une catégorie</td>
                 <td>2 à 3 jours</td>
               </tr>
               <tr>
-                <td>Formation initiale débutant — plusieurs catégories</td>
+                <td>Formation initiale débutant : plusieurs catégories</td>
                 <td>3 à 5 jours</td>
               </tr>
               <tr>
@@ -313,6 +315,21 @@ export default function Page() {
           </table>
         </div>
         <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R489A est valable 5 ans à compter de son obtention.</p>
+      </div>
+    </section>
+
+
+<section className="section" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R489A avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R489A" />
+        </div>
       </div>
     </section>
 
@@ -362,6 +379,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R489A" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -398,12 +419,12 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie(s) concernée(s)</label>
               <select id="categorie" name="categorie">
-                <option value="1">1 — Transpalettes, gerbeurs</option>
-                <option value="2">2 — Tracteurs, plateau porteur</option>
-                <option value="3">3 — Porte-à-faux ≤ 6 000 kg</option>
-                <option value="4">4 — Porte-à-faux &gt; 6 000 kg</option>
-                <option value="5">5 — Mât rétractable</option>
-                <option value="6">6 — Conduite hors production</option>
+                <option value="1">1 : Transpalettes, gerbeurs</option>
+                <option value="2">2 : Tracteurs, plateau porteur</option>
+                <option value="3">3 : Porte-à-faux ≤ 6 000 kg</option>
+                <option value="4">4 : Porte-à-faux &gt; 6 000 kg</option>
+                <option value="5">5 : Mât rétractable</option>
+                <option value="6">6 : Conduite hors production</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>
@@ -459,7 +480,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos chariots élévateurs, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-chariots-elevateurs">VGP des chariots élévateurs</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp-chariots-elevateurs">VGP des chariots élévateurs</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

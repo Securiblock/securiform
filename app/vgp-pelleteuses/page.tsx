@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des pelleteuses — SECURIFORM",
+  title: "VGP des pelleteuses - SECURIFORM",
   description: "VGP des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-pelleteuses" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-pelleteuses",
-    title: "VGP des pelleteuses — SECURIFORM",
+    title: "VGP des pelleteuses - SECURIFORM",
     description: "VGP des pelleteuses avec SECURIFORM : détection d'usure, fissures et déformations. Fréquence de 12 mois.",
     images: ["/image/vgp-pelleteuses.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des pelleteuses — SECURIFORM",
+    title: "VGP des pelleteuses - SECURIFORM",
     description: "Vérification Générale Périodique de vos pelleteuses, avec SECURIFORM.",
     images: ["/image/vgp-pelleteuses.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 12 mois</h2>
         <hr className="trait" />
-        <p>Les pelleteuses doivent être inspectées au minimum tous les 12 mois. Selon les conditions spécifiques d'utilisation&nbsp;— fréquence d'usage, environnement corrosif&nbsp;— des contrôles plus fréquents peuvent être nécessaires pour assurer un niveau de sécurité optimal. Chaque inspection doit être réalisée par un inspecteur qualifié et compétent.</p>
+        <p>Les pelleteuses doivent être inspectées au minimum tous les 12 mois. Selon les conditions spécifiques d'utilisation (fréquence d'usage, environnement corrosif) des contrôles plus fréquents peuvent être nécessaires pour assurer un niveau de sécurité optimal. Chaque inspection doit être réalisée par un inspecteur qualifié et compétent.</p>
       </div>
     </section>
 

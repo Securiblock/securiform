@@ -31,7 +31,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Politique de cookies — SECURIFORM",
+  title: "Politique de cookies - SECURIFORM",
   description: "Liste des cookies et traceurs utilisés par le site SECURIFORM (nom, émetteur, finalité, durée) et gestion du consentement.",
   alternates: { canonical: "/politique-cookies" },
   openGraph: {
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/politique-cookies",
-    title: "Politique de cookies — SECURIFORM",
+    title: "Politique de cookies - SECURIFORM",
     description: "Quels cookies utilise le site SECURIFORM, et comment gérer votre consentement.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Politique de cookies — SECURIFORM",
+    title: "Politique de cookies - SECURIFORM",
     description: "Politique de cookies du site SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
@@ -86,7 +86,7 @@ export default function Page() {
             <span className="surtitre">2</span>
             <h2 id="titre-liste">Les traceurs utilisés sur ce site</h2>
             <hr className="trait" />
-            <p>Cette liste correspond exactement aux traceurs présents sur le site — nous ne déposons rien d&apos;autre.</p>
+            <p>Cette liste correspond exactement aux traceurs présents sur le site : nous ne déposons rien d&apos;autre.</p>
           </div>
 
           <div className="table-scroll reveal">
@@ -106,21 +106,21 @@ export default function Page() {
                   <td>SECURIFORM (1<sup>re</sup> partie)</td>
                   <td>Conservation de l&apos;historique de votre conversation avec l&apos;assistant, le temps de votre visite</td>
                   <td>Session (supprimé à la fermeture de l&apos;onglet)</td>
-                  <td>Non — strictement nécessaire</td>
+                  <td>Non : strictement nécessaire</td>
                 </tr>
                 <tr>
                   <td><code>securiform-consent</code></td>
                   <td>SECURIFORM (1<sup>re</sup> partie)</td>
                   <td>Mémorisation de votre choix concernant les cookies</td>
                   <td>6 mois</td>
-                  <td>Non — strictement nécessaire</td>
+                  <td>Non : strictement nécessaire</td>
                 </tr>
                 <tr>
                   <td>Cookies Google Maps</td>
                   <td>Google</td>
                   <td>Affichage de la carte interactive sur notre page « Nous contacter »</td>
                   <td>Définie par Google</td>
-                  <td>Oui — catégorie « Contenus tiers »</td>
+                  <td>Oui : catégorie « Contenus tiers »</td>
                 </tr>
               </tbody>
             </table>

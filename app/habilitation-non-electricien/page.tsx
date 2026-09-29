@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation personnel non-électricien — SECURIFORM",
+  title: "Formation personnel non-électricien - SECURIFORM",
   description: "Formation SECURIFORM pour personnel non-électricien : H0B0, BS, BE/HE Manœuvre, B0L véhicules électriques. Recyclage tous les 3 ans.",
   alternates: { canonical: "/habilitation-non-electricien" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/habilitation-non-electricien",
-    title: "Formation personnel non-électricien — SECURIFORM",
+    title: "Formation personnel non-électricien - SECURIFORM",
     description: "H0B0, BS, BE/HE Manœuvre, B0L : formation SECURIFORM pour tout personnel non-électricien travaillant en environnement électrique.",
     images: ["/image/formation-habilitation-non-electricien.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation personnel non-électricien — SECURIFORM",
+    title: "Formation personnel non-électricien - SECURIFORM",
     description: "Formez votre personnel non-électricien aux bons réflexes en environnement électrique, avec SECURIFORM.",
     images: ["/image/formation-habilitation-non-electricien.webp"],
   },
@@ -393,6 +394,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="habilitation-non-electricien" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -429,12 +434,12 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="symbole">Symbole souhaité</label>
               <select id="symbole" name="symbole">
-                <option value="h0b0-executant">H0B0 — exécutant</option>
-                <option value="h0b0-chantier">H0B0 — chargé de chantier</option>
+                <option value="h0b0-executant">H0B0 : exécutant</option>
+                <option value="h0b0-chantier">H0B0 : chargé de chantier</option>
                 <option value="bs">BS</option>
                 <option value="be">BE Manœuvre</option>
                 <option value="he">HE Manœuvre</option>
-                <option value="b0l">B0L — véhicules électriques</option>
+                <option value="b0l">B0L : véhicules électriques</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>
@@ -490,7 +495,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

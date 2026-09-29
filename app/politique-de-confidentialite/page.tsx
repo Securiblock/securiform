@@ -31,7 +31,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Politique de confidentialité — SECURIFORM",
+  title: "Politique de confidentialité - SECURIFORM",
   description: "Politique de confidentialité SECURIFORM : données collectées, finalités, durées de conservation, sous-traitants et droits RGPD.",
   alternates: { canonical: "/politique-de-confidentialite" },
   openGraph: {
@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/politique-de-confidentialite",
-    title: "Politique de confidentialité — SECURIFORM",
+    title: "Politique de confidentialité - SECURIFORM",
     description: "Comment SECURIFORM collecte, utilise et protège vos données personnelles.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Politique de confidentialité — SECURIFORM",
+    title: "Politique de confidentialité - SECURIFORM",
     description: "Politique de confidentialité du site SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
@@ -104,19 +104,25 @@ export default function Page() {
                   <td>Répondre à une demande de renseignement ou de devis (formulaire « Nous contacter »)</td>
                   <td>Nom, société, email, téléphone, message, pièce jointe éventuelle</td>
                   <td>Mesures précontractuelles / intérêt légitime à répondre à la demande</td>
-                  <td><em>[À VALIDER : durée proposée à titre indicatif — 3 ans à compter du dernier contact, recommandation courante CNIL pour la prospection]</em></td>
+                  <td><em>[À VALIDER : durée proposée à titre indicatif : 3 ans à compter du dernier contact, recommandation courante CNIL pour la prospection]</em></td>
                 </tr>
                 <tr>
                   <td>Traiter une candidature de formateur (formulaire « Nous recrutons »)</td>
                   <td>Nom, prénom, téléphone, email, domaines de compétence, CV, message</td>
                   <td>Mesures précontractuelles à la demande de la personne concernée</td>
-                  <td><em>[À VALIDER : durée proposée à titre indicatif — 2 ans après le dernier contact en l&apos;absence de suite donnée]</em></td>
+                  <td><em>[À VALIDER : durée proposée à titre indicatif : 2 ans après le dernier contact en l&apos;absence de suite donnée]</em></td>
+                </tr>
+                <tr>
+                  <td>Vous envoyer un rappel avant l&apos;échéance de votre formation (calculateur de recyclage des pages de formation)</td>
+                  <td>Email, formation concernée, date de la dernière formation et date d&apos;échéance calculée</td>
+                  <td>Consentement (case à cocher), retirable à tout moment via le lien d&apos;annulation présent dans chaque email</td>
+                  <td>Jusqu&apos;à la date d&apos;échéance de la formation, puis suppression automatique&nbsp;; suppression immédiate en cas d&apos;annulation</td>
                 </tr>
                 <tr>
                   <td>Répondre à vos questions via l&apos;assistant de conversation du site</td>
                   <td>Contenu des messages échangés avec l&apos;assistant</td>
                   <td>Intérêt légitime (assistance aux visiteurs)</td>
-                  <td>Le temps de la session de navigation côté SECURIFORM (aucune conservation par SECURIFORM au-delà) — voir la rubrique « Destinataires et sous-traitants » ci-dessous pour la conservation par Google</td>
+                  <td>Le temps de la session de navigation côté SECURIFORM (aucune conservation par SECURIFORM au-delà) : voir la rubrique « Destinataires et sous-traitants » ci-dessous pour la conservation par Google</td>
                 </tr>
                 <tr>
                   <td>Sécurité, prévention de la fraude et du spam, mesures techniques</td>
@@ -138,9 +144,10 @@ export default function Page() {
           <hr className="trait" />
           <p>Vos données sont destinées exclusivement aux équipes habilitées de SECURIFORM. Certains sous-traitants techniques y ont accès pour les seuls besoins du fonctionnement du site&nbsp;:</p>
           <ul className="valeurs" style={{ marginTop: "0.75rem" }}>
-            <li><span className="puce" aria-hidden="true">•</span> <strong>Resend</strong> (société américaine) — envoi des emails transactionnels générés par les formulaires de contact et de candidature. Le transfert des données hors UE est encadré par les clauses contractuelles types de la Commission européenne, incluses dans le contrat de sous-traitance de Resend (voir <a href="https://resend.com/legal/dpa" style={{ color: "var(--rouge)" }}>resend.com/legal/dpa</a>).</li>
-            <li><span className="puce" aria-hidden="true">•</span> <strong>Google (Gemini API)</strong> (société américaine) — génération des réponses de l&apos;assistant de conversation du site, à partir du contenu des messages que vous lui envoyez. Ce service est utilisé sur une offre non payante&nbsp;: conformément aux conditions de Google, le contenu de vos messages et des réponses générées peut être utilisé par Google pour fournir, améliorer et développer ses propres produits (voir <a href="https://ai.google.dev/gemini-api/terms" style={{ color: "var(--rouge)" }}>ai.google.dev/gemini-api/terms</a>). C&apos;est pourquoi l&apos;assistant vous invite à ne partager aucune donnée personnelle dans vos messages. <em>[À VALIDER : envisager de passer l&apos;API sur une offre payante pour bénéficier des garanties contractuelles standard (clauses contractuelles types, non-utilisation des messages pour l&apos;entraînement des modèles) plutôt que ces conditions par défaut.]</em></li>
-            <li><span className="puce" aria-hidden="true">•</span> <strong>Vercel</strong> — hébergement du site (voir la rubrique « Hébergeur » de nos&nbsp;<Link href="/mentions-legales" style={{ color: "var(--rouge)" }}>mentions légales</Link>).</li>
+            <li><span className="puce" aria-hidden="true">•</span> <strong>Resend</strong> (société américaine) : envoi des emails transactionnels générés par les formulaires de contact et de candidature, ainsi que des rappels de recyclage. Le transfert des données hors UE est encadré par les clauses contractuelles types de la Commission européenne, incluses dans le contrat de sous-traitance de Resend (voir <a href="https://resend.com/legal/dpa" style={{ color: "var(--rouge)" }}>resend.com/legal/dpa</a>).</li>
+            <li><span className="puce" aria-hidden="true">•</span> <strong>Google (Gemini API)</strong> (société américaine) : génération des réponses de l&apos;assistant de conversation du site, à partir du contenu des messages que vous lui envoyez. Ce service est utilisé sur une offre non payante&nbsp;: conformément aux conditions de Google, le contenu de vos messages et des réponses générées peut être utilisé par Google pour fournir, améliorer et développer ses propres produits (voir <a href="https://ai.google.dev/gemini-api/terms" style={{ color: "var(--rouge)" }}>ai.google.dev/gemini-api/terms</a>). C&apos;est pourquoi l&apos;assistant vous invite à ne partager aucune donnée personnelle dans vos messages. <em>[À VALIDER : envisager de passer l&apos;API sur une offre payante pour bénéficier des garanties contractuelles standard (clauses contractuelles types, non-utilisation des messages pour l&apos;entraînement des modèles) plutôt que ces conditions par défaut.]</em></li>
+            <li><span className="puce" aria-hidden="true">•</span> <strong>Neon</strong> : hébergement de la base de données où sont conservés les rappels de recyclage (voir <a href="https://neon.com/privacy-policy" style={{ color: "var(--rouge)" }}>neon.com/privacy-policy</a>). <em>[À VALIDER : vérifier la région d&apos;hébergement de la base dans la console Neon : une région européenne évite tout transfert hors UE.]</em></li>
+            <li><span className="puce" aria-hidden="true">•</span> <strong>Vercel</strong> : hébergement du site (voir la rubrique « Hébergeur » de nos&nbsp;<Link href="/mentions-legales" style={{ color: "var(--rouge)" }}>mentions légales</Link>).</li>
           </ul>
           <p style={{ marginTop: "1rem" }}>Nous ne vendons ni ne louons vos données personnelles à des tiers.</p>
         </div>
@@ -153,7 +160,7 @@ export default function Page() {
           <hr className="trait" />
           <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles&nbsp;: droit d&apos;accès, de rectification, d&apos;effacement, d&apos;opposition, de limitation du traitement et de portabilité.</p>
           <p style={{ marginTop: "1rem" }}>Pour exercer ces droits, contactez-nous via notre page&nbsp;<Link href="/nous-contacter" style={{ color: "var(--rouge)" }}>Nous contacter</Link> ou par courrier à SECURIFORM, 17 rue du Carillon, 59650 Villeneuve-d&apos;Ascq. Une réponse vous sera apportée dans un délai d&apos;un mois.</p>
-          <p style={{ marginTop: "1rem" }}>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la Commission Nationale de l&apos;Informatique et des Libertés (CNIL) — 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--rouge)" }}>www.cnil.fr</a>.</p>
+          <p style={{ marginTop: "1rem" }}>Si vous estimez, après nous avoir contactés, que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la Commission Nationale de l&apos;Informatique et des Libertés (CNIL) : 3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--rouge)" }}>www.cnil.fr</a>.</p>
         </div>
       </section>
 

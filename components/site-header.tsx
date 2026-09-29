@@ -31,7 +31,7 @@ export default function SiteHeader() {
 
       <header className="header">
         <div className="container header-inner">
-          <Link href="/" className="logo" aria-label="SECURIFORM — Accueil">
+          <Link href="/" className="logo" aria-label="SECURIFORM : Accueil">
             <Image
               src="/image/logo-securiform.webp"
               alt="SECURIFORM"
