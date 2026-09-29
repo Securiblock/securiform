@@ -1,23 +1,56 @@
 "use client";
 
 import { useState, type PointerEvent } from "react";
-import { FRANCE_REGIONS, FRANCE_VIEWBOX, VILLES_POSITIONS } from "@/data/france-regions";
+import {
+  FRANCE_DEPARTEMENTS,
+  FRANCE_REGIONS_CONTOURS,
+  FRANCE_VIEWBOX,
+  VILLES_POSITIONS,
+} from "@/data/france-carte";
 
-type Zone = { code: string; nom: string; villes: string[] };
+type Zone = {
+  id: string;
+  nom: string;
+  departements: string[];
+  villes: string[];
+  // Villes pointées sur la carte ; « gauche » place l'étiquette à gauche du point.
+  points: { ville: string; gauche?: boolean }[];
+};
 
-// Régions couvertes par SECURIFORM, avec leurs principales villes
-// (les villes absentes de VILLES_POSITIONS sont listées sans point sur la carte).
+// Départements couverts par SECURIFORM, regroupés par région.
 const ZONES: Zone[] = [
-  { code: "32", nom: "Hauts-de-France", villes: ["Lille", "Amiens", "Dunkerque", "Saint-Quentin"] },
-  { code: "44", nom: "Grand Est", villes: ["Strasbourg", "Reims", "Metz", "Mulhouse", "Nancy"] },
-  { code: "28", nom: "Normandie", villes: ["Le Havre", "Rouen", "Caen", "Cherbourg"] },
-  { code: "11", nom: "Île-de-France", villes: ["Paris", "Boulogne-Billancourt", "Saint-Denis", "Argenteuil"] },
+  {
+    id: "hdf",
+    nom: "Hauts-de-France",
+    departements: ["59", "62", "02", "60", "80"],
+    villes: ["Lille", "Amiens", "Dunkerque", "Beauvais", "Saint-Quentin"],
+    points: [{ ville: "Lille" }, { ville: "Amiens" }, { ville: "Dunkerque" }, { ville: "Beauvais" }],
+  },
+  {
+    id: "grand-est",
+    nom: "Grand Est",
+    departements: ["51", "08", "10"],
+    villes: ["Reims", "Troyes", "Charleville-Mézières", "Châlons-en-Champagne"],
+    points: [{ ville: "Reims" }, { ville: "Troyes" }, { ville: "Charleville-Mézières" }, { ville: "Châlons-en-Champagne" }],
+  },
+  {
+    id: "normandie",
+    nom: "Normandie",
+    departements: ["76", "27"],
+    villes: ["Le Havre", "Rouen", "Évreux", "Dieppe"],
+    points: [{ ville: "Le Havre", gauche: true }, { ville: "Rouen" }, { ville: "Évreux" }, { ville: "Dieppe" }],
+  },
+  {
+    id: "idf",
+    nom: "Île-de-France",
+    departements: ["75", "77", "78", "91", "92", "93", "94", "95"],
+    villes: ["Paris", "Boulogne-Billancourt", "Saint-Denis", "Argenteuil"],
+    points: [{ ville: "Paris" }],
+  },
 ];
 
-const ZONES_TRACEES = ZONES.map((zone) => ({
-  zone,
-  d: FRANCE_REGIONS.find((r) => r.code === zone.code)?.d ?? "",
-}));
+const DEPARTEMENTS = new Map(FRANCE_DEPARTEMENTS.map((d) => [d.code, d]));
+const ZONE_DU_DEPARTEMENT = new Map(ZONES.flatMap((z) => z.departements.map((code) => [code, z.id] as const)));
 
 // Le survol ne concerne que la souris : au toucher, seul le clic compte,
 // sinon un « survol » fantôme resterait actif après le tap.
@@ -27,9 +60,9 @@ export default function CarteInterventions() {
   const [survol, setSurvol] = useState<string | null>(null);
   const [selection, setSelection] = useState<string | null>(null);
   const actif = survol ?? selection;
-  const zoneActive = ZONES.find((z) => z.code === actif);
+  const zoneActive = ZONES.find((z) => z.id === actif);
 
-  const choisir = (code: string) => setSelection((s) => (s === code ? null : code));
+  const choisir = (id: string) => setSelection((s) => (s === id ? null : id));
 
   return (
     <div className="carte-zone">
@@ -37,60 +70,65 @@ export default function CarteInterventions() {
         className="carte-svg"
         viewBox={FRANCE_VIEWBOX}
         role="group"
-        aria-label="Carte des régions d'intervention de SECURIFORM"
-        onPointerLeave={(e) => estSouris(e) && setSurvol(null)}
+        aria-label="Carte des départements d'intervention de SECURIFORM"
       >
-        {FRANCE_REGIONS.map((r) => {
-          const zone = ZONES.find((z) => z.code === r.code);
-          if (!zone) {
-            return (
-              <path
-                key={r.code}
-                d={r.d}
-                className="carte-region"
-                onPointerEnter={(e) => estSouris(e) && setSurvol(null)}
-              />
-            );
-          }
-          return (
-            <path
-              key={r.code}
-              d={r.d}
-              className={r.code === actif ? "carte-region is-couverte is-socle" : "carte-region is-couverte"}
-              tabIndex={0}
-              role="button"
-              aria-label={`${zone.nom} : ${zone.villes.join(", ")}`}
-              aria-pressed={selection === r.code}
-              onPointerEnter={(e) => estSouris(e) && setSurvol(r.code)}
-              onFocus={(e) => e.currentTarget.matches(":focus-visible") && setSurvol(r.code)}
-              onBlur={() => setSurvol(null)}
-              onClick={() => choisir(r.code)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  choisir(r.code);
-                }
-              }}
-            />
-          );
-        })}
+        {FRANCE_DEPARTEMENTS.filter((d) => !ZONE_DU_DEPARTEMENT.has(d.code)).map((d) => (
+          <path key={d.code} d={d.d} className="carte-dep" />
+        ))}
+
+        {/* Une zone = un seul élément interactif (un arrêt au clavier) */}
+        {ZONES.map((zone) => (
+          <g
+            key={zone.id}
+            className={zone.id === actif ? "carte-zone-groupe is-socle" : "carte-zone-groupe"}
+            tabIndex={0}
+            role="button"
+            aria-label={`${zone.nom} : ${zone.departements.map((c) => DEPARTEMENTS.get(c)?.nom).join(", ")}`}
+            aria-pressed={selection === zone.id}
+            onPointerEnter={(e) => estSouris(e) && setSurvol(zone.id)}
+            onPointerLeave={(e) => estSouris(e) && setSurvol(null)}
+            onFocus={(e) => e.currentTarget.matches(":focus-visible") && setSurvol(zone.id)}
+            onBlur={() => setSurvol(null)}
+            onClick={() => choisir(zone.id)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                choisir(zone.id);
+              }
+            }}
+          >
+            {zone.departements.map((code) => (
+              <path key={code} d={DEPARTEMENTS.get(code)?.d} className="carte-dep is-couvert" />
+            ))}
+          </g>
+        ))}
+
+        <g className="carte-contours" aria-hidden="true">
+          {FRANCE_REGIONS_CONTOURS.map((d, i) => (
+            <path key={i} d={d} />
+          ))}
+        </g>
 
         {/* Copies surélevées, toujours présentes : seule la classe change,
             ce qui permet une transition fluide à l'entrée comme à la sortie. */}
-        {ZONES_TRACEES.map(({ zone, d }) => (
+        {ZONES.map((zone) => (
           <g
-            key={zone.code}
-            className={zone.code === actif ? "carte-eleve is-active" : "carte-eleve"}
+            key={zone.id}
+            className={zone.id === actif ? "carte-eleve is-active" : "carte-eleve"}
             aria-hidden="true"
           >
-            <path d={d} className="carte-region is-couverte is-active" />
-            {zone.villes.map((ville) => {
+            {zone.departements.map((code) => (
+              <path key={code} d={DEPARTEMENTS.get(code)?.d} className="carte-dep is-couvert" />
+            ))}
+            {zone.points.map(({ ville, gauche }) => {
               const pos = VILLES_POSITIONS[ville];
               if (!pos) return null;
               return (
                 <g key={ville} className="carte-ville">
                   <circle cx={pos[0]} cy={pos[1]} r={4.5} />
-                  <text x={pos[0] + 8} y={pos[1] + 4.5}>{ville}</text>
+                  <text x={pos[0] + (gauche ? -8 : 8)} y={pos[1] + 4.5} textAnchor={gauche ? "end" : "start"}>
+                    {ville}
+                  </text>
                 </g>
               );
             })}
@@ -102,13 +140,13 @@ export default function CarteInterventions() {
         <div className="carte-legende">
           {ZONES.map((z) => (
             <button
-              key={z.code}
+              key={z.id}
               type="button"
-              className={z.code === actif ? "carte-puce is-active" : "carte-puce"}
-              aria-pressed={selection === z.code}
-              onPointerEnter={(e) => estSouris(e) && setSurvol(z.code)}
+              className={z.id === actif ? "carte-puce is-active" : "carte-puce"}
+              aria-pressed={selection === z.id}
+              onPointerEnter={(e) => estSouris(e) && setSurvol(z.id)}
               onPointerLeave={(e) => estSouris(e) && setSurvol(null)}
-              onClick={() => choisir(z.code)}
+              onClick={() => choisir(z.id)}
             >
               {z.nom}
             </button>
@@ -119,15 +157,16 @@ export default function CarteInterventions() {
           {zoneActive ? (
             <>
               <h4>{zoneActive.nom}</h4>
-              <p>Principales villes&nbsp;:</p>
-              <ul>
-                {zoneActive.villes.map((v) => (
-                  <li key={v}>{v}</li>
-                ))}
-              </ul>
+              <p>
+                <strong>Départements&nbsp;:</strong>{" "}
+                {zoneActive.departements.map((c) => `${DEPARTEMENTS.get(c)?.nom} (${c})`).join(", ")}
+              </p>
+              <p>
+                <strong>Principales villes&nbsp;:</strong> {zoneActive.villes.join(", ")}
+              </p>
             </>
           ) : (
-            <p>Survolez ou touchez une région en rouge pour afficher ses principales villes.</p>
+            <p>Survolez ou touchez une zone en rouge pour afficher les départements et les principales villes couverts.</p>
           )}
         </div>
       </div>

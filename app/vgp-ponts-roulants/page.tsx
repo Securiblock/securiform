@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des ponts roulants — SECURIFORM",
+  title: "VGP des ponts roulants - SECURIFORM",
   description: "VGP des ponts roulants avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 12 mois.",
   alternates: { canonical: "/vgp-ponts-roulants" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-ponts-roulants",
-    title: "VGP des ponts roulants — SECURIFORM",
+    title: "VGP des ponts roulants - SECURIFORM",
     description: "VGP des ponts roulants avec SECURIFORM : équipements concernés, registre de sécurité. Fréquence de 12 mois.",
     images: ["/image/vgp-ponts-roulants.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des ponts roulants — SECURIFORM",
+    title: "VGP des ponts roulants - SECURIFORM",
     description: "Vérification Générale Périodique de vos ponts roulants, avec SECURIFORM.",
     images: ["/image/vgp-ponts-roulants.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 12 mois</h2>
         <hr className="trait" />
-        <p>Les ponts roulants doivent être inspectés au minimum tous les 12 mois. Certaines conditions d'utilisation&nbsp;— exposition à la corrosion, usage intensif&nbsp;— peuvent nécessiter des contrôles plus fréquents pour garantir la sécurité des opérations.</p>
+        <p>Les ponts roulants doivent être inspectés au minimum tous les 12 mois. Certaines conditions d'utilisation (exposition à la corrosion, usage intensif) peuvent nécessiter des contrôles plus fréquents pour garantir la sécurité des opérations.</p>
       </div>
     </section>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -37,7 +38,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation secourisme (SST) — SECURIFORM",
+  title: "Formation secourisme (SST) - SECURIFORM",
   description: "SECURIFORM est centre habilité SST : formation initiale de 14h et MAC de recyclage tous les 24 mois, sur toute la moitié nord de la France.",
   alternates: { canonical: "/secourisme" },
   openGraph: {
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/secourisme",
-    title: "Formation secourisme (SST) — SECURIFORM",
+    title: "Formation secourisme (SST) - SECURIFORM",
     description: "Formation initiale et MAC de recyclage Sauveteur Secouriste du Travail, avec SECURIFORM, centre habilité, sur toute la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation secourisme (SST) — SECURIFORM",
+    title: "Formation secourisme (SST) - SECURIFORM",
     description: "SST : formation initiale et MAC de recyclage avec SECURIFORM, centre habilité, sur toute la moitié nord de la France.",
     images: ["/image/formation-secourisme-sst.webp"],
   },
@@ -118,7 +119,7 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-sst-mac.webp" alt="MAC SST — maintien et actualisation des compétences" loading="lazy" />
+              <img src="/image/formation-sst-mac.webp" alt="MAC SST : maintien et actualisation des compétences" loading="lazy" />
             </div>
             <h3>MAC SST (recyclage)</h3>
             <p>7 heures pour maintenir et actualiser ses compétences, à réaliser avant l'expiration des 24 mois de validité du certificat.</p>
@@ -253,6 +254,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="secourisme" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -290,7 +295,7 @@ export default function Page() {
               <label htmlFor="formation">Formation souhaitée</label>
               <select id="formation" name="formation">
                 <option value="initiale">Formation initiale SST (14h)</option>
-                <option value="mac">MAC SST — recyclage (7h)</option>
+                <option value="mac">MAC SST : recyclage (7h)</option>
                 <option value="autre">Autre / je ne sais pas encore</option>
               </select>
             </div>
@@ -346,7 +351,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

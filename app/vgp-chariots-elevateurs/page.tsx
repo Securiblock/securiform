@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des chariots élévateurs — SECURIFORM",
+  title: "VGP des chariots élévateurs - SECURIFORM",
   description: "VGP des chariots élévateurs avec SECURIFORM : éléments contrôlés, registre de sécurité. Fréquence de 6 mois, Code du travail.",
   alternates: { canonical: "/vgp-chariots-elevateurs" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-chariots-elevateurs",
-    title: "VGP des chariots élévateurs — SECURIFORM",
+    title: "VGP des chariots élévateurs - SECURIFORM",
     description: "VGP des chariots élévateurs avec SECURIFORM : éléments contrôlés, registre de sécurité. Fréquence de 6 mois, Code du travail.",
     images: ["/image/vgp-chariots-elevateurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des chariots élévateurs — SECURIFORM",
+    title: "VGP des chariots élévateurs - SECURIFORM",
     description: "Vérification Générale Périodique de vos chariots élévateurs, avec SECURIFORM.",
     images: ["/image/vgp-chariots-elevateurs.webp"],
   },

@@ -78,7 +78,7 @@ export default function CookieConsent() {
             <label className="cookie-option">
               <input type="checkbox" checked disabled />
               <span>
-                <strong>Essentiels</strong> — toujours actifs (mémorisation de
+                <strong>Essentiels</strong> : toujours actifs (mémorisation de
                 votre choix, historique du chat)
               </span>
             </label>
@@ -89,7 +89,7 @@ export default function CookieConsent() {
                 onChange={(e) => setThirdParty(e.target.checked)}
               />
               <span>
-                <strong>Contenus tiers</strong> — carte Google Maps sur la page
+                <strong>Contenus tiers</strong> : carte Google Maps sur la page
                 « Nous contacter »
               </span>
             </label>

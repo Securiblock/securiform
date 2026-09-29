@@ -165,7 +165,7 @@ export default function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <div className="container">
-          © <span>{year}</span> SECURIFORM — Organisme de formation à la
+          © <span>{year}</span> SECURIFORM : Organisme de formation à la
           sécurité au travail. Tous droits réservés.
         </div>
       </div>

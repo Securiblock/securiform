@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des bras de levage — SECURIFORM",
+  title: "VGP des bras de levage - SECURIFORM",
   description: "VGP des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-bras-de-levage" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-bras-de-levage",
-    title: "VGP des bras de levage — SECURIFORM",
+    title: "VGP des bras de levage - SECURIFORM",
     description: "VGP des bras de levage avec SECURIFORM : systèmes hydrauliques, câbles, composants mécaniques. Fréquence de 6 mois.",
     images: ["/image/vgp-bras-de-levage.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des bras de levage — SECURIFORM",
+    title: "VGP des bras de levage - SECURIFORM",
     description: "Vérification Générale Périodique de vos bras de levage, avec SECURIFORM.",
     images: ["/image/vgp-bras-de-levage.webp"],
   },
@@ -157,7 +157,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 6 mois</h2>
         <hr className="trait" />
-        <p>Les bras de levage sont soumis à une vérification périodique tous les 6 mois, garantissant la sécurité des utilisateurs et la fiabilité des équipements. En cas de modification significative&nbsp;— changement de site, réparation majeure&nbsp;— une nouvelle vérification de mise en service est également requise, indépendamment du calendrier habituel.</p>
+        <p>Les bras de levage sont soumis à une vérification périodique tous les 6 mois, garantissant la sécurité des utilisateurs et la fiabilité des équipements. En cas de modification significative (changement de site, réparation majeure) une nouvelle vérification de mise en service est également requise, indépendamment du calendrier habituel.</p>
       </div>
     </section>
 

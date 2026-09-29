@@ -37,7 +37,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formations spécifiques — SECURIFORM",
+  title: "Formations spécifiques - SECURIFORM",
   description: "SECURIFORM propose des formations sur mesure : tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
   alternates: { canonical: "/formations-specifiques" },
   openGraph: {
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/formations-specifiques",
-    title: "Formations spécifiques — SECURIFORM",
+    title: "Formations spécifiques - SECURIFORM",
     description: "Tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
     images: ["/image/formation-specifiques.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formations spécifiques — SECURIFORM",
+    title: "Formations spécifiques - SECURIFORM",
     description: "Des formations sur mesure, adaptées aux équipements et aux risques propres à votre entreprise.",
     images: ["/image/formation-specifiques.webp"],
   },
@@ -315,7 +315,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

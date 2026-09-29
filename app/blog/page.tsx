@@ -7,7 +7,7 @@ import BlogSearch from "./blog-search";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Blog — SECURIFORM",
+  title: "Blog - SECURIFORM",
   description:
     "Conseils, actualités et guides pratiques sur la sécurité au travail, le CACES®, l'habilitation électrique et la prévention des risques.",
   alternates: { canonical: "/blog" },
@@ -28,7 +28,7 @@ export default async function BlogIndexPage() {
     <>
       <section className="section" aria-label="Blog" style={{ paddingBottom: 15 }}>
         <h1 style={{ position: "absolute", left: "-9999px" }}>
-          Blog SECURIFORM — Conseils et guides pratiques sur la sécurité au travail
+          Blog SECURIFORM : Conseils et guides pratiques sur la sécurité au travail
         </h1>
         {articles.length > 0 && <BlogSlider articles={articles.slice(0, 8)} />}
       </section>

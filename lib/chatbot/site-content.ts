@@ -177,7 +177,7 @@ async function fetchPage(origin: string, path: string): Promise<{ path: string; 
     if (!res.ok) return null;
     const html = await res.text();
     const title = decodeEntities(html.match(/<title>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? path)
-      .replace(/\s+[—-]\s+SECURIFORM$/, "");
+      .replace(/\s+[—:-]\s+SECURIFORM$/, "");
     const lines = htmlToText(html).split("\n").filter(Boolean);
     return lines.length > 0 ? { path, title, lines } : null;
   } catch (err) {

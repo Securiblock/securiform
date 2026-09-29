@@ -117,7 +117,7 @@ export default function BlogDashboard({
   }
 
   async function handleUnpublish(id: string) {
-    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé — vous pourrez le republier plus tard.")) {
+    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.")) {
       return;
     }
     setBusyId(id);
@@ -186,7 +186,7 @@ export default function BlogDashboard({
       if (!res.ok) throw new Error(data.error || "Échec de la génération.");
       setAutoGenMessage(
         data.generated
-          ? `Généré : « ${data.title} »${data.emailSent ? " — email envoyé." : " — email NON envoyé (voir la config Resend)."}`
+          ? `Généré : « ${data.title} »${data.emailSent ? " : email envoyé." : " : email NON envoyé (voir la config Resend)."}`
           : data.reason || "Rien à générer."
       );
       router.refresh();
@@ -432,7 +432,7 @@ export default function BlogDashboard({
           <p className="mb-3 text-xs text-slate-500">
             Un sujet par ligne. Optionnel : ajoutez une description après un « | »
             (ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description,
-            le titre sert aussi de description — vous pourrez l&apos;affiner plus
+            le titre sert aussi de description : vous pourrez l&apos;affiner plus
             tard. Tous les sujets sont créés en ton « professionnel », 1000 mots
             (les suggestions IA arrivent déjà avec leur propre ton varié). La
             catégorie est choisie automatiquement par l&apos;IA à la génération
@@ -469,7 +469,7 @@ export default function BlogDashboard({
 
       <div className="mb-6 flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-slate-600">
-          <span className="font-semibold">Génération automatique</span> — tous les 2 jours en
+          <span className="font-semibold">Génération automatique</span> : tous les 2 jours en
           production (Vercel Cron), un sujet en attente est généré et vous recevez un email
           pour le relire. {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente
           dans la file.

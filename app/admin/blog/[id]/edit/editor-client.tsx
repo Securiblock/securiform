@@ -134,7 +134,7 @@ export default function ArticleEditor({ topic, article }: Props) {
   }
 
   async function handleUnpublish() {
-    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé — vous pourrez le republier plus tard.")) {
+    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.")) {
       return;
     }
     setBusy("unpublish");
@@ -146,7 +146,7 @@ export default function ArticleEditor({ topic, article }: Props) {
         body: JSON.stringify({ status: "approved" }),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Échec de la dépublication.");
-      setMessage("Article dépublié — la page n'est plus en ligne.");
+      setMessage("Article dépublié : la page n'est plus en ligne.");
       router.refresh();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur inconnue.");
@@ -266,7 +266,7 @@ export default function ArticleEditor({ topic, article }: Props) {
           <label className="mb-1 block text-sm font-semibold">Image à la une</label>
           <p className="mb-1 text-xs text-slate-500">
             Envoyez une image depuis votre ordinateur (jpg, png, webp ou gif, 5 Mo
-            max). Pas d&apos;idée ? Gemini vous suggère 3 pistes ci-dessous —
+            max). Pas d&apos;idée ? Gemini vous suggère 3 pistes ci-dessous :
             cherchez une photo qui correspond, puis envoyez-la.
           </p>
           <input
@@ -388,7 +388,7 @@ export default function ArticleEditor({ topic, article }: Props) {
           <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl">
             <h2 className="mb-1 text-lg font-bold">Régénérer l&apos;article</h2>
             <p className="mb-5 text-sm text-slate-500">
-              Ajustez les informations du sujet si besoin — Gemini régénérera
+              Ajustez les informations du sujet si besoin : Gemini régénérera
               l&apos;article à partir de ces valeurs et remplacera le contenu actuel.
             </p>
 

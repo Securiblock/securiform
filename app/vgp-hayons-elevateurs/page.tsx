@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des hayons élévateurs — SECURIFORM",
+  title: "VGP des hayons élévateurs - SECURIFORM",
   description: "VGP des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-hayons-elevateurs" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-hayons-elevateurs",
-    title: "VGP des hayons élévateurs — SECURIFORM",
+    title: "VGP des hayons élévateurs - SECURIFORM",
     description: "VGP des hayons élévateurs avec SECURIFORM : fixation au châssis, bras de levage, vérins hydrauliques. Fréquence de 6 mois.",
     images: ["/image/vgp-hayons-elevateurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des hayons élévateurs — SECURIFORM",
+    title: "VGP des hayons élévateurs - SECURIFORM",
     description: "Vérification Générale Périodique de vos hayons élévateurs, avec SECURIFORM.",
     images: ["/image/vgp-hayons-elevateurs.webp"],
   },
@@ -180,7 +180,7 @@ export default function Page() {
         <span className="surtitre">À retenir</span>
         <h2 id="titre-frequence">Une VGP tous les 6 mois</h2>
         <hr className="trait" />
-        <p>La réglementation impose une VGP des hayons élévateurs tous les 6 mois. Des conditions d'utilisation intensives&nbsp;— livraison, transport de marchandises lourdes&nbsp;— peuvent justifier des contrôles plus fréquents. Chaque vérification doit être réalisée par une personne compétente, munie des documents nécessaires&nbsp;: manuel d'utilisation, certificat de conformité, carnet de maintenance.</p>
+        <p>La réglementation impose une VGP des hayons élévateurs tous les 6 mois. Des conditions d'utilisation intensives (livraison, transport de marchandises lourdes) peuvent justifier des contrôles plus fréquents. Chaque vérification doit être réalisée par une personne compétente, munie des documents nécessaires&nbsp;: manuel d'utilisation, certificat de conformité, carnet de maintenance.</p>
       </div>
     </section>
 

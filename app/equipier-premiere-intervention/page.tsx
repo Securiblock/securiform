@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation Équipier de Première Intervention — SECURIFORM",
+  title: "Formation Équipier de Première Intervention - SECURIFORM",
   description: "Formation SECURIFORM Équipier de Première Intervention : obligations légales, organisation, RIA, coupures d'énergie. Référentiel APSAD R6.",
   alternates: { canonical: "/equipier-premiere-intervention" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/equipier-premiere-intervention",
-    title: "Formation Équipier de Première Intervention — SECURIFORM",
+    title: "Formation Équipier de Première Intervention - SECURIFORM",
     description: "RIA, extincteurs, coupures d'énergie, limites de l'intervention : formation SECURIFORM aux Équipiers de Première Intervention.",
     images: ["/image/formation-epi.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation Équipier de Première Intervention — SECURIFORM",
+    title: "Formation Équipier de Première Intervention - SECURIFORM",
     description: "Formez vos référents internes à intervenir sur un début d'incendie, avec SECURIFORM.",
     images: ["/image/formation-epi.webp"],
   },
@@ -126,15 +127,15 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>EPI — Équipier de Première Intervention</td>
+                <td>EPI : Équipier de Première Intervention</td>
                 <td>Donne l'alarme, alerte les secours, intervient avec les moyens sur place (extincteurs, RIA)</td>
               </tr>
               <tr>
-                <td>ESI — Équipier de Seconde Intervention</td>
+                <td>ESI : Équipier de Seconde Intervention</td>
                 <td>Renforce les EPI avec des moyens complémentaires, en attendant les secours (facultatif)</td>
               </tr>
               <tr>
-                <td>EIT — Équipier d'Intervention Technique</td>
+                <td>EIT : Équipier d'Intervention Technique</td>
                 <td>Effectue les coupures d'énergies et fluides, met les installations en sécurité (facultatif)</td>
               </tr>
             </tbody>
@@ -350,6 +351,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="equipier-premiere-intervention" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -439,7 +444,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

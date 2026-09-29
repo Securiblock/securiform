@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ChecklistVgp from "@/components/checklist-vgp";
 import { submitForm } from "@/app/actions";
 
 const jsonLd = {
@@ -42,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
+  title: "Vérifications Générales Périodiques (VGP) - SECURIFORM",
   description: "SECURIFORM réalise les Vérifications Générales Périodiques (VGP) de vos équipements de levage et manutention, dans les Hauts-de-France.",
   alternates: { canonical: "/vgp" },
   openGraph: {
@@ -50,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp",
-    title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
+    title: "Vérifications Générales Périodiques (VGP) - SECURIFORM",
     description: "Chariots élévateurs, nacelles, grues auxiliaires, ponts roulants : SECURIFORM réalise vos VGP dans les Hauts-de-France.",
     images: ["/image/vgp-chariots-elevateurs.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vérifications Générales Périodiques (VGP) — SECURIFORM",
+    title: "Vérifications Générales Périodiques (VGP) - SECURIFORM",
     description: "Faites vérifier vos équipements de levage et de manutention avec SECURIFORM, dans les Hauts-de-France.",
     images: ["/image/vgp-chariots-elevateurs.webp"],
   },
@@ -256,34 +257,15 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-tableau">
+<section className="section" id="checklist" aria-labelledby="titre-tableau">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'organiser</span>
-          <h2 id="titre-tableau">Tous les 6 ou 12 mois, selon l'équipement</h2>
+          <h2 id="titre-tableau">Votre checklist réglementaire VGP</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;: la périodicité exacte dépend du type d'équipement et de son usage. SECURIFORM la confirme avec vous équipement par équipement.</p>
+          <p>Tous les 6 ou 12 mois selon l'équipement&nbsp;: cochez ceux de votre parc et obtenez la liste de vos vérifications obligatoires, leur fréquence et les formations de vos conducteurs.</p>
         </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Périodicité</th>
-                <th scope="col">Équipements concernés</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tous les 6 mois</td>
-                <td>Chariots élévateurs, chargeuses, chariots télescopiques, nacelles élévatrices (PEMP), grues auxiliaires de chargement, hayons élévateurs, bras de levage, accessoires de levage</td>
-              </tr>
-              <tr>
-                <td>Tous les 12 mois</td>
-                <td>Ponts roulants, compacteurs, tombereaux (transport standard&nbsp;; 6 mois si usage de levage), pelleteuses</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <ChecklistVgp />
       </div>
     </section>
 

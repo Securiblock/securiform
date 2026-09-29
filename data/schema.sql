@@ -58,3 +58,22 @@ CREATE TABLE IF NOT EXISTS published_articles (
   content TEXT NOT NULL,
   published BOOLEAN NOT NULL DEFAULT true
 );
+
+-- Rappels de recyclage demandés depuis le calculateur des pages de formation
+-- (components/calculateur-recyclage.tsx → app/actions-rappel.ts). Envoyés par
+-- le cron /api/cron/rappels-recyclage ; voir lib/rappels.ts.
+-- Dates au format AAAA-MM-JJ (TEXT) : les comparaisons lexicographiques suffisent.
+-- L'id (UUID aléatoire) sert aussi de jeton dans le lien d'annulation envoyé par email.
+-- Les lignes sont supprimées à l'annulation, ou le lendemain de l'échéance (purge du cron).
+CREATE TABLE IF NOT EXISTS rappels_recyclage (
+  id TEXT PRIMARY KEY,
+  email TEXT NOT NULL,
+  formation TEXT NOT NULL,
+  libelle TEXT NOT NULL,
+  date_formation TEXT NOT NULL,
+  echeance TEXT NOT NULL,
+  date_rappel TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  sent_at TEXT
+);
+CREATE INDEX IF NOT EXISTS rappels_recyclage_a_envoyer ON rappels_recyclage (date_rappel) WHERE sent_at IS NULL;

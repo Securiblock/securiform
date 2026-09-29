@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "VGP des nacelles élévatrices — SECURIFORM",
+  title: "VGP des nacelles élévatrices - SECURIFORM",
   description: "VGP des nacelles élévatrices (PEMP) avec SECURIFORM : inspection visuelle et essais de fonctionnement. Fréquence de 6 mois.",
   alternates: { canonical: "/vgp-nacelles-elevatrices" },
   openGraph: {
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/vgp-nacelles-elevatrices",
-    title: "VGP des nacelles élévatrices — SECURIFORM",
+    title: "VGP des nacelles élévatrices - SECURIFORM",
     description: "VGP des nacelles élévatrices (PEMP) avec SECURIFORM : inspection visuelle et essais de fonctionnement. Fréquence de 6 mois.",
     images: ["/image/vgp-nacelles-elevatrices.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "VGP des nacelles élévatrices — SECURIFORM",
+    title: "VGP des nacelles élévatrices - SECURIFORM",
     description: "Vérification Générale Périodique de vos nacelles élévatrices, avec SECURIFORM.",
     images: ["/image/vgp-nacelles-elevatrices.webp"],
   },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation évacuation des locaux — SECURIFORM",
+  title: "Formation évacuation des locaux - SECURIFORM",
   description: "Formation SECURIFORM à l'évacuation : rôles de guide-file et serre-file, comportement en situation de danger, exercices tous les 6 mois.",
   alternates: { canonical: "/evacuation" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/evacuation",
-    title: "Formation évacuation — SECURIFORM",
+    title: "Formation évacuation - SECURIFORM",
     description: "Guides-files, serre-files, organisation d'exercices : formation SECURIFORM à l'évacuation des locaux.",
     images: ["/image/formation-evacuation.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation évacuation — SECURIFORM",
+    title: "Formation évacuation - SECURIFORM",
     description: "Formez vos guides-files et serre-files à organiser une évacuation efficace, avec SECURIFORM.",
     images: ["/image/formation-evacuation.webp"],
   },
@@ -315,6 +316,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="evacuation" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -404,7 +409,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

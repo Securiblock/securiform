@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -43,7 +44,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation échafaudages fixes R408 — SECURIFORM",
+  title: "Formation échafaudages fixes R408 - SECURIFORM",
   description: "Formation SECURIFORM aux échafaudages fixes R408 : montage/démontage, règles de stabilité, classes de charge, vérifications réglementaires.",
   alternates: { canonical: "/echafaudages-fixes" },
   openGraph: {
@@ -51,13 +52,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/echafaudages-fixes",
-    title: "Formation échafaudages fixes R408 — SECURIFORM",
+    title: "Formation échafaudages fixes R408 - SECURIFORM",
     description: "Montage, stabilité, vérifications réglementaires, supervision d'équipe : formation SECURIFORM aux échafaudages fixes R408.",
     images: ["/image/formation-echafaudage-fixe.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation échafaudages fixes R408 — SECURIFORM",
+    title: "Formation échafaudages fixes R408 - SECURIFORM",
     description: "Formez vos monteurs et superviseurs aux échafaudages fixes, avec SECURIFORM.",
     images: ["/image/formation-echafaudage-fixe.webp"],
   },
@@ -281,7 +282,7 @@ export default function Page() {
           <span className="surtitre">Pour les chefs d'équipe</span>
           <h2 id="titre-supervision">Superviser une équipe de monteurs</h2>
           <p>Au-delà du geste technique, la formation prépare aussi à la coordination d'une équipe&nbsp;: analyser les risques du chantier avant de commencer, choisir la configuration d'échafaudage adaptée, organiser le planning de montage, et vérifier au quotidien que les règles de sécurité sont bien respectées sur le terrain.</p>
-          <p>Le superviseur documente aussi son intervention&nbsp;: fiches de réception, registre journalier, et gestion immédiate de toute anomalie constatée&nbsp;— avec arrêt des travaux si nécessaire.</p>
+          <p>Le superviseur documente aussi son intervention&nbsp;: fiches de réception, registre journalier, et gestion immédiate de toute anomalie constatée&nbsp;: avec arrêt des travaux si nécessaire.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="Responsabilités du superviseur">
           <h3>Ses responsabilités clés</h3>
@@ -341,6 +342,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="echafaudages-fixes" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -435,7 +440,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

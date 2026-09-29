@@ -719,12 +719,16 @@ h3{font-size:26px}
   padding-bottom:1.6rem;
 }
 .carte-svg{width:100%;height:auto;overflow:visible;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
-.carte-region{fill:#fff;stroke:#C9C9CF;stroke-width:1;stroke-linejoin:round}
-.carte-region.is-couverte{fill:var(--rouge);stroke:#fff;stroke-width:1.5;cursor:pointer;transition:fill .2s ease}
-.carte-region.is-couverte:focus{outline:none}
-.carte-region.is-couverte:focus-visible{stroke:var(--noir);stroke-width:2.5}
-/* Empreinte laissée sous la région soulevée */
-.carte-region.is-socle{fill:#7A1414}
+.carte-dep{fill:#fff;stroke:#D6D6DB;stroke-width:.8;stroke-linejoin:round}
+.carte-dep.is-couvert{fill:var(--rouge);stroke:#fff;stroke-width:1;transition:fill .2s ease}
+/* Contours des régions, en repère par-dessus les départements */
+.carte-contours{pointer-events:none}
+.carte-contours path{fill:none;stroke:#9A9AA0;stroke-width:1.3;stroke-linejoin:round}
+.carte-zone-groupe{cursor:pointer}
+.carte-zone-groupe:focus{outline:none}
+.carte-zone-groupe:focus-visible .carte-dep{stroke:var(--noir);stroke-width:2}
+/* Empreinte laissée sous la zone soulevée */
+.carte-zone-groupe.is-socle .carte-dep{fill:#7A1414}
 /* Copie soulevée : toujours dans le DOM, seules opacité et position varient */
 .carte-eleve{
   pointer-events:none;
@@ -735,13 +739,13 @@ h3{font-size:26px}
   will-change:opacity,transform;
 }
 .carte-eleve.is-active{opacity:1;transform:translateY(-7px)}
-.carte-eleve .carte-region.is-active{fill:var(--rouge-fonce)}
+.carte-eleve .carte-dep.is-couvert{fill:var(--rouge-fonce)}
 .carte-ville circle{fill:#fff;stroke:var(--noir);stroke-width:1.5}
 .carte-ville text{
   font-family:var(--titre);font-weight:700;font-size:15px;fill:#fff;
   paint-order:stroke;stroke:var(--noir);stroke-width:3px;stroke-linejoin:round;
 }
-.carte-info{font-size:17px;color:var(--gris)}
+.carte-info{font-size:16px;color:var(--gris)}
 .carte-legende{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
 .carte-puce{
   font-family:var(--titre);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.03em;
@@ -749,15 +753,393 @@ h3{font-size:26px}
   cursor:pointer;transition:background-color .2s ease,color .2s ease;
 }
 .carte-puce:hover,.carte-puce.is-active{background:var(--rouge);color:#fff}
-/* Hauteur fixe = liste la plus longue (5 villes) : rien ne bouge au survol */
-.carte-detail{min-height:12.5em}
-.faq-item .carte-detail p{padding-bottom:.4rem}
-.carte-detail h4{font-family:var(--titre);font-size:24px;line-height:1.2;text-transform:uppercase;color:var(--rouge);margin-bottom:.3rem}
-.carte-detail li{padding-left:1.1rem;position:relative;color:var(--noir);line-height:1.5}
-.carte-detail li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--rouge)}
+/* Hauteur réservée pour le contenu le plus long (Île-de-France) : rien ne bouge au survol */
+.carte-detail{min-height:15em}
+.faq-item .carte-detail p{font-size:16px;padding-bottom:.6rem;line-height:1.5}
+.carte-detail strong{color:var(--noir)}
+.carte-detail h4{font-family:var(--titre);font-size:24px;line-height:1.2;text-transform:uppercase;color:var(--rouge);margin-bottom:.4rem}
 @media (max-width:760px){
   .carte-zone{grid-template-columns:1fr;gap:1rem}
 }
 @media (prefers-reduced-motion:reduce){
   .carte-eleve{transition:none}
 }
+
+/* ===================== CALCULATEUR DE RECYCLAGE ===================== */
+.recyclage-section{background:var(--rouge-pale)}
+.recyclage-carte{
+  max-width:1000px;margin-inline:auto;background:#fff;border-radius:14px;box-shadow:var(--ombre);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);overflow:hidden;
+}
+.recyclage-champs{padding:2.2rem;display:flex;flex-direction:column;gap:1.4rem;border-right:1px solid #ECECEF}
+.recyclage-formation{font-family:var(--titre);font-weight:700;font-size:22px;line-height:1.2;text-transform:uppercase;color:var(--noir)}
+.recyclage-formation span,.recyclage-validite{
+  display:block;margin-top:.35rem;font-family:var(--texte);font-weight:600;font-size:15px;text-transform:none;color:var(--gris);
+}
+.recyclage-validite{margin-top:.1rem}
+.recyclage-sortie{padding:2.2rem;display:flex;align-items:center;min-height:300px}
+.recyclage-attente{font-size:17px;color:var(--gris)}
+.recyclage-resultat{width:100%;font-size:16px;color:var(--gris)}
+.recyclage-statut{
+  display:inline-block;font-family:var(--titre);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em;
+  padding:.3rem .8rem;border-radius:999px;margin-bottom:.9rem;
+}
+.recyclage-resultat.is-valide .recyclage-statut{background:#E6F4EA;color:#1E6B34}
+.recyclage-resultat.is-bientot .recyclage-statut{background:#FFF1DC;color:#8A4B00}
+.recyclage-resultat.is-expire .recyclage-statut{background:var(--rouge-pale);color:var(--rouge-fonce)}
+.recyclage-echeance{font-size:19px;color:var(--noir);margin-bottom:.5rem}
+.recyclage-echeance strong{font-family:var(--titre);font-size:28px;color:var(--rouge);white-space:nowrap}
+.recyclage-detail{line-height:1.5}
+.recyclage-note{margin-top:.7rem;font-size:14px;font-style:italic;line-height:1.5}
+.recyclage-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.4rem}
+.recyclage-actions .btn{padding:.7rem 1.4rem;font-size:16px}
+@media (max-width:760px){
+  .recyclage-carte{grid-template-columns:1fr}
+  .recyclage-champs{border-right:none;border-bottom:1px solid #ECECEF;padding:1.6rem}
+  .recyclage-sortie{padding:1.6rem;min-height:0}
+  .recyclage-actions .btn{flex:1 1 100%;text-align:center}
+}
+/* Alerte par email (sous le résultat du calculateur) */
+.recyclage-alerte{margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid #ECECEF}
+.recyclage-alerte-titre{font-weight:700;color:var(--noir);margin-bottom:.7rem}
+.recyclage-alerte-ligne{display:flex;gap:.6rem}
+.recyclage-alerte-ligne input{
+  flex:1;min-width:0;font-family:var(--texte);font-size:16px;padding:.7rem .9rem;
+  border:1px solid #D8D8DC;border-radius:8px;color:var(--noir);transition:var(--transition);
+}
+.recyclage-alerte-ligne input:focus{outline:none;border-color:var(--rouge);box-shadow:0 0 0 3px rgba(206,34,34,.12)}
+.recyclage-alerte-ligne .btn{padding:.7rem 1.3rem;font-size:16px;white-space:nowrap}
+.recyclage-alerte-ligne .btn:disabled{opacity:.6;cursor:default;transform:none}
+.recyclage-consentement{display:flex;gap:.6rem;align-items:flex-start;margin-top:.8rem;font-size:13px;line-height:1.5;cursor:pointer}
+.recyclage-consentement input{margin-top:.25rem;flex-shrink:0;accent-color:var(--rouge)}
+.recyclage-consentement a{color:var(--rouge);font-weight:600;text-decoration:underline}
+.recyclage-alerte-erreur{margin-top:.7rem;font-size:14px;font-weight:600;color:var(--rouge-fonce)}
+.recyclage-alerte-ok{
+  margin-top:1.6rem;padding:1rem 1.2rem;border-radius:10px;background:#E6F4EA;color:#1E6B34;font-weight:600;font-size:15px;
+}
+.recyclage-piege{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.recyclage-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:520px){
+  .recyclage-alerte-ligne{flex-direction:column}
+}
+
+/* ===================== QUESTIONNAIRE « QUELLE FORMATION ? » ===================== */
+.quiz{max-width:880px;margin-inline:auto;background:#fff;border:1px solid #ECECEF;border-radius:14px;box-shadow:var(--ombre);overflow:hidden}
+.quiz-entete{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:1rem 2rem;background:var(--gris-clair);border-bottom:1px solid #ECECEF;
+}
+.quiz-progression{font-family:var(--titre);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.05em;color:var(--rouge)}
+.quiz-navigation{display:flex;gap:1.2rem}
+.quiz-lien{background:none;border:none;cursor:pointer;font-family:var(--texte);font-weight:600;font-size:15px;color:var(--gris);text-decoration:underline}
+.quiz-lien:hover{color:var(--rouge)}
+.quiz-corps{padding:2rem;animation:quiz-entree .3s ease}
+@keyframes quiz-entree{from{opacity:0;transform:translateX(12px)}}
+.quiz-corps h3{font-size:24px;text-transform:none;margin-bottom:1.3rem}
+.quiz-corps h3:focus{outline:none}
+.quiz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
+.quiz-option{
+  display:flex;flex-direction:column;gap:.25rem;text-align:left;cursor:pointer;
+  padding:1rem 1.2rem;border:2px solid #E5E5E8;border-radius:10px;background:#fff;
+  font-family:var(--texte);color:var(--noir);transition:border-color .2s ease,background-color .2s ease,transform .2s ease;
+}
+.quiz-option:hover,.quiz-option:focus-visible{border-color:var(--rouge);background:var(--rouge-pale);transform:translateY(-2px)}
+.quiz-option-libelle{font-weight:700;font-size:17px;line-height:1.35}
+.quiz-option-precision{font-size:14px;color:var(--gris);line-height:1.4}
+.quiz-resultat > .quiz-resultat-surtitre{font-family:var(--titre);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--rouge);margin-bottom:.3rem}
+.quiz-resultat h3{font-size:30px;margin-bottom:.6rem}
+.quiz-resultat > p{font-size:17px;color:var(--gris)}
+.quiz-conseils{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+.quiz-conseil{background:var(--rouge-pale);border-radius:10px;padding:1rem 1.2rem;font-size:15px;line-height:1.5}
+.quiz-conseil strong{display:block;color:var(--rouge-fonce);margin-bottom:.25rem}
+.quiz-conseil a,.quiz-rappel-contact a{color:var(--rouge);font-weight:700;text-decoration:underline}
+.quiz-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.quiz-actions .btn{padding:.75rem 1.6rem;font-size:17px}
+.quiz-rappel-contact{margin-top:1.2rem;font-size:15px;color:var(--gris)}
+@media (max-width:640px){
+  .quiz-options{grid-template-columns:1fr}
+  .quiz-corps{padding:1.4rem}
+  .quiz-entete{padding:.9rem 1.4rem}
+  .quiz-resultat h3{font-size:24px}
+  .quiz-actions .btn{flex:1 1 100%;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .quiz-corps{animation:none}
+}
+
+/* 9 onglets dans la barre : on resserre entre le mode burger et les grands écrans */
+@media (min-width:1025px) and (max-width:1280px){
+  .nav ul{gap:1.15rem}
+  .nav a{font-size:16px}
+}
+
+/* ===================== FRISE « VOTRE PARCOURS AVEC SECURIFORM » ===================== */
+/* --progression (0 → 1) est piloté au défilement par components/frise-parcours.tsx ;
+   sans JavaScript, la frise s'affiche entièrement remplie. */
+.frise{--progression:1;position:relative;max-width:1040px;margin:0 auto;padding:0}
+.frise::before,.frise::after{
+  content:"";position:absolute;left:50%;top:28px;bottom:var(--fin,28px);width:4px;margin-left:-2px;border-radius:2px;
+}
+.frise::before{background:#DCDCE1}
+.frise::after{background:var(--rouge);transform-origin:top;transform:scaleY(var(--progression))}
+.frise-etape{
+  position:relative;display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);
+  column-gap:2.2rem;align-items:start;
+}
+.frise-etape + .frise-etape{margin-top:2.2rem}
+.frise-pastille{
+  grid-column:2;grid-row:1;position:relative;z-index:1;
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--titre);font-weight:700;font-size:24px;
+  background:#fff;border:4px solid #DCDCE1;color:var(--gris);
+  transition:background-color .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease;
+}
+.frise:not(.is-anime) .frise-pastille,
+.frise-etape.is-active .frise-pastille{
+  background:var(--rouge);border-color:var(--rouge);color:#fff;box-shadow:0 0 0 7px rgba(206,34,34,.15);
+}
+.frise-carte{
+  grid-row:1;position:relative;background:#fff;border:1px solid #ECECEF;border-radius:12px;
+  padding:1.6rem 1.7rem;box-shadow:0 4px 14px rgba(28,28,30,.05);
+}
+.frise-etape:nth-child(odd) .frise-carte{grid-column:1}
+.frise-etape:nth-child(even) .frise-carte{grid-column:3}
+/* Petite flèche de la carte vers la ligne */
+.frise-carte::before{
+  content:"";position:absolute;top:20px;width:14px;height:14px;background:#fff;
+  border:1px solid #ECECEF;transform:rotate(45deg);
+}
+.frise-etape:nth-child(odd) .frise-carte::before{right:-8px;border-left:none;border-bottom:none}
+.frise-etape:nth-child(even) .frise-carte::before{left:-8px;border-right:none;border-top:none}
+.frise-delai{
+  display:inline-block;margin-bottom:.7rem;padding:.3rem .8rem;border-radius:14px;
+  background:var(--rouge-pale);color:var(--rouge-fonce);line-height:1.4;
+  font-family:var(--titre);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em;
+}
+.frise-carte h3{font-size:22px;text-transform:none;margin-bottom:.5rem}
+.frise-carte p{font-size:16px;color:var(--gris);line-height:1.6}
+.frise-carte p + p{margin-top:.6rem}
+.frise-lien{display:inline-block;margin-top:.9rem;font-family:var(--titre);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--rouge)}
+.frise-lien::after{content:"→";display:inline-block;margin-left:.3em;transition:transform .2s ease}
+.frise-lien:hover::after{transform:translateX(4px)}
+/* Apparition au défilement (activée seulement quand le JavaScript tourne) */
+.frise.is-anime .frise-carte{opacity:0;transition:opacity .6s ease,transform .6s ease}
+.frise.is-anime .frise-etape:nth-child(odd) .frise-carte{transform:translateX(-40px)}
+.frise.is-anime .frise-etape:nth-child(even) .frise-carte{transform:translateX(40px)}
+.frise.is-anime .frise-etape.is-visible .frise-carte{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .frise::before,.frise::after{left:28px}
+  .frise-etape{grid-template-columns:56px minmax(0,1fr);column-gap:1.2rem}
+  .frise-pastille{grid-column:1}
+  .frise-etape:nth-child(odd) .frise-carte,.frise-etape:nth-child(even) .frise-carte{grid-column:2}
+  .frise-etape:nth-child(odd) .frise-carte::before{right:auto;left:-8px;border:1px solid #ECECEF;border-right:none;border-top:none}
+  .frise.is-anime .frise-etape:nth-child(odd) .frise-carte,
+  .frise.is-anime .frise-etape:nth-child(even) .frise-carte{transform:translateY(24px)}
+  .frise.is-anime .frise-etape.is-visible .frise-carte{transform:none}
+  .frise-carte{padding:1.3rem 1.3rem}
+}
+
+/* ===================== COMPARATEUR DE CACES ===================== */
+.comparateur{max-width:1150px;margin-inline:auto}
+.comparateur-table{
+  width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;background:#fff;
+  border:1px solid #ECECEF;border-radius:14px;box-shadow:var(--ombre);font-size:16px;
+}
+/* Coins arrondis portés par les cellules : pas d'overflow:hidden, qui couperait la ligne déplacée */
+.comparateur-table thead th:first-child{border-top-left-radius:13px}
+.comparateur-table thead th:last-child{border-top-right-radius:13px}
+.comparateur-table tbody tr:last-child td:first-child{border-bottom-left-radius:13px}
+.comparateur-table tbody tr:last-child td:last-child{border-bottom-right-radius:13px}
+.comparateur-barre{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.5rem 1.5rem;margin-bottom:.8rem;padding:0 .4rem}
+.comparateur-aide{font-size:14px;color:var(--gris)}
+.comparateur-aide-tactile{display:none}
+@media (hover:none) and (pointer:coarse){
+  .comparateur-aide-souris{display:none}
+  .comparateur-aide-tactile{display:inline}
+}
+.comparateur-etat{display:flex;align-items:center;gap:.8rem;font-size:14px;font-weight:700;color:var(--noir)}
+.comparateur-reinit{
+  background:none;border:none;cursor:pointer;padding:0;font-family:var(--texte);font-size:14px;font-weight:700;
+  color:var(--rouge);text-decoration:underline;
+}
+.comparateur-poignee{
+  position:relative;z-index:2;flex-shrink:0;display:grid;place-items:center;width:28px;height:40px;margin-left:-.4rem;
+  background:none;border:none;border-radius:6px;cursor:grab;color:#A5A5AD;font-size:20px;line-height:1;
+  touch-action:none;transition:color .2s ease,background-color .2s ease;
+}
+.comparateur-poignee:hover,.comparateur-poignee:focus-visible{color:var(--rouge);background:#fff}
+.comparateur-table tbody tr.is-tenue{
+  z-index:5;background:#fff;cursor:grabbing;
+  box-shadow:0 18px 40px rgba(28,28,30,.22),inset 4px 0 0 var(--rouge);
+}
+.comparateur-table.is-glisse tbody tr:not(.is-tenue):hover{background:transparent}
+.comparateur-table.is-glisse tbody tr.is-actuel:not(.is-tenue){background:var(--rouge-pale)}
+body.comparateur-glisse-en-cours,body.comparateur-glisse-en-cours *{cursor:grabbing !important;user-select:none}
+.comparateur-table thead th{
+  background:var(--noir);color:#fff;text-align:left;padding:1rem .9rem;vertical-align:middle;
+  font-family:var(--titre);font-weight:700;font-size:15px;line-height:1.25;text-transform:uppercase;letter-spacing:.04em;
+}
+.comparateur-tri{
+  display:inline-flex;align-items:center;gap:.4rem;background:none;border:none;cursor:pointer;padding:0;text-align:left;
+  color:inherit;font:inherit;text-transform:inherit;letter-spacing:inherit;
+}
+.comparateur-tri span{display:inline-block;width:1em;text-align:center;font-size:12px;opacity:.7;flex-shrink:0}
+.comparateur-col-caces{width:30%}
+.comparateur-col-initiale{width:170px}
+.comparateur-col-recyclage{width:120px}
+.comparateur-col-validite{width:115px}
+.comparateur-col-action{width:95px}
+.comparateur-tri:hover,.comparateur-tri.is-actif{color:#FF8A8A}
+.comparateur-tri.is-actif span{opacity:1}
+.comparateur-table tbody tr{position:relative;transition:background-color .2s ease}
+.comparateur-table tbody tr:hover{background:var(--rouge-pale)}
+.comparateur-table tbody td{padding:1rem .9rem;border-top:1px solid #ECECEF;vertical-align:middle;color:var(--gris)}
+.comparateur-caces{display:flex;align-items:center;gap:1rem}
+.comparateur-caces img{width:112px;height:76px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.comparateur-caces strong{display:block;font-family:var(--titre);font-size:24px;line-height:1.1;color:var(--rouge)}
+.comparateur-titre{display:block;font-weight:700;color:var(--noir);line-height:1.3}
+.comparateur-engins{font-size:15px;line-height:1.5;max-width:320px}
+.comparateur-valeur{display:block;font-weight:700;color:var(--noir);white-space:nowrap}
+.comparateur-precision{display:block;font-size:13px;line-height:1.35;margin-top:.15rem}
+.comparateur-validite{
+  display:inline-block;padding:.3rem .75rem;border-radius:999px;white-space:nowrap;
+  background:var(--gris-clair);color:var(--noir);font-weight:700;
+}
+.comparateur-validite.is-longue{background:#E6F4EA;color:#1E6B34}
+.comparateur-lien{
+  font-family:var(--titre);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.04em;
+  color:var(--rouge);white-space:nowrap;
+}
+a.comparateur-lien::before{content:"";position:absolute;inset:0} /* toute la ligne est cliquable */
+a.comparateur-lien::after{content:"→";display:inline-block;margin-left:.3em;transition:transform .2s ease}
+.comparateur-table tbody tr:hover a.comparateur-lien::after{transform:translateX(4px)}
+.comparateur-lien.is-actuel{color:var(--gris);font-size:14px}
+.comparateur-table tbody tr.is-actuel{background:var(--rouge-pale);box-shadow:inset 4px 0 0 var(--rouge)}
+.comparateur-ici{
+  display:inline-block;margin-top:.3rem;padding:.15rem .55rem;border-radius:999px;background:var(--rouge);color:#fff;
+  font-size:12px;font-weight:700;
+}
+.comparateur-note{margin-top:1rem;font-size:14px;color:var(--gris);text-align:center}
+.comparateur-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Tablette et mobile : chaque ligne devient une carte, l'en-tête ne garde que les boutons de tri */
+@media (max-width:1100px){
+  .comparateur-table,.comparateur-table tbody,.comparateur-table tr,.comparateur-table td{display:block}
+  .comparateur-table{border:none;box-shadow:none;background:transparent;overflow:visible}
+  .comparateur-table thead{display:block}
+  .comparateur-table thead tr{display:flex;flex-direction:row;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+  .comparateur-table thead th{display:none;border-radius:999px;padding:.45rem .9rem;font-size:14px;white-space:nowrap}
+  .comparateur-table thead th[aria-sort]{display:block}
+  .comparateur-table tbody tr{
+    display:grid;grid-template-columns:1fr 1fr;background:#fff;border:1px solid #ECECEF;border-radius:12px;
+    margin-bottom:1rem;box-shadow:0 4px 14px rgba(28,28,30,.05);overflow:hidden;
+  }
+  .comparateur-table tbody td{border-top:none;padding:.6rem 1rem}
+  .comparateur-table tbody td[data-label]::before{
+    content:attr(data-label);display:block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--gris);margin-bottom:.15rem;
+  }
+  .comparateur-table td.comparateur-caces{
+    display:flex;align-items:center;gap:.8rem;grid-column:1 / -1;min-width:0;padding:1rem !important;border-bottom:1px solid #ECECEF;
+  }
+  .comparateur-caces img{width:88px;height:62px}
+  .comparateur-engins{grid-column:1 / -1;max-width:none}
+  .comparateur-action{grid-column:1 / -1;border-top:1px solid #ECECEF !important;text-align:right}
+  .comparateur-precision{white-space:normal}
+}
+
+/* ===================== CHECKLIST RÉGLEMENTAIRE VGP ===================== */
+.vgp-checklist{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:2rem;align-items:start}
+.vgp-groupe{border:none;padding:0;margin:0 0 1.8rem;min-width:0}
+.vgp-groupe legend{
+  font-family:var(--titre);font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--rouge);margin-bottom:.8rem;padding:0;
+}
+.vgp-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.9rem}
+.vgp-equipement{
+  position:relative;background:#fff;border:2px solid #E5E5E8;border-radius:12px;overflow:hidden;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.vgp-equipement:hover{border-color:#D0D0D6;transform:translateY(-2px);box-shadow:0 6px 18px rgba(28,28,30,.08)}
+.vgp-equipement.is-coche{border-color:var(--rouge);box-shadow:0 6px 18px rgba(206,34,34,.15)}
+.vgp-case{
+  display:flex;flex-direction:column;width:100%;padding:0 0 .9rem;background:none;border:none;cursor:pointer;
+  text-align:left;font-family:var(--texte);color:var(--noir);
+}
+.vgp-case img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;margin-bottom:.7rem}
+.vgp-nom{font-weight:700;font-size:16px;line-height:1.3;padding:0 .9rem}
+.vgp-frequence{font-size:14px;color:var(--gris);padding:.2rem .9rem 0}
+.vgp-coche{
+  position:absolute;top:.6rem;right:.6rem;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.92);border:2px solid #D0D0D6;color:transparent;font-weight:700;font-size:16px;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease;
+}
+.vgp-equipement.is-coche .vgp-coche{background:var(--rouge);border-color:var(--rouge);color:#fff}
+.vgp-autre .vgp-case{justify-content:flex-start}
+.vgp-autre-icone{
+  display:grid;place-items:center;aspect-ratio:16/10;margin-bottom:.7rem;background:var(--gris-clair);
+  font-size:44px;font-weight:300;color:#B5B5BC;
+}
+.vgp-reglages{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:0 .9rem .9rem}
+.vgp-quantite{display:inline-flex;align-items:center;border:1px solid #D8D8DC;border-radius:8px;overflow:hidden}
+.vgp-quantite button{width:34px;height:34px;border:none;background:var(--gris-clair);cursor:pointer;font-size:18px;font-weight:700;color:var(--noir)}
+.vgp-quantite button:hover{background:var(--rouge-pale);color:var(--rouge)}
+.vgp-quantite span{min-width:34px;text-align:center;font-weight:700}
+.vgp-reglages select{
+  flex:1;min-width:0;height:36px;padding:0 .5rem;border:1px solid #D8D8DC;border-radius:8px;
+  font-family:var(--texte);font-size:14px;background:#fff;color:var(--noir);
+}
+.vgp-resultat{
+  position:sticky;top:110px;background:#fff;border:1px solid #ECECEF;border-radius:14px;box-shadow:var(--ombre);
+  padding:1.6rem;font-size:15px;color:var(--gris);
+}
+.vgp-resultat h3{font-size:22px;color:var(--noir);margin-bottom:.8rem}
+.vgp-vide{line-height:1.6}
+.vgp-total{background:var(--rouge-pale);color:var(--rouge-fonce);border-radius:10px;padding:.7rem 1rem;margin-bottom:1rem;font-weight:600}
+.vgp-total strong{font-family:var(--titre);font-size:26px;margin-right:.2rem}
+.vgp-bloc{padding:.9rem 0;border-top:1px solid #ECECEF}
+.vgp-bloc h4{font-family:var(--titre);font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:.04em;color:var(--noir);margin-bottom:.4rem}
+.vgp-bloc li{position:relative;padding-left:1.1rem;line-height:1.5;margin-top:.25rem;color:var(--noir)}
+.vgp-bloc li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--rouge)}
+.vgp-bloc a{color:var(--noir);font-weight:700;text-decoration:underline;text-decoration-color:rgba(206,34,34,.4);text-underline-offset:3px}
+.vgp-bloc a:hover{color:var(--rouge)}
+.vgp-bloc em{color:var(--gris);font-style:normal}
+.vgp-formations p{margin-bottom:.2rem}
+.vgp-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.vgp-actions .btn{flex:1 1 auto;text-align:center;padding:.7rem 1rem;font-size:15px}
+.vgp-mention{margin-top:1rem;font-size:12px;line-height:1.5}
+@media (max-width:1024px){
+  .vgp-checklist{grid-template-columns:1fr}
+  .vgp-resultat{position:static;scroll-margin-top:100px}
+}
+@media (max-width:520px){
+  .vgp-grille{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
+  .vgp-nom{font-size:15px;padding:0 .7rem}
+  .vgp-frequence{font-size:13px;padding:.2rem .7rem 0}
+  .vgp-reglages{padding:0 .7rem .7rem}
+}
+/* Impression : seule la checklist sort sur la page */
+@media print{
+  body.impression-checklist-vgp *{visibility:hidden}
+  body.impression-checklist-vgp .vgp-resultat,body.impression-checklist-vgp .vgp-resultat *{visibility:visible}
+  body.impression-checklist-vgp .vgp-resultat{position:absolute;inset:0 auto auto 0;width:100%;box-shadow:none;border:none}
+  body.impression-checklist-vgp .vgp-actions{display:none}
+}
+/* Boutons du bloc « VGP » en bas des pages de formation */
+.vgp-boutons{display:flex;flex-wrap:wrap;gap:.8rem}
+.vgp-boutons .btn-contour{border-color:#fff;color:#fff}
+.vgp-boutons .btn-contour:hover{background:#fff;color:var(--rouge)}
+/* Barre de rappel de la checklist VGP (mobile et tablette uniquement) */
+.vgp-barre-mobile{display:none}
+@media (max-width:1024px){
+  .vgp-barre-mobile{
+    position:fixed;left:16px;right:88px;bottom:16px;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:.8rem;
+    padding:.8rem 1rem;border:none;border-radius:12px;background:var(--noir);color:#fff;cursor:pointer;
+    font-family:var(--texte);font-size:14px;text-align:left;box-shadow:0 10px 30px rgba(28,28,30,.3);
+    animation:vgp-barre-entree .25s ease;
+  }
+  .vgp-barre-mobile strong{font-family:var(--titre);font-size:15px;text-transform:uppercase;letter-spacing:.03em;color:#FF8A8A;white-space:nowrap}
+}
+@keyframes vgp-barre-entree{from{opacity:0;transform:translateY(12px)}}
+@media print{.vgp-barre-mobile{display:none !important}}

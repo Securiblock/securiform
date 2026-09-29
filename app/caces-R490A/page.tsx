@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R490A — Grues auxiliaires de chargement",
-      "description": "Formation à la conduite en sécurité des grues auxiliaires de chargement montées sur véhicules porteurs, avec options télécommande et treuil. Certificat valable 10 ans.",
+      "name": "Formation CACES R490A : Grues auxiliaires de chargement",
+      "description": "Formation à la conduite en sécurité des grues auxiliaires de chargement montées sur véhicules porteurs, avec options télécommande et treuil. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -43,21 +45,21 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R490A — SECURIFORM",
-  description: "Formation CACES R490A avec SECURIFORM : grues auxiliaires de chargement, options télécommande et treuil. Certificat valable 10 ans.",
+  title: "Formation CACES® R490A - SECURIFORM",
+  description: "Formation CACES R490A avec SECURIFORM : grues auxiliaires de chargement, options télécommande et treuil. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-R490A" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R490A",
-    title: "Formation CACES® R490A — Grues auxiliaires de chargement — SECURIFORM",
-    description: "Conduite en sécurité des grues auxiliaires de chargement, options télécommande et treuil. Formation SECURIFORM, certificat valable 10 ans.",
+    title: "Formation CACES® R490A - Grues auxiliaires de chargement - SECURIFORM",
+    description: "Conduite en sécurité des grues auxiliaires de chargement, options télécommande et treuil. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R490A.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R490A — SECURIFORM",
+    title: "Formation CACES® R490A - SECURIFORM",
     description: "Conduite en sécurité des grues auxiliaires de chargement, avec SECURIFORM.",
     images: ["/image/caces-R490A.webp"],
   },
@@ -86,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R490A</span>
         </p>
-        <h1>Formation CACES® R490A — Grues auxiliaires de chargement</h1>
+        <h1>Formation CACES® R490A : Grues auxiliaires de chargement</h1>
         <p>Formez-vous à la conduite en sécurité des grues de chargement montées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -273,7 +275,22 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R490A est valable 10 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R490A est valable 5 ans à compter de son obtention.</p>
+      </div>
+    </section>
+
+
+<section className="section" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R490A avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R490A" />
+        </div>
       </div>
     </section>
 
@@ -307,7 +324,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité du CACES R490A&nbsp;?</summary>
-            <p>Le certificat est valable 10 ans. Un recyclage est recommandé avant son expiration pour actualiser vos connaissances et prolonger la validité.</p>
+            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser vos connaissances et prolonger la validité.</p>
           </details>
 
           <details className="faq-item">
@@ -323,6 +340,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R490A" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -418,7 +439,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos grues auxiliaires, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-grues-auxiliaires">VGP des grues auxiliaires</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp-grues-auxiliaires">VGP des grues auxiliaires</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

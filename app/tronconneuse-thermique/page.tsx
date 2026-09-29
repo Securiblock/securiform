@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Utilisation sécurisée d'une tronçonneuse — SECURIFORM",
+  title: "Utilisation sécurisée d'une tronçonneuse - SECURIFORM",
   description: "Formation SECURIFORM à l'utilisation sécurisée d'une tronçonneuses thermiques : risque de rebond, équipements de protection, vérifications.",
   alternates: { canonical: "/tronconneuse-thermique" },
   openGraph: {
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/tronconneuse-thermique",
-    title: "Utilisation en sécurité d'une tronçonneuses thermiques à chaîne — SECURIFORM",
+    title: "Utilisation en sécurité d'une tronçonneuses thermiques à chaîne - SECURIFORM",
     description: "Formation SECURIFORM au risque de rebond, aux équipements de protection et à la technique de coupe en sécurité.",
     images: ["/image/formation-tronconneuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utilisation en sécurité d'une tronçonneuses thermiques — SECURIFORM",
+    title: "Utilisation en sécurité d'une tronçonneuses thermiques - SECURIFORM",
     description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuses thermiques, avec SECURIFORM.",
     images: ["/image/formation-tronconneuse.webp"],
   },
@@ -348,7 +348,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

@@ -43,7 +43,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Conduite de balayeuses routières — SECURIFORM",
+  title: "Conduite de balayeuses routières - SECURIFORM",
   description: "Formation SECURIFORM à la conduite des balayeuses routières : angles morts, signalisation et vérifications avant utilisation, sur toute la moitié nord de la France.",
   alternates: { canonical: "/balayeuses-routieres" },
   openGraph: {
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/balayeuses-routieres",
-    title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
+    title: "Conduite en sécurité de balayeuses routières - SECURIFORM",
     description: "Formation SECURIFORM aux bons réflexes de conduite des balayeuses routières, pour les équipes de nettoyage urbain.",
     images: ["/image/formation-balayeuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conduite en sécurité de balayeuses routières — SECURIFORM",
+    title: "Conduite en sécurité de balayeuses routières - SECURIFORM",
     description: "Formez vos équipes à la conduite en sécurité des balayeuses routières, au milieu de la circulation.",
     images: ["/image/formation-balayeuse.webp"],
   },
@@ -328,7 +328,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

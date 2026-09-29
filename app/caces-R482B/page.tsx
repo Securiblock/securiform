@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R482B — Engins de chantier",
+      "name": "Formation CACES R482B : Engins de chantier",
       "description": "Formation à la conduite en sécurité des engins de chantier, couvrant les catégories A, B1, B2, B3, C1, C2, C3, D, E, F et G de la recommandation CACES R482B. Certificat valable 10 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +45,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R482B — SECURIFORM",
+  title: "Formation CACES® R482B - SECURIFORM",
   description: "Formation CACES R482B avec SECURIFORM : catégories A à G, pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
   alternates: { canonical: "/caces-R482B" },
   openGraph: {
@@ -51,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R482B",
-    title: "Formation CACES® R482B — Engins de chantier — SECURIFORM",
+    title: "Formation CACES® R482B - Engins de chantier - SECURIFORM",
     description: "Toutes les catégories du CACES R482B (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
     images: ["/image/caces-R482B.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R482B — SECURIFORM",
+    title: "Formation CACES® R482B - SECURIFORM",
     description: "Toutes les catégories d'engins de chantier du CACES R482B, avec SECURIFORM.",
     images: ["/image/caces-R482B.webp"],
   },
@@ -242,15 +244,15 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Débutant — catégories simples (A, G)</td>
+                <td>Débutant : catégories simples (A, G)</td>
                 <td>2 à 3 jours</td>
               </tr>
               <tr>
-                <td>Débutant — catégories complexes (B1, C1-C3, D, E)</td>
+                <td>Débutant : catégories complexes (B1, C1-C3, D, E)</td>
                 <td>3 à 5 jours</td>
               </tr>
               <tr>
-                <td>Débutant — catégories très spécialisées (B2, B3)</td>
+                <td>Débutant : catégories très spécialisées (B2, B3)</td>
                 <td>4 à 5 jours</td>
               </tr>
               <tr>
@@ -263,6 +265,21 @@ export default function Page() {
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </section>
+
+
+<section className="section" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R482B avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R482B" />
         </div>
       </div>
     </section>
@@ -393,6 +410,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R482B" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -429,17 +450,17 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie(s) concernée(s)</label>
               <select id="categorie" name="categorie">
-                <option value="A">A — Engins compacts</option>
-                <option value="B1">B1 — Extraction</option>
-                <option value="B2">B2 — Sondage/forage</option>
-                <option value="B3">B3 — Rail-route</option>
-                <option value="C1">C1 — Chargement</option>
-                <option value="C2">C2 — Réglage</option>
-                <option value="C3">C3 — Nivellement</option>
-                <option value="D">D — Compactage</option>
-                <option value="E">E — Transport</option>
-                <option value="F">F — Manutention tout-terrain</option>
-                <option value="G">G — Conduite hors production</option>
+                <option value="A">A : Engins compacts</option>
+                <option value="B1">B1 : Extraction</option>
+                <option value="B2">B2 : Sondage/forage</option>
+                <option value="B3">B3 : Rail-route</option>
+                <option value="C1">C1 : Chargement</option>
+                <option value="C2">C2 : Réglage</option>
+                <option value="C3">C3 : Nivellement</option>
+                <option value="D">D : Compactage</option>
+                <option value="E">E : Transport</option>
+                <option value="F">F : Manutention tout-terrain</option>
+                <option value="G">G : Conduite hors production</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>
@@ -495,7 +516,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

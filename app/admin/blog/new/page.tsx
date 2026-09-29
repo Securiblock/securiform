@@ -115,7 +115,7 @@ export default function NewTopicPage() {
           </select>
           {categories.length === 0 && (
             <p className="mt-1 text-xs text-slate-400">
-              Aucune catégorie créée pour l&apos;instant — gérez-les depuis le dashboard.
+              Aucune catégorie créée pour l&apos;instant : gérez-les depuis le dashboard.
             </p>
           )}
         </div>

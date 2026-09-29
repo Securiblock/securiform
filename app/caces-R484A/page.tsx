@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R484A — Ponts roulants et portiques",
+      "name": "Formation CACES R484A : Ponts roulants et portiques",
       "description": "Formation à la conduite en sécurité des ponts roulants et portiques, catégorie 1 (commande au sol) et catégorie 2 (commande en cabine), avec techniques d'élingage. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +45,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R484A — SECURIFORM",
+  title: "Formation CACES® R484A - SECURIFORM",
   description: "Formation CACES R484A avec SECURIFORM : commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-R484A" },
   openGraph: {
@@ -51,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R484A",
-    title: "Formation CACES® R484A — Ponts roulants et portiques — SECURIFORM",
+    title: "Formation CACES® R484A - Ponts roulants et portiques - SECURIFORM",
     description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484A avec SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R484A.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R484A — SECURIFORM",
+    title: "Formation CACES® R484A - SECURIFORM",
     description: "Conduite en sécurité des ponts roulants et portiques, avec SECURIFORM.",
     images: ["/image/caces-R484A.webp"],
   },
@@ -86,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R484A</span>
         </p>
-        <h1>Formation CACES® R484A — Ponts roulants et portiques</h1>
+        <h1>Formation CACES® R484A : Ponts roulants et portiques</h1>
         <p>Formez-vous à la conduite en sécurité des ponts roulants et portiques, commande au sol ou en cabine, et aux techniques d'élingage indispensables au levage.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -325,11 +327,11 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Formation initiale débutant — catégorie 1</td>
+                <td>Formation initiale débutant : catégorie 1</td>
                 <td>2 à 3 jours</td>
               </tr>
               <tr>
-                <td>Formation initiale débutant — catégorie 2</td>
+                <td>Formation initiale débutant : catégorie 2</td>
                 <td>3 à 4 jours</td>
               </tr>
               <tr>
@@ -344,6 +346,21 @@ export default function Page() {
           </table>
         </div>
         <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R484A est valable 5 ans à compter de son obtention.</p>
+      </div>
+    </section>
+
+
+<section className="section section-alt" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R484A avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R484A" />
+        </div>
       </div>
     </section>
 
@@ -393,6 +410,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R484A" />
+
+    
+
 <section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -429,8 +450,8 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie concernée</label>
               <select id="categorie" name="categorie">
-                <option value="1">Catégorie 1 — commande au sol</option>
-                <option value="2">Catégorie 2 — commande en cabine</option>
+                <option value="1">Catégorie 1 : commande au sol</option>
+                <option value="2">Catégorie 2 : commande en cabine</option>
                 <option value="2option">Catégorie 2 + option sol</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
@@ -487,7 +508,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos ponts roulants, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-ponts-roulants">VGP des ponts roulants</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp-ponts-roulants">VGP des ponts roulants</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

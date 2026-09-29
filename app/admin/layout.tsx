@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./admin.css";
 
 export const metadata: Metadata = {
-  title: "Admin Blog — SECURIFORM",
+  title: "Admin Blog - SECURIFORM",
   robots: { index: false, follow: false },
 };
 

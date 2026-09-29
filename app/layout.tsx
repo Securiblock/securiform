@@ -22,7 +22,7 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   metadataBase: new URL("https://securiform.fr"),
   title: {
-    default: "SECURIFORM — Formations sécurité au travail en France",
+    default: "SECURIFORM : Formations sécurité au travail en France",
     template: "%s",
   },
   description:

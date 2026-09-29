@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CarteInterventions from "@/components/carte-interventions";
+import FriseParcours from "@/components/frise-parcours";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "AboutPage",
-      "name": "L'entreprise — SECURIFORM",
+      "name": "L'entreprise - SECURIFORM",
       "url": "https://securiform.fr/lentreprise/",
       "about": {
         "@type": "EducationalOrganization",
@@ -36,7 +37,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "L'entreprise SECURIFORM — Organisme certifié Qualiopi",
+  title: "L'entreprise SECURIFORM - Organisme certifié Qualiopi",
   description: "SECURIFORM est un organisme de formation à la sécurité au travail, certifié Qualiopi depuis 2021, présent sur toute la moitié nord de la France.",
   alternates: { canonical: "/lentreprise" },
   openGraph: {
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/lentreprise",
-    title: "L'entreprise — SECURIFORM, organisme de formation certifié Qualiopi",
+    title: "L'entreprise - SECURIFORM, organisme de formation certifié Qualiopi",
     description: "Mission, valeurs, méthode et certification Qualiopi de SECURIFORM, organisme de formation à la sécurité au travail présent sur toute la moitié nord de la France.",
     images: ["/image/logo-securiform.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "L'entreprise — SECURIFORM",
+    title: "L'entreprise - SECURIFORM",
     description: "Découvrez la mission, les valeurs et la certification Qualiopi de SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
@@ -197,30 +198,12 @@ export default function Page() {
 <section className="section section-alt" aria-labelledby="titre-methode">
       <div className="container">
         <div className="section-head reveal">
-          <span className="surtitre">Comment nous travaillons</span>
-          <h2 id="titre-methode">Notre méthode, projet après projet</h2>
+          <span className="surtitre">Notre méthode</span>
+          <h2 id="titre-methode">Votre parcours avec SECURIFORM</h2>
           <hr className="trait" />
           <p>Quelle que soit votre demande, notre démarche reste la même.</p>
         </div>
-        <div className="etapes">
-          <div className="etape reveal">
-            <h3>Diagnostic</h3>
-            <p>Au cours d'un entretien téléphonique, nous nous assurons de la cohérence de votre demande avec les risques propres à votre entreprise et la réglementation en vigueur.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Proposition chiffrée</h3>
-            <p>Nous vous adressons dans l'heure un devis sur mesure, avec, le cas échéant, un planning d'intervention.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Formation</h3>
-            <p>Nos formateurs interviennent avec une pédagogie pratique, au plus près de votre matériel et de vos conditions réelles de travail.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Suivi</h3>
-            <p>À l'issue de notre intervention, nous nous assurons de votre satisfaction et restons à votre service durant toute la durée de validité de la formation.</p>
-            <p>Quelques semaines avant l'échéance, nous vous alertons sur la nécessité du renouvellement de la formation.</p>
-          </div>
-        </div>
+        <FriseParcours />
       </div>
     </section>
 
@@ -350,7 +333,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la zone géographique d'intervention de SECURIFORM&nbsp;?</summary>
-            <p>Nos formateurs se déplacent sur toute la moitié nord de la France, directement sur vos sites&nbsp;: Hauts-de-France, Grand Est, Normandie et Île-de-France.</p>
+            <p>Nos formateurs se déplacent sur toute la moitié nord de la France, directement sur vos sites&nbsp;: dans tous les Hauts-de-France (59, 62, 02, 60, 80), dans toute l'Île-de-France, dans la Marne, les Ardennes et l'Aube (51, 08, 10) ainsi que dans l'Eure et la Seine-Maritime (27, 76).</p>
             <CarteInterventions />
           </details>
 
@@ -415,7 +398,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise les Vérifications Générales Périodiques de vos équipements de travail et de levage, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp">Découvrir les VGP</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

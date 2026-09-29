@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ComparateurCaces from "@/components/comparateur-caces";
 import { submitForm } from "@/app/actions";
+import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R485A — Gerbeurs à conducteur accompagnant",
+      "name": "Formation CACES R485A : Gerbeurs à conducteur accompagnant",
       "description": "Formation à la conduite en sécurité des gerbeurs à conducteur accompagnant, catégories 1 (poste de conduite fixe) et 2 (poste de conduite élevable). Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
@@ -43,7 +45,7 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Formation CACES® R485A — SECURIFORM",
+  title: "Formation CACES® R485A - SECURIFORM",
   description: "Formation CACES R485A avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces-R485A" },
   openGraph: {
@@ -51,13 +53,13 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R485A",
-    title: "Formation CACES® R485A — Gerbeurs à conducteur accompagnant — SECURIFORM",
+    title: "Formation CACES® R485A - Gerbeurs à conducteur accompagnant - SECURIFORM",
     description: "Gerbeurs à conducteur accompagnant, catégories 1 et 2. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R485A.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R485A — SECURIFORM",
+    title: "Formation CACES® R485A - SECURIFORM",
     description: "Conduite en sécurité des gerbeurs à conducteur accompagnant, avec SECURIFORM.",
     images: ["/image/caces-R485A.webp"],
   },
@@ -86,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R485A</span>
         </p>
-        <h1>Formation CACES® R485A — Gerbeurs à conducteur accompagnant</h1>
+        <h1>Formation CACES® R485A : Gerbeurs à conducteur accompagnant</h1>
         <p>Formez-vous à la conduite en sécurité des gerbeurs à conducteur accompagnant, utilisés en entrepôt et en environnements de stockage à rayonnages étroits.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -277,6 +279,21 @@ export default function Page() {
     </section>
 
 
+<section className="section" aria-labelledby="titre-comparateur">
+      <div className="container">
+        <div className="section-head reveal">
+          <span className="surtitre">Comparer</span>
+          <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
+          <hr className="trait" />
+          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R485A avec les autres recommandations préparées par SECURIFORM.</p>
+        </div>
+        <div className="reveal">
+          <ComparateurCaces actuel="R485A" />
+        </div>
+      </div>
+    </section>
+
+
     
 
     
@@ -322,6 +339,10 @@ export default function Page() {
     
 
     
+<CalculateurRecyclage formation="caces-R485A" />
+
+    
+
 <section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
@@ -358,8 +379,8 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie concernée</label>
               <select id="categorie" name="categorie">
-                <option value="1">Catégorie 1 — poste fixe</option>
-                <option value="2">Catégorie 2 — poste élevable</option>
+                <option value="1">Catégorie 1 : poste fixe</option>
+                <option value="2">Catégorie 2 : poste élevable</option>
                 <option value="deux">Les deux catégories</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
@@ -416,7 +437,10 @@ export default function Page() {
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>VGP</span>
             <h2 id="titre-vgp">Vérifications Générales Périodiques</h2>
             <p>Au-delà de la formation, SECURIFORM réalise également la VGP de vos gerbeurs, au titre de la catégorie chariots élévateurs, conformément à la réglementation en vigueur.</p>
-            <Link className="btn btn-blanc" href="/vgp-chariots-elevateurs">VGP des chariots élévateurs</Link>
+            <div className="vgp-boutons">
+              <Link className="btn btn-blanc" href="/vgp-chariots-elevateurs">VGP des chariots élévateurs</Link>
+              <Link className="btn btn-contour" href="/vgp#checklist">Ma checklist VGP</Link>
+            </div>
           </div>
           <nav className="vgp-liste" aria-label="Nos prestations VGP">
             <Link href="/vgp-chariots-elevateurs">Chariots élévateurs</Link>

@@ -12,6 +12,7 @@ export const hubs: { path: string; priority: number }[] = [
   { path: "/blog", priority: 0.8 },
   { path: "/formations-specifiques", priority: 0.8 },
   { path: "/gestes-postures", priority: 0.8 },
+  { path: "/outils", priority: 0.8 },
 ];
 
 export const pages: string[] = [
@@ -55,6 +56,8 @@ export const pages: string[] = [
   "/lentreprise",
   "/nous-contacter",
   "/nous-recrutons",
+  "/outils/calculateur-recyclage",
+  "/outils/quelle-formation",
 ];
 
 export const legal: string[] = [

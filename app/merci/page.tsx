@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Message envoyé — SECURIFORM",
+  title: "Message envoyé - SECURIFORM",
   description: "Confirmation d'envoi de votre message à SECURIFORM.",
   robots: { index: false, follow: true },
 };

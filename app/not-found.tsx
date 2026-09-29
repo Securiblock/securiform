@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Page introuvable — SECURIFORM",
+  title: "Page introuvable - SECURIFORM",
   description: "Cette page n'existe pas ou plus.",
 };
 
@@ -25,7 +25,7 @@ export default function NotFound() {
             <span aria-hidden="true">›</span>
             <span>Page introuvable</span>
           </p>
-          <h1>404 — Page introuvable</h1>
+          <h1>404 : Page introuvable</h1>
           <p>
             Le lien est peut-être obsolète ou l&apos;adresse mal orthographiée.
             Retrouvez nos formations ci-dessous ou contactez-nous directement.

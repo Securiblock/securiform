@@ -16,7 +16,7 @@ function formatArticleDate(date: string): string {
 // a promo block, not the canonical article list, so picking up new posts
 // only on the next deploy is an acceptable trade for keeping this page fast.
 export const metadata: Metadata = {
-  title: "SECURIFORM — Formations sécurité au travail en France",
+  title: "SECURIFORM - Formations sécurité au travail en France",
   description:
     "SECURIFORM, organisme de formation certifié Qualiopi : habilitation électrique, CACES®, SST, incendie, travaux en hauteur, AIPR, VGP, sur toute la moitié nord de la France.",
   alternates: { canonical: "/" },
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/",
-    title: "SECURIFORM — Formations sécurité au travail sur toute la moitié nord de la France",
+    title: "SECURIFORM - Formations sécurité au travail sur toute la moitié nord de la France",
     description:
       "Habilitation électrique, conduite en sécurité et CACES®, secourisme SST, incendie et évacuation, travaux en hauteur, VGP. Organisme certifié Qualiopi, 99,5 % de réussite.",
     images: ["/image/slide-1-habilitation-electrique.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SECURIFORM — Formations sécurité au travail sur toute la moitié nord de la France",
+    title: "SECURIFORM - Formations sécurité au travail sur toute la moitié nord de la France",
     description:
       "Habilitation électrique, CACES®, SST, incendie, travaux en hauteur, VGP. Organisme certifié Qualiopi.",
     images: ["/image/slide-1-habilitation-electrique.webp"],
@@ -66,7 +66,7 @@ const jsonLd = {
       "@type": "WebPage",
       "@id": "https://securiform.fr/#webpage",
       url: "https://securiform.fr/",
-      name: "Organisme de formation à la sécurité — SECURIFORM",
+      name: "Organisme de formation à la sécurité : SECURIFORM",
       isPartOf: { "@id": "https://securiform.fr/#website" },
       about: { "@id": "https://securiform.fr/#organization" },
       inLanguage: "fr-FR",
@@ -460,9 +460,14 @@ export default async function Home() {
                 travail et de levage, conformément à la réglementation en
                 vigueur.
               </p>
-              <Link className="btn btn-blanc" href="/vgp">
-                Découvrir les VGP
-              </Link>
+              <div className="vgp-boutons">
+                <Link className="btn btn-blanc" href="/vgp">
+                  Découvrir les VGP
+                </Link>
+                <Link className="btn btn-contour" href="/vgp#checklist">
+                  Ma checklist VGP
+                </Link>
+              </div>
             </div>
             <nav className="vgp-liste" aria-label="Nos prestations VGP">
               {vgpLinks.map((v) => (
