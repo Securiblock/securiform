@@ -4,8 +4,8 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 
-const TO_EMAIL = "henri@securiblock.fr";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+const TO_EMAIL = process.env.CONTACT_EMAIL_TO || "henri@securiblock.fr";
+const FROM_EMAIL = process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev";
 
 // Hidden honeypot field: real visitors never fill it in (it's visually
 // hidden), so a non-empty value means the submission came from a bot.
