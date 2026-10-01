@@ -15,12 +15,12 @@ export type OptionRecyclage = {
 };
 
 const CACES = {
-  R482B: { libelle: "CACES® R482B : Engins de chantier", mois: 120, page: "caces-R482B", groupe: "CACES®" },
-  R484A: { libelle: "CACES® R484A : Ponts roulants et portiques", mois: 60, page: "caces-R484A", groupe: "CACES®" },
-  R485A: { libelle: "CACES® R485A : Gerbeurs à conducteur accompagnant", mois: 60, page: "caces-R485A", groupe: "CACES®" },
-  R486B: { libelle: "CACES® R486B : Nacelles élévatrices", mois: 60, page: "caces-R486B", groupe: "CACES®" },
-  R489A: { libelle: "CACES® R489A : Chariots de manutention", mois: 60, page: "caces-R489A", groupe: "CACES®" },
-  R490A: { libelle: "CACES® R490A : Grues auxiliaires de chargement", mois: 60, page: "caces-R490A", groupe: "CACES®" },
+  R482B: { libelle: "R482B : Engins de chantier", mois: 120, page: "caces-R482B", groupe: "CACES®" },
+  R484A: { libelle: "R484A : Ponts roulants et portiques", mois: 60, page: "caces-R484A", groupe: "CACES®" },
+  R485A: { libelle: "R485A : Gerbeurs à conducteur accompagnant", mois: 60, page: "caces-R485A", groupe: "CACES®" },
+  R486B: { libelle: "R486B : Nacelles élévatrices", mois: 60, page: "caces-R486B", groupe: "CACES®" },
+  R489A: { libelle: "R489A : Chariots de manutention", mois: 60, page: "caces-R489A", groupe: "CACES®" },
+  R490A: { libelle: "R490A : Grues auxiliaires de chargement", mois: 60, page: "caces-R490A", groupe: "CACES®" },
 } satisfies Record<string, OptionRecyclage>;
 
 const HABILITATION = {

@@ -81,7 +81,7 @@ export default function Page() {
           <span>Conduite en sécurité et CACES®</span>
         </p>
         <h1>Formations à la conduite en sécurité et CACES®</h1>
-        <p>Formez vos équipes avec des professionnels de la formation et obtenez votre CACES® : chariots, engins de chantier, nacelles, ponts roulants et grues auxiliaires.</p>
+        <p>Formez vos équipes avec des professionnels de la formation et obtenez votre CACES® : chariots élévateurs, engins de chantier, nacelles élévatrices, ponts roulants, grues auxiliaires et gerbeurs à conducteur accompagnant.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -93,7 +93,7 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Nos formations</span>
-        <h2 id="titre-intro">6 recommandations CACES® préparées par SECURIFORM</h2>
+        <h2 id="titre-intro">6 recommandations CACES®</h2>
         <hr className="trait" />
         <p>Chaque recommandation correspond à une famille d'engins précise. SECURIFORM vous aide à identifier la formation adaptée à votre matériel, puis prépare vos équipes à l'obtention du certificat. Les tests sont réalisés par un organisme testeur certifié CACES®, référencé sur la liste de l'INRS, en sous-traitance.</p>
       </div>
@@ -115,7 +115,7 @@ export default function Page() {
             <span className="categorie-badge">10 ans</span>
             <span className="categorie-code">R482B</span>
             <h3>Engins de chantier</h3>
-            <p>Pelles, chargeuses, engins de terrassement, compacteurs et chariots télescopiques utilisés en BTP, carrières et travaux publics.</p>
+            <p>Pelles hydrauliques, chargeuses, engins de terrassement, compacteurs et chariots télescopiques utilisés dans le bâtiment, les carrières et les travaux publics.</p>
             <span className="lien">En savoir +</span>
             <Link className="card-cover" href="/caces-R482B" aria-label="Formation CACES R482B : engins de chantier" />
           </article>
@@ -139,7 +139,7 @@ export default function Page() {
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R486B</span>
             <h3>Nacelles élévatrices (PEMP)</h3>
-            <p>Plateformes élévatrices mobiles de personnes à élévation verticale, pour les interventions en hauteur ponctuelles.</p>
+            <p>Plateformes élévatrices mobiles de personnel, pour les interventions ponctuelles en hauteur.</p>
             <span className="lien">En savoir +</span>
             <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B Catégorie A : nacelles élévatrices" />
           </article>
@@ -151,7 +151,7 @@ export default function Page() {
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R484A</span>
             <h3>Ponts roulants et portiques</h3>
-            <p>Conduite des ponts roulants et portiques de levage utilisés en ateliers et environnements industriels.</p>
+            <p>Ponts roulants et portiques de levage utilisés en ateliers et environnements industriels.</p>
             <span className="lien">En savoir +</span>
             <Link className="card-cover" href="/caces-R484A" aria-label="Formation CACES R484A : ponts roulants et portiques" />
           </article>
@@ -163,7 +163,7 @@ export default function Page() {
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R485A</span>
             <h3>Gerbeurs à conducteur accompagnant</h3>
-            <p>Conduite de gerbeurs accompagnants pour la manutention en entrepôt et environnements spécialisés.</p>
+            <p>Gerbeurs accompagnants pour la manutention en entrepôts et environnements spécialisés.</p>
             <span className="lien">En savoir +</span>
             <Link className="card-cover" href="/caces-R485A" aria-label="Formation CACES R485A : gerbeurs à conducteur accompagnant" />
           </article>
@@ -175,13 +175,12 @@ export default function Page() {
             <span className="categorie-badge">5 ans</span>
             <span className="categorie-code">R490A</span>
             <h3>Grues auxiliaires de chargement</h3>
-            <p>Grues de chargement montées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
+            <p>Grues de chargement embarquées sur véhicules porteurs, pour le transport routier et l'approvisionnement de chantier.</p>
             <span className="lien">En savoir +</span>
             <Link className="card-cover" href="/caces-R490A" aria-label="Formation CACES R490A : grues auxiliaires de chargement" />
           </article>
 
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2.5rem", "color": "var(--gris)" }}>Pour le passage d'autres CACES® (R483A grues mobiles, R487A grues à tour…), nous consulter.</p>
       </div>
     </section>
 
@@ -222,7 +221,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Pratique</h3>
-            <p>Prise en main, manœuvres progressives et mises en situation réelles sur nos terrains d'évolution.</p>
+            <p>Prise en main, manœuvres progressives et mises en situation réelles sur aire d'évolution.</p>
           </div>
           <div className="etape reveal">
             <h3>Tests</h3>
@@ -256,22 +255,22 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Qui réalise les tests CACES®&nbsp;?</summary>
-            <p>Les tests sont réalisés par un organisme testeur certifié CACES®, référencé sur la liste officielle de l'INRS, en sous-traitance. SECURIFORM assure la formation théorique et pratique ; l'organisme testeur évalue et délivre le certificat en cas de réussite.</p>
+            <p>Les tests sont réalisés par un organisme testeur certifié CACES®, référencé sur la liste officielle de l'INRS, en sous-traitance.</p>
           </details>
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité de mon CACES®&nbsp;?</summary>
-            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariot élévateur, transpalette, gerbeur porté (R489A), les gerbeurs à conducteur accompagnant (R485A), nacelle, plateforme élévatrice (R486B), pont roulant, portique (R484A), gerbeur à conducteur accompagnant (R485A), grue auxiliaire de chargement sur porteur (R490A) et 10 ans pour les pelle, chargeuse, engin de terrassement (R482B). Un renouvellement anticipé, avant l'expiration, permet une formation de recyclage plus courte qu'une formation initiale complète.</p>
+            <p>Elle varie selon la recommandation&nbsp;: 5 ans pour les chariots élévateurs relevant de la recommandation R489A, les gerbeurs à conducteur accompagnant (R485A), les plateformes élévatrices (R486B), les ponts roulants et portiques (R484A) et les grues auxiliaires de chargement (R490A)&nbsp;; 10 ans pour tous les engins de chantier relevant de la R482B.</p>
           </details>
 
           <details className="faq-item">
             <summary>CACES® et autorisation de conduite&nbsp;: quelle différence&nbsp;?</summary>
-            <p>Le CACES® atteste d'une aptitude à conduire en sécurité, mais il ne suffit pas à lui seul&nbsp;: l'employeur doit également délivrer une autorisation de conduite, propre à son entreprise, tenant compte de l'aptitude médicale du salarié et de sa connaissance des lieux de travail.</p>
+            <p>Le CACES® atteste d'une aptitude à conduire en sécurité, mais il ne suffit pas à lui seul&nbsp;: l'employeur doit également délivrer une autorisation de conduite, propre à son entreprise, tenant compte de l'absence de contre-indication médicale du salarié et de sa connaissance des lieux de travail.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Formation en centre ou directement sur site&nbsp;: que choisir&nbsp;?</summary>
-            <p>Les deux formules sont possibles. Le centre SECURIFORM dispose d'un parc matériel varié et de terrains d'évolution adaptés. La formation sur site utilise vos propres équipements et convient bien aux groupes d'au moins 4 à 6 personnes sur une même catégorie.</p>
+            <summary>Combien de temps dure une formation CACES®&nbsp;?</summary>
+            <p>Cela dépend de la recommandation, du nombre de catégories et de l'expérience des stagiaires&nbsp;: une formation initiale dure de 1 à 5 jours, un recyclage de 1 à 2 jours. Le détail pour chaque CACES® figure dans notre <a href="#comparateur">comparateur</a> et sur la page de chaque recommandation.</p>
           </details>
 
         </div>
@@ -292,7 +291,7 @@ export default function Page() {
           <span className="surtitre">Votre projet</span>
           <h2 id="titre-devis">Programmer une formation CACES®</h2>
           <hr className="trait" />
-          <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
+          <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>
 
         

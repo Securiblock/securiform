@@ -49,7 +49,7 @@ export const FORMATIONS = {
   "caces-R482B": {
     page: "caces-R482B",
     titre: "CACES® R482B : Engins de chantier",
-    description: "Catégories A à G : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
+    description: "Catégories A à G : pelles, chargeuses, bouteurs, compacteurs, tombereaux. Certificat valable 10 ans.",
     caces: true,
     recyclage: true,
   },
@@ -193,7 +193,7 @@ export const DOMAINES: Domaine[] = [
         { libelle: "Nacelle élévatrice à élévation verticale", precision: "Nacelle à ciseaux, plateforme sur mât", formation: "caces-R486B" },
         { libelle: "Grue auxiliaire de chargement", precision: "Grue montée sur camion", formation: "caces-R490A" },
         { libelle: "Pont roulant ou portique", formation: "caces-R484A" },
-        { libelle: "Engin de chantier", precision: "Pelle, chargeuse, bulldozer, compacteur, tombereau…", formation: "caces-R482B" },
+        { libelle: "Engin de chantier", precision: "Pelle, chargeuse, bouteur, compacteur, tombereau…", formation: "caces-R482B" },
       ],
     },
   },

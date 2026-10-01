@@ -46,7 +46,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R482B - SECURIFORM",
-  description: "Formation CACES R482B avec SECURIFORM : catégories A à G, pelles, chargeuses, bulldozers, compacteurs, tombereaux. Certificat valable 10 ans.",
+  description: "Formation CACES R482B avec SECURIFORM : catégories A à G, pelles, chargeuses, bouteurs, compacteurs, tombereaux. Certificat valable 10 ans.",
   alternates: { canonical: "/caces-R482B" },
   openGraph: {
     type: "article",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces-R482B",
     title: "Formation CACES® R482B - Engins de chantier - SECURIFORM",
-    description: "Toutes les catégories du CACES R482B (A à G) : pelles, chargeuses, bulldozers, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
+    description: "Toutes les catégories du CACES R482B (A à G) : pelles, chargeuses, bouteurs, compacteurs, tombereaux. Formation SECURIFORM, certificat valable 10 ans.",
     images: ["/image/caces-R482B.webp"],
   },
   twitter: {
@@ -88,8 +88,8 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R482B</span>
         </p>
-        <h1>Formation CACES® R482B - Engins de chantier</h1>
-        <p>Formez-vous à la conduite en sécurité des engins de chantier, quelle que soit la catégorie&nbsp;: pelles, chargeuses, bulldozers, compacteurs, tombereaux et plus encore.</p>
+        <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R482B Engins de chantier</span></h1>
+        <p>Formez-vous à la conduite en sécurité des engins de chantier, quelle que soit la catégorie&nbsp;: pelles hydrauliques, chargeuses, bouteurs, tracteurs agricoles, compacteurs, tombereaux…</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -101,9 +101,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Onze catégories, un seul objectif&nbsp;: conduire en sécurité</h2>
+        <h2 id="titre-intro">11 catégories, un seul objectif&nbsp;: conduire en sécurité</h2>
         <hr className="trait" />
-        <p>Le CACES R482B couvre l'ensemble des engins de chantier utilisés en travaux publics, terrassement, construction et carrières. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes, pour une certification au plus près de vos équipements.</p>
+        <p>La recommandation R482B couvre l'ensemble des engins de chantier utilisés en travaux publics, terrassement, construction et carrières. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes.</p>
       </div>
     </section>
 
@@ -208,15 +208,15 @@ export default function Page() {
           <span className="surtitre">Ce que couvre la formation</span>
           <h2 id="titre-programme">Un programme théorique et pratique complet</h2>
           <p>La partie théorique aborde la réglementation applicable, la technologie des engins (moteur, hydraulique, transmission, dispositifs de sécurité ROPS/FOPS), les catégories CACES, les règles de circulation, les risques du métier et les vérifications d'usage.</p>
-          <p>La partie pratique se déroule directement sur les engins&nbsp;: prise de poste, conduite et manœuvres spécifiques à chaque catégorie (fouille pour les pelles, levage pour les chargeuses, nivellement pour les bulldozers, tassement pour les compacteurs), puis fin de poste et maintenance quotidienne.</p>
+          <p>La partie pratique se déroule directement sur les engins&nbsp;: prise de poste, conduite et manœuvres spécifiques à chaque catégorie (fouille pour les pelles, levage pour les chargeuses, nivellement pour les bouteurs, tassement pour les compacteurs…), puis fin de poste et maintenance quotidienne.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
           <h3>Répartition type</h3>
           <ul className="valeurs">
             <li><span className="puce" aria-hidden="true">✓</span> 30 à 50&nbsp;% de théorie en salle</li>
-            <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins réels</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins</li>
             <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Test final théorique et pratique par un organisme testeur certifié INRS</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique par un organisme testeur certifié INRS</li>
           </ul>
         </aside>
       </div>
@@ -230,9 +230,9 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Une durée adaptée à votre profil</h2>
+          <h2 id="titre-durees">Une durée sur-mesure</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de la catégorie visée et de votre expérience.</p>
+          <p>À titre indicatif, la durée exacte dépend de la catégorie visée et du niveau pratique des stagiaires.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -244,23 +244,23 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Débutant : catégories simples (A, G)</td>
+                <td>Débutant : catégories simples</td>
                 <td>2 à 3 jours</td>
               </tr>
               <tr>
-                <td>Débutant : catégories complexes (B1, C1-C3, D, E)</td>
+                <td>Débutant : catégories complexes</td>
                 <td>3 à 5 jours</td>
               </tr>
               <tr>
-                <td>Débutant : catégories très spécialisées (B2, B3)</td>
+                <td>Débutant : catégories très spécialisées</td>
                 <td>4 à 5 jours</td>
               </tr>
               <tr>
-                <td>Expérimenté (autre catégorie R482B déjà détenue)</td>
+                <td>Expérimenté</td>
                 <td>2 jours environ</td>
               </tr>
               <tr>
-                <td>Recyclage avant expiration</td>
+                <td>Recyclage</td>
                 <td>1 à 2 jours</td>
               </tr>
             </tbody>
@@ -276,7 +276,7 @@ export default function Page() {
           <span className="surtitre">Comparer</span>
           <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R482B avec les autres recommandations préparées par SECURIFORM.</p>
+          <p>Engins concernés, durée de formation et validité.</p>
         </div>
         <div className="reveal">
           <ComparateurCaces actuel="R482B" />
@@ -292,7 +292,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Où se former</span>
-          <h2 id="titre-modalites">Trois façons d'organiser la formation</h2>
+          <h2 id="titre-modalites">3 façons d'organiser la formation</h2>
           <hr className="trait" />
         </div>
         <div className="grille-categories cols-3">
@@ -304,12 +304,12 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Sur votre site</h3>
-            <p>À partir de 4 à 6 personnes sur une même catégorie, vos équipes s'entraînent directement sur leurs propres engins.</p>
+            <p>À partir de 4 à 6 personnes sur une même catégorie, vos équipes sont formées directement sur vos propres engins.</p>
           </article>
 
           <article className="categorie-card reveal">
             <h3>Formation individuelle</h3>
-            <p>Pour un besoin urgent ou une catégorie peu demandée, une session sur mesure peut être organisée pour un seul candidat.</p>
+            <p>Pour un besoin urgent ou une catégorie peu demandée, une session sur-mesure peut être organisée pour un seul candidat.</p>
           </article>
 
         </div>
@@ -379,17 +379,17 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Comment savoir quelle catégorie choisir pour mon engin&nbsp;?</summary>
-            <p>Cela dépend du type d'engin, de sa masse et de son usage. Une pelle de moins de 6 tonnes relève de la catégorie A, une pelle plus lourde de la catégorie B1, par exemple. SECURIFORM vous aide à faire correspondre chaque engin à sa catégorie exacte.</p>
+            <p>Cela dépend du type d'engin, de sa masse et de son usage. Une pelle hydraulique de moins de 6 tonnes relève de la catégorie A, une pelle plus lourde de la catégorie B1, par exemple.</p>
           </details>
 
           <details className="faq-item">
             <summary>Puis-je former mes équipes sur plusieurs catégories en une seule session&nbsp;?</summary>
-            <p>Certaines catégories proches peuvent être regroupées (A et G par exemple), tandis que les catégories spécialisées (B1, B2, B3, C2, C3) nécessitent généralement des sessions dédiées.</p>
+            <p>Oui, la durée de la formation pratique sera adaptée au nombre de catégories d'engins et à leur complexité.</p>
           </details>
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité du CACES R482B&nbsp;?</summary>
-            <p>Le certificat est valable 10 ans. Un recyclage est recommandé avant son expiration, idéalement dans les 5 ans précédant l'échéance.</p>
+            <p>La formation ou le CACES® est valable 10 ans.</p>
           </details>
 
           <details className="faq-item">
@@ -398,8 +398,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs), R486B (nacelles), R482B (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
+            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -420,7 +420,7 @@ export default function Page() {
           <span className="surtitre">Votre projet</span>
           <h2 id="titre-devis">Programmer une formation CACES® R482B</h2>
           <hr className="trait" />
-          <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
+          <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>
 
         

@@ -326,7 +326,7 @@ export default function Page() {
           <span className="surtitre">Votre projet</span>
           <h2 id="titre-devis">Programmer une formation évacuation</h2>
           <hr className="trait" />
-          <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
+          <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>
 
         

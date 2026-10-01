@@ -49,7 +49,7 @@ export default function Page() {
 
       <FormulaireDevis
         titre="Demander un devis"
-        introduction="Complétez ce formulaire, notre équipe revient vers vous dans l'heure avec une proposition adaptée."
+        introduction="Complétez ce formulaire, notre équipe vous recontacte dans l'heure avec une proposition adaptée."
       />
     </>
   );
