@@ -88,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R484A</span>
         </p>
-        <h1>Formation CACES® R484A : Ponts roulants et portiques</h1>
+        <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R484A Ponts roulants et portiques</span></h1>
         <p>Formez-vous à la conduite en sécurité des ponts roulants et portiques, commande au sol ou en cabine, et aux techniques d'élingage indispensables au levage.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -420,7 +420,7 @@ export default function Page() {
           <span className="surtitre">Votre projet</span>
           <h2 id="titre-devis">Programmer une formation CACES® R484A</h2>
           <hr className="trait" />
-          <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
+          <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>
 
         

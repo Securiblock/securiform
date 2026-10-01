@@ -40,7 +40,7 @@ export default function Page() {
 
       <FormulaireDevis
         titre="Programmer un recyclage"
-        introduction="Complétez ce formulaire, notre équipe revient vers vous dans l'heure pour organiser votre session."
+        introduction="Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session."
       />
     </>
   );

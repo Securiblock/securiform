@@ -88,7 +88,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R486B</span>
         </p>
-        <h1>Formation CACES® R486B Catégorie A : Nacelles élévatrices</h1>
+        <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R486B Catégorie A Nacelles élévatrices</span></h1>
         <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale&nbsp;: nacelles à ciseaux et plateformes sur mât.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -351,7 +351,7 @@ export default function Page() {
           <span className="surtitre">Votre projet</span>
           <h2 id="titre-devis">Programmer une formation CACES® R486B</h2>
           <hr className="trait" />
-          <p>Complétez ce formulaire, notre équipe revient vers vous rapidement pour organiser votre session.</p>
+          <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>
 
         
