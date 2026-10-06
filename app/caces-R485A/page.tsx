@@ -103,7 +103,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Qu'est-ce qu'un gerbeur à conducteur accompagnant&nbsp;?</h2>
         <hr className="trait" />
-        <p>Contrairement aux chariots élévateurs du CACES R489A, sur lesquels le cariste prend place à bord, le gerbeur à conducteur accompagnant se pilote en marchant à côté ou derrière l'engin, à l'aide d'un timon. Cette différence de conduite implique des risques spécifiques&nbsp;: c'est pourquoi la recommandation CNAM R485A lui consacre une certification à part entière.</p>
+        <p>Contrairement aux chariots élévateurs du CACES R489A, sur lesquels le cariste prend place à bord, le gerbeur à conducteur accompagnant se pilote en marchant à côté ou derrière l'engin, à l'aide d'un timon. Cette différence de conduite implique des risques spécifiques&nbsp;: c'est pourquoi la recommandation R485A lui consacre une certification à part entière.</p>
       </div>
     </section>
 
@@ -115,7 +115,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les deux catégories du CACES R485A</h2>
+          <h2 id="titre-categories">Les catégories de la recommandation R485A</h2>
           <hr className="trait" />
         </div>
         <div className="table-scroll reveal">
@@ -123,20 +123,20 @@ export default function Page() {
             <thead>
               <tr>
                 <th scope="col">Catégorie</th>
-                <th scope="col">Type de poste de conduite</th>
-                <th scope="col">Usage typique</th>
+                <th scope="col">Type d'engin</th>
+                <th scope="col">Hauteur de levée</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Catégorie 1</td>
-                <td>Poste de conduite fixe, non élevable</td>
-                <td>Gerbage et dégerbage à faible hauteur</td>
+                <td>Gerbeur à conducteur accompagnant</td>
+                <td>Hauteur de levée minimale 2.20 m</td>
               </tr>
               <tr>
                 <td>Catégorie 2</td>
-                <td>Poste de conduite élevable avec la charge</td>
-                <td>Préparation de commandes et gerbage en hauteur</td>
+                <td>Gerbeur à conducteur accompagnant</td>
+                <td>Hauteur de levée minimale 3.40 m</td>
               </tr>
             </tbody>
           </table>
@@ -157,13 +157,13 @@ export default function Page() {
           <p>La partie théorique aborde la réglementation applicable (recommandation R485A de la CNAM), la technologie du gerbeur (timon, fourches, mât de levage, batterie), les risques propres à la conduite accompagnée et les vérifications d'usage avant chaque utilisation.</p>
           <p>La partie pratique se déroule sur un gerbeur réel&nbsp;: prise et dépose de charges, circulation en allées étroites, gerbage et dégerbage à différentes hauteurs, puis fin de poste et mise en charge de la batterie.</p>
         </div>
-        <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
-          <h3>Répartition type</h3>
+        <aside className="presentation-visuel reveal" aria-label="Déroulement type de la formation">
+          <h3>Déroulement type</h3>
           <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Théorie&nbsp;: réglementation, technologie, risques spécifiques</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Pratique&nbsp;: manœuvres en conditions réelles d'entrepôt</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 30 à 50&nbsp;% de théorie en salle</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins</li>
             <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Test final par un organisme testeur certifié INRS</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique</li>
           </ul>
         </aside>
       </div>
@@ -209,7 +209,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Ce que la formation prévient</span>
-          <h2 id="titre-risques">Les principaux risques du gerbeur accompagnant</h2>
+          <h2 id="titre-risques">Les principaux risques du gerbeur à conducteur accompagnant</h2>
           <hr className="trait" />
         </div>
         <div className="grille-categories cols-4">
@@ -231,7 +231,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Chute de charge en hauteur</h3>
-            <p>Pour les modèles de catégorie 2, lors du gerbage en hauteur. Prévenu par un positionnement stable avant toute élévation.</p>
+            <p>Prévenu par un positionnement stable avant toute élévation.</p>
           </article>
 
         </div>
@@ -246,9 +246,9 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Durée et validité</h2>
+          <h2 id="titre-durees">Une durée sur-mesure</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et de la catégorie visée.</p>
+          <p>À titre indicatif, la durée exacte dépend de votre expérience et de la catégorie visée.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -264,17 +264,17 @@ export default function Page() {
                 <td>1 à 2 jours</td>
               </tr>
               <tr>
-                <td>Expérimenté (pratique déjà acquise)</td>
+                <td>Expérimenté</td>
                 <td>1 jour</td>
               </tr>
               <tr>
-                <td>Recyclage avant expiration</td>
-                <td>1 jour</td>
+                <td>Recyclage</td>
+                <td>0.5 jour</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R485A est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation ou le CACES® R485A est valable 5 ans à compter de sa validation.</p>
       </div>
     </section>
 
@@ -285,7 +285,7 @@ export default function Page() {
           <span className="surtitre">Comparer</span>
           <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R485A avec les autres recommandations préparées par SECURIFORM.</p>
+          <p>Engins concernés, durée de formation et validité.</p>
         </div>
         <div className="reveal">
           <ComparateurCaces actuel="R485A" />
@@ -312,23 +312,23 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Comment choisir entre la catégorie 1 et la catégorie 2&nbsp;?</summary>
-            <p>Cela dépend de votre matériel&nbsp;: la catégorie 1 concerne les gerbeurs à poste de conduite fixe, la catégorie 2 les modèles où le conducteur peut être élevé avec la charge pour la préparation de commandes en hauteur.</p>
+            <summary>À quelle catégorie appartient mon gerbeur&nbsp;?</summary>
+            <p>Cela dépend de la hauteur de levée de votre gerbeur&nbsp;: la catégorie 1 correspond à une hauteur de levée minimale de 2.20 m, la catégorie 2 à une hauteur de levée minimale de 3.40 m.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R485A&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans, comme le CACES R489A. Un recyclage est recommandé avant son expiration.</p>
+            <summary>Quelle est la durée de validité de la formation ou du CACES R485A&nbsp;?</summary>
+            <p>La formation ou le CACES® est valable 5 ans.</p>
           </details>
 
           <details className="faq-item">
             <summary>Peut-on former une équipe aux catégories 1 et 2 en même temps&nbsp;?</summary>
-            <p>Oui, lorsque les stagiaires utilisent les deux types de gerbeurs, une session combinée est possible et permet d'optimiser le temps de formation.</p>
+            <p>Oui. La catégorie 2 englobe la catégorie 1&nbsp;: un conducteur formé en catégorie 2 peut également conduire les gerbeurs de catégorie 1. Une formation unique en catégorie 2 permet donc de couvrir l'ensemble de votre parc.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R486B (nacelles), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
+            <p>SECURIFORM prépare également à la formation à la conduite en sécurité et aux CACES R482B (engins de chantier), R484A (ponts roulants), R486B (nacelles élévatrices), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -377,10 +377,10 @@ export default function Page() {
               <input type="email" id="email" name="email" required />
             </div>
             <div className="champ">
-              <label htmlFor="categorie">Catégorie concernée</label>
+              <label htmlFor="categorie">Catégorie(s) concernée(s)</label>
               <select id="categorie" name="categorie">
-                <option value="1">Catégorie 1 : poste fixe</option>
-                <option value="2">Catégorie 2 : poste élevable</option>
+                <option value="1">Catégorie 1 : hauteur de levée minimale 2.20 m</option>
+                <option value="2">Catégorie 2 : hauteur de levée minimale 3.40 m</option>
                 <option value="deux">Les deux catégories</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>

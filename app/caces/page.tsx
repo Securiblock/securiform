@@ -141,7 +141,7 @@ export default function Page() {
             <h3>Nacelles élévatrices (PEMP)</h3>
             <p>Plateformes élévatrices mobiles de personnel, pour les interventions ponctuelles en hauteur.</p>
             <span className="lien">En savoir +</span>
-            <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B Catégorie A : nacelles élévatrices" />
+            <Link className="card-cover" href="/caces-R486B" aria-label="Formation CACES R486B : nacelles élévatrices" />
           </article>
 
           <article className="categorie-card reveal">
@@ -270,7 +270,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Combien de temps dure une formation CACES®&nbsp;?</summary>
-            <p>Cela dépend de la recommandation, du nombre de catégories et de l'expérience des stagiaires&nbsp;: une formation initiale dure de 1 à 5 jours, un recyclage de 1 à 2 jours. Le détail pour chaque CACES® figure dans notre <a href="#comparateur">comparateur</a> et sur la page de chaque recommandation.</p>
+            <p>Cela dépend de la recommandation, du nombre de catégories et de l'expérience des stagiaires&nbsp;: une formation initiale dure de 1 à 5 jours, un recyclage de 0.5 à 2 jours. Le détail pour chaque CACES® figure dans notre <a href="#comparateur">comparateur</a> et sur la page de chaque recommandation.</p>
           </details>
 
         </div>

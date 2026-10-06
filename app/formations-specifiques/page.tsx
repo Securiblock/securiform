@@ -118,12 +118,12 @@ export default function Page() {
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tronconneuse.webp" alt="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" loading="lazy" />
+              <img src="/image/formation-tronconneuse.webp" alt="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" loading="lazy" />
             </div>
-            <h3>tronçonneuses thermiques</h3>
-            <p>Utilisation en sécurité d'une tronçonneuses thermiques à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
+            <h3>Tronçonneuses thermiques</h3>
+            <p>Utilisation en sécurité d'une tronçonneuse thermique à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
             <span className="lien">Découvrir</span>
-            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité d'une tronçonneuses thermiques à chaîne" />
+            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" />
           </article>
 
           <article className="formation-card reveal">
@@ -257,7 +257,7 @@ export default function Page() {
               <label htmlFor="formation">Votre besoin</label>
               <select id="formation" name="formation">
                 <option value="tondeuse">Tondeuse autoportée</option>
-                <option value="tronconneuse">tronçonneuses thermiques</option>
+                <option value="tronconneuse">Tronçonneuse thermique</option>
                 <option value="balayeuse">Balayeuse routière</option>
                 <option value="gestes">Sensibilisation gestes qui sauvent</option>
                 <option value="autre">Autre équipement / besoin spécifique</option>

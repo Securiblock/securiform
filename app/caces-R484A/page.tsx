@@ -10,7 +10,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formation CACES R484A : Ponts roulants et portiques",
-      "description": "Formation à la conduite en sécurité des ponts roulants et portiques, catégorie 1 (commande au sol) et catégorie 2 (commande en cabine), avec techniques d'élingage. Certificat valable 5 ans.",
+      "description": "Formation à la conduite en sécurité des ponts roulants et portiques à commande au sol (catégorie 1), avec techniques d'élingage. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -46,7 +46,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R484A - SECURIFORM",
-  description: "Formation CACES R484A avec SECURIFORM : commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
+  description: "Formation CACES R484A avec SECURIFORM : commande au sol, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-R484A" },
   openGraph: {
     type: "article",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces-R484A",
     title: "Formation CACES® R484A - Ponts roulants et portiques - SECURIFORM",
-    description: "Commande au sol ou en cabine, techniques d'élingage : formation CACES R484A avec SECURIFORM, certificat valable 5 ans.",
+    description: "Commande au sol, techniques d'élingage : formation CACES R484A avec SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R484A.webp"],
   },
   twitter: {
@@ -89,7 +89,7 @@ export default function Page() {
           <span>CACES R484A</span>
         </p>
         <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R484A Ponts roulants et portiques</span></h1>
-        <p>Formez-vous à la conduite en sécurité des ponts roulants et portiques, commande au sol ou en cabine, et aux techniques d'élingage indispensables au levage.</p>
+        <p>Formez-vous à la conduite en sécurité des ponts roulants et portiques à commande au sol, et aux techniques d'élingage indispensables au levage.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -101,9 +101,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Deux catégories, selon le mode de commande</h2>
+        <h2 id="titre-intro">Pont roulant à commande au sol et portique, un seul objectif&nbsp;: conduire en sécurité</h2>
         <hr className="trait" />
-        <p>Le CACES R484A couvre les ponts roulants et portiques utilisés dans les ateliers industriels pour le levage de charges. Il se décline en deux catégories selon que l'opérateur commande l'équipement depuis le sol ou depuis une cabine. Certains équipements en sont exclus&nbsp;: ponts à bras articulé non conformes à la norme EN 15011, chariots suspendus, palans seuls, et grues d'atelier qui relèvent d'une autre recommandation.</p>
+        <p>La recommandation R484A couvre les ponts roulants et portiques utilisés dans les ateliers industriels pour le levage de charges. Elle se décline en 2 catégories selon que l'opérateur commande l'équipement depuis le sol ou depuis une cabine&nbsp;: SECURIFORM forme à la catégorie 1, commande au sol. Certains équipements en sont exclus&nbsp;: ponts à bras articulé non conformes à la norme EN 15011, chariots suspendus, palans seuls, et grues d'atelier qui relèvent d'une autre recommandation.</p>
       </div>
     </section>
 
@@ -115,7 +115,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les deux catégories du CACES R484A</h2>
+          <h2 id="titre-categories">Les catégories de la recommandation R484A</h2>
           <hr className="trait" />
         </div>
         <div className="table-scroll reveal">
@@ -135,13 +135,14 @@ export default function Page() {
               </tr>
               <tr>
                 <td>Cat. 2</td>
-                <td>Portiques et ponts roulants à commande en cabine (suspendue ou fixe), avec option commande au sol</td>
+                <td>Ponts roulants à commande en cabine (suspendue ou fixe), avec option commande au sol</td>
                 <td>Sidérurgie, fonderie, construction navale, charges très lourdes</td>
               </tr>
+              
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre installation&nbsp;? Contactez-nous, nous vous aidons à l'identifier.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>SECURIFORM forme uniquement à la catégorie 1&nbsp;: la conduite des ponts roulants en cabine (catégorie 2) n'est pas proposée.</p>
       </div>
     </section>
 
@@ -222,7 +223,6 @@ export default function Page() {
           </article>
 
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation couvre aussi les accessoires (crochets à linguet, manilles, anneaux, palonniers) et les trois modes d'élingage&nbsp;: direct, en berceau et par nœud coulant.</p>
       </div>
     </section>
 
@@ -269,7 +269,7 @@ export default function Page() {
           <h2 id="titre-risques">Les principaux risques du pont roulant</h2>
           <hr className="trait" />
         </div>
-        <div className="grille-categories cols-3">
+        <div className="grille-categories cols-4">
 
           <article className="categorie-card reveal">
             <h3>Chute de charge</h3>
@@ -287,18 +287,8 @@ export default function Page() {
           </article>
 
           <article className="categorie-card reveal">
-            <h3>Électrocution</h3>
-            <p>Par proximité d'une ligne électrique ou un défaut d'isolation. Prévenu par le repérage des zones à risque et le respect des distances minimales.</p>
-          </article>
-
-          <article className="categorie-card reveal">
             <h3>Surcharge</h3>
             <p>Liée à une mauvaise estimation du poids ou à l'oubli du poids des accessoires. Prévenu par un pesage systématique et le respect strict de la CMU.</p>
-          </article>
-
-          <article className="categorie-card reveal">
-            <h3>Chute lors de la maintenance</h3>
-            <p>Lors d'une intervention en hauteur sur le pont. Prévenu par le port du harnais et la consignation de l'équipement pendant les travaux.</p>
           </article>
 
         </div>
@@ -313,9 +303,9 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Durée et validité</h2>
+          <h2 id="titre-durees">Une durée sur-mesure</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et de la catégorie visée.</p>
+          <p>À titre indicatif, la durée exacte dépend de votre expérience.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -327,25 +317,21 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Formation initiale débutant : catégorie 1</td>
+                <td>Formation initiale débutant</td>
                 <td>2 à 3 jours</td>
               </tr>
               <tr>
-                <td>Formation initiale débutant : catégorie 2</td>
-                <td>3 à 4 jours</td>
-              </tr>
-              <tr>
-                <td>Expérimenté (pratique déjà acquise)</td>
+                <td>Expérimenté</td>
                 <td>1 à 2 jours</td>
               </tr>
               <tr>
-                <td>Recyclage avant expiration</td>
+                <td>Recyclage</td>
                 <td>1 jour</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R484A est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation ou le CACES® R484A est valable 5 ans à compter de sa validation.</p>
       </div>
     </section>
 
@@ -356,7 +342,7 @@ export default function Page() {
           <span className="surtitre">Comparer</span>
           <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R484A avec les autres recommandations préparées par SECURIFORM.</p>
+          <p>Engins concernés, durée de formation et validité.</p>
         </div>
         <div className="reveal">
           <ComparateurCaces actuel="R484A" />
@@ -378,8 +364,8 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Comment savoir si mon installation relève de la catégorie 1 ou 2&nbsp;?</summary>
-            <p>Cela dépend du mode de commande&nbsp;: si vos opérateurs pilotent depuis le sol (boîtier ou radiocommande), c'est la catégorie 1. S'ils sont installés en cabine, suspendue ou fixe, c'est la catégorie 2, éventuellement complétée par l'option commande au sol.</p>
+            <summary>À quelle catégorie appartient mon pont roulant&nbsp;?</summary>
+            <p>Cela dépend du mode de commande&nbsp;: si vos opérateurs pilotent depuis le sol (boîtier ou radiocommande), c'est la catégorie 1. S'ils sont installés en cabine, suspendue ou fixe, c'est la catégorie 2, éventuellement complétée par l'option commande au sol. SECURIFORM forme uniquement à la catégorie 1.</p>
           </details>
 
           <details className="faq-item">
@@ -393,13 +379,13 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R484A&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances, notamment sur les techniques d'élingage.</p>
+            <summary>Quelle est la durée de validité de la formation ou du CACES R484A&nbsp;?</summary>
+            <p>La formation ou le CACES® est valable 5 ans.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R485A (gerbeurs), R486B (nacelles), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
+            <p>SECURIFORM prépare également à la formation à la conduite en sécurité et aux CACES R482B (engins de chantier), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -451,8 +437,6 @@ export default function Page() {
               <label htmlFor="categorie">Catégorie concernée</label>
               <select id="categorie" name="categorie">
                 <option value="1">Catégorie 1 : commande au sol</option>
-                <option value="2">Catégorie 2 : commande en cabine</option>
-                <option value="2option">Catégorie 2 + option sol</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>

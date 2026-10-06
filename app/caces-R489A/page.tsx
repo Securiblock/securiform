@@ -10,7 +10,7 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formation CACES R489A : Chariots de manutention",
-      "description": "Formation à la conduite en sécurité des chariots de manutention à conducteur porté, couvrant les catégories 1 à 6 de la recommandation R489A : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
+      "description": "Formation à la conduite en sécurité des chariots de manutention à conducteur porté, couvrant les catégories 1A à 7 de la recommandation R489A : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -46,7 +46,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R489A - SECURIFORM",
-  description: "Formation CACES R489A avec SECURIFORM : catégories 1 à 6, transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. 5 ans.",
+  description: "Formation CACES R489A avec SECURIFORM : catégories 1A à 7, transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. 5 ans.",
   alternates: { canonical: "/caces-R489A" },
   openGraph: {
     type: "article",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/caces-R489A",
     title: "Formation CACES® R489A - Chariots de manutention - SECURIFORM",
-    description: "Catégories 1 à 6 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Formation SECURIFORM, certificat valable 5 ans.",
+    description: "Catégories 1A à 7 : transpalettes, gerbeurs, chariots élévateurs en porte-à-faux et à mât rétractable. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R489A.webp"],
   },
   twitter: {
@@ -101,9 +101,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Le CACES® le plus répandu en entrepôt et en logistique</h2>
+        <h2 id="titre-intro">7 catégories, un seul objectif&nbsp;: conduire en sécurité</h2>
         <hr className="trait" />
-        <p>Le CACES R489A encadre la conduite des chariots de manutention à conducteur porté, c'est-à-dire ceux sur lesquels le cariste prend place à bord. Il se décline en six catégories, selon le type de chariot et sa capacité de charge. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes.</p>
+        <p>La recommandation R489A encadre la conduite des chariots de manutention à conducteur porté, c'est-à-dire ceux sur lesquels le cariste prend place à bord. Elle se décline en 7 catégories, selon le type de chariot et sa capacité de charge. SECURIFORM adapte la formation à la catégorie réellement utilisée par vos équipes.</p>
       </div>
     </section>
 
@@ -115,7 +115,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les sept catégories du CACES R489A</h2>
+          <h2 id="titre-categories">Les catégories de la recommandation R489A</h2>
           <hr className="trait" />
         </div>
         <div className="table-scroll reveal">
@@ -131,7 +131,7 @@ export default function Page() {
               <tr>
                 <td>1A</td>
                 <td>Transpalettes à conducteur porté</td>
-                <td>Préparateurs de commande sans élévation du poste de conduite (hauteur de levée ≤ 1.20m)</td>
+                <td>hauteur de levée ≤ 1.20m</td>
               </tr>
               <tr>
                 <td>1B</td>
@@ -193,13 +193,13 @@ export default function Page() {
           <p>La partie théorique aborde la réglementation applicable (recommandation R489A de la CNAM), la technologie du chariot (mât, fourches, batterie ou moteur thermique), les règles de circulation en entrepôt, les risques liés à la manutention et les vérifications d'usage avant chaque utilisation.</p>
           <p>La partie pratique se déroule sur un chariot réel&nbsp;: prise et dépose de charges, circulation en allées, gerbage à différentes hauteurs selon la catégorie, puis fin de poste et mise en charge de la batterie.</p>
         </div>
-        <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
-          <h3>Répartition type</h3>
+        <aside className="presentation-visuel reveal" aria-label="Déroulement type de la formation">
+          <h3>Déroulement type</h3>
           <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Théorie&nbsp;: réglementation, technologie, circulation</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Pratique&nbsp;: manœuvres en conditions réelles d'entrepôt</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 30 à 50&nbsp;% de théorie en salle</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins</li>
             <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Test final par un organisme testeur certifié INRS</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique</li>
           </ul>
         </aside>
       </div>
@@ -282,9 +282,9 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Durée et validité</h2>
+          <h2 id="titre-durees">Une durée sur-mesure</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et de la ou des catégories visées.</p>
+          <p>À titre indicatif, la durée exacte dépend de votre expérience et de la ou des catégories visées.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -304,17 +304,17 @@ export default function Page() {
                 <td>3 à 5 jours</td>
               </tr>
               <tr>
-                <td>Expérimenté (pratique déjà acquise)</td>
+                <td>Expérimenté</td>
                 <td>1 à 2 jours</td>
               </tr>
               <tr>
-                <td>Recyclage avant expiration</td>
+                <td>Recyclage</td>
                 <td>1 jour</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R489A est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation ou le CACES® R489A est valable 5 ans à compter de sa validation.</p>
       </div>
     </section>
 
@@ -325,7 +325,7 @@ export default function Page() {
           <span className="surtitre">Comparer</span>
           <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R489A avec les autres recommandations préparées par SECURIFORM.</p>
+          <p>Engins concernés, durée de formation et validité.</p>
         </div>
         <div className="reveal">
           <ComparateurCaces actuel="R489A" />
@@ -347,28 +347,28 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Comment savoir quelle catégorie choisir pour mon chariot&nbsp;?</summary>
-            <p>Cela dépend du type de chariot et de sa capacité de charge. Un transpalette ou un gerbeur léger relève de la catégorie 1, un chariot élévateur standard de la catégorie 3, par exemple. SECURIFORM vous aide à faire correspondre chaque chariot à sa catégorie exacte.</p>
+            <summary>À quelle catégorie appartient mon chariot élévateur&nbsp;?</summary>
+            <p>Cela dépend du type de chariot et de sa capacité de charge. Un transpalette ou un gerbeur léger relève de la catégorie 1, un chariot élévateur standard de la catégorie 3, par exemple.</p>
           </details>
 
           <details className="faq-item">
             <summary>Puis-je former mes équipes sur plusieurs catégories en une seule session&nbsp;?</summary>
-            <p>Oui, lorsque les catégories sont proches (3 et 5 par exemple), une formation combinée est possible et permet d'optimiser le temps de formation par rapport à des sessions séparées.</p>
+            <p>Oui, la durée de la formation pratique sera adaptée au nombre de catégories d'engins et à leur complexité.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Qu'est-ce que la catégorie 6&nbsp;?</summary>
+            <summary>Qu'est-ce que la catégorie 7&nbsp;?</summary>
             <p>Elle concerne la conduite hors production&nbsp;: déplacement d'un chariot, chargement sur porteur, transfert entre sites, essais ou démonstrations, sans activité de manutention proprement dite.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R489A&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser vos connaissances et prolonger la validité.</p>
+            <summary>Quelle est la durée de validité de la formation ou du CACES R489A&nbsp;?</summary>
+            <p>La formation ou le CACES® est valable 5 ans.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs accompagnants), R486B (nacelles) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
+            <p>SECURIFORM prépare également à la formation à la conduite en sécurité et aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -419,12 +419,15 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie(s) concernée(s)</label>
               <select id="categorie" name="categorie">
-                <option value="1">1 : Transpalettes, gerbeurs</option>
-                <option value="2">2 : Tracteurs, plateau porteur</option>
-                <option value="3">3 : Porte-à-faux ≤ 6 000 kg</option>
-                <option value="4">4 : Porte-à-faux &gt; 6 000 kg</option>
+                <option value="1A">1A : Transpalettes à conducteur porté</option>
+                <option value="1B">1B : Gerbeurs à conducteur porté</option>
+                <option value="2A">2A : Chariots à plateau porteur</option>
+                <option value="2B">2B : Chariots tracteurs industriels</option>
+                <option value="3">3 : Porte-à-faux ≤ 6 tonnes</option>
+                <option value="4">4 : Porte-à-faux &gt; 6 tonnes</option>
                 <option value="5">5 : Mât rétractable</option>
-                <option value="6">6 : Conduite hors production</option>
+                <option value="6">6 : Poste de conduite élevable</option>
+                <option value="7">7 : Conduite hors production</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>

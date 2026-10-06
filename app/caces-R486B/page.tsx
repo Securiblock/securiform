@@ -9,8 +9,8 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Formation CACES R486B Catégorie A : Nacelles élévatrices",
-      "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale, catégorie A de la recommandation R486B. Certificat valable 5 ans.",
+      "name": "Formation CACES R486B : Nacelles élévatrices",
+      "description": "Formation à la conduite en sécurité des plateformes élévatrices mobiles de personnel (PEMP), groupes A et B de la recommandation R486B. Certificat valable 5 ans.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -46,21 +46,21 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R486B - SECURIFORM",
-  description: "Formation CACES R486B Catégorie A avec SECURIFORM : PEMP à élévation verticale, nacelles à ciseaux et plateformes sur mât. Certificat valable 5 ans.",
+  description: "Formation CACES R486B avec SECURIFORM, groupes A et B : nacelles élévatrices ciseaux, plateformes sur mât, nacelles élévatrices à bras articulé ou télescopique. Certificat valable 5 ans.",
   alternates: { canonical: "/caces-R486B" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/caces-R486B",
-    title: "Formation CACES® R486B Catégorie A - Nacelles élévatrices - SECURIFORM",
-    description: "PEMP à élévation verticale, nacelles à ciseaux, plateformes sur mât. Formation SECURIFORM, certificat valable 5 ans.",
+    title: "Formation CACES® R486B - Nacelles élévatrices - SECURIFORM",
+    description: "PEMP groupes A et B : nacelles élévatrices ciseaux, plateformes sur mât, nacelles élévatrices à bras articulé ou télescopique. Formation SECURIFORM, certificat valable 5 ans.",
     images: ["/image/caces-R486B.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Formation CACES® R486B Catégorie A - SECURIFORM",
-    description: "Conduite en sécurité des nacelles élévatrices à élévation verticale, avec SECURIFORM.",
+    title: "Formation CACES® R486B - SECURIFORM",
+    description: "Conduite en sécurité des nacelles élévatrices, groupes A et B, avec SECURIFORM.",
     images: ["/image/caces-R486B.webp"],
   },
 };
@@ -79,7 +79,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Formation CACES R486B Catégorie A" style={{ backgroundImage: "url('/image/caces-R486B.webp')" }}>
+<section className="page-hero" aria-label="Formation CACES R486B" style={{ backgroundImage: "url('/image/caces-R486B.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -88,8 +88,8 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>CACES R486B</span>
         </p>
-        <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R486B Catégorie A Nacelles élévatrices</span></h1>
-        <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnes (PEMP) à élévation verticale&nbsp;: nacelles à ciseaux et plateformes sur mât.</p>
+        <h1>Formation à la conduite en sécurité ou CACES® <span className="page-hero-engin">R486B Nacelles élévatrices</span></h1>
+        <p>Formez-vous à la conduite en sécurité des plateformes élévatrices mobiles de personnel (PEMP)&nbsp;: nacelles élévatrices ciseaux, plateformes sur mât, nacelles élévatrices à bras articulé ou télescopique.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -101,9 +101,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Qu'est-ce que la catégorie A du CACES R486B&nbsp;?</h2>
+        <h2 id="titre-intro">Qu'est-ce que la recommandation R486B&nbsp;?</h2>
         <hr className="trait" />
-        <p>La recommandation CNAM R486B encadre la conduite des plateformes élévatrices mobiles de personnes (PEMP), plus couramment appelées nacelles. Elle distingue deux grandes catégories selon le mode d'élévation&nbsp;: la catégorie A regroupe les PEMP à élévation verticale, où la plateforme se déplace uniquement vers le haut ou le bas, sans mouvement horizontal complexe une fois en hauteur. C'est cette catégorie que prépare SECURIFORM.</p>
+        <p>La recommandation R486B encadre la conduite des plateformes élévatrices mobiles de personnel (PEMP), plus couramment appelées nacelles élévatrices. Elle distingue deux grands groupes selon le mode d'élévation&nbsp;: le groupe A comprend les PEMP à élévation verticale (nacelles élévatrices ciseaux, plateformes sur mât vertical), où la plateforme se déplace uniquement vers le haut ou le bas, sans mouvement horizontal complexe une fois en hauteur&nbsp;; le groupe B comprend les PEMP à élévation multidirectionnelle (nacelles élévatrices à bras articulé ou télescopique), qui permettent des déplacements combinés une fois la plateforme élevée.</p>
       </div>
     </section>
 
@@ -115,34 +115,63 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Catégorie A ou catégorie B&nbsp;?</h2>
+          <h2 id="titre-categories">Les différentes catégories de PEMP</h2>
           <hr className="trait" />
-          <p>Un repère simple pour situer la catégorie A par rapport à l'autre grande famille de nacelles.</p>
+          <p>Chaque catégorie combine un groupe et un type&nbsp;: la lettre indique le mode d'élévation, le chiffre le mode de déplacement.</p>
         </div>
         <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
+          <table className="tableau-pemp">
+            <caption className="pemp-legende">Catégories de PEMP selon la recommandation R486</caption>
             <thead>
               <tr>
-                <th scope="col">Catégorie</th>
-                <th scope="col">Type d'élévation</th>
-                <th scope="col">Exemples d'équipements</th>
+                <td className="pemp-coin"></td>
+                <th scope="col">
+                  Groupe A
+                  <span>Élévation verticale</span>
+                </th>
+                <th scope="col">
+                  Groupe B
+                  <span>Élévation multidirectionnelle</span>
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>A</td>
-                <td>Élévation verticale, déplacement limité une fois en hauteur</td>
-                <td>Nacelles à ciseaux, plateformes sur mât vertical</td>
+                <th scope="row">
+                  Type 1
+                  <span>Déplacement en position de transport, avec stabilisateurs</span>
+                </th>
+                <td>
+                  <span className="pemp-code">1A</span>
+                  <span className="pemp-texte">Élévation verticale avec stabilisateurs</span>
+                  <span className="pemp-exemple">Ex.&nbsp;: plateforme sur mât vertical</span>
+                </td>
+                <td>
+                  <span className="pemp-code">1B</span>
+                  <span className="pemp-texte">Élévation multidirectionnelle avec stabilisateurs</span>
+                  <span className="pemp-exemple">Ex.&nbsp;: nacelle élévatrice sur porteur</span>
+                </td>
               </tr>
               <tr>
-                <td>B</td>
-                <td>Élévation multidirectionnelle, déplacements combinés possibles en hauteur</td>
-                <td>Nacelles à bras articulé ou télescopique</td>
+                <th scope="row">
+                  Type 3
+                  <span>Déplacement plateforme élevée, sans stabilisateurs</span>
+                </th>
+                <td>
+                  <span className="pemp-code">3A</span>
+                  <span className="pemp-texte">Élévation verticale sans stabilisateurs</span>
+                  <span className="pemp-exemple">Ex.&nbsp;: nacelle élévatrice ciseaux automotrice</span>
+                </td>
+                <td>
+                  <span className="pemp-code">3B</span>
+                  <span className="pemp-texte">Élévation multidirectionnelle sans stabilisateurs</span>
+                  <span className="pemp-exemple">Ex.&nbsp;: nacelle élévatrice à bras articulé ou télescopique automotrice</span>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>SECURIFORM est spécialisé sur la catégorie A. Pour un besoin en catégorie B, nous consulter.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>SECURIFORM forme aux différents types de nacelles élévatrices.</p>
       </div>
     </section>
 
@@ -155,16 +184,16 @@ export default function Page() {
         <div className="presentation-txt reveal">
           <span className="surtitre">Ce que couvre la formation</span>
           <h2 id="titre-programme">Un programme théorique et pratique complet</h2>
-          <p>La partie théorique aborde la réglementation applicable (recommandation R486B de la CNAM), la technologie de la nacelle (vérins, stabilisateurs, dispositifs anti-écrasement), le port du harnais et de la longe, les zones à risque et les vérifications d'usage avant chaque utilisation.</p>
-          <p>La partie pratique se déroule sur une nacelle réelle&nbsp;: mise en station, élévation et utilisation en hauteur, gestion des situations d'urgence (procédure de secours en cas de blocage), puis redescente et rangement en sécurité.</p>
+          <p>La partie théorique aborde la réglementation applicable (recommandation R486B de la CNAM), la technologie de la nacelle élévatrice (vérins, stabilisateurs, dispositifs anti-écrasement), les zones à risque et les vérifications d'usage avant chaque utilisation.</p>
+          <p>La partie pratique se déroule sur une nacelle élévatrice réelle&nbsp;: mise en station, élévation et utilisation en hauteur, gestion des situations d'urgence (procédure de secours en cas de blocage), puis redescente et rangement en sécurité, fin de poste et maintenance.</p>
         </div>
-        <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
-          <h3>Répartition type</h3>
+        <aside className="presentation-visuel reveal" aria-label="Déroulement type de la formation">
+          <h3>Déroulement type</h3>
           <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Théorie&nbsp;: réglementation, technologie, EPI antichute</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Pratique&nbsp;: mise en œuvre complète sur nacelle réelle</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Procédure de secours en cas de blocage en hauteur</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Test final par un organisme testeur certifié INRS</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 30 à 50&nbsp;% de théorie en salle</li>
+            <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique</li>
           </ul>
         </aside>
       </div>
@@ -178,18 +207,18 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">La bonne méthode</span>
-          <h2 id="titre-etapes">Utiliser une nacelle en 4 temps</h2>
+          <h2 id="titre-etapes">Utiliser une nacelle élévatrice en 4 temps</h2>
           <hr className="trait" />
           <p>Un enchaînement systématique, quelle que soit la durée de l'intervention.</p>
         </div>
         <div className="etapes">
           <div className="etape reveal">
             <h3>Vérifier</h3>
-            <p>Contrôler l'état de la nacelle, des commandes et du sol avant toute mise en service.</p>
+            <p>Contrôler l'état de la nacelle élévatrice, des commandes et du sol avant toute mise en service.</p>
           </div>
           <div className="etape reveal">
             <h3>Mettre en station</h3>
-            <p>Positionner et stabiliser la nacelle, harnais et longe attachés dès la montée sur la plateforme.</p>
+            <p>Positionner et stabiliser la nacelle élévatrice, harnais et longe attachés dès la montée sur la plateforme.</p>
           </div>
           <div className="etape reveal">
             <h3>Travailler en hauteur</h3>
@@ -197,7 +226,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Redescendre</h3>
-            <p>Ramener la plateforme au sol, couper l'alimentation et ranger la nacelle en sécurité.</p>
+            <p>Ramener la plateforme au sol, couper l'alimentation et ranger la nacelle élévatrice en sécurité.</p>
           </div>
         </div>
       </div>
@@ -248,9 +277,9 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Durée et validité</h2>
+          <h2 id="titre-durees">Une durée sur-mesure</h2>
           <hr className="trait" />
-          <p>À titre indicatif&nbsp;; la durée exacte dépend de votre expérience et du type de nacelle utilisé.</p>
+          <p>À titre indicatif, la durée exacte dépend de votre expérience et du type de nacelle élévatrice utilisé.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -262,21 +291,25 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Formation initiale débutant</td>
+                <td>Formation initiale débutant : une catégorie</td>
+                <td>2 à 3 jours</td>
+              </tr>
+              <tr>
+                <td>Formation initiale débutant : plusieurs catégories</td>
+                <td>3 à 5 jours</td>
+              </tr>
+              <tr>
+                <td>Expérimenté</td>
                 <td>1 à 2 jours</td>
               </tr>
               <tr>
-                <td>Expérimenté (pratique déjà acquise)</td>
-                <td>1 jour</td>
-              </tr>
-              <tr>
-                <td>Recyclage avant expiration</td>
+                <td>Recyclage</td>
                 <td>1 jour</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le certificat CACES R486B Catégorie A est valable 5 ans à compter de son obtention.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation ou le CACES® R486B est valable 5 ans à compter de sa validation.</p>
       </div>
     </section>
 
@@ -287,7 +320,7 @@ export default function Page() {
           <span className="surtitre">Comparer</span>
           <h2 id="titre-comparateur">Les autres CACES® en un coup d'œil</h2>
           <hr className="trait" />
-          <p>Engins concernés, durée de formation et validité&nbsp;: comparez le CACES® R486B avec les autres recommandations préparées par SECURIFORM.</p>
+          <p>Engins concernés, durée de formation et validité.</p>
         </div>
         <div className="reveal">
           <ComparateurCaces actuel="R486B" />
@@ -309,28 +342,28 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Quelle est la différence entre la catégorie A et la catégorie B&nbsp;?</summary>
-            <p>La catégorie A concerne les nacelles à élévation verticale (ciseaux, mât), où le déplacement en hauteur est limité. La catégorie B couvre les nacelles à bras articulé ou télescopique, permettant des mouvements combinés une fois la plateforme élevée.</p>
+            <summary>Quelle est la différence entre le groupe A et le groupe B&nbsp;?</summary>
+            <p>Le groupe A concerne les nacelles élévatrices à élévation verticale (ciseaux, mât), où le déplacement en hauteur est limité. Le groupe B couvre les nacelles élévatrices à bras articulé ou télescopique, permettant des mouvements combinés une fois la plateforme élevée.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Le port du harnais est-il obligatoire sur une nacelle&nbsp;?</summary>
+            <summary>Le port du harnais est-il obligatoire sur une nacelle élévatrice&nbsp;?</summary>
             <p>Oui, le port du harnais avec longe, attaché à un point d'ancrage dédié de la plateforme, fait partie des règles de sécurité de base enseignées dès le début de la formation.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Que faire en cas de blocage de la nacelle en hauteur&nbsp;?</summary>
+            <summary>Que faire en cas de blocage de la nacelle élévatrice en hauteur&nbsp;?</summary>
             <p>La formation intègre une sensibilisation aux procédures de secours&nbsp;: commandes de secours au sol, contact avec les personnes formées à leur utilisation, et consignes à respecter en attendant le dépannage.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R486B Catégorie A&nbsp;?</summary>
-            <p>Le certificat est valable 5 ans. Un recyclage est recommandé avant son expiration pour actualiser les connaissances et prolonger la validité.</p>
+            <summary>Quelle est la durée de validité de la formation ou du CACES R486B&nbsp;?</summary>
+            <p>La formation ou le CACES® est valable 5 ans.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Et si mon activité concerne une autre catégorie CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs), R489A (chariots de manutention) et R490A (grues auxiliaires)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
+            <p>SECURIFORM prépare également à la formation à la conduite en sécurité et aux CACES R482B (engins de chantier), R484A (ponts roulants), R485A (gerbeurs à conducteur accompagnant), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
@@ -379,10 +412,12 @@ export default function Page() {
               <input type="email" id="email" name="email" required />
             </div>
             <div className="champ">
-              <label htmlFor="type">Type de nacelle</label>
+              <label htmlFor="type">Type de nacelle élévatrice</label>
               <select id="type" name="type">
-                <option value="ciseaux">Nacelle à ciseaux</option>
-                <option value="mat">Plateforme sur mât vertical</option>
+                <option value="1A">1A : Élévation verticale avec stabilisateurs</option>
+                <option value="1B">1B : Élévation multidirectionnelle avec stabilisateurs</option>
+                <option value="3A">3A : Élévation verticale sans stabilisateurs</option>
+                <option value="3B">3B : Élévation multidirectionnelle sans stabilisateurs</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>

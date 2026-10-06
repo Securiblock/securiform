@@ -189,7 +189,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Pourquoi les ponts roulants ont-ils une périodicité de 12 mois et non 6&nbsp;?</summary>
-            <p>Cette périodicité est fixée par la réglementation selon le type d'équipement&nbsp;: les ponts roulants relèvent des équipements de levage de charges classiques, contrairement aux nacelles ou grues auxiliaires qui impliquent des risques différents justifiant un contrôle semestriel.</p>
+            <p>Cette périodicité est fixée par la réglementation selon le type d'équipement&nbsp;: les ponts roulants relèvent des équipements de levage de charges classiques, contrairement aux nacelles élévatrices ou grues auxiliaires qui impliquent des risques différents justifiant un contrôle semestriel.</p>
           </details>
 
           <details className="faq-item">
