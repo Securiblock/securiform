@@ -112,7 +112,7 @@ export default function Page() {
               <img src="/image/formation-aipr-operateur.webp" alt="Formation AIPR Opérateur" loading="lazy" />
             </div>
             <h3>Opérateur</h3>
-            <p>Pour les conducteurs d'engins, opérateurs de nacelles et grues, canalisateurs et ouvriers réalisant des fouilles à proximité des réseaux.</p>
+            <p>Pour les conducteurs d'engins, opérateurs de nacelles élévatrices et grues, canalisateurs et ouvriers réalisant des fouilles à proximité des réseaux.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/aipr-operateurs" aria-label="Formation opérateurs AIPR" />
           </article>

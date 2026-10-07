@@ -4,11 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import BarreActionsMobile from "./barre-actions-mobile";
+import MegaMenu from "./mega-menu";
 import PhoneIcon from "./phone-icon";
-import { isNavItemActive, navItems } from "@/lib/nav";
+import RechercheSite from "./recherche-site";
+import { isNavItemActive, megaMenus, navItems } from "@/lib/nav";
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  // Onglet dont le méga menu est ouvert (un seul à la fois).
+  const [megaOuvert, setMegaOuvert] = useState<string | null>(null);
+  const definirMega = (href: string, ouvert: boolean) =>
+    setMegaOuvert((actuel) => (ouvert ? href : actuel === href ? null : actuel));
   const pathname = usePathname();
 
   if (pathname?.startsWith("/admin")) return null;
@@ -60,7 +67,18 @@ export default function SiteHeader() {
           >
             <ul>
               {navItems.map((item) =>
-                "external" in item && item.external ? (
+                megaMenus[item.href] ? (
+                  <MegaMenu
+                    key={item.href}
+                    libelle={item.label}
+                    href={item.href}
+                    contenu={megaMenus[item.href]}
+                    actif={isNavItemActive(item.href, pathname)}
+                    ouvert={megaOuvert === item.href}
+                    definirOuvert={(ouvert) => definirMega(item.href, ouvert)}
+                    onNaviguer={() => setOpen(false)}
+                  />
+                ) : "external" in item && item.external ? (
                   <li key={item.href}>
                     <a
                       href={item.href}
@@ -90,8 +108,10 @@ export default function SiteHeader() {
               )}
             </ul>
           </nav>
+          <RechercheSite />
         </div>
       </header>
+      <BarreActionsMobile />
     </>
   );
 }

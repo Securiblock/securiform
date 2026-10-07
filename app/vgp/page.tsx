@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/vgp",
     title: "Vérifications Générales Périodiques (VGP) - SECURIFORM",
-    description: "Chariots élévateurs, nacelles, grues auxiliaires, ponts roulants : SECURIFORM réalise vos VGP dans les Hauts-de-France.",
+    description: "Chariots élévateurs, nacelles élévatrices, grues auxiliaires, ponts roulants : SECURIFORM réalise vos VGP dans les Hauts-de-France.",
     images: ["/image/vgp-chariots-elevateurs.webp"],
   },
   twitter: {

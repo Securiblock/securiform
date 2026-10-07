@@ -120,7 +120,7 @@ export default function Page() {
           <span className="surtitre">Qui est concerné</span>
           <h2 id="titre-equipements">Les équipements soumis à la VGP</h2>
           <hr className="trait" />
-          <p>Nacelles automotrices, nacelles montées sur camion ou nacelles à mât vertical&nbsp;: toutes doivent être vérifiées selon une fréquence stricte de deux fois par an, conformément à l'arrêté du 1er mars 2004.</p>
+          <p>Nacelles élévatrices automotrices, nacelles élévatrices montées sur camion ou nacelles élévatrices à mât vertical&nbsp;: toutes doivent être vérifiées selon une fréquence stricte de deux fois par an, conformément à l'arrêté du 1er mars 2004.</p>
         </div>
       </div>
     </section>
@@ -197,7 +197,7 @@ export default function Page() {
         <span className="surtitre">Qui est responsable</span>
         <h2 id="titre-responsabilites">Responsabilités et conformité</h2>
         <hr className="trait" />
-        <p>Utilisateurs et fabricants sont conjointement responsables du respect des normes de sécurité. L'utilisation d'une nacelle non conforme peut entraîner des sanctions financières et juridiques, en particulier en cas d'accident. La conformité à la directive européenne « Machines » 2006/42/CE est obligatoire pour toute mise en service.</p>
+        <p>Utilisateurs et fabricants sont conjointement responsables du respect des normes de sécurité. L'utilisation d'une nacelle élévatrice non conforme peut entraîner des sanctions financières et juridiques, en particulier en cas d'accident. La conformité à la directive européenne « Machines » 2006/42/CE est obligatoire pour toute mise en service.</p>
       </div>
     </section>
 
@@ -215,12 +215,12 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Toutes les nacelles sont-elles concernées de la même façon&nbsp;?</summary>
+            <summary>Toutes les nacelles élévatrices sont-elles concernées de la même façon&nbsp;?</summary>
             <p>Oui, qu'elles soient automotrices, montées sur camion ou à mât vertical, toutes les nacelles élévatrices relèvent de la même obligation de vérification tous les 6 mois.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Peut-on espacer la VGP au-delà de 6 mois si la nacelle est peu utilisée&nbsp;?</summary>
+            <summary>Peut-on espacer la VGP au-delà de 6 mois si la nacelle élévatrice est peu utilisée&nbsp;?</summary>
             <p>Non, 6 mois est un maximum réglementaire. En revanche, une utilisation intensive ou des conditions particulières peuvent justifier un contrôle plus fréquent.</p>
           </details>
 
@@ -230,7 +230,7 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Faut-il aussi former les opérateurs qui utilisent ces nacelles&nbsp;?</summary>
+            <summary>Faut-il aussi former les opérateurs qui utilisent ces nacelles élévatrices&nbsp;?</summary>
             <p>Oui, la conduite d'une nacelle élévatrice relève du CACES R486B, complémentaire à la VGP&nbsp;: la VGP contrôle l'état de l'équipement, le CACES certifie la compétence de l'opérateur.</p>
           </details>
 
@@ -277,7 +277,7 @@ export default function Page() {
               <input type="email" id="email" name="email" required />
             </div>
             <div className="champ champ-pleine-largeur">
-              <label htmlFor="nombre">Nombre de nacelles à vérifier</label>
+              <label htmlFor="nombre">Nombre de nacelles élévatrices à vérifier</label>
               <input type="number" id="nombre" name="nombre" min="1" />
             </div>
             <div className="champ champ-pleine-largeur">
@@ -331,7 +331,7 @@ export default function Page() {
           <div>
             <span className="surtitre" style={{ "color": "#FF8A8A" }}>Formation</span>
             <h2 id="titre-formations">Vos opérateurs sont-ils certifiés&nbsp;?</h2>
-            <p>La VGP contrôle l'état de vos nacelles&nbsp;; le CACES R486B certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
+            <p>La VGP contrôle l'état de vos nacelles élévatrices&nbsp;; le CACES R486B certifie la compétence de vos opérateurs. Les deux sont complémentaires et souvent nécessaires ensemble.</p>
             <Link className="btn btn-blanc" href="/caces-R486B">Découvrir le CACES R486B</Link>
           </div>
           <nav className="vgp-liste" aria-label="Autres équipements VGP">

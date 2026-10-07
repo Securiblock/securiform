@@ -14,7 +14,7 @@ export const FORMATIONS = {
   "caces-R489A": {
     page: "caces-R489A",
     titre: "CACES® R489A : Chariots de manutention",
-    description: "Catégories 1 à 6 : transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
+    description: "Catégories 1A à 7 : transpalettes, gerbeurs, chariots en porte-à-faux et à mât rétractable. Certificat valable 5 ans.",
     caces: true,
     recyclage: true,
   },
@@ -27,22 +27,22 @@ export const FORMATIONS = {
   },
   "caces-R486B": {
     page: "caces-R486B",
-    titre: "CACES® R486B Catégorie A : Nacelles élévatrices",
-    description: "PEMP à élévation verticale : nacelles à ciseaux et plateformes sur mât. Certificat valable 5 ans.",
+    titre: "CACES® R486B : Nacelles élévatrices",
+    description: "PEMP groupes A et B : nacelles élévatrices ciseaux, plateformes sur mât, nacelles élévatrices à bras articulé ou télescopique. Certificat valable 5 ans.",
     caces: true,
     recyclage: true,
   },
   "caces-R490A": {
     page: "caces-R490A",
     titre: "CACES® R490A : Grues auxiliaires de chargement",
-    description: "Grues auxiliaires de chargement, options télécommande et treuil. Certificat valable 5 ans.",
+    description: "Grues auxiliaires de chargement, option télécommande. Certificat valable 5 ans.",
     caces: true,
     recyclage: true,
   },
   "caces-R484A": {
     page: "caces-R484A",
     titre: "CACES® R484A : Ponts roulants et portiques",
-    description: "Commande au sol ou en cabine, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
+    description: "Commande au sol, techniques d'élingage, calcul de charge. Certificat valable 5 ans.",
     caces: true,
     recyclage: true,
   },
@@ -184,13 +184,13 @@ export const DOMAINES: Domaine[] = [
   {
     id: "engins",
     libelle: "Conduite d'engins et matériel de levage",
-    precision: "Chariots, nacelles, grues, ponts roulants, engins de chantier",
+    precision: "Chariots, nacelles élévatrices, grues, ponts roulants, engins de chantier",
     question: {
       intitule: "Quel matériel vos salariés utilisent-ils ?",
       choix: [
         { libelle: "Chariot élévateur, transpalette ou gerbeur à conducteur porté", formation: "caces-R489A" },
         { libelle: "Gerbeur à conducteur accompagnant", precision: "Le conducteur marche à côté de l'engin", formation: "caces-R485A" },
-        { libelle: "Nacelle élévatrice à élévation verticale", precision: "Nacelle à ciseaux, plateforme sur mât", formation: "caces-R486B" },
+        { libelle: "Nacelle élévatrice (PEMP)", precision: "Ciseaux, mât, bras articulé ou télescopique", formation: "caces-R486B" },
         { libelle: "Grue auxiliaire de chargement", precision: "Grue montée sur camion", formation: "caces-R490A" },
         { libelle: "Pont roulant ou portique", formation: "caces-R484A" },
         { libelle: "Engin de chantier", precision: "Pelle, chargeuse, bouteur, compacteur, tombereau…", formation: "caces-R482B" },

@@ -71,7 +71,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="L'entreprise SECURIFORM">
+<section className="page-hero" aria-label="L'entreprise SECURIFORM" style={{ backgroundImage: "url('/image/lentreprise-salle-formation.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>

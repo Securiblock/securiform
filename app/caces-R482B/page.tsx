@@ -115,7 +115,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-categories">Les catégories du CACES R482B</h2>
+          <h2 id="titre-categories">Les catégories de la recommandation R482B</h2>
           <hr className="trait" />
           <p>Chaque catégorie correspond à une famille d'engins et à un mode de déplacement précis.</p>
         </div>
@@ -210,13 +210,13 @@ export default function Page() {
           <p>La partie théorique aborde la réglementation applicable, la technologie des engins (moteur, hydraulique, transmission, dispositifs de sécurité ROPS/FOPS), les catégories CACES, les règles de circulation, les risques du métier et les vérifications d'usage.</p>
           <p>La partie pratique se déroule directement sur les engins&nbsp;: prise de poste, conduite et manœuvres spécifiques à chaque catégorie (fouille pour les pelles, levage pour les chargeuses, nivellement pour les bouteurs, tassement pour les compacteurs…), puis fin de poste et maintenance quotidienne.</p>
         </div>
-        <aside className="presentation-visuel reveal" aria-label="Répartition théorie/pratique">
-          <h3>Répartition type</h3>
+        <aside className="presentation-visuel reveal" aria-label="Déroulement type de la formation">
+          <h3>Déroulement type</h3>
           <ul className="valeurs">
             <li><span className="puce" aria-hidden="true">✓</span> 30 à 50&nbsp;% de théorie en salle</li>
             <li><span className="puce" aria-hidden="true">✓</span> 50 à 70&nbsp;% de pratique sur engins</li>
             <li><span className="puce" aria-hidden="true">✓</span> Évaluations progressives tout au long du stage</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique par un organisme testeur certifié INRS</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Test théorique et pratique</li>
           </ul>
         </aside>
       </div>
@@ -266,6 +266,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La formation ou le CACES® R482B est valable 10 ans à compter de sa validation.</p>
       </div>
     </section>
 
@@ -378,7 +379,7 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Comment savoir quelle catégorie choisir pour mon engin&nbsp;?</summary>
+            <summary>À quelle catégorie appartient mon engin de chantier&nbsp;?</summary>
             <p>Cela dépend du type d'engin, de sa masse et de son usage. Une pelle hydraulique de moins de 6 tonnes relève de la catégorie A, une pelle plus lourde de la catégorie B1, par exemple.</p>
           </details>
 
@@ -388,7 +389,7 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité du CACES R482B&nbsp;?</summary>
+            <summary>Quelle est la durée de validité de la formation ou du CACES R482B&nbsp;?</summary>
             <p>La formation ou le CACES® est valable 10 ans.</p>
           </details>
 
@@ -399,7 +400,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si je suis concerné par une autre catégorie d'engins pour la formation à la conduite en sécurité et CACES®&nbsp;?</summary>
-            <p>SECURIFORM prépare également aux CACES R484A (ponts roulants), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
+            <p>SECURIFORM prépare également à la formation à la conduite en sécurité et aux CACES R484A (ponts roulants), R485A (gerbeurs à conducteur accompagnant), R486B (nacelles élévatrices), R489A (chariots) et R490A (grues de chargement)&nbsp;: retrouvez le détail sur notre page Conduite en sécurité et CACES®.</p>
           </details>
 
         </div>
