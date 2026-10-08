@@ -1223,6 +1223,18 @@ a.comparateur-lien::after{content:"→";display:inline-block;margin-left:.3em;tr
 .mega-description{font-size:14px;line-height:1.5;color:var(--gris);margin:-.2rem 0 .5rem}
 .nav .mega p.mega-titre{color:var(--rouge)}
 
+/* Colonnes sans sous-liens (méga menu Outils) : toute la carte est cliquable,
+   comme .categorie-card ailleurs sur le site — même pattern de lien-overlay. */
+.mega-domaine-carte{
+  position:relative;padding:1.1rem 1.2rem;border-radius:10px;
+  border:1px solid #ECECEF;transition:var(--transition);
+}
+.mega-domaine-carte .mega-titre,
+.mega-domaine-carte.mega-domaine p.mega-titre{color:var(--noir)}
+.mega-domaine-carte:hover{border-color:var(--rouge);background:var(--rouge-pale)}
+.mega-domaine-carte:hover .mega-titre{color:var(--rouge)}
+.mega-domaine-carte > a.card-cover{position:absolute;inset:0;z-index:1}
+
 /* ===================== RECHERCHE DU SITE ===================== */
 .header-inner > .nav{margin-left:auto}
 .recherche-declencheur{

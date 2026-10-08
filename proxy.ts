@@ -13,6 +13,36 @@ export const config = {
 const SESSION_COOKIE = "admin_session";
 const SESSION_MAX_AGE = 60 * 60 * 8; // 8h — a fresh browser session re-notifies
 
+// Brute-force guard on the admin password: counts failed Basic Auth attempts
+// per IP, same in-memory pattern as the chat API's rate limiter (per server
+// instance, not a hard global quota — enough to stop a password-guessing
+// script, not a distributed attack).
+const MAX_FAILED_ATTEMPTS = 10;
+const FAILED_ATTEMPTS_WINDOW_MS = 10 * 60 * 1000;
+const failedAttempts = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (failedAttempts.get(ip) ?? []).filter(
+    (t) => now - t < FAILED_ATTEMPTS_WINDOW_MS
+  );
+  if (timestamps.length >= MAX_FAILED_ATTEMPTS) {
+    failedAttempts.set(ip, timestamps);
+    return true;
+  }
+  if (failedAttempts.size > 5000) failedAttempts.clear();
+  return false;
+}
+
+function recordFailedAttempt(ip: string): void {
+  const now = Date.now();
+  const timestamps = (failedAttempts.get(ip) ?? []).filter(
+    (t) => now - t < FAILED_ATTEMPTS_WINDOW_MS
+  );
+  timestamps.push(now);
+  failedAttempts.set(ip, timestamps);
+}
+
 function safeEqual(a: string, b: string): boolean {
   const bufA = Buffer.from(a);
   const bufB = Buffer.from(b);
@@ -63,6 +93,13 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
     });
   }
 
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "inconnue";
+  if (isRateLimited(ip)) {
+    return new NextResponse("Trop de tentatives. Réessayez dans quelques minutes.", {
+      status: 429,
+    });
+  }
+
   const authHeader = request.headers.get("authorization");
   if (authHeader?.startsWith("Basic ")) {
     const decoded = Buffer.from(authHeader.slice(6), "base64").toString("utf8");
@@ -87,6 +124,7 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
       }
       return response;
     }
+    recordFailedAttempt(ip);
   }
 
   return new NextResponse("Authentification requise.", {

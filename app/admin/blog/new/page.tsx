@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import type { TopicTone } from "@/lib/blog/types";
 import type { Category } from "@/lib/blog/categories";
+import { Button, PageHeader } from "../ui";
 
 const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 const LENGTHS = [500, 800, 1000, 1500, 2000];
@@ -56,12 +56,12 @@ export default function NewTopicPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <Link href="/admin/blog" className="mb-6 inline-block text-sm text-slate-500 hover:text-slate-900">
-        ← Retour à la liste
-      </Link>
-      <h1 className="mb-8 text-2xl font-bold">Nouveau sujet</h1>
+      <PageHeader back={{ href: "/admin/blog", label: "Retour à la liste" }} title="Nouveau sujet" />
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+      >
         <div>
           <label className="mb-1 block text-sm font-semibold">Titre du sujet</label>
           <input
@@ -154,13 +154,9 @@ export default function NewTopicPage() {
 
         {error && <p className="text-sm text-red-600">{error}</p>}
 
-        <button
-          type="submit"
-          disabled={submitting}
-          className="rounded-lg bg-red-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
-        >
+        <Button type="submit" disabled={submitting}>
           {submitting ? "Création..." : "Créer le sujet"}
-        </button>
+        </Button>
       </form>
     </div>
   );

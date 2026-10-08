@@ -116,29 +116,45 @@ export default function MegaMenu({ libelle, href, contenu, actif, ouvert, defini
       <div id={idPanneau} className="mega-panneau" hidden={!ouvert}>
         <div className="container mega-contenu">
           <div className="mega-domaines">
-            {colonnes.map((colonne) => (
-              <div key={colonne.titre} className="mega-domaine">
-                {colonne.href ? (
-                  <Link className="mega-titre" href={colonne.href} onClick={naviguer}>
-                    {colonne.titre}
-                  </Link>
-                ) : (
-                  <p className="mega-titre">{colonne.titre}</p>
-                )}
-                {colonne.description && <p className="mega-description">{colonne.description}</p>}
-                {colonne.liens.length > 0 && (
-                  <ul className="mega-liste">
-                    {colonne.liens.map((lien) => (
-                      <li key={lien.href}>
-                        <Link href={lien.href} onClick={naviguer}>
-                          {lien.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
+            {colonnes.map((colonne) => {
+              // Pas de sous-liens : toute la carte devient cliquable (comme .categorie-card
+              // ailleurs sur le site) plutôt que de ne rendre que le titre cliquable.
+              const carteCliquable = Boolean(colonne.href) && colonne.liens.length === 0;
+              return (
+                <div
+                  key={colonne.titre}
+                  className={carteCliquable ? "mega-domaine mega-domaine-carte" : "mega-domaine"}
+                >
+                  {carteCliquable || !colonne.href ? (
+                    <p className="mega-titre">{colonne.titre}</p>
+                  ) : (
+                    <Link className="mega-titre" href={colonne.href} onClick={naviguer}>
+                      {colonne.titre}
+                    </Link>
+                  )}
+                  {colonne.description && <p className="mega-description">{colonne.description}</p>}
+                  {colonne.liens.length > 0 && (
+                    <ul className="mega-liste">
+                      {colonne.liens.map((lien) => (
+                        <li key={lien.href}>
+                          <Link href={lien.href} onClick={naviguer}>
+                            {lien.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {carteCliquable && (
+                    <Link
+                      className="card-cover"
+                      href={colonne.href!}
+                      onClick={naviguer}
+                      aria-label={colonne.titre}
+                    />
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           <aside className="mega-aside">

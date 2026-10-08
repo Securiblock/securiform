@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getTopic } from "@/lib/blog/topics";
 import StatusBadge from "../status-badge";
+import { Card, PageHeader } from "../ui";
 import GenerateAction from "./generate-action";
 
 type Params = { params: Promise<{ id: string }> };
@@ -13,71 +13,70 @@ export default async function TopicDetailPage({ params }: Params) {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <Link href="/admin/blog" className="mb-6 inline-block text-sm text-slate-500 hover:text-slate-900">
-        ← Retour à la liste
-      </Link>
-
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold">{topic.title}</h1>
-          {topic.status === "published" && topic.slug && (
+      <PageHeader
+        back={{ href: "/admin/blog", label: "Retour à la liste" }}
+        title={topic.title}
+        subtitle={
+          topic.status === "published" && topic.slug ? (
             <a
               href={`/blog/${topic.slug}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-block text-sm font-medium text-red-600 hover:underline"
+              className="font-medium text-red-600 hover:underline"
             >
               🔗 Voir l&apos;article publié
             </a>
-          )}
-        </div>
-        <StatusBadge status={topic.status} />
-      </div>
+          ) : undefined
+        }
+        actions={<StatusBadge status={topic.status} />}
+      />
 
-      <dl className="mb-8 space-y-4 rounded-xl border border-slate-200 bg-white p-6 text-sm">
-        <div>
-          <dt className="font-semibold text-slate-500">Description</dt>
-          <dd className="mt-1">{topic.description}</dd>
-        </div>
-        <div>
-          <dt className="font-semibold text-slate-500">Mots-clés</dt>
-          <dd className="mt-1">
-            {topic.keywords.length ? topic.keywords.join(", ") : "—"}
-          </dd>
-        </div>
-        <div>
-          <dt className="font-semibold text-slate-500">Catégorie</dt>
-          <dd className="mt-1">{topic.category || "—"}</dd>
-        </div>
-        <div className="flex gap-10">
+      <Card className="mb-8 p-6">
+        <dl className="space-y-4 text-sm">
           <div>
-            <dt className="font-semibold text-slate-500">Ton</dt>
-            <dd className="mt-1 capitalize">{topic.tone}</dd>
+            <dt className="font-semibold text-slate-500">Description</dt>
+            <dd className="mt-1 text-slate-900">{topic.description}</dd>
           </div>
           <div>
-            <dt className="font-semibold text-slate-500">Longueur cible</dt>
-            <dd className="mt-1">{topic.targetLength} mots</dd>
+            <dt className="font-semibold text-slate-500">Mots-clés</dt>
+            <dd className="mt-1 text-slate-900">
+              {topic.keywords.length ? topic.keywords.join(", ") : "—"}
+            </dd>
           </div>
-        </div>
-        <div className="flex flex-wrap gap-x-10 gap-y-4">
           <div>
-            <dt className="font-semibold text-slate-500">Créé le</dt>
-            <dd className="mt-1">{new Date(topic.createdAt).toLocaleString("fr-FR")}</dd>
+            <dt className="font-semibold text-slate-500">Catégorie</dt>
+            <dd className="mt-1 text-slate-900">{topic.category || "—"}</dd>
           </div>
-          {topic.generatedAt && (
+          <div className="flex gap-10">
             <div>
-              <dt className="font-semibold text-slate-500">Généré le</dt>
-              <dd className="mt-1">{new Date(topic.generatedAt).toLocaleString("fr-FR")}</dd>
+              <dt className="font-semibold text-slate-500">Ton</dt>
+              <dd className="mt-1 capitalize text-slate-900">{topic.tone}</dd>
             </div>
-          )}
-          {topic.publishedAt && (
             <div>
-              <dt className="font-semibold text-slate-500">Publié le</dt>
-              <dd className="mt-1">{new Date(topic.publishedAt).toLocaleString("fr-FR")}</dd>
+              <dt className="font-semibold text-slate-500">Longueur cible</dt>
+              <dd className="mt-1 text-slate-900">{topic.targetLength} mots</dd>
             </div>
-          )}
-        </div>
-      </dl>
+          </div>
+          <div className="flex flex-wrap gap-x-10 gap-y-4 border-t border-slate-100 pt-4">
+            <div>
+              <dt className="font-semibold text-slate-500">Créé le</dt>
+              <dd className="mt-1 text-slate-900">{new Date(topic.createdAt).toLocaleString("fr-FR")}</dd>
+            </div>
+            {topic.generatedAt && (
+              <div>
+                <dt className="font-semibold text-slate-500">Généré le</dt>
+                <dd className="mt-1 text-slate-900">{new Date(topic.generatedAt).toLocaleString("fr-FR")}</dd>
+              </div>
+            )}
+            {topic.publishedAt && (
+              <div>
+                <dt className="font-semibold text-slate-500">Publié le</dt>
+                <dd className="mt-1 text-slate-900">{new Date(topic.publishedAt).toLocaleString("fr-FR")}</dd>
+              </div>
+            )}
+          </div>
+        </dl>
+      </Card>
 
       <GenerateAction topic={topic} />
     </div>
