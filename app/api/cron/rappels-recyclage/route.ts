@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { isAuthorizedCronRequest } from "@/lib/cron-auth";
 import { aujourdhuiEnFrance, marquerEnvoye, purgerRappelsEchus, rappelsAEnvoyer } from "@/lib/rappels";
 import { envoyerRappel, notifierEquipe } from "@/lib/rappels-email";
 
@@ -9,8 +10,7 @@ const ENVOIS_MAX_PAR_JOUR = 50;
 // as /api/cron/generate-article: Vercel sends `Authorization: Bearer $CRON_SECRET`,
 // and anything else is rejected (fails closed if CRON_SECRET is not set).
 export async function GET(request: Request) {
-  const authHeader = request.headers.get("authorization");
-  if (!process.env.CRON_SECRET || authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  if (!isAuthorizedCronRequest(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 

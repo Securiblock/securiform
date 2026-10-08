@@ -1,3 +1,5 @@
+import DOMPurify from "isomorphic-dompurify";
+import { marked } from "marked";
 import { Resend } from "resend";
 import { saveArticle } from "./articles";
 import { getCategories } from "./categories";
@@ -50,7 +52,7 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   await saveArticle(article);
   await updateTopic(topic.id, { status: "generated", generatedAt: now, slug: article.slug, category });
 
-  const emailSent = await sendReviewEmail(topic.id, article.title);
+  const emailSent = await sendReviewEmail(topic.id, article);
 
   return {
     generated: true,
@@ -61,21 +63,43 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   };
 }
 
-async function sendReviewEmail(topicId: string, title: string): Promise<boolean> {
+async function sendReviewEmail(topicId: string, article: Article): Promise<boolean> {
   if (!process.env.RESEND_API_KEY) {
     console.error("Génération auto : RESEND_API_KEY manquante, email non envoyé.");
     return false;
   }
 
   const editUrl = `${SITE_URL}/admin/blog/${topicId}/edit`;
+  const contentHtml = DOMPurify.sanitize(marked.parse(article.content, { async: false }) as string);
+
+  const html = `<!doctype html>
+<html lang="fr"><body style="margin:0;background:#F5F5F7;font-family:Arial,Helvetica,sans-serif;color:#1C1C1E">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:680px;background:#fff;border-radius:12px;overflow:hidden">
+<tr><td style="background:#CE2222;padding:20px 28px;color:#fff;font-size:20px;font-weight:bold;letter-spacing:1px">SECURIFORM — Blog</td></tr>
+<tr><td style="padding:28px">
+<p style="font-size:15px;line-height:1.6;margin:0 0 20px">Un nouvel article a été généré automatiquement. Relisez-le ci-dessous, ajustez si besoin, puis publiez-le.</p>
+<p style="margin:0 0 24px"><a href="${editUrl}" style="background:#CE2222;color:#fff;text-decoration:none;padding:12px 22px;border-radius:6px;font-weight:bold;display:inline-block">Ouvrir dans l'éditeur</a></p>
+<hr style="border:none;border-top:1px solid #ECECEF;margin:0 0 24px" />
+<h1 style="font-size:24px;margin:0 0 10px">${article.title}</h1>
+<p style="font-size:14px;color:#5B5B60;margin:0 0 24px">${article.metaDescription}</p>
+<div style="font-size:16px;line-height:1.7">${contentHtml}</div>
+</td></tr>
+<tr><td style="padding:16px 28px;border-top:1px solid #ECECEF;font-size:12px;color:#5B5B60">
+Relecture et publication : <a href="${editUrl}" style="color:#5B5B60">${editUrl}</a>
+</td></tr>
+</table></td></tr></table></body></html>`;
+
+  const text = `Un nouvel article de blog a été généré automatiquement.\n\nTitre : ${article.title}\n\n${article.metaDescription}\n\n${article.content}\n\nRelisez-le, ajustez si besoin, puis publiez-le ici :\n${editUrl}`;
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: `Blog SECURIFORM <${FROM_EMAIL}>`,
       to: TO_EMAIL,
-      subject: `Nouvel article généré : ${title}`,
-      text: `Un nouvel article de blog a été généré automatiquement.\n\nTitre : ${title}\n\nRelisez-le, ajustez si besoin, puis publiez-le ici :\n${editUrl}`,
+      subject: `Nouvel article généré : ${article.title}`,
+      html,
+      text,
     });
     if (error) throw new Error(error.message);
     return true;

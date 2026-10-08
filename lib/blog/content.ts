@@ -1,3 +1,4 @@
+import DOMPurify from "isomorphic-dompurify";
 import { marked } from "marked";
 import { sql } from "./db";
 import type { Article } from "./types";
@@ -68,6 +69,10 @@ export async function getPublishedArticles(): Promise<ArticleSummary[]> {
   }
 }
 
+// `content` is Gemini output, not direct visitor input — but it's rendered
+// via dangerouslySetInnerHTML to every site visitor, so it's sanitized before
+// that happens anyway (defense-in-depth against a stray <script> making it
+// through generation, e.g. via adversarial topic titles/descriptions).
 export async function getPublishedArticle(slug: string): Promise<PublishedArticle | undefined> {
   const rows = (await sql`
     SELECT * FROM published_articles WHERE slug = ${slug} AND published = true
@@ -83,7 +88,9 @@ export async function getPublishedArticle(slug: string): Promise<PublishedArticl
     readingTime: row.reading_time,
     image: row.image,
     category: row.category,
-    html: markKeyTakeawaysHeading(marked.parse(row.content, { async: false }) as string),
+    html: markKeyTakeawaysHeading(
+      DOMPurify.sanitize(marked.parse(row.content, { async: false }) as string)
+    ),
   };
 }
 

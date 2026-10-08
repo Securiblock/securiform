@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
 import type { Topic, TopicStatus, TopicTone } from "@/lib/blog/types";
 import StatusBadge from "./status-badge";
+import { Button, ButtonLink, Card, PageHeader, StatChip, useConfirm, useToast } from "./ui";
 
 type FilterValue = "all" | TopicStatus | "trash";
 
@@ -42,12 +42,12 @@ export default function BlogDashboard({
   const [categoryFilter, setCategoryFilter] = useState("");
   const [search, setSearch] = useState("");
   const [busyId, setBusyId] = useState<string | null>(null);
+  const [emptyTrashBusy, setEmptyTrashBusy] = useState(false);
   const [quickAddOpen, setQuickAddOpen] = useState(false);
   const [quickAddText, setQuickAddText] = useState("");
   const [quickAddBusy, setQuickAddBusy] = useState(false);
   const [quickAddError, setQuickAddError] = useState<string | null>(null);
   const [autoGenBusy, setAutoGenBusy] = useState(false);
-  const [autoGenMessage, setAutoGenMessage] = useState<string | null>(null);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
   const [categoryBusy, setCategoryBusy] = useState<string | null>(null);
@@ -58,9 +58,15 @@ export default function BlogDashboard({
   const [suggestBusy, setSuggestBusy] = useState(false);
   const [suggestError, setSuggestError] = useState<string | null>(null);
   const router = useRouter();
+  const confirm = useConfirm();
+  const toast = useToast();
 
   const pendingCount = useMemo(
     () => topics.filter((t) => t.status === "pending" && !t.deletedAt).length,
+    [topics]
+  );
+  const publishedCount = useMemo(
+    () => topics.filter((t) => t.status === "published").length,
     [topics]
   );
   const trashCount = useMemo(() => topics.filter((t) => t.deletedAt).length, [topics]);
@@ -86,14 +92,20 @@ export default function BlogDashboard({
   }, [topics, filter, categoryFilter, search]);
 
   async function handleTrash(id: string, title: string) {
-    if (!confirm(`Envoyer « ${title} » à la corbeille ?`)) return;
+    const ok = await confirm({
+      title: "Envoyer à la corbeille ?",
+      description: `« ${title} » sera déplacé dans la corbeille. Vous pourrez le restaurer plus tard.`,
+      confirmLabel: "Envoyer à la corbeille",
+    });
+    if (!ok) return;
     setBusyId(id);
     try {
       const res = await fetch(`/api/blog/topics/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error();
+      toast("Sujet envoyé à la corbeille.");
       router.refresh();
     } catch {
-      alert("Échec de la suppression.");
+      toast("Échec de la suppression.", "error");
     } finally {
       setBusyId(null);
     }
@@ -108,18 +120,23 @@ export default function BlogDashboard({
         body: JSON.stringify({ deletedAt: null }),
       });
       if (!res.ok) throw new Error();
+      toast("Sujet restauré.");
       router.refresh();
     } catch {
-      alert("Échec de la restauration.");
+      toast("Échec de la restauration.", "error");
     } finally {
       setBusyId(null);
     }
   }
 
   async function handleUnpublish(id: string) {
-    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.")) {
-      return;
-    }
+    const ok = await confirm({
+      title: "Dépublier cet article ?",
+      description:
+        "La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.",
+      confirmLabel: "Dépublier",
+    });
+    if (!ok) return;
     setBusyId(id);
     try {
       const res = await fetch(`/api/blog/topics/${id}`, {
@@ -128,9 +145,10 @@ export default function BlogDashboard({
         body: JSON.stringify({ status: "approved" }),
       });
       if (!res.ok) throw new Error();
+      toast("Article dépublié.");
       router.refresh();
     } catch {
-      alert("Échec de la dépublication.");
+      toast("Échec de la dépublication.", "error");
     } finally {
       setBusyId(null);
     }
@@ -167,6 +185,7 @@ export default function BlogDashboard({
         });
         if (!res.ok) throw new Error((await res.json()).error || `Échec pour « ${titlePart} ».`);
       }
+      toast(`${lines.length} sujet${lines.length > 1 ? "s" : ""} ajouté${lines.length > 1 ? "s" : ""}.`);
       setQuickAddText("");
       setQuickAddOpen(false);
       router.refresh();
@@ -179,19 +198,19 @@ export default function BlogDashboard({
 
   async function handleAutoGenerateNow() {
     setAutoGenBusy(true);
-    setAutoGenMessage(null);
     try {
       const res = await fetch("/api/blog/generate-next", { method: "POST" });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Échec de la génération.");
-      setAutoGenMessage(
+      toast(
         data.generated
           ? `Généré : « ${data.title} »${data.emailSent ? " : email envoyé." : " : email NON envoyé (voir la config Resend)."}`
-          : data.reason || "Rien à générer."
+          : data.reason || "Rien à générer.",
+        data.generated ? "success" : "error"
       );
       router.refresh();
     } catch (err) {
-      setAutoGenMessage(err instanceof Error ? err.message : "Erreur inconnue.");
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
     } finally {
       setAutoGenBusy(false);
     }
@@ -218,13 +237,12 @@ export default function BlogDashboard({
   }
 
   async function handleDeleteCategory(id: string, name: string) {
-    if (
-      !confirm(
-        `Supprimer la catégorie « ${name} » ? Les articles déjà classés dedans la garderont, mais elle ne sera plus proposée pour les nouveaux sujets.`
-      )
-    ) {
-      return;
-    }
+    const ok = await confirm({
+      title: "Supprimer cette catégorie ?",
+      description: `« ${name} » : les articles déjà classés dedans la garderont, mais elle ne sera plus proposée pour les nouveaux sujets.`,
+      confirmLabel: "Supprimer",
+    });
+    if (!ok) return;
     setCategoryBusy(id);
     setCategoryError(null);
     try {
@@ -264,21 +282,48 @@ export default function BlogDashboard({
     }
   }
 
-  async function handlePurge(id: string, title: string) {
-    if (
-      !confirm(
-        `Supprimer définitivement « ${title} » ? Cette action est irréversible et supprime aussi l'article et sa version publiée s'il y en a une.`
-      )
-    ) {
-      return;
+  async function handleEmptyTrash() {
+    const aSupprimer = topics.filter((t) => t.deletedAt);
+    if (aSupprimer.length === 0) return;
+    const ok = await confirm({
+      title: "Vider la corbeille ?",
+      description: `Supprime définitivement les ${aSupprimer.length} sujet${aSupprimer.length > 1 ? "s" : ""} de la corbeille, ainsi que leurs articles et versions publiées s'il y en a. Cette action est irréversible.`,
+      confirmLabel: "Vider la corbeille",
+    });
+    if (!ok) return;
+    setEmptyTrashBusy(true);
+    try {
+      const resultats = await Promise.all(
+        aSupprimer.map((t) => fetch(`/api/blog/topics/${t.id}?permanent=true`, { method: "DELETE" }))
+      );
+      if (resultats.some((r) => !r.ok)) {
+        toast("Certains sujets n'ont pas pu être supprimés. Réessayez.", "error");
+      } else {
+        toast("Corbeille vidée.");
+      }
+      router.refresh();
+    } catch {
+      toast("Échec de la suppression de la corbeille.", "error");
+    } finally {
+      setEmptyTrashBusy(false);
     }
+  }
+
+  async function handlePurge(id: string, title: string) {
+    const ok = await confirm({
+      title: "Supprimer définitivement ?",
+      description: `« ${title} » : l'article et sa version publiée (s'il y en a une) seront aussi supprimés. Cette action est irréversible.`,
+      confirmLabel: "Supprimer définitivement",
+    });
+    if (!ok) return;
     setBusyId(id);
     try {
       const res = await fetch(`/api/blog/topics/${id}?permanent=true`, { method: "DELETE" });
       if (!res.ok) throw new Error();
+      toast("Sujet supprimé définitivement.");
       router.refresh();
     } catch {
-      alert("Échec de la suppression définitive.");
+      toast("Échec de la suppression définitive.", "error");
     } finally {
       setBusyId(null);
     }
@@ -286,42 +331,35 @@ export default function BlogDashboard({
 
   return (
     <div>
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-2xl font-bold">Articles de blog</h1>
-        <div className="flex flex-wrap gap-3">
-          <button
-            type="button"
-            onClick={() => setSuggestOpen((v) => !v)}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            ✨ Suggestions IA
-          </button>
-          <button
-            type="button"
-            onClick={() => setCategoriesOpen((v) => !v)}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            🏷️ Catégories
-          </button>
-          <button
-            type="button"
-            onClick={() => setQuickAddOpen((v) => !v)}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            📋 Ajout rapide
-          </button>
-          <Link
-            href="/admin/blog/new"
-            className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700"
-          >
-            + Nouveau sujet
-          </Link>
-        </div>
+      <PageHeader
+        title="Articles de blog"
+        subtitle="Génération, relecture et publication des articles du site."
+        actions={
+          <>
+            <Button variant="secondary" onClick={() => setSuggestOpen((v) => !v)}>
+              ✨ Suggestions IA
+            </Button>
+            <Button variant="secondary" onClick={() => setCategoriesOpen((v) => !v)}>
+              🏷️ Catégories
+            </Button>
+            <Button variant="secondary" onClick={() => setQuickAddOpen((v) => !v)}>
+              📋 Ajout rapide
+            </Button>
+            <ButtonLink href="/admin/blog/new">+ Nouveau sujet</ButtonLink>
+          </>
+        }
+      />
+
+      <div className="mb-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        <StatChip label="Sujets au total" value={topics.filter((t) => !t.deletedAt).length} />
+        <StatChip label="En attente" value={pendingCount} />
+        <StatChip label="Publiés" value={publishedCount} />
+        <StatChip label="Corbeille" value={trashCount} />
       </div>
 
       {suggestOpen && (
-        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
-          <h2 className="mb-1 text-sm font-bold">Suggestions de sujets (Gemini)</h2>
+        <Card className="mb-6 p-5">
+          <h2 className="mb-1 text-sm font-bold text-slate-900">Suggestions de sujets (Gemini)</h2>
           <p className="mb-3 text-xs text-slate-500">
             Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en
             file pour éviter les doublons, et propose de nouvelles idées. Elles
@@ -358,21 +396,16 @@ export default function BlogDashboard({
           </div>
           {suggestError && <p className="mt-3 text-sm text-red-600">{suggestError}</p>}
           <div className="mt-3">
-            <button
-              type="button"
-              onClick={handleSuggestTopics}
-              disabled={suggestBusy}
-              className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
-            >
+            <Button onClick={handleSuggestTopics} disabled={suggestBusy}>
               {suggestBusy ? "Génération... (10-15 s)" : "✨ Générer des suggestions"}
-            </button>
+            </Button>
           </div>
-        </div>
+        </Card>
       )}
 
       {categoriesOpen && (
-        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
-          <h2 className="mb-3 text-sm font-bold">Catégories</h2>
+        <Card className="mb-6 p-5">
+          <h2 className="mb-3 text-sm font-bold text-slate-900">Catégories</h2>
 
           {categories.length === 0 ? (
             <p className="mb-3 text-sm text-slate-400">Aucune catégorie pour l&apos;instant.</p>
@@ -389,7 +422,7 @@ export default function BlogDashboard({
                     onClick={() => handleDeleteCategory(c.id, c.name)}
                     disabled={categoryBusy === c.id}
                     aria-label={`Supprimer la catégorie ${c.name}`}
-                    className="text-slate-400 hover:text-red-600 disabled:opacity-50"
+                    className="rounded text-slate-400 hover:text-red-600 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-1"
                   >
                     {categoryBusy === c.id ? "..." : "✕"}
                   </button>
@@ -414,21 +447,16 @@ export default function BlogDashboard({
               placeholder="Nom de la nouvelle catégorie"
               className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
             />
-            <button
-              type="button"
-              onClick={handleAddCategory}
-              disabled={categoryBusy === "new" || !newCategoryName.trim()}
-              className="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
-            >
+            <Button onClick={handleAddCategory} disabled={categoryBusy === "new" || !newCategoryName.trim()}>
               {categoryBusy === "new" ? "Ajout..." : "Ajouter"}
-            </button>
+            </Button>
           </div>
-        </div>
+        </Card>
       )}
 
       {quickAddOpen && (
-        <div className="mb-6 rounded-xl border border-slate-200 bg-white p-5">
-          <h2 className="mb-1 text-sm font-bold">Ajouter plusieurs sujets d&apos;un coup</h2>
+        <Card className="mb-6 p-5">
+          <h2 className="mb-1 text-sm font-bold text-slate-900">Ajouter plusieurs sujets d&apos;un coup</h2>
           <p className="mb-3 text-xs text-slate-500">
             Un sujet par ligne. Optionnel : ajoutez une description après un « | »
             (ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description,
@@ -447,43 +475,32 @@ export default function BlogDashboard({
           />
           {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}
           <div className="mt-3 flex gap-3">
-            <button
-              type="button"
-              onClick={handleQuickAdd}
-              disabled={quickAddBusy}
-              className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
-            >
+            <Button onClick={handleQuickAdd} disabled={quickAddBusy}>
               {quickAddBusy ? "Ajout..." : "Ajouter les sujets"}
-            </button>
-            <button
-              type="button"
-              onClick={() => setQuickAddOpen(false)}
-              disabled={quickAddBusy}
-              className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
-            >
+            </Button>
+            <Button variant="secondary" onClick={() => setQuickAddOpen(false)} disabled={quickAddBusy}>
               Annuler
-            </button>
+            </Button>
           </div>
-        </div>
+        </Card>
       )}
 
-      <div className="mb-6 flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+      <Card className="mb-6 flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-slate-600">
           <span className="font-semibold">Génération automatique</span> : tous les 2 jours en
           production (Vercel Cron), un sujet en attente est généré et vous recevez un email
           pour le relire. {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente
           dans la file.
         </div>
-        <button
-          type="button"
+        <Button
+          variant="secondary"
           onClick={handleAutoGenerateNow}
           disabled={autoGenBusy}
-          className="shrink-0 self-start rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 sm:self-auto"
+          className="shrink-0 self-start sm:self-auto"
         >
           {autoGenBusy ? "..." : "🧪 Tester maintenant"}
-        </button>
-      </div>
-      {autoGenMessage && <p className="mb-6 text-sm text-slate-600">{autoGenMessage}</p>}
+        </Button>
+      </Card>
 
       <div className="mb-4 flex flex-wrap gap-3">
         <input
@@ -509,33 +526,40 @@ export default function BlogDashboard({
         )}
       </div>
 
-      <div className="mb-6 flex flex-wrap gap-2">
-        {FILTERS.map((f) => (
-          <button
-            key={f.value}
-            type="button"
-            onClick={() => setFilter(f.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium ${
-              filter === f.value
-                ? "bg-slate-900 text-white"
-                : "bg-white text-slate-600 hover:bg-slate-100"
-            } border border-slate-200`}
-          >
-            {f.label}
-            {f.value === "trash" && trashCount > 0 ? ` (${trashCount})` : ""}
-          </button>
-        ))}
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap gap-2">
+          {FILTERS.map((f) => (
+            <button
+              key={f.value}
+              type="button"
+              onClick={() => setFilter(f.value)}
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+                filter === f.value
+                  ? "bg-slate-900 text-white"
+                  : "bg-white text-slate-600 hover:bg-slate-100"
+              } border border-slate-200`}
+            >
+              {f.label}
+              {f.value === "trash" && trashCount > 0 ? ` (${trashCount})` : ""}
+            </button>
+          ))}
+        </div>
+        {filter === "trash" && trashCount > 0 && (
+          <Button variant="danger" onClick={handleEmptyTrash} disabled={emptyTrashBusy}>
+            {emptyTrashBusy ? "Suppression..." : "🗑️ Vider la corbeille"}
+          </Button>
+        )}
       </div>
 
-      <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white">
+      <Card className="overflow-x-auto">
         <table className="w-full min-w-[1150px] table-fixed text-left text-sm">
           <colgroup>
-            <col className="w-[20%]" />
-            <col className="w-[18%]" />
-            <col className="w-[8%]" />
-            <col className="w-[8%]" />
             <col className="w-[18%]" />
             <col className="w-[28%]" />
+            <col className="w-[8%]" />
+            <col className="w-[10%]" />
+            <col className="w-[14%]" />
+            <col className="w-[22%]" />
           </colgroup>
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
@@ -560,7 +584,7 @@ export default function BlogDashboard({
               </tr>
             )}
             {filtered.map((topic) => (
-              <tr key={topic.id} className="border-t border-slate-100">
+              <tr key={topic.id} className="border-t border-slate-100 transition-colors hover:bg-slate-50">
                 <td
                   className="bg-cover bg-center px-5 py-4 font-medium text-slate-900"
                   style={
@@ -599,52 +623,49 @@ export default function BlogDashboard({
                   {topic.publishedAt && <div>Publié : {formatShortDate(topic.publishedAt)}</div>}
                 </td>
                 <td className="px-5 py-4">
-                  <div className="flex flex-wrap gap-x-3 gap-y-1">
+                  <div className="flex flex-wrap gap-1.5">
                     {filter === "trash" ? (
                       <>
-                        <button
-                          type="button"
+                        <Button
+                          size="sm"
+                          variant="info"
                           onClick={() => handleRestore(topic.id)}
                           disabled={busyId === topic.id}
-                          className="font-medium text-blue-600 hover:underline disabled:opacity-50"
                         >
                           {busyId === topic.id ? "..." : "Restaurer"}
-                        </button>
-                        <button
-                          type="button"
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="danger"
                           onClick={() => handlePurge(topic.id, topic.title)}
                           disabled={busyId === topic.id}
-                          className="font-medium text-red-600 hover:underline disabled:opacity-50"
                         >
                           Supprimer définitivement
-                        </button>
+                        </Button>
                       </>
                     ) : (
                       <>
-                        <Link
-                          href={`/admin/blog/${topic.id}`}
-                          className="font-medium text-red-600 hover:underline"
-                        >
+                        <ButtonLink size="sm" href={`/admin/blog/${topic.id}`}>
                           Ouvrir
-                        </Link>
+                        </ButtonLink>
                         {topic.status === "published" && (
-                          <button
-                            type="button"
+                          <Button
+                            size="sm"
+                            variant="warning"
                             onClick={() => handleUnpublish(topic.id)}
                             disabled={busyId === topic.id}
-                            className="font-medium text-orange-600 hover:underline disabled:opacity-50"
                           >
                             {busyId === topic.id ? "..." : "Dépublier"}
-                          </button>
+                          </Button>
                         )}
-                        <button
-                          type="button"
+                        <Button
+                          size="sm"
+                          variant="secondary"
                           onClick={() => handleTrash(topic.id, topic.title)}
                           disabled={busyId === topic.id}
-                          className="font-medium text-slate-400 hover:text-red-600 disabled:opacity-50"
                         >
                           {busyId === topic.id ? "..." : "Supprimer"}
-                        </button>
+                        </Button>
                       </>
                     )}
                   </div>
@@ -653,7 +674,7 @@ export default function BlogDashboard({
             ))}
           </tbody>
         </table>
-      </div>
+      </Card>
     </div>
   );
 }

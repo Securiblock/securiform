@@ -1,11 +1,12 @@
 "use client";
 
+import DOMPurify from "isomorphic-dompurify";
 import { marked } from "marked";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
 import type { Article, Topic, TopicTone } from "@/lib/blog/types";
+import { Button, Card, PageHeader, useConfirm, useToast } from "../../ui";
 
 const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 const LENGTHS = [500, 800, 1000, 1500, 2000];
@@ -14,6 +15,8 @@ type Props = { topic: Topic; article: Article };
 
 export default function ArticleEditor({ topic, article }: Props) {
   const router = useRouter();
+  const confirm = useConfirm();
+  const toast = useToast();
   const [title, setTitle] = useState(article.title);
   const [metaDescription, setMetaDescription] = useState(article.metaDescription);
   const [content, setContent] = useState(article.content);
@@ -24,8 +27,6 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [busy, setBusy] = useState<null | "save" | "publish" | "regenerate" | "unpublish">(
     null
   );
-  const [message, setMessage] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
 
   const [imageIdeas, setImageIdeas] = useState<string[] | null>(null);
   const [imageIdeasBusy, setImageIdeasBusy] = useState(true);
@@ -42,7 +43,7 @@ export default function ArticleEditor({ topic, article }: Props) {
   const [regenCategory, setRegenCategory] = useState(topic.category || "");
 
   const previewHtml = useMemo(() => {
-    const html = marked.parse(content, { async: false }) as string;
+    const html = DOMPurify.sanitize(marked.parse(content, { async: false }) as string);
     // Tags the closing "À retenir" heading so the preview's red block matches
     // what the public page renders (see lib/blog/content.ts on that side).
     return html.replace("<h2>À retenir</h2>", '<h2 class="a-retenir">À retenir</h2>');
@@ -79,13 +80,11 @@ export default function ArticleEditor({ topic, article }: Props) {
     return (value: T) => {
       setter(value);
       setDirty(true);
-      setMessage(null);
     };
   }
 
   async function save(): Promise<boolean> {
     setBusy("save");
-    setError(null);
     try {
       const res = await fetch(`/api/blog/articles/${article.slug}`, {
         method: "PUT",
@@ -100,10 +99,10 @@ export default function ArticleEditor({ topic, article }: Props) {
       });
       if (!res.ok) throw new Error((await res.json()).error || "Échec de la sauvegarde.");
       setDirty(false);
-      setMessage("Modifications sauvegardées.");
+      toast("Modifications sauvegardées.");
       return true;
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur inconnue.");
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
       return false;
     } finally {
       setBusy(null);
@@ -112,7 +111,6 @@ export default function ArticleEditor({ topic, article }: Props) {
 
   async function handlePublish() {
     setBusy("publish");
-    setError(null);
     try {
       if (dirty && !(await save())) return;
       const res = await fetch("/api/blog/publish", {
@@ -122,23 +120,24 @@ export default function ArticleEditor({ topic, article }: Props) {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Échec de la publication.");
-      setMessage(
-        topic.status === "published" ? "Page mise à jour !" : "Article publié !"
-      );
+      toast(topic.status === "published" ? "Page mise à jour !" : "Article publié !");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur inconnue.");
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
     } finally {
       setBusy(null);
     }
   }
 
   async function handleUnpublish() {
-    if (!confirm("Dépublier cet article ? La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.")) {
-      return;
-    }
+    const ok = await confirm({
+      title: "Dépublier cet article ?",
+      description:
+        "La page ne sera plus accessible sur le site, mais rien n'est supprimé : vous pourrez le republier plus tard.",
+      confirmLabel: "Dépublier",
+    });
+    if (!ok) return;
     setBusy("unpublish");
-    setError(null);
     try {
       const res = await fetch(`/api/blog/topics/${topic.id}`, {
         method: "PUT",
@@ -146,10 +145,10 @@ export default function ArticleEditor({ topic, article }: Props) {
         body: JSON.stringify({ status: "approved" }),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Échec de la dépublication.");
-      setMessage("Article dépublié : la page n'est plus en ligne.");
+      toast("Article dépublié : la page n'est plus en ligne.");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur inconnue.");
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
     } finally {
       setBusy(null);
     }
@@ -157,7 +156,6 @@ export default function ArticleEditor({ topic, article }: Props) {
 
   async function submitRegenerate() {
     setBusy("regenerate");
-    setError(null);
     try {
       const keywords = regenKeywords
         .split(",")
@@ -187,9 +185,10 @@ export default function ArticleEditor({ topic, article }: Props) {
       if (!res.ok) throw new Error(data.error || "Échec de la régénération.");
 
       setRegenOpen(false);
+      toast("Article régénéré.");
       router.refresh();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Erreur inconnue.");
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
       setBusy(null);
     }
   }
@@ -218,16 +217,23 @@ export default function ArticleEditor({ topic, article }: Props) {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <Link href={`/admin/blog/`} className="text-sm text-slate-500 hover:text-slate-900">
-          ← Retour à la liste
-        </Link>
-        {dirty && <span className="text-xs font-medium text-orange-600">Modifications non sauvegardées</span>}
-      </div>
+      <PageHeader
+        back={{ href: "/admin/blog", label: "Retour à la liste" }}
+        title={
+          <span className="flex flex-wrap items-center gap-3">
+            Modifier l&apos;article
+            {dirty && (
+              <span className="rounded-full bg-orange-100 px-2.5 py-1 text-xs font-semibold text-orange-700">
+                Modifications non sauvegardées
+              </span>
+            )}
+          </span>
+        }
+      />
 
-      <div className="mb-6 space-y-4">
+      <Card className="mb-6 space-y-4 p-6">
         <div>
-          <label className="mb-1 block text-sm font-semibold">Titre</label>
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Titre</label>
           <input
             type="text"
             value={title}
@@ -236,7 +242,7 @@ export default function ArticleEditor({ topic, article }: Props) {
           />
         </div>
         <div>
-          <label className="mb-1 block text-sm font-semibold">Meta description</label>
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Meta description</label>
           <input
             type="text"
             value={metaDescription}
@@ -247,7 +253,7 @@ export default function ArticleEditor({ topic, article }: Props) {
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-semibold">Catégorie</label>
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Catégorie</label>
           <select
             value={category}
             onChange={(e) => markDirty(setCategory)(e.target.value)}
@@ -263,7 +269,7 @@ export default function ArticleEditor({ topic, article }: Props) {
         </div>
 
         <div>
-          <label className="mb-1 block text-sm font-semibold">Image à la une</label>
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Image à la une</label>
           <p className="mb-1 text-xs text-slate-500">
             Envoyez une image depuis votre ordinateur (jpg, png, webp ou gif, 5 Mo
             max). Pas d&apos;idée ? Gemini vous suggère 3 pistes ci-dessous :
@@ -281,18 +287,15 @@ export default function ArticleEditor({ topic, article }: Props) {
 
           {image && (
             <div className="mt-3 flex items-start gap-3">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={image}
                 alt="Aperçu de l'image à la une"
                 className="h-40 w-auto rounded-lg border border-slate-200 object-cover"
               />
-              <button
-                type="button"
-                onClick={() => markDirty(setImage)("")}
-                className="text-sm font-medium text-slate-400 hover:text-red-600"
-              >
+              <Button variant="ghost" size="sm" onClick={() => markDirty(setImage)("")}>
                 Retirer l&apos;image
-              </button>
+              </Button>
             </div>
           )}
 
@@ -301,92 +304,78 @@ export default function ArticleEditor({ topic, article }: Props) {
           )}
           {imageIdeasError && <p className="mt-2 text-sm text-red-600">{imageIdeasError}</p>}
           {imageIdeas && (
-            <ul className="mt-3 space-y-1.5 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">
+            <ul className="mt-3 space-y-1.5 rounded-lg bg-slate-50 p-3 text-sm">
               {imageIdeas.map((idea, i) => (
-                <li key={i}>💡 {idea}</li>
+                <li key={i}>
+                  <a
+                    href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(idea)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-700 hover:text-red-600 hover:underline"
+                  >
+                    💡 {idea} 🔍
+                  </a>
+                </li>
               ))}
             </ul>
           )}
         </div>
-      </div>
+      </Card>
 
       <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div>
-          <label className="mb-1 block text-sm font-semibold">Contenu (Markdown)</label>
+        <Card className="p-4">
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Contenu (Markdown)</label>
           <textarea
             value={content}
             onChange={(e) => markDirty(setContent)(e.target.value)}
             rows={24}
             className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
           />
-        </div>
-        <div>
-          <label className="mb-1 block text-sm font-semibold">Aperçu</label>
+        </Card>
+        <Card className="p-4">
+          <label className="mb-1 block text-sm font-semibold text-slate-700">Aperçu</label>
           <div
             className="prose prose-sm max-w-none rounded-lg border border-slate-200 bg-white px-4 py-3"
             style={{ height: "calc(100% - 1.75rem)", overflowY: "auto" }}
             dangerouslySetInnerHTML={{ __html: previewHtml }}
           />
-        </div>
+        </Card>
       </div>
-
-      {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
-      {message && !error && <p className="mb-4 text-sm text-green-600">{message}</p>}
 
       <div className="flex flex-wrap gap-3">
         {topic.status !== "published" && (
-          <button
-            type="button"
-            onClick={() => save()}
-            disabled={busy !== null}
-            className="rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-50"
-          >
+          <Button variant="dark" onClick={() => save()} disabled={busy !== null}>
             {busy === "save" ? "Sauvegarde..." : "💾 Sauvegarder les modifications"}
-          </button>
+          </Button>
         )}
 
         {(topic.status === "generated" ||
           topic.status === "approved" ||
           topic.status === "published") && (
-          <button
-            type="button"
-            onClick={handlePublish}
-            disabled={busy !== null}
-            className="rounded-lg bg-green-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-green-700 disabled:opacity-50"
-          >
+          <Button variant="success" onClick={handlePublish} disabled={busy !== null}>
             {busy === "publish"
               ? "Publication..."
               : topic.status === "published"
                 ? "🔄 Mettre à jour la page publiée"
                 : "🚀 Publier"}
-          </button>
+          </Button>
         )}
 
         {topic.status === "published" && (
-          <button
-            type="button"
-            onClick={handleUnpublish}
-            disabled={busy !== null}
-            className="rounded-lg border border-orange-300 bg-white px-5 py-2.5 text-sm font-semibold text-orange-600 hover:bg-orange-50 disabled:opacity-50"
-          >
+          <Button variant="danger" onClick={handleUnpublish} disabled={busy !== null}>
             {busy === "unpublish" ? "Dépublication..." : "🔽 Dépublier"}
-          </button>
+          </Button>
         )}
 
-        <button
-          type="button"
-          onClick={() => setRegenOpen(true)}
-          disabled={busy !== null}
-          className="rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
-        >
+        <Button variant="secondary" onClick={() => setRegenOpen(true)} disabled={busy !== null}>
           {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "🔄 Régénérer"}
-        </button>
+        </Button>
       </div>
 
       {regenOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-xl">
-            <h2 className="mb-1 text-lg font-bold">Régénérer l&apos;article</h2>
+          <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+            <h2 className="mb-1 text-lg font-bold text-slate-900">Régénérer l&apos;article</h2>
             <p className="mb-5 text-sm text-slate-500">
               Ajustez les informations du sujet si besoin : Gemini régénérera
               l&apos;article à partir de ces valeurs et remplacera le contenu actuel.
@@ -394,7 +383,7 @@ export default function ArticleEditor({ topic, article }: Props) {
 
             <div className="space-y-4">
               <div>
-                <label className="mb-1 block text-sm font-semibold">Titre du sujet</label>
+                <label className="mb-1 block text-sm font-semibold text-slate-700">Titre du sujet</label>
                 <input
                   type="text"
                   value={regenTopicTitle}
@@ -403,7 +392,7 @@ export default function ArticleEditor({ topic, article }: Props) {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-semibold">Description</label>
+                <label className="mb-1 block text-sm font-semibold text-slate-700">Description</label>
                 <textarea
                   value={regenDescription}
                   onChange={(e) => setRegenDescription(e.target.value)}
@@ -412,7 +401,7 @@ export default function ArticleEditor({ topic, article }: Props) {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-semibold">Mots-clés</label>
+                <label className="mb-1 block text-sm font-semibold text-slate-700">Mots-clés</label>
                 <input
                   type="text"
                   value={regenKeywords}
@@ -422,7 +411,7 @@ export default function ArticleEditor({ topic, article }: Props) {
                 />
               </div>
               <div>
-                <label className="mb-1 block text-sm font-semibold">Catégorie</label>
+                <label className="mb-1 block text-sm font-semibold text-slate-700">Catégorie</label>
                 <select
                   value={regenCategory}
                   onChange={(e) => setRegenCategory(e.target.value)}
@@ -438,7 +427,7 @@ export default function ArticleEditor({ topic, article }: Props) {
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-1 block text-sm font-semibold">Ton</label>
+                  <label className="mb-1 block text-sm font-semibold text-slate-700">Ton</label>
                   <select
                     value={regenTone}
                     onChange={(e) => setRegenTone(e.target.value as TopicTone)}
@@ -452,7 +441,7 @@ export default function ArticleEditor({ topic, article }: Props) {
                   </select>
                 </div>
                 <div>
-                  <label className="mb-1 block text-sm font-semibold">Longueur cible</label>
+                  <label className="mb-1 block text-sm font-semibold text-slate-700">Longueur cible</label>
                   <select
                     value={regenTargetLength}
                     onChange={(e) => setRegenTargetLength(Number(e.target.value))}
@@ -468,25 +457,13 @@ export default function ArticleEditor({ topic, article }: Props) {
               </div>
             </div>
 
-            {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
-
             <div className="mt-6 flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setRegenOpen(false)}
-                disabled={busy !== null}
-                className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50"
-              >
+              <Button variant="secondary" onClick={() => setRegenOpen(false)} disabled={busy !== null}>
                 Annuler
-              </button>
-              <button
-                type="button"
-                onClick={submitRegenerate}
-                disabled={busy !== null}
-                className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 disabled:opacity-50"
-              >
+              </Button>
+              <Button onClick={submitRegenerate} disabled={busy !== null}>
                 {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "🔄 Régénérer"}
-              </button>
+              </Button>
             </div>
           </div>
         </div>
