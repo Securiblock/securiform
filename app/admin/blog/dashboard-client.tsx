@@ -341,6 +341,14 @@ export default function BlogDashboard({
     }
   }
 
+  async function openifgenerated(topic: Topic) {
+    if (topic.status === "generated" || topic.status === "published") {
+      router.push(`/admin/blog/${topic.id}/edit`);
+    } else {
+      router.push(`/admin/blog/${topic.id}`);
+    }
+  }
+
   return (
     <div>
       <PageHeader
@@ -542,9 +550,9 @@ export default function BlogDashboard({
                       </>
                     ) : (
                       <>
-                        <ButtonLink size="sm" href={`/admin/blog/${topic.id}`}>
+                        <Button size="sm" onClick={() => openifgenerated(topic)} variant="info">
                           Ouvrir
-                        </ButtonLink>
+                        </Button>
                         {topic.status === "published" && (
                           <Button
                             size="sm"
