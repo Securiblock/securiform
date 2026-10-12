@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
 import type { Article, Topic, TopicTone } from "@/lib/blog/types";
-import { Button, Card, PageHeader, useConfirm, useToast } from "../../ui";
+import { ExternalLinkIcon, LightbulbIcon, RefreshIcon, RocketIcon, SaveIcon, SearchIcon } from "../../icons";
+import { Button, ButtonLink, Card, Modal, PageHeader, useConfirm, useToast } from "../../ui";
 
 const TONES: TopicTone[] = ["professionnel", "décontracté", "technique", "pédagogique"];
 const LENGTHS = [500, 800, 1000, 1500, 2000];
@@ -300,7 +301,9 @@ export default function ArticleEditor({ topic, article }: Props) {
           )}
 
           {imageIdeasBusy && (
-            <p className="mt-2 text-sm text-slate-500">💡 Gemini réfléchit à des idées d&apos;images...</p>
+            <p className="mt-2 flex items-center gap-1.5 text-sm text-slate-500">
+              <LightbulbIcon className="h-4 w-4" /> Gemini réfléchit à des idées d&apos;images...
+            </p>
           )}
           {imageIdeasError && <p className="mt-2 text-sm text-red-600">{imageIdeasError}</p>}
           {imageIdeas && (
@@ -311,9 +314,11 @@ export default function ArticleEditor({ topic, article }: Props) {
                     href={`https://www.google.com/search?tbm=isch&q=${encodeURIComponent(idea)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-700 hover:text-red-600 hover:underline"
+                    className="inline-flex items-center gap-1.5 text-slate-700 hover:text-red-600 hover:underline"
                   >
-                    💡 {idea} 🔍
+                    <LightbulbIcon className="h-4 w-4 shrink-0 text-amber-500" />
+                    {idea}
+                    <SearchIcon className="h-3.5 w-3.5 shrink-0 text-slate-400" />
                   </a>
                 </li>
               ))}
@@ -345,7 +350,7 @@ export default function ArticleEditor({ topic, article }: Props) {
       <div className="flex flex-wrap gap-3">
         {topic.status !== "published" && (
           <Button variant="dark" onClick={() => save()} disabled={busy !== null}>
-            {busy === "save" ? "Sauvegarde..." : "💾 Sauvegarder les modifications"}
+            <SaveIcon className="h-4 w-4" /> {busy === "save" ? "Sauvegarde..." : "Sauvegarder les modifications"}
           </Button>
         )}
 
@@ -353,121 +358,124 @@ export default function ArticleEditor({ topic, article }: Props) {
           topic.status === "approved" ||
           topic.status === "published") && (
           <Button variant="success" onClick={handlePublish} disabled={busy !== null}>
+            <RocketIcon className="h-4 w-4" />
             {busy === "publish"
               ? "Publication..."
               : topic.status === "published"
-                ? "🔄 Mettre à jour la page publiée"
-                : "🚀 Publier"}
+                ? "Mettre à jour la page publiée"
+                : "Publier"}
           </Button>
+        )}
+
+        {topic.status === "published" && topic.slug && (
+          <ButtonLink href={`/blog/${topic.slug}`} target="_blank" variant="secondary">
+            <ExternalLinkIcon className="h-4 w-4" /> Voir l&apos;article
+          </ButtonLink>
         )}
 
         {topic.status === "published" && (
           <Button variant="danger" onClick={handleUnpublish} disabled={busy !== null}>
-            {busy === "unpublish" ? "Dépublication..." : "🔽 Dépublier"}
+            {busy === "unpublish" ? "Dépublication..." : "Dépublier"}
           </Button>
         )}
 
         <Button variant="secondary" onClick={() => setRegenOpen(true)} disabled={busy !== null}>
-          {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "🔄 Régénérer"}
+          <RefreshIcon className="h-4 w-4" />
+          {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "Régénérer"}
         </Button>
       </div>
 
-      {regenOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
-            <h2 className="mb-1 text-lg font-bold text-slate-900">Régénérer l&apos;article</h2>
-            <p className="mb-5 text-sm text-slate-500">
-              Ajustez les informations du sujet si besoin : Gemini régénérera
-              l&apos;article à partir de ces valeurs et remplacera le contenu actuel.
-            </p>
-
-            <div className="space-y-4">
-              <div>
-                <label className="mb-1 block text-sm font-semibold text-slate-700">Titre du sujet</label>
-                <input
-                  type="text"
-                  value={regenTopicTitle}
-                  onChange={(e) => setRegenTopicTitle(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-sm font-semibold text-slate-700">Description</label>
-                <textarea
-                  value={regenDescription}
-                  onChange={(e) => setRegenDescription(e.target.value)}
-                  rows={4}
-                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-sm font-semibold text-slate-700">Mots-clés</label>
-                <input
-                  type="text"
-                  value={regenKeywords}
-                  onChange={(e) => setRegenKeywords(e.target.value)}
-                  placeholder="SEO, référencement, IA"
-                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                />
-              </div>
-              <div>
-                <label className="mb-1 block text-sm font-semibold text-slate-700">Catégorie</label>
-                <select
-                  value={regenCategory}
-                  onChange={(e) => setRegenCategory(e.target.value)}
-                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                >
-                  <option value="">Aucune catégorie</option>
-                  {categories.map((c) => (
-                    <option key={c.id} value={c.name}>
-                      {c.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1 block text-sm font-semibold text-slate-700">Ton</label>
-                  <select
-                    value={regenTone}
-                    onChange={(e) => setRegenTone(e.target.value as TopicTone)}
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                  >
-                    {TONES.map((t) => (
-                      <option key={t} value={t}>
-                        {t}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-1 block text-sm font-semibold text-slate-700">Longueur cible</label>
-                  <select
-                    value={regenTargetLength}
-                    onChange={(e) => setRegenTargetLength(Number(e.target.value))}
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-                  >
-                    {LENGTHS.map((l) => (
-                      <option key={l} value={l}>
-                        {l} mots
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
+      <Modal
+        open={regenOpen}
+        onClose={() => setRegenOpen(false)}
+        title="Régénérer l'article"
+        description="Ajustez les informations du sujet si besoin : Gemini régénérera l'article à partir de ces valeurs et remplacera le contenu actuel."
+      >
+        <div className="space-y-4">
+          <div>
+            <label className="mb-1 block text-sm font-semibold text-slate-700">Titre du sujet</label>
+            <input
+              type="text"
+              value={regenTopicTitle}
+              onChange={(e) => setRegenTopicTitle(e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-semibold text-slate-700">Description</label>
+            <textarea
+              value={regenDescription}
+              onChange={(e) => setRegenDescription(e.target.value)}
+              rows={4}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-semibold text-slate-700">Mots-clés</label>
+            <input
+              type="text"
+              value={regenKeywords}
+              onChange={(e) => setRegenKeywords(e.target.value)}
+              placeholder="SEO, référencement, IA"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label className="mb-1 block text-sm font-semibold text-slate-700">Catégorie</label>
+            <select
+              value={regenCategory}
+              onChange={(e) => setRegenCategory(e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            >
+              <option value="">Aucune catégorie</option>
+              {categories.map((c) => (
+                <option key={c.id} value={c.name}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label className="mb-1 block text-sm font-semibold text-slate-700">Ton</label>
+              <select
+                value={regenTone}
+                onChange={(e) => setRegenTone(e.target.value as TopicTone)}
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+              >
+                {TONES.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
             </div>
-
-            <div className="mt-6 flex justify-end gap-3">
-              <Button variant="secondary" onClick={() => setRegenOpen(false)} disabled={busy !== null}>
-                Annuler
-              </Button>
-              <Button onClick={submitRegenerate} disabled={busy !== null}>
-                {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "🔄 Régénérer"}
-              </Button>
+            <div>
+              <label className="mb-1 block text-sm font-semibold text-slate-700">Longueur cible</label>
+              <select
+                value={regenTargetLength}
+                onChange={(e) => setRegenTargetLength(Number(e.target.value))}
+                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+              >
+                {LENGTHS.map((l) => (
+                  <option key={l} value={l}>
+                    {l} mots
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
-      )}
+
+        <div className="mt-6 flex justify-end gap-3">
+          <Button variant="secondary" onClick={() => setRegenOpen(false)} disabled={busy !== null}>
+            Annuler
+          </Button>
+          <Button onClick={submitRegenerate} disabled={busy !== null}>
+            {busy === "regenerate" ? "Régénération en cours… (10-15 s)" : "Régénérer"}
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 }

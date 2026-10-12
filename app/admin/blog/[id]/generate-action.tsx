@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { Topic } from "@/lib/blog/types";
+import { ExternalLinkIcon, SparklesIcon } from "../icons";
 import { Button, ButtonLink, useConfirm, useToast } from "../ui";
 
 export default function GenerateAction({ topic }: { topic: Topic }) {
@@ -59,7 +60,7 @@ export default function GenerateAction({ topic }: { topic: Topic }) {
     return (
       <div className="flex flex-wrap items-center gap-3">
         <ButtonLink href={`/blog/${topic.slug}`} target="_blank" variant="success">
-          Voir l&apos;article publié →
+          <ExternalLinkIcon className="h-4 w-4" /> Voir l&apos;article publié
         </ButtonLink>
         <ButtonLink href={`/admin/blog/${topic.id}/edit`} variant="secondary">
           Modifier
@@ -79,7 +80,7 @@ export default function GenerateAction({ topic }: { topic: Topic }) {
 
   return (
     <Button onClick={handleGenerate} disabled={loading}>
-      {loading ? "Génération en cours… (10-15 s)" : "✨ Générer l'article"}
+      <SparklesIcon className="h-4 w-4" /> {loading ? "Génération en cours… (10-15 s)" : "Générer l'article"}
     </Button>
   );
 }

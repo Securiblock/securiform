@@ -6,12 +6,14 @@ import {
   forwardRef,
   useCallback,
   useContext,
+  useEffect,
   useRef,
   useState,
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type ReactNode,
 } from "react";
+import { XIcon } from "./icons";
 
 // Shared visual primitives for the admin blog UI (dashboard, topic detail,
 // editor, new-topic form) — purely presentational, no business logic. Keeps
@@ -150,6 +152,63 @@ export function StatChip({ label, value }: { label: string; value: number | stri
     <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm">
       <div className="text-2xl font-bold text-slate-900">{value}</div>
       <div className="text-xs font-medium text-slate-500">{label}</div>
+    </div>
+  );
+}
+
+// --- Modal -------------------------------------------------------------------
+
+export function Modal({
+  open,
+  onClose,
+  title,
+  description,
+  children,
+  maxWidth = "max-w-lg",
+}: {
+  open: boolean;
+  onClose: () => void;
+  title: ReactNode;
+  description?: ReactNode;
+  children: ReactNode;
+  maxWidth?: string;
+}) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+
+  if (!open) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[90] flex items-center justify-center bg-black/50 p-4"
+      onClick={onClose}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        className={`w-full ${maxWidth} max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-xl`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="mb-5 flex items-start justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-bold text-slate-900">{title}</h2>
+            {description && <p className="mt-1 text-sm text-slate-500">{description}</p>}
+          </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Fermer"
+            className="shrink-0 rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+          >
+            <XIcon className="h-5 w-5" />
+          </button>
+        </div>
+        {children}
+      </div>
     </div>
   );
 }

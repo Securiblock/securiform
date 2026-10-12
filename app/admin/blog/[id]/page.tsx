@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTopic } from "@/lib/blog/topics";
+import { ExternalLinkIcon } from "../icons";
 import StatusBadge from "../status-badge";
 import { Card, PageHeader } from "../ui";
 import GenerateAction from "./generate-action";
@@ -22,9 +23,9 @@ export default async function TopicDetailPage({ params }: Params) {
               href={`/blog/${topic.slug}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-red-600 hover:underline"
+              className="inline-flex items-center gap-1.5 font-medium text-red-600 hover:underline"
             >
-              🔗 Voir l&apos;article publié
+              <ExternalLinkIcon className="h-4 w-4" /> Voir l&apos;article publié
             </a>
           ) : undefined
         }
