@@ -4,8 +4,20 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
 import type { Topic, TopicStatus, TopicTone } from "@/lib/blog/types";
+import {
+  BeakerIcon,
+  ExternalLinkIcon,
+  ImageIcon,
+  ListPlusIcon,
+  PlusIcon,
+  SearchIcon,
+  SparklesIcon,
+  TagIcon,
+  TrashIcon,
+  XIcon,
+} from "./icons";
 import StatusBadge from "./status-badge";
-import { Button, ButtonLink, Card, PageHeader, StatChip, useConfirm, useToast } from "./ui";
+import { Button, ButtonLink, Card, Modal, PageHeader, StatChip, useConfirm, useToast } from "./ui";
 
 type FilterValue = "all" | TopicStatus | "trash";
 
@@ -273,8 +285,8 @@ export default function BlogDashboard({
         return `${s.title} | ${s.description} | ${tone}`;
       });
       setQuickAddText((prev) => (prev.trim() ? `${prev.trim()}\n${lines.join("\n")}` : lines.join("\n")));
-      setQuickAddOpen(true);
       setSuggestOpen(false);
+      setQuickAddOpen(true);
     } catch (err) {
       setSuggestError(err instanceof Error ? err.message : "Erreur inconnue.");
     } finally {
@@ -336,16 +348,18 @@ export default function BlogDashboard({
         subtitle="Génération, relecture et publication des articles du site."
         actions={
           <>
-            <Button variant="secondary" onClick={() => setSuggestOpen((v) => !v)}>
-              ✨ Suggestions IA
+            <Button variant="secondary" onClick={() => setSuggestOpen(true)}>
+              <SparklesIcon className="h-4 w-4" /> Suggestions IA
             </Button>
-            <Button variant="secondary" onClick={() => setCategoriesOpen((v) => !v)}>
-              🏷️ Catégories
+            <Button variant="secondary" onClick={() => setCategoriesOpen(true)}>
+              <TagIcon className="h-4 w-4" /> Catégories
             </Button>
-            <Button variant="secondary" onClick={() => setQuickAddOpen((v) => !v)}>
-              📋 Ajout rapide
+            <Button variant="secondary" onClick={() => setQuickAddOpen(true)}>
+              <ListPlusIcon className="h-4 w-4" /> Ajout rapide
             </Button>
-            <ButtonLink href="/admin/blog/new">+ Nouveau sujet</ButtonLink>
+            <ButtonLink href="/admin/blog/new">
+              <PlusIcon className="h-4 w-4" /> Nouveau sujet
+            </ButtonLink>
           </>
         }
       />
@@ -357,140 +371,15 @@ export default function BlogDashboard({
         <StatChip label="Corbeille" value={trashCount} />
       </div>
 
-      {suggestOpen && (
-        <Card className="mb-6 p-5">
-          <h2 className="mb-1 text-sm font-bold text-slate-900">Suggestions de sujets (Gemini)</h2>
-          <p className="mb-3 text-xs text-slate-500">
-            Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en
-            file pour éviter les doublons, et propose de nouvelles idées. Elles
-            s&apos;ajoutent à l&apos;ajout rapide pour relecture avant création.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <div>
-              <label className="mb-1 block text-xs font-semibold text-slate-500">
-                Nombre de sujets
-              </label>
-              <input
-                type="number"
-                min={1}
-                max={10}
-                value={suggestCount}
-                onChange={(e) =>
-                  setSuggestCount(Math.min(10, Math.max(1, Number(e.target.value) || 1)))
-                }
-                className="w-24 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-              />
-            </div>
-            <div className="min-w-[220px] flex-1">
-              <label className="mb-1 block text-xs font-semibold text-slate-500">
-                Description / consignes (optionnel)
-              </label>
-              <input
-                type="text"
-                value={suggestBrief}
-                onChange={(e) => setSuggestBrief(e.target.value)}
-                placeholder="ex. sujets orientés BTP, ou sur les nouveautés réglementaires"
-                className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-              />
-            </div>
-          </div>
-          {suggestError && <p className="mt-3 text-sm text-red-600">{suggestError}</p>}
-          <div className="mt-3">
-            <Button onClick={handleSuggestTopics} disabled={suggestBusy}>
-              {suggestBusy ? "Génération... (10-15 s)" : "✨ Générer des suggestions"}
-            </Button>
-          </div>
-        </Card>
-      )}
-
-      {categoriesOpen && (
-        <Card className="mb-6 p-5">
-          <h2 className="mb-3 text-sm font-bold text-slate-900">Catégories</h2>
-
-          {categories.length === 0 ? (
-            <p className="mb-3 text-sm text-slate-400">Aucune catégorie pour l&apos;instant.</p>
-          ) : (
-            <ul className="mb-3 flex flex-wrap gap-2">
-              {categories.map((c) => (
-                <li
-                  key={c.id}
-                  className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 py-1 pl-3 pr-2 text-sm"
-                >
-                  {c.name}
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteCategory(c.id, c.name)}
-                    disabled={categoryBusy === c.id}
-                    aria-label={`Supprimer la catégorie ${c.name}`}
-                    className="rounded text-slate-400 hover:text-red-600 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-1"
-                  >
-                    {categoryBusy === c.id ? "..." : "✕"}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          {categoryError && <p className="mb-3 text-sm text-red-600">{categoryError}</p>}
-
-          <div className="flex flex-wrap gap-3">
-            <input
-              type="text"
-              value={newCategoryName}
-              onChange={(e) => setNewCategoryName(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  handleAddCategory();
-                }
-              }}
-              placeholder="Nom de la nouvelle catégorie"
-              className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-            />
-            <Button onClick={handleAddCategory} disabled={categoryBusy === "new" || !newCategoryName.trim()}>
-              {categoryBusy === "new" ? "Ajout..." : "Ajouter"}
-            </Button>
-          </div>
-        </Card>
-      )}
-
-      {quickAddOpen && (
-        <Card className="mb-6 p-5">
-          <h2 className="mb-1 text-sm font-bold text-slate-900">Ajouter plusieurs sujets d&apos;un coup</h2>
-          <p className="mb-3 text-xs text-slate-500">
-            Un sujet par ligne. Optionnel : ajoutez une description après un « | »
-            (ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description,
-            le titre sert aussi de description : vous pourrez l&apos;affiner plus
-            tard. Tous les sujets sont créés en ton « professionnel », 1000 mots
-            (les suggestions IA arrivent déjà avec leur propre ton varié). La
-            catégorie est choisie automatiquement par l&apos;IA à la génération
-            de chaque article.
-          </p>
-          <textarea
-            value={quickAddText}
-            onChange={(e) => setQuickAddText(e.target.value)}
-            rows={6}
-            placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
-          />
-          {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}
-          <div className="mt-3 flex gap-3">
-            <Button onClick={handleQuickAdd} disabled={quickAddBusy}>
-              {quickAddBusy ? "Ajout..." : "Ajouter les sujets"}
-            </Button>
-            <Button variant="secondary" onClick={() => setQuickAddOpen(false)} disabled={quickAddBusy}>
-              Annuler
-            </Button>
-          </div>
-        </Card>
-      )}
-
       <Card className="mb-6 flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="text-sm text-slate-600">
-          <span className="font-semibold">Génération automatique</span> : tous les 2 jours en
-          production (Vercel Cron), un sujet en attente est généré et vous recevez un email
-          pour le relire. {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente
-          dans la file.
+        <div className="flex items-start gap-3 text-sm text-slate-600">
+          <BeakerIcon className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
+          <div>
+            <span className="font-semibold text-slate-900">Génération automatique</span> : tous les 2
+            jours en production (Vercel Cron), un sujet en attente est généré et vous recevez un
+            email pour le relire. {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente
+            dans la file.
+          </div>
         </div>
         <Button
           variant="secondary"
@@ -498,18 +387,21 @@ export default function BlogDashboard({
           disabled={autoGenBusy}
           className="shrink-0 self-start sm:self-auto"
         >
-          {autoGenBusy ? "..." : "🧪 Tester maintenant"}
+          {autoGenBusy ? "..." : "Tester maintenant"}
         </Button>
       </Card>
 
       <div className="mb-4 flex flex-wrap gap-3">
-        <input
-          type="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Rechercher un sujet (titre, description, mots-clés)..."
-          className="w-full max-w-md rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
-        />
+        <div className="relative w-full max-w-md">
+          <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Rechercher un sujet (titre, description, mots-clés)..."
+            className="w-full rounded-lg border border-slate-300 py-2 pl-9 pr-3 text-sm focus:border-red-600 focus:outline-none"
+          />
+        </div>
         {categories.length > 0 && (
           <select
             value={categoryFilter}
@@ -533,7 +425,7 @@ export default function BlogDashboard({
               key={f.value}
               type="button"
               onClick={() => setFilter(f.value)}
-              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
+              className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 ${
                 filter === f.value
                   ? "bg-slate-900 text-white"
                   : "bg-white text-slate-600 hover:bg-slate-100"
@@ -546,7 +438,7 @@ export default function BlogDashboard({
         </div>
         {filter === "trash" && trashCount > 0 && (
           <Button variant="danger" onClick={handleEmptyTrash} disabled={emptyTrashBusy}>
-            {emptyTrashBusy ? "Suppression..." : "🗑️ Vider la corbeille"}
+            <TrashIcon className="h-4 w-4" /> {emptyTrashBusy ? "Suppression..." : "Vider la corbeille"}
           </Button>
         )}
       </div>
@@ -554,12 +446,12 @@ export default function BlogDashboard({
       <Card className="overflow-x-auto">
         <table className="w-full min-w-[1150px] table-fixed text-left text-sm">
           <colgroup>
-            <col className="w-[18%]" />
-            <col className="w-[28%]" />
+            <col className="w-[22%]" />
+            <col className="w-[26%]" />
             <col className="w-[8%]" />
             <col className="w-[10%]" />
             <col className="w-[14%]" />
-            <col className="w-[22%]" />
+            <col className="w-[20%]" />
           </colgroup>
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
@@ -585,29 +477,34 @@ export default function BlogDashboard({
             )}
             {filtered.map((topic) => (
               <tr key={topic.id} className="border-t border-slate-100 transition-colors hover:bg-slate-50">
-                <td
-                  className="bg-cover bg-center px-5 py-4 font-medium text-slate-900"
-                  style={
-                    images[topic.id]
-                      ? {
-                          backgroundImage: `linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)), url(${images[topic.id]})`,
-                        }
-                      : undefined
-                  }
-                >
-                  <div className="flex flex-col gap-1">
-                    <span>{topic.title}</span>
-                    {topic.status === "published" && topic.slug && (
-                      <a
-                        href={`/blog/${topic.slug}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs font-normal whitespace-normal text-red-600 hover:underline"
-                      >
-                        🔗 Voir l&apos;article publié
-                      </a>
+                <td className="px-5 py-4">
+                  <div className="flex items-start gap-3">
+                    {images[topic.id] ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={images[topic.id]}
+                        alt=""
+                        className="h-10 w-10 shrink-0 rounded-lg object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-300">
+                        <ImageIcon className="h-5 w-5" />
+                      </div>
                     )}
+                    <div className="flex flex-col gap-1 pt-0.5">
+                      <span className="font-medium text-slate-900">{topic.title}</span>
+                      {topic.status === "published" && topic.slug && (
+                        <a
+                          href={`/blog/${topic.slug}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-flex items-center gap-1 text-xs font-medium text-red-600 hover:underline"
+                        >
+                          <ExternalLinkIcon className="h-3 w-3" /> Voir l&apos;article publié
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </td>
                 <td className="px-5 py-4 text-slate-500">
@@ -675,6 +572,126 @@ export default function BlogDashboard({
           </tbody>
         </table>
       </Card>
+
+      <Modal
+        open={suggestOpen}
+        onClose={() => setSuggestOpen(false)}
+        title="Suggestions de sujets (Gemini)"
+        description="Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en file pour éviter les doublons. Les idées s'ajoutent à l'ajout rapide pour relecture avant création."
+      >
+        <div className="flex flex-wrap gap-4">
+          <div>
+            <label className="mb-1 block text-xs font-semibold text-slate-500">Nombre de sujets</label>
+            <input
+              type="number"
+              min={1}
+              max={10}
+              value={suggestCount}
+              onChange={(e) => setSuggestCount(Math.min(10, Math.max(1, Number(e.target.value) || 1)))}
+              className="w-24 rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+          </div>
+          <div className="min-w-[220px] flex-1">
+            <label className="mb-1 block text-xs font-semibold text-slate-500">
+              Description / consignes (optionnel)
+            </label>
+            <input
+              type="text"
+              value={suggestBrief}
+              onChange={(e) => setSuggestBrief(e.target.value)}
+              placeholder="ex. sujets orientés BTP, ou sur les nouveautés réglementaires"
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            />
+          </div>
+        </div>
+        {suggestError && <p className="mt-3 text-sm text-red-600">{suggestError}</p>}
+        <div className="mt-4">
+          <Button onClick={handleSuggestTopics} disabled={suggestBusy}>
+            <SparklesIcon className="h-4 w-4" />
+            {suggestBusy ? "Génération... (10-15 s)" : "Générer des suggestions"}
+          </Button>
+        </div>
+      </Modal>
+
+      <Modal open={categoriesOpen} onClose={() => setCategoriesOpen(false)} title="Catégories">
+        {categories.length === 0 ? (
+          <p className="mb-3 text-sm text-slate-400">Aucune catégorie pour l&apos;instant.</p>
+        ) : (
+          <ul className="mb-4 flex flex-wrap gap-2">
+            {categories.map((c) => (
+              <li
+                key={c.id}
+                className="flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 py-1 pl-3 pr-2 text-sm"
+              >
+                {c.name}
+                <button
+                  type="button"
+                  onClick={() => handleDeleteCategory(c.id, c.name)}
+                  disabled={categoryBusy === c.id}
+                  aria-label={`Supprimer la catégorie ${c.name}`}
+                  className="rounded text-slate-400 hover:text-red-600 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-1"
+                >
+                  {categoryBusy === c.id ? "..." : <XIcon className="h-3.5 w-3.5" />}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {categoryError && <p className="mb-3 text-sm text-red-600">{categoryError}</p>}
+
+        <div className="flex flex-wrap gap-3">
+          <input
+            type="text"
+            value={newCategoryName}
+            onChange={(e) => setNewCategoryName(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+                handleAddCategory();
+              }
+            }}
+            placeholder="Nom de la nouvelle catégorie"
+            className="w-full max-w-xs rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+          />
+          <Button onClick={handleAddCategory} disabled={categoryBusy === "new" || !newCategoryName.trim()}>
+            {categoryBusy === "new" ? "Ajout..." : "Ajouter"}
+          </Button>
+        </div>
+      </Modal>
+
+      <Modal
+        open={quickAddOpen}
+        onClose={() => setQuickAddOpen(false)}
+        title="Ajouter plusieurs sujets d'un coup"
+        description={
+          <>
+            Un sujet par ligne. Optionnel : ajoutez une description après un « | » (ex.{" "}
+            <code>CACES R489A | les erreurs à éviter</code>). Sans description, le titre sert
+            aussi de description. Tous les sujets sont créés en ton « professionnel », 1000 mots
+            (les suggestions IA arrivent déjà avec leur propre ton varié). La catégorie est
+            choisie automatiquement par l&apos;IA à la génération de chaque article.
+          </>
+        }
+        maxWidth="max-w-xl"
+      >
+        <textarea
+          value={quickAddText}
+          onChange={(e) => setQuickAddText(e.target.value)}
+          rows={6}
+          placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
+          className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
+        />
+        {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}
+        <div className="mt-4 flex gap-3">
+          <Button onClick={handleQuickAdd} disabled={quickAddBusy}>
+            {quickAddBusy ? "Ajout..." : "Ajouter les sujets"}
+          </Button>
+          <Button variant="secondary" onClick={() => setQuickAddOpen(false)} disabled={quickAddBusy}>
+            Annuler
+          </Button>
+        </div>
+      </Modal>
     </div>
   );
 }
