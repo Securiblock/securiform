@@ -184,17 +184,17 @@ export default function Page() {
               <tr>
                 <td>H1 / H1V</td>
                 <td>Exécutant en haute tension, sous la direction d'un H2</td>
-                <td>3 jours (ou 1 jour en complément si B1 déjà acquis)</td>
+                <td>4 jours</td>
               </tr>
               <tr>
                 <td>H2 / H2V</td>
                 <td>Chargé de travaux en haute tension</td>
-                <td>3 jours (ou 1 jour en complément si B2 déjà acquis)</td>
+                <td>4 jours</td>
               </tr>
               <tr>
                 <td>HC</td>
-                <td>Chargé de consignation en haute tension, rôle le plus critique</td>
-                <td>3 à 4 jours</td>
+                <td>Chargé de consignation en haute tension</td>
+                <td>4 jours</td>
               </tr>
             </tbody>
           </table>
@@ -248,17 +248,17 @@ export default function Page() {
       <div className="container presentation">
         <div className="presentation-txt reveal">
           <span className="surtitre">Après la formation</span>
-          <h2 id="titre-evaluation">Une évaluation d'autant plus stricte que le rôle est critique</h2>
-          <p>Chaque symbole se termine par une évaluation théorique et une mise en situation pratique. Pour les habilitations les plus sensibles (BC, H1, H2, HC), les critères sont renforcés&nbsp;: expérience préalable exigée, et tolérance minimale aux erreurs lors de la mise en situation.</p>
-          <p>SECURIFORM transmet ensuite un avis après formation à l'employeur, qui reste seul décisionnaire de la délivrance du titre d'habilitation. Celui-ci est valable 3 ans, avant un recyclage obligatoire.</p>
+          <h2 id="titre-evaluation">De l'évaluation à l'habilitation</h2>
+          <p>La formation se termine par une évaluation théorique (questionnaire) et pratique (mise en situation). À l'issue, SECURIFORM transmet un avis après formation à l'employeur.</p>
+          <p>C'est l'employeur, et lui seul, qui délivre le titre d'habilitation à son salarié, sur la base de cet avis. L'attestation de formation est valable 3 ans.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="À retenir">
           <h3>À retenir</h3>
           <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Évaluation théorique et mise en situation pratique</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Critères renforcés pour BC, H1, H2 et HC</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Avis transmis à l'employeur, qui délivre l'habilitation</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Validité de 3 ans, recyclage avant expiration</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Évaluation théorique et pratique en fin de stage</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Avis après formation transmis à l'employeur</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Habilitation délivrée par l'employeur</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Validité de 3 ans</li>
           </ul>
         </aside>
       </div>
@@ -279,7 +279,15 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la différence entre B1, B2, BR et BC&nbsp;?</summary>
-            <p>B1 exécute des travaux sous la direction d'un B2. B2 dirige une équipe et porte la responsabilité du chantier. BR intervient seul, en autonomie complète, pour du dépannage ou de la maintenance. BC est chargé de la consignation, l'étape la plus sensible avant toute intervention hors tension.</p>
+            <p>
+              B1 exécute des travaux sous la direction d'un B2.
+              <br />
+              B2 dirige une équipe et porte la responsabilité du chantier.
+              <br />
+              BR intervient seul, en autonomie complète, pour du dépannage ou de la maintenance.
+              <br />
+              BC est chargé de la consignation.
+            </p>
           </details>
 
           <details className="faq-item">
@@ -293,8 +301,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Qui peut devenir chargé de consignation (BC ou HC)&nbsp;?</summary>
-            <p>Ce sont les habilitations les plus sélectives&nbsp;: elles demandent plusieurs années d'expérience électrique, une formation B2 ou H2 préalable, et une évaluation particulièrement exigeante, compte tenu de la responsabilité engagée.</p>
+            <summary>À partir de quelle tension parle-t-on de haute tension&nbsp;?</summary>
+            <p>On parle de haute tension au-delà de 1&nbsp;000&nbsp;V en courant alternatif et de 1&nbsp;500&nbsp;V en courant continu. Elle se divise en HTA (jusqu'à 50&nbsp;000&nbsp;V en alternatif et 75&nbsp;000&nbsp;V en continu) et HTB au-delà.</p>
           </details>
 
           <details className="faq-item">

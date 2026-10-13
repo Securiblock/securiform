@@ -154,7 +154,7 @@ export default function Page() {
           </article>
 
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quel montage ou quel mode de conduite correspond à votre grue&nbsp;? Contactez-nous, nous identifions cela avec vous.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quel montage ou quel mode de conduite correspond à votre grue&nbsp;? <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link>, nous identifions cela avec vous.</p>
       </div>
     </section>
 

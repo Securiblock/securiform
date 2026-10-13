@@ -92,9 +92,13 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Le SST en entreprise</span>
-        <h2 id="titre-intro">Une obligation dans de nombreuses situations, une recommandation partout ailleurs</h2>
+        <h2 id="titre-intro">Ce que dit le Code du travail</h2>
         <hr className="trait" />
-        <p>Le Code du travail impose la présence d'au moins un secouriste formé dans les ateliers à travaux dangereux et sur les chantiers de 20 salariés ou plus occupés plus de 15 jours à des travaux dangereux. Au-delà de ces cas, l'INRS recommande de former 10 à 15&nbsp;% de l'effectif, quelle que soit l'activité de l'entreprise.</p>
+        <p>L&apos;article R.&nbsp;4224-15 du Code du travail impose au minimum un salarié formé aux premiers secours dans&nbsp;:</p>
+          <ul className="liste-texte">
+            <li>chaque atelier où sont accomplis des travaux dangereux&nbsp;;</li>
+            <li>chaque chantier du BTP employant au moins 20 travailleurs pendant plus de 15 jours, lorsque des travaux dangereux y sont réalisés.</li>
+          </ul>
       </div>
     </section>
 
@@ -122,7 +126,7 @@ export default function Page() {
               <img src="/image/formation-sst-mac.webp" alt="MAC SST : maintien et actualisation des compétences" loading="lazy" />
             </div>
             <h3>MAC SST (recyclage)</h3>
-            <p>7 heures pour maintenir et actualiser ses compétences, à réaliser avant l'expiration des 24 mois de validité du certificat.</p>
+            <p>7 heures pour maintenir et actualiser ses connaissances de sauveteur secouriste du travail.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/sst-mac" aria-label="MAC SST" />
           </article>
@@ -168,7 +172,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Gestes essentiels</span>
-          <h2 id="titre-tableau">Quelle situation, quel geste&nbsp;?</h2>
+          <h2 id="titre-tableau">Quelles situations&nbsp;?</h2>
           <hr className="trait" />
           <p>Un repère synthétique&nbsp;: la formation SST permet de reconnaître ces situations et de réagir avec les bons gestes, dans le calme.</p>
         </div>
@@ -177,30 +181,32 @@ export default function Page() {
             <thead>
               <tr>
                 <th scope="col">Situation</th>
-                <th scope="col">Signes</th>
-                <th scope="col">Geste principal</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Arrêt cardiaque</td>
-                <td>Ne répond pas, ne respire pas</td>
-                <td>Massage cardiaque et défibrillateur dès que possible</td>
+                <td>La victime saigne abondamment</td>
               </tr>
               <tr>
-                <td>Étouffement</td>
-                <td>Ne peut plus parler ni tousser</td>
-                <td>Claques dans le dos, puis manœuvre de Heimlich</td>
+                <td>La victime s’étouffe</td>
               </tr>
               <tr>
-                <td>Inconscience</td>
-                <td>Ne répond pas, mais respire</td>
-                <td>Position latérale de sécurité (PLS)</td>
+                <td>La victime se plaint d’un malaise</td>
               </tr>
               <tr>
-                <td>Malaise</td>
-                <td>Vertiges, douleurs, difficultés à parler</td>
-                <td>Mise au repos, surveillance, alerte si aggravation</td>
+                <td>La victime se plaint de brûlures</td>
+              </tr>
+              <tr>
+                <td>La victime se plaint d’une douleur empêchant certains mouvements</td>
+              </tr>
+              <tr>
+                <td>La victime se plaint d’une plaie qui ne saigne pas abondamment</td>
+              </tr>
+              <tr>
+                <td>La victime ne répond pas mais elle respire</td>
+              </tr>
+              <tr>
+                <td>La victime ne répond pas et ne respire pas</td>
               </tr>
             </tbody>
           </table>
@@ -227,18 +233,8 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Combien de salariés former dans mon entreprise&nbsp;?</summary>
-            <p>À titre indicatif, l'INRS recommande environ 5 à 8 SST pour 50 salariés, et 10 à 15 pour 100 salariés, en tenant compte des rotations d'équipes, des absences et de la répartition sur plusieurs sites.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Quelle est la durée de validité du certificat SST&nbsp;?</summary>
-            <p>Le certificat est valable 24 mois. Avant son expiration, le salarié doit suivre un MAC (Maintien et Actualisation des Compétences) de 7 heures pour prolonger sa validité de 24 mois supplémentaires.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Que se passe-t-il si le recyclage MAC n'est pas fait à temps&nbsp;?</summary>
-            <p>Le salarié perd son statut de SST tant qu'il n'a pas suivi de nouvelle formation. Un MAC suffit généralement en cas de retard raisonnable après expiration&nbsp;; au-delà, une formation initiale complète de 14 heures peut être nécessaire.</p>
+            <p>Le certificat est valable 24 mois.</p>
           </details>
 
           <details className="faq-item">

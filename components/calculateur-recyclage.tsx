@@ -130,7 +130,16 @@ export default function CalculateurRecyclage({ formation }: { formation: Formati
           {statut === "bientot" &&
             `Votre formation expire dans ${formaterDuree(moisEntre(aujourdhui, echeance))} : programmez votre recyclage pour éviter toute interruption.`}
           {statut === "expire" &&
-            `Échéance dépassée depuis ${formaterDuree(moisEntre(echeance, aujourdhui))}. Selon le délai écoulé, un recyclage peut encore suffire ou une formation initiale sera nécessaire : contactez-nous pour faire le point.`}
+            (
+              <>
+                Échéance dépassée depuis {formaterDuree(moisEntre(echeance, aujourdhui))}. Selon le délai écoulé, un recyclage peut encore
+                suffire ou une formation initiale sera nécessaire&nbsp;:{" "}
+                <Link href="/nous-contacter" className="lien-texte">
+                  contactez-nous
+                </Link>{" "}
+                pour faire le point.
+              </>
+            )}
         </p>
         {option.note && <p className="recyclage-note">{option.note}</p>}
         <div className="recyclage-actions">

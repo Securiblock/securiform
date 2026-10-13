@@ -1394,3 +1394,19 @@ section[id]{scroll-margin-top:90px}
   .mega-fleche-bouton{width:44px;height:44px;background:var(--gris-clair)}
   .mega-fleche{font-size:16px}
 }
+
+/* Signes ≤ et ≥ : absents de Quicksand, ils prenaient une police de secours trop épaisse */
+.signe{font-family:"Segoe UI","Helvetica Neue",Roboto,Arial,sans-serif;font-weight:300}
+
+/* Tableau des zones d'environnement électrique (page personnel non-électricien) */
+.tableau-zones tbody td:first-child{white-space:nowrap;font-weight:700;color:var(--rouge)}
+.tableau-zones tbody td:nth-child(2){color:var(--noir);font-weight:400}
+
+/* Lien dans un texte courant (ex. « Contactez-nous » → page Contact) */
+.lien-texte{color:var(--rouge);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.lien-texte:hover{color:var(--rouge-fonce)}
+
+/* Liste à puces dans un texte d'introduction centré (ex. obligations SST) */
+.liste-texte{margin-top:.8rem;text-align:center;color:var(--gris)}
+.liste-texte li{margin-top:.4rem;line-height:1.55}
+.liste-texte li::before{content:"– ";color:var(--rouge);font-weight:700}

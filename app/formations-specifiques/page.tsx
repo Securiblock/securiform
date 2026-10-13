@@ -194,7 +194,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Mon équipement ne figure pas dans votre liste, pouvez-vous quand même m'aider&nbsp;?</summary>
-            <p>Très probablement. Les formations présentées ici sont des exemples&nbsp;: contactez-nous avec le détail de votre matériel et de votre activité, nous vous dirons rapidement si nous pouvons construire une session adaptée.</p>
+            <p>Très probablement. Les formations présentées ici sont des exemples&nbsp;: <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> avec le détail de votre matériel et de votre activité, nous vous dirons rapidement si nous pouvons construire une session adaptée.</p>
           </details>
 
           <details className="faq-item">

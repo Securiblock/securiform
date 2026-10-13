@@ -375,7 +375,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Mon pont roulant a un bras articulé, est-il couvert par le R484A&nbsp;?</summary>
-            <p>Non, les ponts à bras articulé non conformes à la norme EN 15011, les chariots suspendus, les palans seuls et les grues d'atelier ne relèvent pas du CACES R484A. Contactez-nous pour identifier la formation adaptée à votre équipement.</p>
+            <p>Non, les ponts à bras articulé non conformes à la norme EN 15011, les chariots suspendus, les palans seuls et les grues d'atelier ne relèvent pas du CACES R484A. <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link> pour identifier la formation adaptée à votre équipement.</p>
           </details>
 
           <details className="faq-item">

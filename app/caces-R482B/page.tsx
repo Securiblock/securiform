@@ -132,12 +132,12 @@ export default function Page() {
               <tr>
                 <td>A</td>
                 <td>Engins compacts</td>
-                <td><li>Pelles hydroliques, à chenilles ou sur pneumatiques, de masse ≤ 6 tonnes</li>
-                <li>Chargeuses, à chenilles ou sur pneumatiques, de masse ≤ 6 tonnes</li>
-                <li>Chargeuses-pelleteuses de masse ≤ 6 tonnes</li>
-                <li>Moto-basculeurs de masse ≤ 6 tonnes</li>
-                <li>Compacteurs de masse ≤ 6 tonnes</li>
-                <li>Tracteurs agricoles de puissance ≤ 100 cv (73.6 kW)</li></td>
+                <td><li>Pelles hydroliques, à chenilles ou sur pneumatiques, de masse <span className="signe">≤</span> 6 tonnes</li>
+                <li>Chargeuses, à chenilles ou sur pneumatiques, de masse <span className="signe">≤</span> 6 tonnes</li>
+                <li>Chargeuses-pelleteuses de masse <span className="signe">≤</span> 6 tonnes</li>
+                <li>Moto-basculeurs de masse <span className="signe">≤</span> 6 tonnes</li>
+                <li>Compacteurs de masse <span className="signe">≤</span> 6 tonnes</li>
+                <li>Tracteurs agricoles de puissance <span className="signe">≤</span> 100 cv (73.6 kW)</li></td>
               </tr>
               <tr>
                 <td>B1</td>
@@ -158,8 +158,8 @@ export default function Page() {
               <tr>
                 <td>C1</td>
                 <td>Engins de chargement à déplacement alternatif</td>
-                <td><li>Chargeuses sur pneumatiques de masse ≥ 6 tonnes</li>
-                <li>Chargeuses-pelleteuses de masse ≥ 6 tonnes</li></td>
+                <td><li>Chargeuses sur pneumatiques de masse <span className="signe">≥</span> 6 tonnes</li>
+                <li>Chargeuses-pelleteuses de masse <span className="signe">≥</span> 6 tonnes</li></td>
               </tr>
               <tr>
                 <td>C2</td>
@@ -194,7 +194,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? Contactez-nous, nous vous aidons à identifier la bonne formation.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link>, nous vous aidons à identifier la bonne formation.</p>
       </div>
     </section>
 

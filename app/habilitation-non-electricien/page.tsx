@@ -100,9 +100,9 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-intro">Six symboles pour six situations de travail</h2>
+        <h2 id="titre-intro">6 niveaux d'habilitation</h2>
         <hr className="trait" />
-        <p>Un personnel non-électricien n'intervient jamais sur une installation électrique&nbsp;: il travaille ou circule à proximité, ou réalise quelques opérations très encadrées (remplacement de fusible, réarmement). Chaque situation correspond à un symbole d'habilitation précis, avec ses propres opérations autorisées et interdites.</p>
+        <p>Le personnel non-électricien travaille ou circule à proximité de pièces nues sous tension, ou réalise des opérations très encadrées (remplacement de fusible, réarmement). Chaque situation correspond à un symbole d'habilitation précis, avec ses propres opérations autorisées et interdites.</p>
       </div>
     </section>
 
@@ -135,22 +135,22 @@ export default function Page() {
               <tr>
                 <td>H0B0 (chargé de chantier)</td>
                 <td>Organiser et réaliser ces travaux, en supervisant une équipe</td>
-                <td>1,5 jour</td>
+                <td>2 jours</td>
               </tr>
               <tr>
                 <td>BS</td>
                 <td>Remplacer à l'identique fusibles, prises, interrupteurs&nbsp;; réarmer une protection</td>
-                <td>1 à 1,5 jour</td>
+                <td>2 jours</td>
               </tr>
               <tr>
                 <td>BE Manœuvre</td>
                 <td>Effectuer des manœuvres d'exploitation en basse tension</td>
-                <td>1 à 1,5 jour</td>
+                <td>2 jours</td>
               </tr>
               <tr>
                 <td>HE Manœuvre</td>
                 <td>Effectuer des manœuvres d'exploitation en haute tension</td>
-                <td>1 à 1,5 jour</td>
+                <td>2 jours</td>
               </tr>
               <tr>
                 <td>B0L</td>
@@ -160,7 +160,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quel symbole correspond à votre activité&nbsp;? Contactez-nous, nous vous aidons à l'identifier.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quel symbole correspond à votre activité&nbsp;? <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link>, nous vous aidons à l'identifier.</p>
       </div>
     </section>
 
@@ -177,34 +177,39 @@ export default function Page() {
           <p>Savoir reconnaître ces zones sur le terrain est la première compétence enseignée&nbsp;: elle conditionne tout le reste.</p>
         </div>
         <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
+          <table className="tableau-comparatif tableau-zones">
             <thead>
               <tr>
                 <th scope="col">Zone</th>
-                <th scope="col">Niveau de risque</th>
-                <th scope="col">Ce qui est autorisé</th>
+                <th scope="col">Définition</th>
+                <th scope="col">Qui est autorisé&nbsp;?</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Zone 0</td>
-                <td>Aucun risque électrique</td>
-                <td>Travail normal, sans restriction</td>
+                <td>Zone d'investigation</td>
+                <td>Tout le personnel, sans habilitation électrique.</td>
               </tr>
               <tr>
                 <td>Zone 1</td>
-                <td>Voisinage simple</td>
-                <td>Travail autorisé avec vigilance</td>
+                <td>Zone de voisinage simple</td>
+                <td>Personnel habilité B0 ou H0 (exécutant ou chargé de chantier) et personnel électricien habilité.</td>
               </tr>
               <tr>
                 <td>Zone 2</td>
-                <td>Voisinage renforcé</td>
-                <td>Travail autorisé avec protections renforcées</td>
+                <td>Zone de voisinage renforcé, uniquement en haute tension</td>
+                <td>Personnel électricien habilité (H1V, H2V…).</td>
               </tr>
               <tr>
                 <td>Zone 3</td>
-                <td>Travaux sous tension</td>
-                <td>Strictement interdit au personnel non-électricien</td>
+                <td>Zone des travaux sous tension, uniquement en haute tension</td>
+                <td>Personnel électricien habilité aux travaux sous tension.</td>
+              </tr>
+              <tr>
+                <td>Zone 4</td>
+                <td>Zone de voisinage renforcé, uniquement en basse tension</td>
+                <td>Personnel électricien habilité (B1V, B2V, BR…).</td>
               </tr>
             </tbody>
           </table>
@@ -333,16 +338,16 @@ export default function Page() {
         <div className="presentation-txt reveal">
           <span className="surtitre">Après la formation</span>
           <h2 id="titre-evaluation">De l'évaluation à l'habilitation</h2>
-          <p>La formation se termine par une évaluation théorique (questionnaire) et une évaluation pratique (mise en situation). SECURIFORM transmet ensuite un avis après formation à l'employeur&nbsp;: favorable ou défavorable, selon les résultats obtenus.</p>
-          <p>C'est ensuite l'employeur, et lui seul, qui délivre le titre d'habilitation à son salarié, sur la base de cet avis. L'habilitation est valable 3 ans&nbsp;; un recyclage permet de la renouveler avant son expiration.</p>
+          <p>La formation se termine par une évaluation théorique (questionnaire) et pratique (mise en situation). À l'issue, SECURIFORM transmet un avis après formation à l'employeur.</p>
+          <p>C'est l'employeur, et lui seul, qui délivre le titre d'habilitation à son salarié, sur la base de cet avis. L'attestation de formation est valable 3 ans.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="À retenir">
           <h3>À retenir</h3>
           <ul className="valeurs">
             <li><span className="puce" aria-hidden="true">✓</span> Évaluation théorique et pratique en fin de stage</li>
             <li><span className="puce" aria-hidden="true">✓</span> Avis après formation transmis à l'employeur</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Habilitation délivrée par l'employeur, pas par SECURIFORM</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Validité de 3 ans, recyclage avant expiration</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Habilitation délivrée par l'employeur</li>
+            <li><span className="puce" aria-hidden="true">✓</span> Validité de 3 ans</li>
           </ul>
         </aside>
       </div>
@@ -378,7 +383,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Qui délivre l'habilitation à la fin de la formation&nbsp;?</summary>
-            <p>SECURIFORM évalue le stagiaire et transmet un avis après formation. C'est ensuite l'employeur qui délivre l'habilitation proprement dite, en tenant compte de cet avis et de sa propre connaissance du poste concerné.</p>
+            <p>SECURIFORM évalue le stagiaire et transmet un avis après formation. C'est ensuite l'employeur qui délivre l'habilitation proprement dite, en tenant compte de cet avis et de la reconnaissance de l'aptitude médicale du salarié.</p>
           </details>
 
           <details className="faq-item">

@@ -28,7 +28,7 @@ export default function NotFound() {
           <h1>404 : Page introuvable</h1>
           <p>
             Le lien est peut-être obsolète ou l&apos;adresse mal orthographiée.
-            Retrouvez nos formations ci-dessous ou contactez-nous directement.
+            Retrouvez nos formations ci-dessous ou <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> directement.
           </p>
           <Link href="/" className="btn btn-plein">
             Retour à l&apos;accueil

@@ -117,9 +117,10 @@ export default function MegaMenu({ libelle, href, contenu, actif, ouvert, defini
         <div className="container mega-contenu">
           <div className="mega-domaines">
             {colonnes.map((colonne) => {
-              // Pas de sous-liens : toute la carte devient cliquable (comme .categorie-card
-              // ailleurs sur le site) plutôt que de ne rendre que le titre cliquable.
-              const carteCliquable = Boolean(colonne.href) && colonne.liens.length === 0;
+              // Colonne décrite sans sous-liens (les outils) : toute la carte devient cliquable
+              // (comme .categorie-card ailleurs sur le site). Une colonne sans description,
+              // comme « Gestes et postures » dans Formations, garde un simple titre-lien.
+              const carteCliquable = Boolean(colonne.href) && colonne.liens.length === 0 && Boolean(colonne.description);
               return (
                 <div
                   key={colonne.titre}
