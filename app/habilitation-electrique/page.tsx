@@ -92,9 +92,10 @@ export default function Page() {
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
         <span className="surtitre">Nos formations</span>
-        <h2 id="titre-intro">Deux parcours, adaptés à votre niveau d'exposition au risque électrique</h2>
+        <h2 id="titre-intro">2 parcours, adaptés à votre niveau d'exposition aux risques électriques</h2>
         <hr className="trait" />
-        <p>L'habilitation électrique n'est pas un simple diplôme : c'est une autorisation que votre employeur vous délivre, sur la base d'une formation, d'une aptitude médicale et de votre connaissance des lieux. SECURIFORM prépare les deux publics concernés (personnel non-électricien et personnel électricien) en basse comme en haute tension.</p>
+        <p>L'habilitation électrique est une autorisation délivrée par votre employeur sur la base d'une formation et de la reconnaissance de votre aptitude médicale.</p>
+          <p>SECURIFORM prépare les deux publics concernés (personnel non-électricien et personnel électricien) en basse et en haute tension.</p>
       </div>
     </section>
 
@@ -112,7 +113,7 @@ export default function Page() {
               <img src="/image/formation-habilitation-non-electricien.webp" alt="Formation habilitation électrique personnel non-électricien" loading="lazy" />
             </div>
             <h3>Personnel non-électricien</h3>
-            <p>Pour toute personne amenée à travailler ou circuler à proximité d'installations électriques sans intervenir dessus&nbsp;: chargés de chantier, personnel de nettoyage, de manutention, etc. Habilitations H0, B0, BS, BE/HE Manœuvre.</p>
+            <p>Au sens de la norme NF C 18-510/A1, le personnel non électricien regroupe les personnes réalisant des opérations d'ordre non électrique dans un environnement d'installations électriques, ou des opérations électriques simples (manœuvres, remplacements à l'identique) dans les limites de leur habilitation.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/habilitation-non-electricien" aria-label="Formation personnel non-électricien" />
           </article>
@@ -122,7 +123,7 @@ export default function Page() {
               <img src="/image/formation-habilitation-electricien.webp" alt="Formation habilitation électrique personnel électricien" loading="lazy" />
             </div>
             <h3>Personnel électricien</h3>
-            <p>Pour les électriciens réalisant des travaux, interventions, essais ou consignations sur des installations basse ou haute tension&nbsp;: B1-B2-BR-BC-BE essai, H1-H2-HC-HE essai.</p>
+            <p>Au sens de la norme NF C 18-510/A1, le personnel électricien regroupe les personnes réalisant des opérations d'ordre électrique (travaux, interventions, consignations, essais, mesurages ou vérifications) sur des installations électriques basse ou haute tension, dans les limites de leur habilitation.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/habilitation-electricien" aria-label="Formation personnel électricien" />
           </article>
@@ -158,61 +159,61 @@ export default function Page() {
                 <td>H0 / B0</td>
                 <td>Non-électricien</td>
                 <td>BT et HT</td>
-                <td>Exécutant, travaux d'ordre non électrique à proximité d'installations</td>
-              </tr>
-              <tr>
-                <td>BS</td>
-                <td>Non-électricien</td>
-                <td>BT</td>
-                <td>Interventions élémentaires (remplacement de fusible, réarmement)</td>
+                <td>Exécutant d'opérations d'ordre non électrique à proximité d'installations électriques</td>
               </tr>
               <tr>
                 <td>BE / HE Manœuvre</td>
                 <td>Non-électricien</td>
                 <td>BT et HT</td>
-                <td>Manœuvres autorisées sur des équipements identifiés</td>
+                <td>Chargé d'opérations spécifiques (manœuvres d'exploitation&nbsp;: changement de la configuration d'un réseau, d'une installation ou de l'alimentation électrique d'un équipement)</td>
               </tr>
               <tr>
-                <td>B1 / B2</td>
+                <td>BS</td>
+                <td>Non-électricien</td>
+                <td>BT</td>
+                <td>Chargé d'interventions élémentaires (remplacement hors tension de fusibles à l'identique et de petits appareillages électriques…)</td>
+              </tr>
+              <tr>
+                <td>B1</td>
                 <td>Électricien</td>
                 <td>BT</td>
-                <td>Exécutant ou chargé de travaux basse tension</td>
+                <td>Exécutant d'opérations d'ordre électrique (travaille seul et opère dans la zone de travail indiquée, selon les instructions reçues par le B2)</td>
+              </tr>
+              <tr>
+                <td>B2</td>
+                <td>Électricien</td>
+                <td>BT</td>
+                <td>Chargé de travaux (assure la direction effective des travaux et prend les mesures nécessaires pour assurer sa propre sécurité et celle du personnel placé sous ses ordres)</td>
               </tr>
               <tr>
                 <td>BR</td>
                 <td>Électricien</td>
                 <td>BT</td>
-                <td>Chargé d'intervention générale basse tension</td>
+                <td>Chargé d'intervention générale (réalise des interventions de dépannage, de raccordement, de mesurage ou d'essai, peut consigner pour son propre compte et assure sa propre sécurité)</td>
               </tr>
               <tr>
                 <td>BC</td>
                 <td>Électricien</td>
                 <td>BT</td>
-                <td>Chargé de consignation basse tension</td>
+                <td>Chargé de consignation (réalise des opérations de consignation ou réalise la mise hors tension)</td>
               </tr>
               <tr>
-                <td>BE essai</td>
-                <td>Électricien</td>
-                <td>BT</td>
-                <td>Réalisation d'essais basse tension</td>
-              </tr>
-              <tr>
-                <td>H1 / H2</td>
+                <td>H1</td>
                 <td>Électricien</td>
                 <td>HT</td>
-                <td>Exécutant ou chargé de travaux haute tension</td>
+                <td>Exécutant d'opérations d'ordre électrique (travaille seul et opère dans la zone de travail indiquée, selon les instructions reçues par le H2)</td>
+              </tr>
+              <tr>
+                <td>H2</td>
+                <td>Électricien</td>
+                <td>HT</td>
+                <td>Chargé de travaux (assure la direction effective des travaux et prend les mesures nécessaires pour assurer sa propre sécurité et celle du personnel placé sous ses ordres)</td>
               </tr>
               <tr>
                 <td>HC</td>
                 <td>Électricien</td>
                 <td>HT</td>
-                <td>Chargé de consignation haute tension</td>
-              </tr>
-              <tr>
-                <td>HE essai</td>
-                <td>Électricien</td>
-                <td>HT</td>
-                <td>Réalisation d'essais haute tension</td>
+                <td>Chargé de consignation (réalise des opérations de consignation ou réalise la mise hors tension)</td>
               </tr>
               <tr>
                 <td>B1L / B2L / BRL / BCL</td>
@@ -241,7 +242,7 @@ export default function Page() {
         <div className="etapes">
           <div className="etape reveal">
             <h3>Théorie</h3>
-            <p>Grandeurs électriques, effets du courant, zones d'environnement et symboles d'habilitation, adaptés à votre niveau.</p>
+            <p>Grandeurs électriques, effets du courant, zones d'environnement et symboles d'habilitation, adaptés à votre niveau…</p>
           </div>
           <div className="etape reveal">
             <h3>Pratique</h3>
@@ -253,7 +254,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Habilitation</h3>
-            <p>Sur la base de l'attestation de formation, votre employeur délivre l'habilitation, propre à votre poste.</p>
+            <p>Sur la base de l'attestation de formation et de la reconnaissance de votre aptitude médicale, votre employeur délivre l'habilitation, propre à votre poste.</p>
           </div>
         </div>
       </div>
@@ -274,12 +275,12 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la différence entre une formation et une habilitation électrique&nbsp;?</summary>
-            <p>La formation prépare votre personnel et débouche sur une attestation de compétences. L'habilitation, elle, est délivrée par votre employeur&nbsp;: elle tient compte de la formation suivie, mais aussi de l'aptitude médicale du salarié et de sa connaissance des installations concernées.</p>
+            <p>La formation prépare le personnel et débouche sur une attestation de compétences. L'habilitation, elle, est délivrée par l'employeur&nbsp;: elle tient compte de la formation suivie, mais aussi de l'aptitude médicale du salarié.</p>
           </details>
 
           <details className="faq-item">
             <summary>Je ne suis pas électricien, ai-je vraiment besoin d'une habilitation&nbsp;?</summary>
-            <p>Oui, dès lors que votre activité vous amène à travailler ou circuler à proximité d'installations électriques, même sans y toucher directement. Les habilitations H0, B0, BS ou BE/HE Manœuvre couvrent justement ces situations pour le personnel non-électricien.</p>
+            <p>Oui, dès lors que votre activité vous amène à travailler ou circuler à proximité d'installations électriques, même sans y toucher directement. L'habilitation H0B0 couvre ces situations.</p>
           </details>
 
           <details className="faq-item">
@@ -289,12 +290,12 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Quelle est la durée de validité d'une habilitation électrique&nbsp;?</summary>
-            <p>L'habilitation n'a pas de durée légale figée, mais elle doit être révisée régulièrement par l'employeur, notamment lors d'un recyclage périodique (généralement tous les 3 ans), d'un changement de poste ou après une interruption prolongée de la pratique.</p>
+            <p>La norme NF C 18-510 recommande un recyclage tous les 3 ans.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Formation en centre ou directement sur site&nbsp;: que choisir&nbsp;?</summary>
-            <p>Les deux formules sont possibles. Le centre SECURIFORM permet de s'appuyer sur du matériel pédagogique dédié. La formation sur site utilise vos propres installations et convient bien aux groupes d'une même entreprise.</p>
+            <summary>À partir de quelle tension parle-t-on de haute tension&nbsp;?</summary>
+            <p>On parle de haute tension au-delà de 1&nbsp;000&nbsp;V en courant alternatif et de 1&nbsp;500&nbsp;V en courant continu. Elle se divise en HTA (jusqu'à 50&nbsp;000&nbsp;V en alternatif et 75&nbsp;000&nbsp;V en continu) et HTB au-delà.</p>
           </details>
 
         </div>

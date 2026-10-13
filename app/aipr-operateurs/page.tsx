@@ -129,7 +129,7 @@ export default function Page() {
             <tbody>
               <tr>
                 <td>Classe A</td>
-                <td>≤ 40 cm pour un réseau rigide, ≤ 50 cm pour un réseau flexible</td>
+                <td><span className="signe">≤</span> 40 cm pour un réseau rigide, <span className="signe">≤</span> 50 cm pour un réseau flexible</td>
               </tr>
               <tr>
                 <td>Classe B</td>

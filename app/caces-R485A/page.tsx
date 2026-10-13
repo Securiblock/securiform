@@ -131,17 +131,17 @@ export default function Page() {
               <tr>
                 <td>Catégorie 1</td>
                 <td>Gerbeur à conducteur accompagnant</td>
-                <td>Hauteur de levée minimale 2.20 m</td>
+                <td>1.20 m &lt; hauteur de levée <span className="signe">≤</span> 2.50 m</td>
               </tr>
               <tr>
                 <td>Catégorie 2</td>
                 <td>Gerbeur à conducteur accompagnant</td>
-                <td>Hauteur de levée minimale 3.40 m</td>
+                <td>hauteur de levée &gt; 2.50 m</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? Contactez-nous, nous vous aidons à l'identifier.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link>, nous vous aidons à l'identifier.</p>
       </div>
     </section>
 
@@ -313,7 +313,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>À quelle catégorie appartient mon gerbeur&nbsp;?</summary>
-            <p>Cela dépend de la hauteur de levée de votre gerbeur&nbsp;: la catégorie 1 correspond à une hauteur de levée minimale de 2.20 m, la catégorie 2 à une hauteur de levée minimale de 3.40 m.</p>
+            <p>Cela dépend de la hauteur de levée de votre gerbeur&nbsp;: la catégorie 1 correspond à une hauteur de levée comprise entre 1.20 m et 2.50 m, la catégorie 2 à une hauteur de levée supérieure à 2.50 m.</p>
           </details>
 
           <details className="faq-item">
@@ -322,7 +322,7 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Peut-on former une équipe aux catégories 1 et 2 en même temps&nbsp;?</summary>
+            <summary>Puis-je me former aux catégories 1 et 2 en même temps&nbsp;?</summary>
             <p>Oui. La catégorie 2 englobe la catégorie 1&nbsp;: un conducteur formé en catégorie 2 peut également conduire les gerbeurs de catégorie 1. Une formation unique en catégorie 2 permet donc de couvrir l'ensemble de votre parc.</p>
           </details>
 
@@ -379,8 +379,8 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="categorie">Catégorie(s) concernée(s)</label>
               <select id="categorie" name="categorie">
-                <option value="1">Catégorie 1 : hauteur de levée minimale 2.20 m</option>
-                <option value="2">Catégorie 2 : hauteur de levée minimale 3.40 m</option>
+                <option value="1">Catégorie 1 : 1.20 m &lt; hauteur de levée ≤ 2.50 m</option>
+                <option value="2">Catégorie 2 : hauteur de levée &gt; 2.50 m</option>
                 <option value="deux">Les deux catégories</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>

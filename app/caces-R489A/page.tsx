@@ -131,7 +131,7 @@ export default function Page() {
               <tr>
                 <td>1A</td>
                 <td>Transpalettes à conducteur porté</td>
-                <td>hauteur de levée ≤ 1.20m</td>
+                <td>hauteur de levée <span className="signe">≤</span> 1.20m</td>
               </tr>
               <tr>
                 <td>1B</td>
@@ -141,17 +141,17 @@ export default function Page() {
               <tr>
                 <td>2A</td>
                 <td>Chariots à plateau porteur</td>
-                <td>capacité de charge ≤ 2 tonnes</td>
+                <td>capacité de charge <span className="signe">≤</span> 2 tonnes</td>
               </tr>
               <tr>
                 <td>2B</td>
                 <td>Chariots tracteurs industriels</td>
-                <td>capacité de traction ≤ 25 tonnes</td>
+                <td>capacité de traction <span className="signe">≤</span> 25 tonnes</td>
               </tr>
               <tr>
                 <td>3</td>
                 <td>Chariots élévateurs frontaux en porte-à-faux</td>
-                <td>capacité nominale ≤ 6 tonnes</td>
+                <td>capacité nominale <span className="signe">≤</span> 6 tonnes</td>
               </tr>
               <tr>
                 <td>4</td>
@@ -177,7 +177,7 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? Contactez-nous, nous vous aidons à l'identifier.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Vous ne savez pas quelle catégorie correspond à votre matériel&nbsp;? <Link href="/nous-contacter" className="lien-texte">Contactez-nous</Link>, nous vous aidons à l'identifier.</p>
       </div>
     </section>
 

@@ -97,119 +97,16 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-cadre">
+<section className="section section-alt" aria-labelledby="titre-cadre">
       <div className="container section-head reveal">
-        <span className="surtitre">Vue d'ensemble</span>
-        <h2 id="titre-cadre">Une obligation légale, parfois absolue</h2>
+        <span className="surtitre">Le SST en entreprise</span>
+        <h2 id="titre-cadre">Ce que dit le Code du travail</h2>
         <hr className="trait" />
-        <p>L'article R4224-15 du Code du travail impose la présence d'au moins un secouriste formé dans les ateliers où sont accomplis des travaux dangereux, ainsi que sur les chantiers employant 20 travailleurs ou plus pendant 15 jours et davantage, dès lors que des travaux dangereux y sont réalisés. Au-delà de ces cas stricts, l'article L4121-1 impose à tout employeur une obligation générale de sécurité, qui l'amène à évaluer ses propres besoins selon ses risques, sa taille et son éloignement des secours. L'INRS recommande, pour toute entreprise, de former 10 à 15&nbsp;% de l'effectif.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-obligation">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Bien s'y retrouver</span>
-          <h2 id="titre-obligation">Obligation absolue ou recommandation&nbsp;?</h2>
-          <hr className="trait" />
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Situation</th>
-                <th scope="col">Statut</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Atelier avec travaux dangereux (machines, produits chimiques, hauteur, énergie)</td>
-                <td>Obligation absolue</td>
-              </tr>
-              <tr>
-                <td>Chantier de 20 travailleurs ou plus, pendant 15 jours ou davantage, avec travaux dangereux</td>
-                <td>Obligation absolue</td>
-              </tr>
-              <tr>
-                <td>Toute autre entreprise, quelle que soit sa taille</td>
-                <td>Recommandation INRS&nbsp;: 10 à 15&nbsp;% de l'effectif</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>À titre indicatif, cela représente environ 5 à 8 SST pour 50 salariés, ou 10 à 15 SST pour 100 salariés, en tenant compte des rotations d'équipes et des absences.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section" aria-labelledby="titre-programme">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Ce que couvre le stage</span>
-          <h2 id="titre-programme">Un programme structuré en 10 modules</h2>
-          <hr className="trait" />
-          <p>Le référentiel INRS organise la formation initiale autour de modules progressifs, du rôle du SST jusqu'aux gestes de secours proprement dits.</p>
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Module</th>
-                <th scope="col">Contenu</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Module 1</td>
-                <td>Situer le rôle du SST dans l'organisation de la prévention de l'entreprise</td>
-              </tr>
-              <tr>
-                <td>Module 2</td>
-                <td>Protéger&nbsp;: reconnaître les risques persistants et supprimer ou isoler le danger</td>
-              </tr>
-              <tr>
-                <td>Module 3</td>
-                <td>Examiner la victime selon un ordre déterminé et faire alerter les secours</td>
-              </tr>
-              <tr>
-                <td>Modules 4 à 10</td>
-                <td>Secourir selon la situation rencontrée&nbsp;: étouffement, saignement, brûlure, plaie, malaise, inconscience, arrêt cardiaque</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Retrouvez le détail des gestes de premiers secours (protocole PAS, arrêt cardiaque, PLS, étouffement) sur notre page Secourisme (SST).</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-modalites">
-      <div className="container presentation">
-        <div className="presentation-txt reveal">
-          <span className="surtitre">Comment ça se déroule</span>
-          <h2 id="titre-modalites">14 heures, en groupe restreint</h2>
-          <p>La formation se déroule sur 2 jours consécutifs de 7 heures chacun, en groupe restreint pour garantir un temps de pratique suffisant à chaque stagiaire. Elle alterne apports théoriques et mises en situation pratiques, sur mannequins de réanimation et cas concrets adaptés aux risques de votre entreprise.</p>
-          <p>La certification repose sur deux épreuves&nbsp;: une épreuve de prévention (identifier et rendre compte d'une situation dangereuse) et une épreuve de secours (réaliser les gestes techniques sur un cas concret). Seuls les organismes habilités par l'INRS, comme SECURIFORM, peuvent délivrer le certificat SST.</p>
-        </div>
-        <aside className="presentation-visuel reveal" aria-label="À retenir">
-          <h3>À retenir</h3>
-          <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> 14 heures sur 2 jours consécutifs</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Deux épreuves&nbsp;: prévention et secours</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Certificat délivré par un organisme habilité INRS</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Valable 24 mois, recyclage MAC ensuite</li>
-          </ul>
-        </aside>
+        <p>L&apos;article R.&nbsp;4224-15 du Code du travail impose au minimum un salarié formé aux premiers secours dans&nbsp;:</p>
+        <ul className="liste-texte">
+          <li>chaque atelier où sont accomplis des travaux dangereux&nbsp;;</li>
+          <li>chaque chantier du BTP employant au moins 20 travailleurs pendant plus de 15 jours, lorsque des travaux dangereux y sont réalisés.</li>
+        </ul>
       </div>
     </section>
 
@@ -261,7 +158,7 @@ export default function Page() {
         <span className="surtitre">Et après</span>
         <h2 id="titre-validite">Validité du certificat et recyclage</h2>
         <hr className="trait" />
-        <p>Le certificat SST est valable 24 mois exactement à compter de sa délivrance. Avant son expiration, un recyclage MAC (Maintien et Actualisation des Compétences) de 7 heures permet de le renouveler. Passé un délai de 24 mois après l'expiration sans recyclage, c'est la formation initiale complète de 14 heures qui doit être repassée&nbsp;: mieux vaut donc anticiper l'échéance de quelques mois.</p>
+        <p>Le certificat SST est valable 24 mois.</p>
       </div>
     </section>
 
@@ -279,18 +176,8 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Combien de SST dois-je former dans mon entreprise&nbsp;?</summary>
-            <p>Si vous êtes concerné par l'obligation absolue (atelier dangereux, chantier BTP important), au moins un SST doit être présent en permanence. Sinon, l'INRS recommande de former 10 à 15&nbsp;% de votre effectif, en tenant compte des rotations d'équipes et des absences.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Le SST peut-il imposer des mesures de sécurité à ses collègues&nbsp;?</summary>
             <p>Non, son rôle se limite à observer, informer et proposer. La décision et la mise en œuvre des mesures de prévention reviennent à l'encadrement et aux préventeurs professionnels de l'entreprise.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Que se passe-t-il si mon certificat SST expire sans recyclage&nbsp;?</summary>
-            <p>Si le retard reste inférieur à 24 mois après l'expiration, un simple recyclage MAC de 7 heures suffit. Au-delà, la formation initiale complète de 14 heures doit être repassée en totalité.</p>
           </details>
 
           <details className="faq-item">

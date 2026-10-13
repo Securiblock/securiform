@@ -344,12 +344,12 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon besoin ne correspond à aucune formation du catalogue&nbsp;?</summary>
-            <p>SECURIFORM conçoit aussi des formations sur mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page <Link href="/formations-specifiques">Formations spécifiques</Link> pour plus de détails ou contactez-nous au <a href="tel:+33320673490">03&nbsp;20&nbsp;67&nbsp;34&nbsp;90</a>.</p>
+            <p>SECURIFORM conçoit aussi des formations sur mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page <Link href="/formations-specifiques">Formations spécifiques</Link> pour plus de détails ou <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> au <a href="tel:+33320673490">03&nbsp;20&nbsp;67&nbsp;34&nbsp;90</a>.</p>
           </details>
 
           <details className="faq-item">
             <summary>Comment rejoindre l'équipe de formateurs SECURIFORM&nbsp;?</summary>
-            <p>SECURIFORM recrute régulièrement des formateurs sur toute la moitié nord de la France&nbsp;: consultez notre page Nous recrutons ou contactez-nous directement pour échanger sur votre profil.</p>
+            <p>SECURIFORM recrute régulièrement des formateurs sur toute la moitié nord de la France&nbsp;: consultez notre page Nous recrutons ou <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> directement pour échanger sur votre profil.</p>
           </details>
 
         </div>
