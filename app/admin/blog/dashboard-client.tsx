@@ -454,12 +454,12 @@ export default function BlogDashboard({
       <Card className="overflow-x-auto">
         <table className="w-full min-w-[1150px] table-fixed text-left text-sm">
           <colgroup>
-            <col className="w-[22%]" />
-            <col className="w-[26%]" />
+            <col className="w-[20%]" />
+            <col className="w-[24%]" />
             <col className="w-[8%]" />
             <col className="w-[10%]" />
             <col className="w-[14%]" />
-            <col className="w-[20%]" />
+            <col className="w-[24%]" />
           </colgroup>
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
@@ -527,8 +527,8 @@ export default function BlogDashboard({
                   {topic.generatedAt && <div>Généré : {formatShortDate(topic.generatedAt)}</div>}
                   {topic.publishedAt && <div>Publié : {formatShortDate(topic.publishedAt)}</div>}
                 </td>
-                <td className="px-5 py-4">
-                  <div className="flex flex-wrap gap-1.5">
+                <td className="px-2 py-4 sm:px-3">
+                  <div className="flex flex-nowrap items-center gap-1">
                     {filter === "trash" ? (
                       <>
                         <Button
