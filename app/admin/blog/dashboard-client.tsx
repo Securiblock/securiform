@@ -455,11 +455,11 @@ export default function BlogDashboard({
         <table className="w-full min-w-[1150px] table-fixed text-left text-sm">
           <colgroup>
             <col className="w-[20%]" />
-            <col className="w-[24%]" />
+            <col className="w-[28%]" />
             <col className="w-[8%]" />
             <col className="w-[10%]" />
             <col className="w-[14%]" />
-            <col className="w-[24%]" />
+            <col className="w-[20%]" />
           </colgroup>
           <thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
             <tr>
@@ -485,18 +485,18 @@ export default function BlogDashboard({
             )}
             {filtered.map((topic) => (
               <tr key={topic.id} className="border-t border-slate-100 transition-colors hover:bg-slate-50">
-                <td className="px-5 py-4">
+                <td className="px-5 py-4 align-top">
                   <div className="flex items-start gap-3">
                     {images[topic.id] ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={images[topic.id]}
                         alt=""
-                        className="h-10 w-10 shrink-0 rounded-lg object-cover"
+                        className="h-16 w-16 shrink-0 rounded-lg object-cover"
                       />
                     ) : (
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-300">
-                        <ImageIcon className="h-5 w-5" />
+                      <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-300">
+                        <ImageIcon className="h-7 w-7" />
                       </div>
                     )}
                     <div className="flex flex-col gap-1 pt-0.5">
@@ -515,19 +515,19 @@ export default function BlogDashboard({
                     </div>
                   </div>
                 </td>
-                <td className="px-5 py-4 text-slate-500">
+                <td className="px-5 py-4 align-top text-slate-500">
                   {topic.description}
                 </td>
-                <td className="px-5 py-4 text-slate-500">{topic.category || "—"}</td>
-                <td className="px-5 py-4">
+                <td className="px-5 py-4 align-middle text-slate-500">{topic.category || "—"}</td>
+                <td className="px-5 py-4 align-middle">
                   <StatusBadge status={topic.status} />
                 </td>
-                <td className="px-5 py-4 text-xs text-slate-500">
+                <td className="px-5 py-4 align-middle text-xs text-slate-500">
                   <div>Créé : {formatShortDate(topic.createdAt)}</div>
                   {topic.generatedAt && <div>Généré : {formatShortDate(topic.generatedAt)}</div>}
                   {topic.publishedAt && <div>Publié : {formatShortDate(topic.publishedAt)}</div>}
                 </td>
-                <td className="px-2 py-4 sm:px-3">
+                <td className="px-2 py-4 align-middle sm:px-3">
                   <div className="flex flex-nowrap items-center gap-1">
                     {filter === "trash" ? (
                       <>
