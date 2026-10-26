@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import { AdminProviders } from "./blog/ui";
 import "./admin.css";
+
+// Scoped to /admin only (via className below) — the public site keeps its
+// branded Rajdhani/Quicksand fonts untouched. Inter reads as a more neutral,
+// "modern SaaS dashboard" face for a dense data-management UI.
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Admin Blog - SECURIFORM",
@@ -10,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900">
+    <div className={`${inter.className} min-h-screen bg-slate-50 text-slate-900`}>
       <div className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-4 sm:px-6">
           <Link href="/admin/blog" className="flex items-center gap-2.5">
