@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { runAutoGenerate } from "@/lib/blog/auto-generate";
+import { runAutoGenerate, sendEmptyQueueEmail } from "@/lib/blog/auto-generate";
 import { isAuthorizedCronRequest } from "@/lib/cron-auth";
 
 // Triggered by Vercel Cron (see vercel.json) every 2 days. Vercel sends
@@ -13,6 +13,9 @@ export async function GET(request: Request) {
 
   try {
     const result = await runAutoGenerate();
+    if (!result.generated) {
+      await sendEmptyQueueEmail();
+    }
     return NextResponse.json(result);
   } catch (err) {
     console.error("Cron génération article : échec.", err);

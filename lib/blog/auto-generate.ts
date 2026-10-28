@@ -63,6 +63,47 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   };
 }
 
+// Called by the cron route (not the manual "tester maintenant" button, which
+// already shows the "rien à générer" result on screen) so someone notices an
+// empty queue without having to check the admin dashboard proactively.
+export async function sendEmptyQueueEmail(): Promise<boolean> {
+  if (!process.env.RESEND_API_KEY) {
+    console.error("Génération auto : RESEND_API_KEY manquante, email non envoyé.");
+    return false;
+  }
+
+  const queueUrl = `${SITE_URL}/admin/blog`;
+
+  const html = `<!doctype html>
+<html lang="fr"><body style="margin:0;background:#F5F5F7;font-family:Arial,Helvetica,sans-serif;color:#1C1C1E">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:32px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:680px;background:#fff;border-radius:12px;overflow:hidden">
+<tr><td style="background:#CE2222;padding:20px 28px;color:#fff;font-size:20px;font-weight:bold;letter-spacing:1px">SECURIFORM — Blog</td></tr>
+<tr><td style="padding:28px">
+<p style="font-size:15px;line-height:1.6;margin:0 0 20px">La génération automatique d'article s'est déclenchée, mais aucun sujet n'était en attente dans la file : rien n'a été généré.</p>
+<p style="margin:0"><a href="${queueUrl}" style="background:#CE2222;color:#fff;text-decoration:none;padding:12px 22px;border-radius:6px;font-weight:bold;display:inline-block">Ajouter un sujet</a></p>
+</td></tr>
+</table></td></tr></table></body></html>`;
+
+  const text = `La génération automatique d'article s'est déclenchée, mais aucun sujet n'était en attente dans la file : rien n'a été généré.\n\nAjoutez un sujet ici :\n${queueUrl}`;
+
+  try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { error } = await resend.emails.send({
+      from: `Blog SECURIFORM <${FROM_EMAIL}>`,
+      to: TO_EMAIL,
+      subject: "Blog SECURIFORM : file de sujets vide",
+      html,
+      text,
+    });
+    if (error) throw new Error(error.message);
+    return true;
+  } catch (err) {
+    console.error("Génération auto : échec de l'envoi de l'email « file vide ».", err);
+    return false;
+  }
+}
+
 async function sendReviewEmail(topicId: string, article: Article): Promise<boolean> {
   if (!process.env.RESEND_API_KEY) {
     console.error("Génération auto : RESEND_API_KEY manquante, email non envoyé.");
