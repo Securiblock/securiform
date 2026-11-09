@@ -27,10 +27,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 502 });
   }
 
+  // Un article déjà publié garde son adresse : la changer laisserait
+  // l'ancienne page en ligne (doublon, et une suppression qui ne la retire
+  // pas) et casserait les liens / le référencement déjà acquis.
+  const slug = topic.publishedAt && topic.slug ? topic.slug : generated.slug;
+
   // Régénération sur le même slug : on garde l'image déjà choisie plutôt que
   // de la perdre à chaque nouvelle génération.
   const previousImage =
-    topic.slug === generated.slug ? (await getArticle(generated.slug))?.image ?? null : null;
+    topic.slug === slug ? (await getArticle(slug))?.image ?? null : null;
 
   // Le sujet a déjà une catégorie choisie manuellement -> on la garde telle
   // quelle. Sinon on reprend la suggestion de Gemini (peut rester null).
@@ -39,7 +44,7 @@ export async function POST(request: Request) {
   const now = new Date().toISOString();
   const article: Article = {
     id: topic.id,
-    slug: generated.slug,
+    slug,
     title: generated.title,
     metaDescription: generated.metaDescription,
     content: generated.content,
