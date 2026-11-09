@@ -68,7 +68,7 @@ export const FORMATIONS = {
   "sst-initiale": {
     page: "sst-initiale",
     titre: "Formation initiale SST",
-    description: "Cadre légal, programme en 10 modules, évaluation. 14 h sur 2 jours, certificat valable 24 mois.",
+    description: "Code du travail, rôle préventif du SST. 14 h sur 2 jours, certificat valable 24 mois.",
     recyclage: true,
   },
   "sst-mac": {
@@ -87,37 +87,37 @@ export const FORMATIONS = {
     page: "manipulation-extincteurs",
     titre: "Manipulation des extincteurs",
     description: "Triangle du feu, classes de feux A à F, pratique sur feu réel.",
-    recyclage: true,
+    recyclage: false,
   },
   "equipier-premiere-intervention": {
     page: "equipier-premiere-intervention",
     titre: "Équipier de Première Intervention (EPI)",
     description: "Obligations légales, organisation, RIA, coupures d'énergie. Référentiel APSAD R6.",
-    recyclage: true,
+    recyclage: false,
   },
   evacuation: {
     page: "evacuation",
     titre: "Évacuation",
     description: "Rôles de guide-file et serre-file, comportement en situation de danger, exercices tous les 6 mois.",
-    recyclage: true,
+    recyclage: false,
   },
   "travaux-en-hauteur": {
     page: "travaux-en-hauteur",
     titre: "Travaux en hauteur",
     description: "Hiérarchie des protections, harnais, points d'ancrage, longes, lignes de vie.",
-    recyclage: true,
+    recyclage: false,
   },
   "echafaudages-fixes": {
     page: "echafaudages-fixes",
     titre: "Échafaudages fixes (R408)",
     description: "Montage et démontage, règles de stabilité, classes de charge, vérifications réglementaires.",
-    recyclage: true,
+    recyclage: false,
   },
   "echafaudages-roulants": {
     page: "echafaudages-roulants",
     titre: "Échafaudages roulants (R457)",
     description: "Blocage des roues, stabilisateurs, procédure de déplacement sécurisé.",
-    recyclage: true,
+    recyclage: false,
   },
   "aipr-operateurs": {
     page: "aipr-operateurs",
@@ -141,7 +141,7 @@ export const FORMATIONS = {
     page: "gestes-postures",
     titre: "Gestes et postures",
     description: "Gestes et postures de manutention pour prévenir les TMS, conformément au Code du travail.",
-    recyclage: true,
+    recyclage: false,
   },
   "tondeuses-autoportees": {
     page: "tondeuses-autoportees",
@@ -151,7 +151,7 @@ export const FORMATIONS = {
   },
   "tronconneuse-thermique": {
     page: "tronconneuse-thermique",
-    titre: "Utilisation en sécurité d'une tronçonneuse thermique",
+    titre: "Utilisation en sécurité des tronçonneuses thermiques",
     description: "Risque de rebond, équipements de protection, vérifications.",
     recyclage: false,
   },
@@ -163,7 +163,7 @@ export const FORMATIONS = {
   },
   "formations-specifiques": {
     page: "formations-specifiques",
-    titre: "Formation sur mesure",
+    titre: "Formation sur-mesure",
     description: "Une formation conçue pour vos équipements ou les risques propres à votre activité.",
     recyclage: false,
   },
@@ -278,12 +278,12 @@ export const DOMAINES: Domaine[] = [
   {
     id: "autre",
     libelle: "Matériel spécifique ou autre besoin",
-    precision: "Tondeuses, tronçonneuses, balayeuses, sur mesure",
+    precision: "Tondeuses, tronçonneuses, balayeuses, sur-mesure",
     question: {
       intitule: "De quel matériel s'agit-il ?",
       choix: [
         { libelle: "Tondeuse autoportée", formation: "tondeuses-autoportees" },
-        { libelle: "Tronçonneuse thermique", formation: "tronconneuse-thermique" },
+        { libelle: "Tronçonneuses thermiques", formation: "tronconneuse-thermique" },
         { libelle: "Balayeuse routière", formation: "balayeuses-routieres" },
         { libelle: "Un autre équipement ou un risque particulier", formation: "formations-specifiques" },
       ],

@@ -8,7 +8,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "Conditions générales de vente",
       "description": "Conditions générales de vente applicables à l'ensemble de l'offre de services SECURIFORM : formations en présentiel, conseil, facturation, annulation, responsabilité.",
-      "url": "https://securiform.fr/conditions-generales-de-vente/"
+      "url": "https://securiform.fr/conditions-generales-de-vente"
     },
     {
       "@type": "BreadcrumbList",
@@ -23,7 +23,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conditions générales de vente",
-          "item": "https://securiform.fr/conditions-generales-de-vente/"
+          "item": "https://securiform.fr/conditions-generales-de-vente"
         }
       ]
     }

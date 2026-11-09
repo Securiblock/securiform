@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/aipr/"
+      "url": "https://securiform.fr/aipr"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,7 +30,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/aipr/"
+          "item": "https://securiform.fr/aipr"
         }
       ]
     }
@@ -80,7 +80,7 @@ export default function Page() {
           <span>Formations AIPR</span>
         </p>
         <h1>Formations AIPR</h1>
-        <p>Formez-vous avec des professionnels à l'Autorisation d'Intervention à Proximité des Réseaux, obligatoire depuis 2018 pour tout chantier à proximité de réseaux enterrés ou aériens.</p>
+        <p>Formez-vous avec des professionnels à l'Autorisation d'Intervention à Proximité des Réseaux, obligatoire depuis 2018 pour tout chantier à proximité de réseaux aériens, enterrés ou subaquatiques.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -91,10 +91,9 @@ export default function Page() {
     
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
-        <span className="surtitre">Une obligation DT-DICT</span>
-        <h2 id="titre-intro">Trois niveaux, pour trois rôles sur le chantier</h2>
+        <h2 id="titre-intro">3 niveaux pour 3 rôles sur le chantier</h2>
         <hr className="trait" />
-        <p>Depuis le 1ᵉʳ janvier 2018, l'AIPR est obligatoire pour tout intervenant sur un chantier à proximité de réseaux enterrés ou aériens, sensibles (gaz, électricité) ou non (eau, assainissement, télécommunications). Chaque profil de poste correspond à un niveau précis&nbsp;: Opérateur, Encadrant ou Concepteur.</p>
+        <p>Depuis le 1ᵉʳ janvier 2018, l'AIPR est obligatoire pour tout intervenant sur un chantier à proximité de réseaux aériens, enterrés ou subaquatiques, sensibles (gaz, électricité) ou non (eau, assainissement, télécommunications). Chaque profil de poste correspond à un niveau précis&nbsp;: Opérateur, Encadrant ou Concepteur.</p>
       </div>
     </section>
 
@@ -243,11 +242,6 @@ export default function Page() {
           <details className="faq-item">
             <summary>Comment se déroule l'examen AIPR&nbsp;?</summary>
             <p>Il s'agit d'un questionnaire à choix multiples&nbsp;: 30 questions pour les Opérateurs, 40 questions pour les Encadrants et Concepteurs, tirées d'une base nationale de 255 questions. Le seuil de réussite est fixé à 60&nbsp;% de bonnes réponses.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Comment renouveler mon AIPR avant son expiration&nbsp;?</summary>
-            <p>Il suffit de suivre un stage de mise à niveau, qui actualise vos connaissances sur la réglementation DT-DICT et les évolutions techniques, puis de repasser l'examen QCM correspondant à votre niveau.</p>
           </details>
 
           <details className="faq-item">

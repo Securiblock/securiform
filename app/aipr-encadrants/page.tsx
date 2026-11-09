@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/aipr/formation-encadrants-aipr/"
+      "url": "https://securiform.fr/aipr-encadrants"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/aipr/"
+          "item": "https://securiform.fr/aipr"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation encadrants AIPR",
-          "item": "https://securiform.fr/aipr/formation-encadrants-aipr/"
+          "item": "https://securiform.fr/aipr-encadrants"
         }
       ]
     }

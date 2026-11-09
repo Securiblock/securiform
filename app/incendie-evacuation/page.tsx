@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/incendie-evacuation/"
+      "url": "https://securiform.fr/incendie-evacuation"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/incendie-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation"
         }
       ]
     }
@@ -80,7 +79,7 @@ export default function Page() {
           <span>Formations incendie et évacuation</span>
         </p>
         <h1>Formations incendie et évacuation</h1>
-        <p>Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux&nbsp;: formez vos équipes à réagir efficacement face à un début d'incendie.</p>
+        <p>Manipulation d'extincteurs et de RIA, Équipiers de Première et Seconde Intervention, évacuation des locaux&nbsp;: formez vos équipes à réagir efficacement face à un départ d'incendie.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -91,10 +90,15 @@ export default function Page() {
     
 <section className="section" aria-labelledby="titre-intro">
       <div className="container section-head reveal">
-        <span className="surtitre">Une obligation qui dépend de votre profil</span>
-        <h2 id="titre-intro">Qui doit être formé à la sécurité incendie&nbsp;?</h2>
+        <span className="surtitre">La formation au risque d&apos;incendie</span>
+        <h2 id="titre-intro">Quelles obligations pour l&apos;employeur&nbsp;?</h2>
         <hr className="trait" />
-        <p>En dessous de 50 salariés, la formation est recommandée mais pas strictement imposée. À partir de 50 salariés, elle devient obligatoire pour l'ensemble du personnel, avec au moins 10&nbsp;% de l'effectif formé comme Équipier de Première Intervention. Les établissements recevant du public et les entreprises manipulant des matières inflammables y sont soumis quelle que soit leur taille. Nous restons à votre service pour développer une formation spécifique aux risques liés à votre entreprise.</p>
+        <p>Quelle que soit l&apos;activité de l&apos;entreprise, l&apos;ensemble du personnel doit être formé à&nbsp;:</p>
+        <ul className="liste-texte">
+          <li>donner l&apos;alerte&nbsp;;</li>
+          <li>utiliser les moyens de premier secours afin de pouvoir faire face à un début d&apos;incendie, notamment la manipulation des extincteurs&nbsp;;</li>
+          <li>exécuter les différentes manœuvres nécessaires&nbsp;: mise en sécurité du poste de travail, évacuation totale ou différée si nécessaire…</li>
+        </ul>
       </div>
     </section>
 
@@ -122,7 +126,7 @@ export default function Page() {
               <img src="/image/formation-evacuation.webp" alt="Formation à l'évacuation des locaux" loading="lazy" />
             </div>
             <h3>Évacuation des locaux</h3>
-            <p>Préparer et encadrer un exercice d'évacuation&nbsp;: consignes, guides-files, serre-files, point de rassemblement.</p>
+            <p>Organiser et sécuriser l&apos;évacuation d&apos;un site&nbsp;: rôles, responsabilités et bonnes pratiques des guides et serre-files.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/evacuation" aria-label="Formation à l'évacuation" />
           </article>
@@ -132,7 +136,7 @@ export default function Page() {
               <img src="/image/formation-epi.webp" alt="Formation Équipier de Première Intervention" loading="lazy" />
             </div>
             <h3>Équipier de Première Intervention</h3>
-            <p>Former les référents internes capables d'intervenir sur un début d'incendie avec extincteurs et RIA, avant l'arrivée des secours.</p>
+            <p>Intervenir efficacement face à un début d&apos;incendie&nbsp;: identifier les risques, donner l&apos;alerte et utiliser les moyens de première intervention adaptés, dans le respect des consignes de sécurité.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/equipier-premiere-intervention" aria-label="Formation Équipier de Première Intervention" />
           </article>
@@ -151,7 +155,7 @@ export default function Page() {
           <span className="surtitre">Bien s'y retrouver</span>
           <h2 id="titre-tableau">Quel extincteur pour quel feu&nbsp;?</h2>
           <hr className="trait" />
-          <p>Chaque type de feu appelle un agent extincteur précis. Utiliser le mauvais type peut aggraver la situation&nbsp;: c'est l'un des premiers réflexes enseignés en formation.</p>
+          <p>À chaque type de feu, un type d&apos;extincteur précis.</p>
         </div>
         <div className="table-scroll reveal">
           <table className="tableau-comparatif">
@@ -164,29 +168,34 @@ export default function Page() {
             </thead>
             <tbody>
               <tr>
-                <td>Classe A</td>
-                <td>Matériaux solides (bois, papier, tissus)</td>
-                <td>Eau, eau avec additif</td>
+                <td>A</td>
+                <td>Bois, papier, carton, tissus, paille et autres matières solides formant des braises</td>
+                <td>Eau pulvérisée, eau avec additif, mousse ou poudre ABC</td>
               </tr>
               <tr>
-                <td>Classe B</td>
-                <td>Liquides inflammables (essence, solvants)</td>
-                <td>Poudre, mousse</td>
+                <td>B</td>
+                <td>Essence, gazole, solvants, peintures, alcools, huiles et autres liquides inflammables</td>
+                <td>Mousse, poudre BC/ABC ou CO₂</td>
               </tr>
               <tr>
-                <td>Classe C</td>
-                <td>Gaz inflammables</td>
-                <td>Poudre</td>
+                <td>C</td>
+                <td>Butane, propane, gaz naturel, méthane et autres gaz inflammables</td>
+                <td>Poudre BC ou ABC&nbsp;; couper l&apos;alimentation si possible</td>
               </tr>
               <tr>
-                <td>Classe D</td>
-                <td>Métaux (magnésium, sodium)</td>
-                <td>Poudre spéciale</td>
+                <td>D</td>
+                <td>Magnésium, sodium, aluminium en poudre et autres métaux combustibles</td>
+                <td>Poudre spéciale classe D</td>
               </tr>
               <tr>
-                <td>Classe F</td>
-                <td>Huiles et graisses de cuisson</td>
-                <td>Extincteur spécifique cuisine</td>
+                <td>F</td>
+                <td>Huiles et graisses alimentaires, notamment dans les friteuses</td>
+                <td>Extincteur spécifique classe F ou agent adapté aux feux de cuisson</td>
+              </tr>
+              <tr>
+                <td>Électrique</td>
+                <td>Installations et appareils électriques sous tension</td>
+                <td>CO₂ ou poudre, selon l&apos;équipement et les recommandations du fabricant</td>
               </tr>
             </tbody>
           </table>
@@ -221,7 +230,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Attendre les secours</h3>
-            <p>À l'arrivée des sapeurs-pompiers, transmettre les informations utiles&nbsp;: localisation, effectifs, actions déjà menées.</p>
+            <p>À l'arrivée des secours, transmettre les informations utiles&nbsp;: localisation, effectifs, actions déjà menées.</p>
           </div>
         </div>
       </div>
@@ -241,28 +250,18 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Ma petite entreprise doit-elle former son personnel à l'incendie&nbsp;?</summary>
-            <p>En dessous de 50 salariés, ce n'est pas une obligation stricte, mais c'est vivement recommandé&nbsp;: en cas d'incident, la responsabilité de l'employeur peut être engagée même sans obligation légale explicite. Au-delà de 50 salariés, la formation devient obligatoire pour tous.</p>
+            <summary>À quelle fréquence organiser les exercices d&apos;évacuation et de manipulation des extincteurs&nbsp;?</summary>
+            <p>L&apos;INRS recommande d&apos;effectuer des exercices d&apos;évacuation tous les 6 mois au minimum, et d&apos;adapter le renouvellement des essais de manipulation des extincteurs, de 6 mois à 3 ans, en fonction des risques incendie.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Qu'est-ce qu'un Équipier de Première Intervention (EPI)&nbsp;?</summary>
-            <p>C'est un salarié formé pour donner l'alerte, intervenir rapidement sur un début d'incendie avec un extincteur ou un RIA, et sécuriser la zone en attendant les secours. Les entreprises de plus de 50 salariés doivent en former au moins 10&nbsp;% de leur effectif.</p>
+            <summary>Quelles entreprises doivent établir une consigne de sécurité incendie&nbsp;?</summary>
+            <p>Les établissements dans lesquels peuvent se trouver occupées ou réunies habituellement plus de 50 personnes, ainsi que ceux où sont manipulées et mises en œuvre des matières inflammables. Cette consigne, affichée de manière très apparente, indique notamment le matériel d&apos;extinction et de secours, les personnes chargées de le mettre en action, celles chargées de diriger l&apos;évacuation, et les moyens d&apos;alerte ainsi que les services de secours à prévenir.</p>
           </details>
 
           <details className="faq-item">
-            <summary>À quelle fréquence organiser un exercice d'évacuation&nbsp;?</summary>
-            <p>Le Code du travail impose un exercice d'évacuation au moins tous les 6 mois. Ces exercices permettent de vérifier que les consignes sont connues et que les issues de secours sont bien identifiées par tous.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Quelle est la durée de validité de ces formations&nbsp;?</summary>
-            <p>Elle est généralement de 6 mois à 3 ans selon les risques propres à votre établissement. Un recyclage régulier permet de maintenir les réflexes des équipiers, notamment sur la manipulation des extincteurs.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Formation en centre ou directement dans mes locaux&nbsp;?</summary>
-            <p>SECURIFORM peut intervenir directement dans votre établissement, ce qui permet d'adapter l'exercice à vos propres issues de secours et points de rassemblement&nbsp;: c'est souvent le format le plus pertinent pour ce type de formation.</p>
+            <summary>Certains établissements sont-ils soumis à des règles plus strictes&nbsp;?</summary>
+            <p>Oui. La plupart des lieux de travail relèvent des dispositions minimales du Code du travail, mais les établissements recevant du public (ERP), les immeubles de grande hauteur (IGH) et les installations classées pour la protection de l&apos;environnement (ICPE) doivent également respecter des règles spécifiques issues du Code de la construction et de l&apos;habitation ou du Code de l&apos;environnement.</p>
           </details>
 
         </div>
@@ -273,7 +272,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="incendie-evacuation" />
 
     
 

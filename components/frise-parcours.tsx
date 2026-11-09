@@ -17,7 +17,7 @@ const ETAPES: Etape[] = [
   {
     delai: "Dans l'heure",
     titre: "Proposition chiffrée",
-    textes: ["Nous vous adressons dans l'heure un devis sur mesure, avec, le cas échéant, un planning d'intervention."],
+    textes: ["Nous vous adressons dans l'heure un devis sur-mesure, avec, le cas échéant, un planning d'intervention."],
   },
   {
     delai: "Le jour J",

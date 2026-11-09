@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/aipr/formation-concepteurs-aipr/"
+      "url": "https://securiform.fr/aipr-concepteurs"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/aipr/"
+          "item": "https://securiform.fr/aipr"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation concepteurs AIPR",
-          "item": "https://securiform.fr/aipr/formation-concepteurs-aipr/"
+          "item": "https://securiform.fr/aipr-concepteurs"
         }
       ]
     }
@@ -157,47 +157,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-financement">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Qui paie quoi</span>
-          <h2 id="titre-financement">Le financement des investigations complémentaires</h2>
-          <hr className="trait" />
-          <p>Un sujet fréquent de désaccord entre responsable de projet et exploitant&nbsp;: la répartition est pourtant clairement fixée par la réglementation.</p>
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Situation</th>
-                <th scope="col">Répartition du financement</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Réseau en classe B</td>
-                <td>50&nbsp;% responsable de projet, 50&nbsp;% exploitant</td>
-              </tr>
-              <tr>
-                <td>Réseau en classe C dès le départ</td>
-                <td>100&nbsp;% à la charge du responsable de projet</td>
-              </tr>
-              <tr>
-                <td>Réseau annoncé en classe B, déclassé en C lors des IC</td>
-                <td>100&nbsp;% à la charge de l'exploitant</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Cette distinction protège le responsable de projet contre un exploitant qui aurait mal évalué la fiabilité de ses propres plans.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-dce">
+<section className="section" aria-labelledby="titre-dce">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Transmettre l'information</span>
@@ -235,7 +195,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-verification">
+<section className="section section-alt" aria-labelledby="titre-verification">
       <div className="container presentation">
         <div className="presentation-txt reveal">
           <span className="surtitre">Avant et après le chantier</span>

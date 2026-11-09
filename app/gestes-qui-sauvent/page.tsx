@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/sensibilisation-aux-gestes-qui-sauvent/"
+      "url": "https://securiform.fr/gestes-qui-sauvent"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/formations-specifiques/"
+          "item": "https://securiform.fr/formations-specifiques"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Gestes qui sauvent",
-          "item": "https://securiform.fr/sensibilisation-aux-gestes-qui-sauvent/"
+          "item": "https://securiform.fr/gestes-qui-sauvent"
         }
       ]
     }
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sensibilisation aux gestes qui sauvent - SECURIFORM",
-    description: "Formez l'ensemble de vos collaborateurs aux gestes qui sauvent, sans prérequis, avec SECURIFORM.",
+    description: "Formez vos collaborateurs aux gestes qui sauvent, sans prérequis, avec SECURIFORM.",
     images: ["/image/formation-gestes-qui-sauvent.webp"],
   },
 };
@@ -87,7 +87,7 @@ export default function Page() {
           <span>Gestes qui sauvent</span>
         </p>
         <h1>Sensibilisation aux gestes qui sauvent</h1>
-        <p>Accessible à tous, sans prérequis, en quelques heures&nbsp;: diffusez les bons réflexes de premiers secours à l'ensemble de vos collaborateurs.</p>
+        <p>Accessible à tous, sans prérequis, en quelques heures&nbsp;: diffusez les bons réflexes de premiers secours à vos collaborateurs.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -195,7 +195,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Cette sensibilisation remplace-t-elle la formation SST&nbsp;?</summary>
-            <p>Non. Elle donne des bases accessibles à tous, mais seule la formation SST complète confère le statut officiel de Sauveteur Secouriste du Travail reconnu par l'entreprise.</p>
+            <p>Non. Elle donne des bases accessibles à tous, mais seule la formation SST confère le statut officiel de Sauveteur Secouriste du Travail reconnu par l'entreprise.</p>
           </details>
 
           <details className="faq-item">

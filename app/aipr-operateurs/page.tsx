@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/aipr/formation-operateurs-aipr/"
+      "url": "https://securiform.fr/aipr-operateurs"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations AIPR",
-          "item": "https://securiform.fr/aipr/"
+          "item": "https://securiform.fr/aipr"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation opérateurs AIPR",
-          "item": "https://securiform.fr/aipr/formation-operateurs-aipr/"
+          "item": "https://securiform.fr/aipr-operateurs"
         }
       ]
     }
@@ -235,7 +235,7 @@ export default function Page() {
         <div className="presentation-txt reveal">
           <span className="surtitre">Le réflexe à avoir</span>
           <h2 id="titre-anomalie">En cas de découverte anormale</h2>
-          <p>Réseau découvert à un endroit inattendu, fuite détectée, contact accidentel&nbsp;: la formation opérateur reprend et approfondit la règle des 4A déjà enseignée dans nos formations AIPR (Arrêter, Alerter, Aménager, Afficher) avec un accent particulier sur la documentation de l'incident&nbsp;: photos, heure, lieu exact, témoins.</p>
+          <p>Réseau découvert à un endroit inattendu, fuite détectée, contact accidentel&nbsp;: la formation opérateur reprend et approfondit la règle des 4A (Arrêter, Alerter, Aménager, Afficher) avec un accent particulier sur la documentation de l'incident&nbsp;: photos, heure, lieu exact, témoins.</p>
           <p>Cette traçabilité protège à la fois les personnes et l'entreprise en cas de contentieux ultérieur avec l'exploitant du réseau ou les assurances.</p>
         </div>
         <aside className="presentation-visuel reveal" aria-label="À retenir">
@@ -253,7 +253,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -299,7 +299,7 @@ export default function Page() {
 
     
 
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -350,7 +350,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

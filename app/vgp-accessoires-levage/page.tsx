@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-accessoires-de-levages/",
+      "url": "https://securiform.fr/vgp-accessoires-levage",
       "description": "Vérification Générale Périodique des accessoires de levage (élingues, manilles, crochets, palonniers, anneaux de levage), tous les 6 mois, conformément à la directive européenne Machines 2006/42/CE."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des accessoires de levage",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-accessoires-de-levages/"
+          "item": "https://securiform.fr/vgp-accessoires-levage"
         }
       ]
     }
@@ -178,7 +178,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -220,7 +220,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -267,7 +267,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -9,13 +8,13 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formation échafaudages roulants R457",
-      "description": "Formation à la stabilisation, au montage et au déplacement sécurisé des échafaudages roulants, conformément à la recommandation R457 de l'INRS et à l'article R4323-75 du Code du travail. Habilitation valable 5 ans.",
+      "description": "Formation à la stabilisation, au montage et au déplacement sécurisé des échafaudages roulants, conformément à la recommandation R457 de l'INRS.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
+      "url": "https://securiform.fr/echafaudages-roulants"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation échafaudages roulants",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-roulants/"
+          "item": "https://securiform.fr/echafaudages-roulants"
         }
       ]
     }
@@ -102,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Une formation dédiée à la mobilité</h2>
         <hr className="trait" />
-        <p>La recommandation R457 de l'INRS encadre les échafaudages préfabriqués reposant sur roues, conformes à la norme NF EN 1004. Elle ne couvre pas les tours roulantes assemblées à partir d'éléments d'échafaudages fixes, qui restent sous la recommandation R408. La règle absolue à retenir&nbsp;: l'article R4323-75 du Code du travail interdit formellement qu'un travailleur reste sur l'échafaudage pendant son déplacement.</p>
+        <p>La recommandation R457 de l'INRS encadre les échafaudages préfabriqués reposant sur roues, conformes à la norme NF EN 1004. Elle ne couvre pas les tours roulantes assemblées à partir d'éléments d'échafaudages fixes, qui restent sous la recommandation R408.</p>
       </div>
     </section>
 
@@ -142,15 +141,9 @@ export default function Page() {
                 <td>Travaux de longue durée</td>
                 <td>Interventions courtes à moyennes</td>
               </tr>
-              <tr>
-                <td>Durée de la formation</td>
-                <td>3 jours (21 heures)</td>
-                <td>2 jours (14 heures)</td>
-              </tr>
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Une formation combinée R408 + R457 (4 à 5 jours) est possible pour les équipes amenées à utiliser les deux types de structures. Les deux habilitations sont valables 5 ans.</p>
       </div>
     </section>
 
@@ -224,21 +217,11 @@ export default function Page() {
 
     
 <section className="section" aria-labelledby="titre-equipe">
-      <div className="container presentation">
-        <div className="presentation-txt reveal">
-          <span className="surtitre">Une manœuvre coordonnée</span>
-          <h2 id="titre-equipe">Une équipe, des rôles précis</h2>
-          <p>Un déplacement d'échafaudage roulant ne s'improvise pas&nbsp;: il implique une reconnaissance préalable du parcours (nature du sol, obstacles, lignes électriques) et une coordination claire entre plusieurs personnes.</p>
-          <p>La formation prépare les stagiaires à occuper chacun de ces rôles, et à savoir arrêter immédiatement la manœuvre en cas d'imprévu.</p>
-        </div>
-        <aside className="presentation-visuel reveal" aria-label="Rôles de l'équipe">
-          <h3>Les rôles clés</h3>
-          <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Chef de manœuvre&nbsp;: coordonne et donne le signal de départ</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Guideurs&nbsp;: anticipent les obstacles et la trajectoire</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Pousseurs&nbsp;: assurent un effort coordonné et uniforme</li>
-          </ul>
-        </aside>
+      <div className="container section-head reveal">
+        <span className="surtitre">Une manœuvre coordonnée</span>
+        <h2 id="titre-equipe">Un déplacement qui se prépare</h2>
+        <hr className="trait" />
+        <p>Un déplacement d'échafaudage roulant ne s'improvise pas&nbsp;: il implique une reconnaissance préalable du parcours (nature du sol, obstacles, lignes électriques) et une coordination claire entre plusieurs personnes.</p>
       </div>
     </section>
 
@@ -261,11 +244,6 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>À partir de quelle hauteur les stabilisateurs sont-ils obligatoires&nbsp;?</summary>
-            <p>Généralement dès 2,5 mètres de hauteur de plancher, et systématiquement au-delà de 3 mètres de hauteur totale, selon les préconisations du fabricant.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Peut-on utiliser un échafaudage roulant par vent fort&nbsp;?</summary>
             <p>Non, l'utilisation doit être interrompue en cas de vent fort, l'échafaudage devant rester stable sans déplacement ni basculement inopiné, quelles que soient les conditions rencontrées.</p>
           </details>
@@ -276,8 +254,13 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Puis-je combiner cette formation avec celle des échafaudages fixes&nbsp;?</summary>
-            <p>Oui, une formation combinée R408 et R457 existe pour les équipes utilisant les deux types de structures, sur 4 à 5 jours au lieu de deux sessions séparées.</p>
+            <summary>Puis-je bâcher un échafaudage roulant ou l&apos;utiliser pour du levage&nbsp;?</summary>
+            <p>Non, sauf si la notice du fabricant l&apos;autorise expressément. Une bâche augmente fortement la prise au vent et donc le risque de renversement, et le levage de charges soumet la structure à des efforts pour lesquels elle n&apos;est pas forcément conçue.</p>
+          </details>
+
+          <details className="faq-item">
+            <summary>Dois-je porter un harnais sur un échafaudage roulant&nbsp;?</summary>
+            <p>Non. Un échafaudage roulant conforme est équipé de garde-corps sur son plancher de travail&nbsp;: cette protection collective rend le port du harnais inutile, à condition de respecter la notice du fabricant.</p>
           </details>
 
         </div>
@@ -288,7 +271,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="echafaudages-roulants" />
 
     
 
@@ -328,8 +310,7 @@ export default function Page() {
             <div className="champ">
               <label htmlFor="formule">Formule souhaitée</label>
               <select id="formule" name="formule">
-                <option value="r457">R457 seul</option>
-                <option value="combine">Formation combinée R408 + R457</option>
+                <option value="r457">Échafaudages roulants (R457)</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
             </div>

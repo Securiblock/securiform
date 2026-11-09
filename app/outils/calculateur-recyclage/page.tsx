@@ -32,7 +32,7 @@ export default function Page() {
             <span>Calculateur de recyclage</span>
           </p>
           <h1>Calculateur de recyclage</h1>
-          <p>CACES®, SST, habilitation électrique, AIPR, travaux en hauteur, incendie&nbsp;: connaissez en un instant l&apos;échéance de vos formations.</p>
+          <p>CACES®, SST, habilitation électrique, AIPR&nbsp;: connaissez en un instant l&apos;échéance de vos formations.</p>
         </div>
       </section>
 

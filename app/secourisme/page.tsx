@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/secourisme/"
+      "url": "https://securiform.fr/secourisme"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,7 +30,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formation secourisme (SST)",
-          "item": "https://securiform.fr/secourisme/"
+          "item": "https://securiform.fr/secourisme"
         }
       ]
     }

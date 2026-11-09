@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-grues-auxiliaires/",
+      "url": "https://securiform.fr/vgp-grues-auxiliaires",
       "description": "Vérification Générale Périodique des grues auxiliaires montées sur véhicules, tous les 6 mois, conformément à la directive européenne Machines 2006/42/CE."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des grues auxiliaires",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-grues-auxiliaires/"
+          "item": "https://securiform.fr/vgp-grues-auxiliaires"
         }
       ]
     }

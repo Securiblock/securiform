@@ -8,13 +8,13 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Conduite en sécurité de tondeuses autoportées",
-      "description": "Formation à la conduite en sécurité des tondeuses autoportées utilisées pour l'entretien de grands espaces verts, couvrant les risques de retournement, les vérifications avant utilisation et les règles de conduite sur pente.",
+      "description": "Formation à la conduite en sécurité des tondeuses autoportées utilisées pour l'entretien d'espaces verts, couvrant les risques de retournement, les vérifications avant utilisation et les règles de conduite sur pente.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/conduite-en-securite-de-balayeuses-routieres/"
+      "url": "https://securiform.fr/tondeuses-autoportees"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/formations-specifiques/"
+          "item": "https://securiform.fr/formations-specifiques"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Tondeuses autoportées",
-          "item": "https://securiform.fr/conduite-en-securite-de-balayeuses-routieres/"
+          "item": "https://securiform.fr/tondeuses-autoportees"
         }
       ]
     }
@@ -87,7 +87,7 @@ export default function Page() {
           <span>Tondeuses autoportées</span>
         </p>
         <h1>Conduite en sécurité de tondeuses autoportées</h1>
-        <p>Pour les équipes espaces verts et collectivités&nbsp;: les bons réflexes pour conduire une tondeuse autoportée en toute sécurité, notamment sur terrain en pente.</p>
+        <p>Pour les agents espaces verts et les collectivités&nbsp;: les bons réflexes pour conduire une tondeuse autoportée en toute sécurité.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -101,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Un engin courant, des risques à ne pas sous-estimer</h2>
         <hr className="trait" />
-        <p>La tondeuse autoportée ne fait pas partie du champ des CACES®, mais son utilisation présente des risques réels&nbsp;: retournement sur pente, projection de débris, coupure par les lames. Une formation dédiée permet à vos équipes d'entretien d'espaces verts d'acquérir les bons réflexes, quel que soit le terrain rencontré.</p>
+        <p>La tondeuse autoportée ne fait pas partie du champ des CACES®, mais son utilisation présente des risques réels&nbsp;: retournement sur pente, projection de débris, coupure par les lames... Une formation dédiée qui permet à vos équipes d'entretien d'espaces verts d'acquérir les bons réflexes.</p>
       </div>
     </section>
 
@@ -206,7 +206,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Lunettes de protection</h3>
-            <p>Se protègent des projections de débris, particulièrement sur terrain caillouteux.</p>
+            <p>Protègent des projections de débris, particulièrement sur terrain caillouteux.</p>
           </article>
 
         </div>

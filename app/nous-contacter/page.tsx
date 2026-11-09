@@ -10,7 +10,7 @@ const jsonLd = {
     {
       "@type": "ContactPage",
       "name": "Nous contacter - SECURIFORM",
-      "url": "https://securiform.fr/nous-contacter/"
+      "url": "https://securiform.fr/nous-contacter"
     },
     {
       "@type": "EducationalOrganization",
@@ -38,7 +38,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Nous contacter",
-          "item": "https://securiform.fr/nous-contacter/"
+          "item": "https://securiform.fr/nous-contacter"
         }
       ]
     }

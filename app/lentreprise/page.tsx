@@ -9,7 +9,7 @@ const jsonLd = {
     {
       "@type": "AboutPage",
       "name": "L'entreprise - SECURIFORM",
-      "url": "https://securiform.fr/lentreprise/",
+      "url": "https://securiform.fr/lentreprise",
       "about": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "L'entreprise",
-          "item": "https://securiform.fr/lentreprise/"
+          "item": "https://securiform.fr/lentreprise"
         }
       ]
     }
@@ -159,7 +159,7 @@ export default function Page() {
             <li><span className="puce" aria-hidden="true">✓</span> Basée sur un référentiel national de 7 critères qualité</li>
             <li><span className="puce" aria-hidden="true">✓</span> Contrôlée par un organisme certificateur indépendant</li>
           </ul>
-          <a className="btn btn-blanc" href="https://securiform.fr/wp-content/uploads/2026/03/Certificat-Qualiopi-renouvellement.pdf" style={{ "marginTop": "1.5rem" }}>Voir le certificat</a>
+          <a className="btn btn-blanc" href="/pdf/Certificat-Qualiopi-renouvellement.pdf" style={{ "marginTop": "1.5rem" }}>Voir le certificat</a>
         </div>
         <div className="presentation-txt reveal">
           <span className="surtitre">Une garantie pour vous</span>
@@ -304,7 +304,7 @@ export default function Page() {
               <img src="/image/formation-specifiques.webp" alt="Formations spécifiques SECURIFORM" loading="lazy" />
             </div>
             <h3>Formations spécifiques</h3>
-            <p>Des formations sur mesure pour vos équipements et risques particuliers.</p>
+            <p>Des formations sur-mesure pour vos équipements et risques particuliers.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/formations-specifiques" aria-label="Formations spécifiques" />
           </article>
@@ -344,7 +344,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Et si mon besoin ne correspond à aucune formation du catalogue&nbsp;?</summary>
-            <p>SECURIFORM conçoit aussi des formations sur mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page <Link href="/formations-specifiques">Formations spécifiques</Link> pour plus de détails ou <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> au <a href="tel:+33320673490">03&nbsp;20&nbsp;67&nbsp;34&nbsp;90</a>.</p>
+            <p>SECURIFORM conçoit aussi des formations sur-mesure, adaptées à des équipements ou des risques spécifiques à votre activité&nbsp;: voir notre page <Link href="/formations-specifiques">Formations spécifiques</Link> pour plus de détails ou <Link href="/nous-contacter" className="lien-texte">contactez-nous</Link> au <a href="tel:+33320673490">03&nbsp;20&nbsp;67&nbsp;34&nbsp;90</a>.</p>
           </details>
 
           <details className="faq-item">

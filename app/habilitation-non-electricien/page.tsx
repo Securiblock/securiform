@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/habilitation-electrique/formation-personnel-non-electricien/"
+      "url": "https://securiform.fr/habilitation-non-electricien"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Préparation à l'habilitation électrique",
-          "item": "https://securiform.fr/habilitation-electrique/"
+          "item": "https://securiform.fr/habilitation-electrique"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation personnel non-électricien",
-          "item": "https://securiform.fr/habilitation-electrique/formation-personnel-non-electricien/"
+          "item": "https://securiform.fr/habilitation-non-electricien"
         }
       ]
     }
@@ -199,7 +199,7 @@ export default function Page() {
               <tr>
                 <td>Zone 2</td>
                 <td>Zone de voisinage renforcé, uniquement en haute tension</td>
-                <td>Personnel électricien habilité (H1V, H2V…).</td>
+                <td>Personnel habilité au voisinage renforcé (H0V, H1V, H2V et HC).</td>
               </tr>
               <tr>
                 <td>Zone 3</td>
@@ -209,7 +209,7 @@ export default function Page() {
               <tr>
                 <td>Zone 4</td>
                 <td>Zone de voisinage renforcé, uniquement en basse tension</td>
-                <td>Personnel électricien habilité (B1V, B2V, BR…).</td>
+                <td>Personnel habilité pour opérations électriques (B1V, B2V, BR, BC, BE).</td>
               </tr>
             </tbody>
           </table>

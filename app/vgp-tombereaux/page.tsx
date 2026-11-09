@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-tombereaux/",
+      "url": "https://securiform.fr/vgp-tombereaux",
       "description": "Vérification Générale Périodique des tombereaux, tous les 6 mois pour un usage de levage ou 12 mois pour un usage de transport standard, conformément à la directive européenne Machines 2006/42/CE."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des tombereaux",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-tombereaux/"
+          "item": "https://securiform.fr/vgp-tombereaux"
         }
       ]
     }

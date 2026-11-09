@@ -8,7 +8,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "Mentions légales",
       "description": "Mentions légales du site SECURIFORM : éditeur, hébergeur, propriété intellectuelle, données personnelles.",
-      "url": "https://securiform.fr/mentions-legales/"
+      "url": "https://securiform.fr/mentions-legales"
     },
     {
       "@type": "BreadcrumbList",
@@ -23,7 +23,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Mentions légales",
-          "item": "https://securiform.fr/mentions-legales/"
+          "item": "https://securiform.fr/mentions-legales"
         }
       ]
     }
@@ -159,7 +159,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-donnees">
+<section className="section section-alt" aria-labelledby="titre-donnees">
       <div className="container section-head reveal">
         <span className="surtitre">Article 5</span>
         <h2 id="titre-donnees">Données personnelles</h2>
@@ -172,7 +172,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-cookies">
+<section className="section" aria-labelledby="titre-cookies">
       <div className="container section-head reveal">
         <span className="surtitre">Article 6</span>
         <h2 id="titre-cookies">Cookies</h2>
@@ -185,7 +185,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-liens">
+<section className="section section-alt" aria-labelledby="titre-liens">
       <div className="container section-head reveal">
         <span className="surtitre">Article 7</span>
         <h2 id="titre-liens">Liens hypertextes</h2>
@@ -198,7 +198,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-droit">
+<section className="section" aria-labelledby="titre-droit">
       <div className="container section-head reveal">
         <span className="surtitre">Article 8</span>
         <h2 id="titre-droit">Droit applicable et litiges</h2>

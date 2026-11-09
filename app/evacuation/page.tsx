@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/incendie-evacuation/formation-evacuation/"
+      "url": "https://securiform.fr/evacuation"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/incendie-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation évacuation",
-          "item": "https://securiform.fr/incendie-evacuation/formation-evacuation/"
+          "item": "https://securiform.fr/evacuation"
         }
       ]
     }
@@ -102,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Deux rôles complémentaires</span>
         <h2 id="titre-roles">Guide-file et serre-file</h2>
         <hr className="trait" />
-        <p>Une évacuation ordonnée repose sur des personnes désignées à l'avance, reconnaissables et formées à leur rôle précis. La règle de base&nbsp;: un guide-file et un serre-file pour environ 25 personnes.</p>
+        <p>Une évacuation ordonnée repose sur des personnes désignées à l'avance, reconnaissables et formées à leur rôle précis.</p>
       </div>
     </section>
 
@@ -132,7 +131,7 @@ export default function Page() {
               </tr>
               <tr>
                 <td>Serre-file</td>
-                <td>Vérifie que chaque local est vide (y compris sanitaires et réserves), ferme portes et fenêtres, évacue en dernier</td>
+                <td>Vérifie que sa zone a été évacuée et sort en dernier</td>
               </tr>
             </tbody>
           </table>
@@ -202,36 +201,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-exercice">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Une obligation tous les 6 mois</span>
-          <h2 id="titre-exercice">Organiser un exercice d'évacuation</h2>
-          <hr className="trait" />
-          <p>L'article R4227-39 du Code du travail impose au moins deux exercices par an. La formation prépare à les organiser en 3 temps.</p>
-        </div>
-        <div className="etapes cols-3">
-          <div className="etape reveal">
-            <h3>Préparer</h3>
-            <p>Définir le scénario, désigner guides-files et serre-files, préparer les fiches d'observation, prévenir les pompiers pour éviter une fausse alerte.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Dérouler</h3>
-            <p>Déclencher l'exercice, chronométrer l'évacuation complète, observer les comportements et les éventuels dysfonctionnements.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Évaluer</h3>
-            <p>Débriefer à chaud, consigner les résultats dans le registre incendie, et mettre à jour le plan d'évacuation si nécessaire.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-handicap">
+<section className="section" aria-labelledby="titre-handicap">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Une évacuation pour tous</span>
@@ -249,7 +219,7 @@ export default function Page() {
             <tbody>
               <tr>
                 <td>Fauteuil roulant</td>
-                <td>Jamais dans les escaliers seul&nbsp;: orienter vers une zone d'attente sécurisée (ZAS)</td>
+                <td>Orienter vers une zone d'attente sécurisée (ZAS)</td>
               </tr>
               <tr>
                 <td>Déficience visuelle</td>
@@ -274,7 +244,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -282,16 +252,6 @@ export default function Page() {
           <hr className="trait" />
         </div>
         <div className="faq reveal">
-
-          <details className="faq-item">
-            <summary>Combien de guides-files faut-il désigner dans mon entreprise&nbsp;?</summary>
-            <p>La règle courante est d'environ un guide-file pour 25 personnes. Une entreprise de 100 salariés désignera donc au minimum 4 guides-files, et autant de serre-files.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Qu'est-ce qu'une zone d'attente sécurisée (ZAS)&nbsp;?</summary>
-            <p>C'est un local résistant au feu pendant au moins une heure, destiné aux personnes ne pouvant évacuer seules par les escaliers, en attendant leur extraction par les sapeurs-pompiers.</p>
-          </details>
 
           <details className="faq-item">
             <summary>Peut-on utiliser l'ascenseur pour évacuer une personne à mobilité réduite&nbsp;?</summary>
@@ -316,7 +276,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="evacuation" />
 
     
 

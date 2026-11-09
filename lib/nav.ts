@@ -148,7 +148,7 @@ export const menuFormations: DomaineMenu[] = [
     href: "/formations-specifiques",
     liens: [
       { label: "Tondeuses autoportées", href: "/tondeuses-autoportees" },
-      { label: "Tronçonneuse thermique", href: "/tronconneuse-thermique" },
+      { label: "Tronçonneuses thermiques", href: "/tronconneuse-thermique" },
       { label: "Balayeuses routières", href: "/balayeuses-routieres" },
       { label: "Gestes qui sauvent", href: "/gestes-qui-sauvent" },
     ],
@@ -156,7 +156,7 @@ export const menuFormations: DomaineMenu[] = [
 ];
 
 // VGP : équipements regroupés comme dans la checklist (lib/vgp.ts), puis les épreuves de charge.
-const menuVgp: DomaineMenu[] = [
+export const menuVgp: DomaineMenu[] = [
   ...GROUPES_VGP.map((groupe) => ({
     titre: groupe,
     liens: EQUIPEMENTS_VGP.filter((e) => e.groupe === groupe).map((e) => ({ label: e.nom, href: `/${e.page}` })),
@@ -172,27 +172,15 @@ const menuVgp: DomaineMenu[] = [
 // Outils : mêmes intitulés que les cartes de la page /outils.
 const menuOutils: DomaineMenu[] = [
   {
-    titre: "Quelle formation me faut-il ?",
-    href: "/outils/quelle-formation",
-    description: "Quelques questions sur votre activité pour trouver la formation adaptée à vos salariés.",
-    liens: [],
-  },
-  {
     titre: "Calculateur de recyclage",
     href: "/outils/calculateur-recyclage",
     description: "L'échéance de vos formations et un rappel par email avant qu'elles n'expirent.",
     liens: [],
   },
   {
-    titre: "Comparateur de CACES®",
-    href: "/caces#comparateur",
-    description: "Les 6 CACES® côte à côte : engins, durée de formation, recyclage et validité.",
-    liens: [],
-  },
-  {
-    titre: "Checklist réglementaire VGP",
-    href: "/vgp#checklist",
-    description: "Vos vérifications obligatoires et leur fréquence, équipement par équipement.",
+    titre: "Plan du site",
+    href: "/outils/plan-du-site",
+    description: "Toutes les pages du site en un coup d'œil : formations, VGP et informations.",
     liens: [],
   },
 ];

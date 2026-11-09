@@ -8,7 +8,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "Politique de cookies",
       "description": "Liste des cookies et traceurs utilisés par le site SECURIFORM, et gestion du consentement.",
-      "url": "https://securiform.fr/politique-cookies/"
+      "url": "https://securiform.fr/politique-cookies"
     },
     {
       "@type": "BreadcrumbList",
@@ -23,7 +23,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Politique de cookies",
-          "item": "https://securiform.fr/politique-cookies/"
+          "item": "https://securiform.fr/politique-cookies"
         }
       ]
     }

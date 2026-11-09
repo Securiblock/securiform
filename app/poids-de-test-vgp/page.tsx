@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/vgp/poids-de-test-vgp/"
+      "url": "https://securiform.fr/poids-de-test-vgp"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Poids de test VGP",
-          "item": "https://securiform.fr/vgp/poids-de-test-vgp/"
+          "item": "https://securiform.fr/poids-de-test-vgp"
         }
       ]
     }

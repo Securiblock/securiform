@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/sst-mac/"
+      "url": "https://securiform.fr/sst-mac"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Secourisme (SST)",
-          "item": "https://securiform.fr/secourisme/"
+          "item": "https://securiform.fr/secourisme"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "MAC SST",
-          "item": "https://securiform.fr/sst-mac/"
+          "item": "https://securiform.fr/sst-mac"
         }
       ]
     }
@@ -88,7 +88,7 @@ export default function Page() {
           <span>MAC SST</span>
         </p>
         <h1>MAC SST : Recyclage Sauveteur Secouriste du Travail</h1>
-        <p>7 heures pour maintenir vos réflexes à jour et prolonger votre certificat SST de 24 mois supplémentaires.</p>
+        <p>7 heures pour maintenir vos compétences à jour et renouveler votre certificat SST.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -102,129 +102,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-pourquoi">Pourquoi un recyclage est nécessaire</h2>
         <hr className="trait" />
-        <p>Les compétences en secourisme se dégradent rapidement sans pratique régulière&nbsp;: les gestes s'oublient, la confiance en situation réelle diminue, et les protocoles évoluent avec le temps. Le MAC (Maintien et Actualisation des Compétences) répond à ces trois enjeux en une seule session de 7 heures, généralement réalisée en une journée.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-contenu">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Ce que couvre la journée</span>
-          <h2 id="titre-contenu">Le MAC en trois temps</h2>
-          <hr className="trait" />
-        </div>
-        <div className="etapes cols-3">
-          <div className="etape reveal">
-            <h3>Réviser les acquis</h3>
-            <p>Retour d'expérience sur les situations rencontrées depuis la dernière formation, rappel des gestes essentiels et de leurs points de vigilance.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Actualiser ses compétences</h3>
-            <p>Découverte des évolutions de protocoles, des nouveaux équipements (défibrillateurs récents) et de cas pratiques adaptés aux risques actuels de l'entreprise.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Valider le maintien des acquis</h3>
-            <p>Mise en situation pratique et validation des gestes techniques, condition du renouvellement du certificat.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section" aria-labelledby="titre-delais">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Le point à ne pas manquer</span>
-          <h2 id="titre-delais">Anticiper l'échéance</h2>
-          <hr className="trait" />
-          <p>Le MAC doit être réalisé avant l'expiration du certificat, tous les 24 mois maximum. En pratique, il est recommandé de le planifier 2 à 3 mois avant l'échéance, pour éviter toute rupture de couverture SST dans l'entreprise.</p>
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Situation</th>
-                <th scope="col">Ce qu'il faut faire</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MAC réalisé avant l'expiration du certificat</td>
-                <td>Recyclage de 7 heures, certificat prolongé de 24 mois</td>
-              </tr>
-              <tr>
-                <td>Certificat expiré depuis moins de 24 mois</td>
-                <td>Un simple MAC de 7 heures suffit encore à régulariser la situation</td>
-              </tr>
-              <tr>
-                <td>Certificat expiré depuis 24 mois ou plus</td>
-                <td>La formation initiale complète de 14 heures doit être repassée en totalité</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" aria-labelledby="titre-consequences">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Ce qui est en jeu</span>
-          <h2 id="titre-consequences">Les conséquences d'un recyclage manqué</h2>
-          <hr className="trait" />
-        </div>
-        <div className="grille-categories cols-3">
-
-          <article className="categorie-card reveal">
-            <h3>Perte du statut SST</h3>
-            <p>Le salarié n'est plus reconnu officiellement comme Sauveteur Secouriste du Travail au sein de l'entreprise.</p>
-          </article>
-
-          <article className="categorie-card reveal">
-            <h3>Non-conformité</h3>
-            <p>L'entreprise peut ne plus respecter ses obligations légales de couverture en secouristes formés.</p>
-          </article>
-
-          <article className="categorie-card reveal">
-            <h3>Responsabilité engagée</h3>
-            <p>En cas d'accident, l'absence de SST à jour peut aggraver la responsabilité juridique de l'employeur.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section" aria-labelledby="titre-gestion">
-      <div className="container presentation">
-        <div className="presentation-txt reveal">
-          <span className="surtitre">Un conseil pratique</span>
-          <h2 id="titre-gestion">Tenir un registre de vos SST</h2>
-          <p>Pour ne jamais être pris de court, il est recommandé de tenir un registre recensant l'identité de chaque SST, ses dates de formation initiale et de MAC, ainsi que la date d'échéance de son certificat. Une alerte 2 à 3 mois avant chaque échéance permet de planifier sereinement les sessions, d'anticiper le budget formation et de prévoir les remplacements en cas de départ d'un SST.</p>
-        </div>
-        <aside className="presentation-visuel reveal" aria-label="À suivre dans votre registre">
-          <h3>À suivre dans votre registre</h3>
-          <ul className="valeurs">
-            <li><span className="puce" aria-hidden="true">✓</span> Identité des SST formés et en cours de validité</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Dates de formation initiale et de MAC</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Dates d'échéance des recyclages</li>
-            <li><span className="puce" aria-hidden="true">✓</span> Organismes de formation utilisés</li>
-          </ul>
-        </aside>
+        <p>Sans pratique régulière, les gestes s'oublient et la confiance en situation réelle diminue. Le MAC (Maintien et Actualisation des Compétences) répond à cette problématique en une seule session de 7 heures.</p>
       </div>
     </section>
 
@@ -243,17 +121,7 @@ export default function Page() {
 
           <details className="faq-item">
             <summary>Combien de temps dure le MAC SST&nbsp;?</summary>
-            <p>7 heures minimum, généralement réalisées en une seule journée. Certains organismes peuvent proposer une durée plus longue selon les besoins constatés.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Puis-je faire mon MAC un peu avant l'échéance de mon certificat&nbsp;?</summary>
-            <p>Oui, c'est même recommandé&nbsp;: réaliser le MAC 2 à 3 mois avant l'expiration évite toute rupture de couverture SST et laisse une marge en cas d'imprévu de planning.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>J'ai oublié mon recyclage, mon certificat a expiré depuis un an&nbsp;: que dois-je faire&nbsp;?</summary>
-            <p>Puisque le retard reste inférieur à 24 mois, un simple MAC de 7 heures suffit à régulariser votre situation. Passé ce délai, la formation initiale complète de 14 heures redevient nécessaire.</p>
+            <p>7 heures minimum, généralement réalisées en une seule journée.</p>
           </details>
 
           <details className="faq-item">
