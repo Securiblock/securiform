@@ -70,3 +70,14 @@ export async function saveArticle(article: Article): Promise<void> {
 export async function deleteArticle(slug: string): Promise<void> {
   await sql`DELETE FROM articles WHERE slug = ${slug}`;
 }
+
+// A topic's draft article shares the topic's id (see saveArticle), so this
+// finds it even when topic.slug is missing or out of sync with the article.
+export async function getArticleById(id: string): Promise<Article | undefined> {
+  const rows = (await sql`SELECT * FROM articles WHERE id = ${id}`) as ArticleRow[];
+  return rows[0] ? rowToArticle(rows[0]) : undefined;
+}
+
+export async function deleteArticleById(id: string): Promise<void> {
+  await sql`DELETE FROM articles WHERE id = ${id}`;
+}

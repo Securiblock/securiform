@@ -121,7 +121,7 @@ export default function BlogDashboard({
   async function handleTrash(id: string, title: string) {
     const ok = await confirm({
       title: "Envoyer à la corbeille ?",
-      description: `« ${title} » sera déplacé dans la corbeille. Vous pourrez le restaurer plus tard.`,
+      description: `« ${title} » sera déplacé dans la corbeille et retiré du blog immédiatement. Vous pourrez le restaurer plus tard.`,
       confirmLabel: "Envoyer à la corbeille",
     });
     if (!ok) return;

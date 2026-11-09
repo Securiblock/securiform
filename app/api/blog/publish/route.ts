@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { getArticle, saveArticle } from "@/lib/blog/articles";
 import { publishArticle } from "@/lib/blog/content";
@@ -34,6 +35,8 @@ export async function POST(request: Request) {
   }
 
   await publishArticle(article);
+  // The homepage's "derniers articles" block is prerendered — refresh it.
+  revalidatePath("/");
 
   const now = new Date().toISOString();
   await saveArticle({ ...article, status: "published" });
