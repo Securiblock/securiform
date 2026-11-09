@@ -1,13 +1,15 @@
 import { timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 import type { NextFetchEvent, NextRequest } from "next/server";
+import { getSettingList } from "@/lib/settings";
 
 // Shared-password gate for the blog admin: /admin/** (the UI) and
-// /api/blog/** (everything it calls — generation, publish, topic CRUD).
-// /api/cron/** is deliberately excluded: it has its own Bearer-token check
-// for Vercel Cron, which doesn't send Basic Auth credentials.
+// /api/blog/** + /api/admin/** (everything it calls — generation, publish,
+// topic CRUD, settings). /api/cron/** is deliberately excluded: it has its
+// own Bearer-token check for Vercel Cron, which doesn't send Basic Auth
+// credentials.
 export const config = {
-  matcher: ["/admin/:path*", "/api/blog/:path*"],
+  matcher: ["/admin/:path*", "/api/blog/:path*", "/api/admin/:path*"],
 };
 
 const SESSION_COOKIE = "admin_session";
@@ -59,7 +61,7 @@ async function notifyAdminLogin(request: NextRequest): Promise<void> {
   if (!apiKey) return;
 
   const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-  const toEmail = process.env.BLOG_NOTIFY_EMAIL || "henri@securiblock.fr";
+  const toEmail = await getSettingList("login_alert_email");
   const ip = request.headers.get("x-forwarded-for") || "IP inconnue";
   const userAgent = request.headers.get("user-agent") || "navigateur inconnu";
 

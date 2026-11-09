@@ -6,8 +6,8 @@ import { getCategories } from "./categories";
 import { generateArticle } from "./gemini";
 import { getTopics, updateTopic } from "./topics";
 import type { Article } from "./types";
+import { getSettingList } from "../settings";
 
-const TO_EMAIL = process.env.BLOG_NOTIFY_EMAIL || "henri@securiblock.fr";
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
 // Base URL used to build the review link in the notification email. Points
 // at localhost while developing — set to the real domain once deployed.
@@ -18,9 +18,8 @@ export type AutoGenerateResult =
   | { generated: true; topicId: string; title: string; slug: string; emailSent: boolean };
 
 // Picks the oldest pending topic (FIFO queue), generates its article, and
-// emails a review link. Called by both the Vercel Cron route and the manual
-// "test now" button in the admin dashboard — see app/api/cron/generate-article
-// and app/api/blog/generate-next.
+// emails a review link. Called by the cron route — see
+// app/api/cron/generate-article.
 export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   const allTopics = await getTopics();
   const queue = allTopics
@@ -91,7 +90,7 @@ export async function sendEmptyQueueEmail(): Promise<boolean> {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: `Blog SECURIFORM <${FROM_EMAIL}>`,
-      to: TO_EMAIL,
+      to: await getSettingList("blog_notify_email"),
       subject: "Blog SECURIFORM : file de sujets vide",
       html,
       text,
@@ -137,7 +136,7 @@ Relecture et publication : <a href="${editUrl}" style="color:#5B5B60">${editUrl}
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: `Blog SECURIFORM <${FROM_EMAIL}>`,
-      to: TO_EMAIL,
+      to: await getSettingList("blog_notify_email"),
       subject: `Nouvel article généré : ${article.title}`,
       html,
       text,

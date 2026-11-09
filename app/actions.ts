@@ -3,8 +3,8 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
+import { getSettingList } from "@/lib/settings";
 
-const TO_EMAIL = process.env.CONTACT_EMAIL_TO || "henri@securiblock.fr";
 const FROM_EMAIL = process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev";
 
 // Hidden honeypot field: real visitors never fill it in (it's visually
@@ -82,7 +82,7 @@ export async function submitForm(formData: FormData) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: `Site SECURIFORM <${FROM_EMAIL}>`,
-      to: TO_EMAIL,
+      to: await getSettingList("contact_email_to"),
       replyTo,
       subject: `Nouveau message depuis securiform.fr (${sourcePath})`,
       text: lines.join("\n"),
