@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
 import type { Topic, TopicStatus, TopicTone } from "@/lib/blog/types";
+import { SETTING_LABELS, type SettingKey } from "@/lib/settings-shared";
 import {
   BeakerIcon,
   ExternalLinkIcon,
@@ -11,6 +12,7 @@ import {
   ListPlusIcon,
   PlusIcon,
   SearchIcon,
+  SettingsIcon,
   SparklesIcon,
   TagIcon,
   TrashIcon,
@@ -41,14 +43,25 @@ function formatShortDate(iso: string): string {
   });
 }
 
+const SETTINGS_DESCRIPTIONS: Record<SettingKey, string> = {
+  login_alert_email: "Reçoit un email à chaque nouvelle connexion à l'admin (IP, navigateur, date).",
+  contact_email_to: "Reçoit les messages envoyés depuis les formulaires du site (contact, devis, candidature).",
+  blog_notify_email: "Reçoit les notifications du blog : article généré à relire, ou file de sujets vide.",
+};
+
+// Plusieurs adresses possibles par paramètre, séparées par une virgule.
+const SETTINGS_PLACEHOLDER = "adresse@exemple.fr, autre@exemple.fr";
+
 export default function BlogDashboard({
   topics,
   categories,
   images,
+  settings,
 }: {
   topics: Topic[];
   categories: Category[];
   images: Record<string, string>;
+  settings: Record<SettingKey, string>;
 }) {
   const [filter, setFilter] = useState<FilterValue>("all");
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -59,7 +72,6 @@ export default function BlogDashboard({
   const [quickAddText, setQuickAddText] = useState("");
   const [quickAddBusy, setQuickAddBusy] = useState(false);
   const [quickAddError, setQuickAddError] = useState<string | null>(null);
-  const [autoGenBusy, setAutoGenBusy] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
   const [categoryBusy, setCategoryBusy] = useState<string | null>(null);
@@ -69,6 +81,9 @@ export default function BlogDashboard({
   const [suggestBrief, setSuggestBrief] = useState("");
   const [suggestBusy, setSuggestBusy] = useState(false);
   const [suggestError, setSuggestError] = useState<string | null>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [settingsDrafts, setSettingsDrafts] = useState(settings);
+  const [settingsBusyKey, setSettingsBusyKey] = useState<SettingKey | null>(null);
   const router = useRouter();
   const confirm = useConfirm();
   const toast = useToast();
@@ -208,26 +223,6 @@ export default function BlogDashboard({
     }
   }
 
-  async function handleAutoGenerateNow() {
-    setAutoGenBusy(true);
-    try {
-      const res = await fetch("/api/blog/generate-next", { method: "POST" });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Échec de la génération.");
-      toast(
-        data.generated
-          ? `Généré : « ${data.title} »${data.emailSent ? " : email envoyé." : " : email NON envoyé (voir la config Resend)."}`
-          : data.reason || "Rien à générer.",
-        data.generated ? "success" : "error"
-      );
-      router.refresh();
-    } catch (err) {
-      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
-    } finally {
-      setAutoGenBusy(false);
-    }
-  }
-
   async function handleAddCategory() {
     if (!newCategoryName.trim()) return;
     setCategoryBusy("new");
@@ -291,6 +286,30 @@ export default function BlogDashboard({
       setSuggestError(err instanceof Error ? err.message : "Erreur inconnue.");
     } finally {
       setSuggestBusy(false);
+    }
+  }
+
+  async function handleSaveSetting(key: SettingKey) {
+    const value = settingsDrafts[key].trim();
+    if (!value) {
+      toast("L'adresse email ne peut pas être vide.", "error");
+      return;
+    }
+    setSettingsBusyKey(key);
+    try {
+      const res = await fetch("/api/admin/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key, value }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Échec de l'enregistrement.");
+      toast("Enregistré.");
+      router.refresh();
+    } catch (err) {
+      toast(err instanceof Error ? err.message : "Erreur inconnue.", "error");
+    } finally {
+      setSettingsBusyKey(null);
     }
   }
 
@@ -362,6 +381,9 @@ export default function BlogDashboard({
             <Button variant="secondary" onClick={() => setCategoriesOpen(true)}>
               <TagIcon className="h-4 w-4" /> Catégories
             </Button>
+            <Button variant="secondary" onClick={() => setSettingsOpen(true)}>
+              <SettingsIcon className="h-4 w-4" /> Paramètres
+            </Button>
             <Button variant="secondary" onClick={() => setQuickAddOpen(true)}>
               <ListPlusIcon className="h-4 w-4" /> Ajout rapide
             </Button>
@@ -379,24 +401,13 @@ export default function BlogDashboard({
         <StatChip label="Corbeille" value={trashCount} />
       </div>
 
-      <Card className="mb-6 flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-start gap-3 text-sm text-slate-600">
-          <BeakerIcon className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
-          <div>
-            <span className="font-semibold text-slate-900">Génération automatique</span> : tous les 2
-            jours en production (Vercel Cron), un sujet en attente est généré et vous recevez un
-            email pour le relire. {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente
-            dans la file.
-          </div>
+      <Card className="mb-6 flex items-start gap-3 p-4 text-sm text-slate-600">
+        <BeakerIcon className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
+        <div>
+          <span className="font-semibold text-slate-900">Génération automatique</span> : tous les 2
+          jours, un sujet en attente est généré et vous recevez un email pour le relire.{" "}
+          {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente dans la file.
         </div>
-        <Button
-          variant="secondary"
-          onClick={handleAutoGenerateNow}
-          disabled={autoGenBusy}
-          className="shrink-0 self-start sm:self-auto"
-        >
-          {autoGenBusy ? "..." : "Tester maintenant"}
-        </Button>
       </Card>
 
       <div className="mb-4 flex flex-wrap gap-3">
@@ -618,6 +629,43 @@ export default function BlogDashboard({
             <SparklesIcon className="h-4 w-4" />
             {suggestBusy ? "Génération... (10-15 s)" : "Générer des suggestions"}
           </Button>
+        </div>
+      </Modal>
+
+      <Modal
+        open={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+        title="Paramètres"
+        description="Adresses email utilisées pour les alertes et notifications automatiques. Plusieurs destinataires possibles par ligne, séparés par une virgule."
+        maxWidth="max-w-xl"
+      >
+        <div className="flex flex-col gap-4">
+          {(Object.keys(SETTING_LABELS) as SettingKey[]).map((key) => {
+            const dirty = settingsDrafts[key].trim() !== settings[key];
+            return (
+              <div key={key}>
+                <h3 className="text-sm font-bold text-slate-900">{SETTING_LABELS[key]}</h3>
+                <p className="mt-0.5 text-xs text-slate-500">{SETTINGS_DESCRIPTIONS[key]}</p>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <input
+                    type="email"
+                    multiple
+                    value={settingsDrafts[key]}
+                    onChange={(e) => setSettingsDrafts((d) => ({ ...d, [key]: e.target.value }))}
+                    className="w-full max-w-sm rounded-lg border border-slate-300 px-3 py-1.5 text-sm focus:border-red-600 focus:outline-none"
+                    placeholder={SETTINGS_PLACEHOLDER}
+                  />
+                  <Button
+                    size="sm"
+                    disabled={!dirty || settingsBusyKey === key}
+                    onClick={() => handleSaveSetting(key)}
+                  >
+                    {settingsBusyKey === key ? "..." : "Enregistrer"}
+                  </Button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Modal>
 

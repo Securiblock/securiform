@@ -1,6 +1,7 @@
 import { getAllArticles } from "@/lib/blog/articles";
 import { getCategories } from "@/lib/blog/categories";
 import { getTopics } from "@/lib/blog/topics";
+import { getAllSettings } from "@/lib/settings";
 import BlogDashboard from "./dashboard-client";
 
 // Reads the database on every request rather than once at build time —
@@ -10,6 +11,7 @@ export const dynamic = "force-dynamic";
 export default async function BlogAdminPage() {
   const topics = await getTopics();
   const categories = await getCategories();
+  const settings = await getAllSettings();
 
   // Article.id === Topic.id (see app/api/blog/generate) — used to surface
   // the featured image, if any, in the topics list without a real join.
@@ -18,5 +20,5 @@ export default async function BlogAdminPage() {
     if (article.image) images[article.id] = article.image;
   }
 
-  return <BlogDashboard topics={topics} categories={categories} images={images} />;
+  return <BlogDashboard topics={topics} categories={categories} images={images} settings={settings} />;
 }
