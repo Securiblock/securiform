@@ -10,7 +10,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "Nous recrutons",
       "description": "Page de recrutement de formateurs certifiés en sécurité au travail pour SECURIFORM, sur toute la moitié nord de la France.",
-      "url": "https://securiform.fr/nous-recrutons/"
+      "url": "https://securiform.fr/nous-recrutons"
     },
     {
       "@type": "BreadcrumbList",
@@ -25,7 +25,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Nous recrutons",
-          "item": "https://securiform.fr/nous-recrutons/"
+          "item": "https://securiform.fr/nous-recrutons"
         }
       ]
     }
@@ -144,7 +144,7 @@ export default function Page() {
 
           <article className="categorie-card reveal">
             <h3>Formations spécifiques</h3>
-            <p>Engins et matériels particuliers, sur mesure selon les besoins clients.</p>
+            <p>Engins et matériels particuliers, sur-mesure selon les besoins clients.</p>
           </article>
 
         </div>

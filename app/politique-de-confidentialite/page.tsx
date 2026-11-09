@@ -8,7 +8,7 @@ const jsonLd = {
       "@type": "WebPage",
       "name": "Politique de confidentialité",
       "description": "Politique de confidentialité du site SECURIFORM : données collectées, finalités, durées de conservation, droits RGPD.",
-      "url": "https://securiform.fr/politique-de-confidentialite/"
+      "url": "https://securiform.fr/politique-de-confidentialite"
     },
     {
       "@type": "BreadcrumbList",
@@ -23,7 +23,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Politique de confidentialité",
-          "item": "https://securiform.fr/politique-de-confidentialite/"
+          "item": "https://securiform.fr/politique-de-confidentialite"
         }
       ]
     }

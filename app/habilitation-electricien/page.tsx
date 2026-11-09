@@ -15,7 +15,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/habilitation-electrique/formation-personnel-electricien/"
+      "url": "https://securiform.fr/habilitation-electricien"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +30,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Préparation à l'habilitation électrique",
-          "item": "https://securiform.fr/habilitation-electrique/"
+          "item": "https://securiform.fr/habilitation-electrique"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation personnel électricien",
-          "item": "https://securiform.fr/habilitation-electrique/formation-personnel-electricien/"
+          "item": "https://securiform.fr/habilitation-electricien"
         }
       ]
     }

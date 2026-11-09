@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -9,13 +8,13 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formation gestes et postures",
-      "description": "Formation essentiellement pratique aux gestes et postures de manutention, pour prévenir les troubles musculosquelettiques (TMS), conformément à l'article R4541-8 du Code du travail.",
+      "description": "Formation aux gestes et postures de manutention, pour prévenir les troubles musculosquelettiques (TMS), conformément à l'article R4541-8 du Code du travail.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/gestes-postures/"
+      "url": "https://securiform.fr/gestes-postures"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formation gestes et postures",
-          "item": "https://securiform.fr/gestes-postures/"
+          "item": "https://securiform.fr/gestes-postures"
         }
       ]
     }
@@ -80,7 +79,7 @@ export default function Page() {
           <span>Gestes et postures</span>
         </p>
         <h1>Formation gestes et postures</h1>
-        <p>Prévenez les troubles musculosquelettiques et adoptez les bons réflexes de manutention, avec une formation essentiellement pratique.</p>
+        <p>Prévenez les troubles musculosquelettiques et adoptez les bons réflexes de manutention.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -219,11 +218,6 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quand faut-il organiser cette formation&nbsp;?</summary>
-            <p>À l'embauche sur un poste à risque, lors d'un changement de poste impliquant des manutentions, après un arrêt de travail de 21 jours ou plus, ou sur recommandation du médecin du travail. Un recyclage tous les 2 à 3 ans est également recommandé.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Existe-t-il des limites de poids à respecter&nbsp;?</summary>
             <p>Les repères couramment retenus sont de 25&nbsp;kg pour un homme et 15&nbsp;kg pour une femme, mais ces seuils dépendent aussi de la fréquence des gestes, de la posture et des aides mécaniques disponibles au poste.</p>
           </details>
@@ -231,11 +225,6 @@ export default function Page() {
           <details className="faq-item">
             <summary>Une ceinture lombaire suffit-elle à protéger le dos&nbsp;?</summary>
             <p>Non. Une ceinture lombaire ne remplace jamais une formation aux bons gestes&nbsp;: utilisée en permanence, elle peut même affaiblir les muscles du dos. Elle reste un outil ponctuel, pas une solution de fond.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>La formation s'adapte-t-elle à nos postes réels&nbsp;?</summary>
-            <p>Oui&nbsp;: SECURIFORM termine systématiquement la session par une mise en pratique avec le matériel et les charges réellement manipulés dans votre entreprise, pour des corrections individualisées.</p>
           </details>
 
         </div>
@@ -246,7 +235,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="gestes-postures" />
 
     
 

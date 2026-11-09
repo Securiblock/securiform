@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Outils - SECURIFORM",
   description:
-    "Outils gratuits SECURIFORM : trouvez la formation sécurité adaptée à vos salariés, calculez la date de recyclage de vos formations, comparez les CACES® et listez vos VGP obligatoires.",
+    "Outils gratuits SECURIFORM : calculez la date de recyclage de vos formations (CACES®, SST, habilitation électrique, AIPR) et consultez le plan du site.",
   alternates: { canonical: "/outils" },
   openGraph: {
     type: "website",
@@ -12,43 +12,25 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/outils",
     title: "Outils gratuits - SECURIFORM",
-    description: "Questionnaire de choix de formation, calculateur de recyclage, comparateur de CACES® et checklist VGP.",
+    description: "Calculateur de recyclage et plan du site SECURIFORM.",
     images: ["/image/logo-securiform.webp"],
   },
 };
 
 const OUTILS = [
   {
-    href: "/outils/quelle-formation",
-    numero: "01",
-    titre: "Quelle formation me faut-il ?",
-    texte:
-      "Répondez à quelques questions sur votre activité : nous vous indiquons la formation adaptée à vos salariés et le lieu de formation le plus pertinent.",
-    lien: "Faire le questionnaire",
-  },
-  {
     href: "/outils/calculateur-recyclage",
-    numero: "02",
     titre: "Calculateur de recyclage",
     texte:
       "Indiquez la date de votre dernière formation : nous calculons son échéance et vous prévenons par email avant qu'elle n'expire.",
     lien: "Calculer mon échéance",
   },
   {
-    href: "/caces#comparateur",
-    numero: "03",
-    titre: "Comparateur de CACES®",
+    href: "/outils/plan-du-site",
+    titre: "Plan du site",
     texte:
-      "Les 6 CACES® côte à côte : engins concernés, durée de formation, recyclage et validité, pour trouver le vôtre sans ouvrir chaque page.",
-    lien: "Comparer les CACES®",
-  },
-  {
-    href: "/vgp#checklist",
-    numero: "04",
-    titre: "Checklist réglementaire VGP",
-    texte:
-      "Cochez les équipements de votre parc : vous obtenez vos vérifications obligatoires, leur fréquence et les formations de vos conducteurs.",
-    lien: "Faire ma checklist",
+      "Toutes les pages du site en un coup d'œil : nos formations, nos pages VGP, nos outils et nos informations pratiques.",
+    lien: "Voir le plan du site",
   },
 ];
 
@@ -63,7 +45,7 @@ export default function Page() {
             <span>Outils</span>
           </p>
           <h1>Outils</h1>
-          <p>Des outils gratuits pour choisir vos formations et ne jamais laisser passer une échéance.</p>
+          <p>Des outils gratuits pour ne jamais laisser passer une échéance et trouver rapidement la bonne page.</p>
         </div>
       </section>
 
@@ -77,7 +59,6 @@ export default function Page() {
           <div className="grille-categories cols-2">
             {OUTILS.map((outil) => (
               <article key={outil.href} className="categorie-card reveal">
-                <span className="categorie-code">{outil.numero}</span>
                 <h3>{outil.titre}</h3>
                 <p>{outil.texte}</p>
                 <span className="lien">{outil.lien}</span>

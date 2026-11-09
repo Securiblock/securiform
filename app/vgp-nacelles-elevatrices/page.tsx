@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-nacelles-elevatrices/",
+      "url": "https://securiform.fr/vgp-nacelles-elevatrices",
       "description": "Vérification Générale Périodique des nacelles élévatrices (PEMP), tous les 6 mois, conformément à l'arrêté du 1er mars 2004."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des nacelles élévatrices",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-nacelles-elevatrices/"
+          "item": "https://securiform.fr/vgp-nacelles-elevatrices"
         }
       ]
     }

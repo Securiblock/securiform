@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/incendie-evacuation/formation-equipier-de-premiere-intervention/"
+      "url": "https://securiform.fr/equipier-premiere-intervention"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/incendie-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Équipier de Première Intervention",
-          "item": "https://securiform.fr/incendie-evacuation/formation-equipier-de-premiere-intervention/"
+          "item": "https://securiform.fr/equipier-premiere-intervention"
         }
       ]
     }
@@ -141,7 +140,6 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Au-delà de 50 salariés, la formation EPI devient obligatoire, avec au moins 10&nbsp;% de l'effectif formé et réparti géographiquement pour réunir deux EPI en moins d'une minute sur tout point du site. Elle l'est aussi, quelle que soit la taille, pour les ERP et les entreprises manipulant des matières inflammables.</p>
       </div>
     </section>
 
@@ -319,11 +317,6 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Combien d'EPI dois-je former dans mon entreprise&nbsp;?</summary>
-            <p>La règle courante est d'au moins 10&nbsp;% de l'effectif, réparti géographiquement pour qu'au moins deux EPI puissent se réunir en moins d'une minute sur n'importe quel point du site. Si vous travaillez en équipes (3x8), chaque équipe doit disposer de son propre contingent d'EPI.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Un extincteur ou un RIA&nbsp;: lequel utiliser&nbsp;?</summary>
             <p>L'extincteur convient pour un feu très naissant et localisé. Le RIA, avec sa durée illimitée et sa portée supérieure, permet une attaque plus soutenue, mais jamais sur un feu de gaz ou d'origine électrique.</p>
           </details>
@@ -331,11 +324,6 @@ export default function Page() {
           <details className="faq-item">
             <summary>Que faire si le feu ne diminue pas malgré l'intervention&nbsp;?</summary>
             <p>Il faut arrêter immédiatement et évacuer. Passé 2 à 3 extincteurs sans résultat, l'intervention EPI est terminée&nbsp;: la suite revient aux sapeurs-pompiers.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Quelle est la durée de validité de cette formation&nbsp;?</summary>
-            <p>Il n'existe pas de durée légale stricte, mais un renouvellement tous les 1 à 2 ans est recommandé pour maintenir les réflexes et former les nouveaux EPI désignés.</p>
           </details>
 
           <details className="faq-item">
@@ -351,11 +339,10 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="equipier-premiere-intervention" />
 
     
 
-<section className="section" id="devis" aria-labelledby="titre-devis">
+<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -406,7 +393,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-recrute">
+<section className="section" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

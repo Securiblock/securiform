@@ -7,7 +7,7 @@ const jsonLd = {
     {
       "@type": "WebPage",
       "name": "Avis clients & Rapports d'activité - SECURIFORM",
-      "url": "https://securiform.fr/avis-clients-2/"
+      "url": "https://securiform.fr/statistiques"
     },
     {
       "@type": "BreadcrumbList",
@@ -22,7 +22,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Statistiques",
-          "item": "https://securiform.fr/avis-clients-2/"
+          "item": "https://securiform.fr/statistiques"
         }
       ]
     }
@@ -94,7 +94,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2019</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2022/11/avis-client-2019.pdf" aria-label="Avis clients 2019 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2019.pdf" aria-label="Avis clients 2019 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -103,7 +103,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2020</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2022/11/avis-client-2020.pdf" aria-label="Avis clients 2020 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2020.pdf" aria-label="Avis clients 2020 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -112,7 +112,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2021</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2022/11/avis-client-2021.pdf" aria-label="Avis clients 2021 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2021.pdf" aria-label="Avis clients 2021 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -121,7 +121,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2022</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2023/03/avis-client-2022.pdf" aria-label="Avis clients 2022 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2022.pdf" aria-label="Avis clients 2022 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -130,7 +130,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2023</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2024/03/avis-client-2023-1.pdf" aria-label="Avis clients 2023 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2023-1.pdf" aria-label="Avis clients 2023 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -139,7 +139,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2024</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2026/05/avis-client-2024.pdf" aria-label="Avis clients 2024 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/avis-client-2024.pdf" aria-label="Avis clients 2024 (PDF)" target="_blank" rel="noopener" />
           </article>
 
         </div>
@@ -166,7 +166,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2020</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2024/02/Rapport-dactivite-2020.pdf" aria-label="Rapport d'activité 2020 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2020.pdf" aria-label="Rapport d'activité 2020 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -175,7 +175,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2021</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2024/02/Rapport-dactivite-2021.pdf" aria-label="Rapport d'activité 2021 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2021.pdf" aria-label="Rapport d'activité 2021 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -184,7 +184,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2022</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2024/02/Rapport-dactivite-2022.pdf" aria-label="Rapport d'activité 2022 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2022.pdf" aria-label="Rapport d'activité 2022 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -193,7 +193,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2023</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2024/02/Rapport-dactivite-2023.pdf" aria-label="Rapport d'activité 2023 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2023.pdf" aria-label="Rapport d'activité 2023 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -202,7 +202,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2024</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2026/05/Rapport-dactivite-2024.pdf" aria-label="Rapport d'activité 2024 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2024.pdf" aria-label="Rapport d'activité 2024 (PDF)" target="_blank" rel="noopener" />
           </article>
 
           <article className="doc-card reveal">
@@ -211,7 +211,7 @@ export default function Page() {
             </div>
             <span className="doc-annee">2025</span>
             <span className="doc-label">Télécharger le PDF</span>
-            <a className="card-cover" href="https://securiform.fr/wp-content/uploads/2026/05/Rapport-dactivite-2025.pdf" aria-label="Rapport d'activité 2025 (PDF)" target="_blank" rel="noopener" />
+            <a className="card-cover" href="/pdf/Rapport-dactivite-2025.pdf" aria-label="Rapport d'activité 2025 (PDF)" target="_blank" rel="noopener" />
           </article>
 
         </div>

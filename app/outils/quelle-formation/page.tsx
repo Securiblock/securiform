@@ -6,7 +6,7 @@ import QuestionnaireFormation from "@/components/questionnaire-formation";
 export const metadata: Metadata = {
   title: "Quelle formation me faut-il ? - SECURIFORM",
   description:
-    "Répondez à quelques questions et découvrez la formation sécurité adaptée à vos salariés : CACES®, habilitation électrique, SST, incendie, travaux en hauteur, AIPR.",
+    "Quelques questions pour trouver la formation sécurité adaptée à vos salariés : CACES®, habilitation électrique, SST, incendie, travaux en hauteur, AIPR.",
   alternates: { canonical: "/outils/quelle-formation" },
   openGraph: {
     type: "website",

@@ -55,51 +55,6 @@ const AIPR: OptionRecyclage = {
   groupe: "AIPR",
 };
 
-const ECHAFAUDAGES = {
-  R408: { libelle: "Échafaudages fixes (R408)", mois: 60, page: "echafaudages-fixes", groupe: "Travaux en hauteur" },
-  R457: { libelle: "Échafaudages roulants (R457)", mois: 60, page: "echafaudages-roulants", groupe: "Travaux en hauteur" },
-} satisfies Record<string, OptionRecyclage>;
-
-const HARNAIS: OptionRecyclage = {
-  libelle: "Travaux en hauteur : port du harnais",
-  mois: 36,
-  page: "travaux-en-hauteur",
-  groupe: "Travaux en hauteur",
-  note: "Recyclage recommandé tous les 3 ans.",
-};
-
-const GESTES_POSTURES: OptionRecyclage = {
-  libelle: "Gestes et postures",
-  mois: 24,
-  page: "gestes-postures",
-  groupe: "Gestes et postures",
-  note: "Recyclage recommandé tous les 2 à 3 ans : le calcul retient 2 ans.",
-};
-
-const EPI: OptionRecyclage = {
-  libelle: "Équipier de Première Intervention (EPI)",
-  mois: 12,
-  page: "equipier-premiere-intervention",
-  groupe: "Incendie et évacuation",
-  note: "Recyclage recommandé tous les 1 à 2 ans : le calcul retient 1 an.",
-};
-
-const EXTINCTEURS: OptionRecyclage = {
-  libelle: "Manipulation des extincteurs",
-  mois: 12,
-  page: "manipulation-extincteurs",
-  groupe: "Incendie et évacuation",
-  note: "Recyclage recommandé tous les 6 mois à 3 ans selon les risques de votre établissement : le calcul retient 1 an.",
-};
-
-const EVACUATION: OptionRecyclage = {
-  libelle: "Exercice d'évacuation",
-  mois: 6,
-  page: "evacuation",
-  groupe: "Incendie et évacuation",
-  note: "Le Code du travail impose un exercice d'évacuation au moins tous les 6 mois.",
-};
-
 // Clé = page où le calculateur est affiché ; valeur = formations proposées dans sa liste.
 export const RECYCLAGES = {
   // Page Outils : toutes les formations, regroupées par catégorie.
@@ -109,13 +64,6 @@ export const RECYCLAGES = {
     HABILITATION.electricien,
     SST,
     AIPR,
-    ECHAFAUDAGES.R408,
-    ECHAFAUDAGES.R457,
-    HARNAIS,
-    GESTES_POSTURES,
-    EPI,
-    EXTINCTEURS,
-    EVACUATION,
   ],
   caces: Object.values(CACES),
   "caces-R482B": [CACES.R482B],
@@ -134,15 +82,6 @@ export const RECYCLAGES = {
   "aipr-operateurs": [AIPR],
   "aipr-encadrants": [AIPR],
   "aipr-concepteurs": [AIPR],
-  "travaux-hauteur-echafaudages": [ECHAFAUDAGES.R408, ECHAFAUDAGES.R457, HARNAIS],
-  "echafaudages-fixes": [ECHAFAUDAGES.R408],
-  "echafaudages-roulants": [ECHAFAUDAGES.R457],
-  "travaux-en-hauteur": [HARNAIS],
-  "gestes-postures": [GESTES_POSTURES],
-  "incendie-evacuation": [EPI, EXTINCTEURS, EVACUATION],
-  "equipier-premiere-intervention": [EPI],
-  "manipulation-extincteurs": [EXTINCTEURS],
-  evacuation: [EVACUATION],
 } satisfies Record<string, OptionRecyclage[]>;
 
 export type FormationRecyclage = keyof typeof RECYCLAGES;

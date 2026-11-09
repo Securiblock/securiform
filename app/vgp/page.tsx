@@ -19,7 +19,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/vgp/",
+      "url": "https://securiform.fr/vgp",
       "description": "VGP des chariots élévateurs, nacelles élévatrices, grues auxiliaires, ponts roulants, chargeuses, chariots télescopiques, compacteurs, hayons élévateurs, bras de levage, tombereaux, pelleteuses et accessoires de levage."
     },
     {
@@ -35,7 +35,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         }
       ]
     }

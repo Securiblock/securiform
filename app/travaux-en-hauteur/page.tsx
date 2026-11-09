@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
+      "url": "https://securiform.fr/travaux-en-hauteur"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation travaux en hauteur",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-travaux-en-hauteur/"
+          "item": "https://securiform.fr/travaux-en-hauteur"
         }
       ]
     }
@@ -102,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Le principe fondamental</span>
         <h2 id="titre-hierarchie">Toujours privilégier la protection collective</h2>
         <hr className="trait" />
-        <p>Les articles R4323-59 et R4323-60 du Code du travail fixent une règle non négociable&nbsp;: les protections collectives (garde-corps, filets, planchers) doivent toujours être envisagées en premier. Le harnais individuel n'intervient qu'en dernier recours, lorsque la protection collective est techniquement impossible&nbsp;: une impossibilité qui doit être démontrée et documentée par l'employeur.</p>
+        <p>Les articles R4323-59 et R4323-60 du Code du travail fixent une règle non négociable&nbsp;: les protections collectives (garde-corps, filets, planchers) doivent toujours être envisagées en premier. Le port du harnais est à privilégier en dernier recours, lorsque la protection collective est techniquement impossible.</p>
       </div>
     </section>
 
@@ -129,12 +128,12 @@ export default function Page() {
             <tbody>
               <tr>
                 <td>1 : Priorité absolue</td>
-                <td>Garde-corps, filets de sécurité, planchers pleins</td>
+                <td>Protection collective&nbsp;: garde-corps, filets de sécurité, planchers pleins</td>
                 <td>Systématiquement, dès que techniquement possible</td>
               </tr>
               <tr>
                 <td>2 : Dernier recours</td>
-                <td>Harnais, longes, antichutes à rappel automatique</td>
+                <td>Protection individuelle&nbsp;: harnais antichute, longes, antichutes à rappel automatique</td>
                 <td>Uniquement si la protection collective est impossible</td>
               </tr>
             </tbody>
@@ -155,30 +154,6 @@ export default function Page() {
           <h2 id="titre-gardecorps">Un garde-corps conforme, ça se compose de quoi&nbsp;?</h2>
           <hr className="trait" />
           <p>Selon la norme NF EN 13374, un garde-corps doit réunir simultanément ces éléments&nbsp;: une lisse haute (1 à 1,10&nbsp;m), une lisse intermédiaire (à mi-hauteur), une plinthe basse (10 à 15&nbsp;cm) et des potelets espacés de 2,5 à 3&nbsp;m maximum. Une simple barre horizontale isolée n'est pas conforme.</p>
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Classe</th>
-                <th scope="col">Pente de la surface</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Classe A</td>
-                <td>Jusqu'à 10° (toitures plates, terrasses)</td>
-              </tr>
-              <tr>
-                <td>Classe B</td>
-                <td>De 10° à 30°</td>
-              </tr>
-              <tr>
-                <td>Classe C</td>
-                <td>De 30° à 60° (toitures en pente)</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
@@ -207,7 +182,7 @@ export default function Page() {
           </article>
 
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Un harnais a une durée de vie limitée, généralement 10 ans après sa fabrication&nbsp;: au-delà, il doit être remplacé même sans défaut visible.</p>
+        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>La durée de vie d&apos;un harnais antichute est généralement de 10 ans à compter de sa date de fabrication, mais elle est fixée par la notice du fabricant et peut être réduite selon l&apos;usage, l&apos;entretien et les conditions d&apos;exposition. Il n&apos;existe pas de durée légale unique en France.</p>
       </div>
     </section>
 
@@ -246,7 +221,6 @@ export default function Page() {
             </tbody>
           </table>
         </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le point dorsal reste la référence&nbsp;: le point sternal ne s'utilise qu'en cas d'accès difficile au dos, et le point latéral doit toujours être associé à un système antichute dorsal ou sternal.</p>
       </div>
     </section>
 
@@ -254,54 +228,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-systemes">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Le bon système pour chaque situation</span>
-          <h2 id="titre-systemes">Longes, enrouleurs et lignes de vie</h2>
-          <hr className="trait" />
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Situation</th>
-                <th scope="col">Système recommandé</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Position fixe, courte durée</td>
-                <td>Longe simple avec absorbeur d'énergie</td>
-              </tr>
-              <tr>
-                <td>Progression sur échafaudage</td>
-                <td>Longe double (en Y), toujours connecté pendant le déplacement</td>
-              </tr>
-              <tr>
-                <td>Déplacements fréquents sur toiture</td>
-                <td>Antichute à rappel automatique (enrouleur)</td>
-              </tr>
-              <tr>
-                <td>Montée d'échelle verticale</td>
-                <td>Ligne de vie verticale avec antichute mobile</td>
-              </tr>
-              <tr>
-                <td>Grande surface de travail</td>
-                <td>Ligne de vie horizontale avec coulisseau</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>Le choix dépend aussi du tirant d'air disponible sous le point d'ancrage et de la distance de chute possible&nbsp;: SECURIFORM vous aide à raisonner ces paramètres pendant la formation.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -326,11 +253,6 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité de cette formation&nbsp;?</summary>
-            <p>Un recyclage est recommandé tous les 3 ans pour maintenir les compétences à jour, notamment sur le contrôle du harnais et le choix des systèmes antichute.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Cette formation couvre-t-elle aussi les échafaudages&nbsp;?</summary>
             <p>Non, les échafaudages font l'objet de formations dédiées (R408 pour les échafaudages fixes, R457 pour les roulants)&nbsp;: retrouvez le détail sur notre page Travaux en hauteur et échafaudages.</p>
           </details>
@@ -343,11 +265,10 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="travaux-en-hauteur" />
 
     
 
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -384,7 +305,6 @@ export default function Page() {
               <label htmlFor="besoin">Votre besoin</label>
               <select id="besoin" name="besoin">
                 <option value="initiale">Formation initiale</option>
-                <option value="recyclage">Recyclage</option>
                 <option value="controle">Contrôle et entretien du harnais</option>
                 <option value="autre">Je ne sais pas encore</option>
               </select>
@@ -403,7 +323,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

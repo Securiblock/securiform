@@ -31,7 +31,7 @@ export default function SiteFooter() {
           </p>
           <a
             className="qualiopi"
-            href="https://securiform.fr/wp-content/uploads/2026/03/Certificat-Qualiopi-renouvellement.pdf"
+            href="/pdf/Certificat-Qualiopi-renouvellement.pdf"
           >
             Certifié Qualiopi
           </a>
@@ -95,6 +95,9 @@ export default function SiteFooter() {
               <Link href="/statistiques">Rapports d&apos;activité</Link>
             </li>
             <li>
+              <Link href="/outils/plan-du-site">Plan du site</Link>
+            </li>
+            <li>
               <Link href="/mentions-legales">Mentions légales</Link>
             </li>
             <li>
@@ -133,12 +136,12 @@ export default function SiteFooter() {
               </button>
             </li>
             <li>
-              <a href="https://securiform.fr/wp-content/uploads/2023/05/Accueil-des-personnes-en-situation-de-handicap.pdf">
+              <a href="/pdf/Accueil-des-personnes-en-situation-de-handicap.pdf">
                 Accueil des personnes en situation de handicap
               </a>
             </li>
             <li>
-              <a href="https://securiform.fr/wp-content/uploads/2023/05/Accessibilite-de-letablissement.pdf">
+              <a href="/pdf/Accessibilite-de-letablissement.pdf">
                 Accessibilité de l&apos;établissement
               </a>
             </li>

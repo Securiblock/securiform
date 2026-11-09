@@ -16,7 +16,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces/"
+      "url": "https://securiform.fr/caces"
     },
     {
       "@type": "BreadcrumbList",
@@ -31,7 +31,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations à la conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/caces/"
+          "item": "https://securiform.fr/caces"
         }
       ]
     }
@@ -40,7 +40,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Conduite en sécurité et CACES® - SECURIFORM",
-  description: "SECURIFORM prépare vos équipes au CACES® : R482B, R484A, R485A, R486B, R489A et R490A. Tests réalisés par un organisme testeur certifié INRS, sur toute la moitié nord de la France.",
+  description: "SECURIFORM prépare vos équipes au CACES® R482B, R484A, R485A, R486B, R489A et R490A, avec un organisme testeur certifié, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces" },
   openGraph: {
     type: "article",

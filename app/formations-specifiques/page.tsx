@@ -8,13 +8,13 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formations spécifiques",
-      "description": "Formations sur mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses autoportées, utilisation de tronçonneuses thermiques à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
+      "description": "Formations sur-mesure adaptées à des équipements et risques spécifiques : conduite de tondeuses autoportées, utilisation de tronçonneuses thermiques à chaîne, conduite de balayeuses routières, sensibilisation aux gestes qui sauvent.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/formations-specifiques/"
+      "url": "https://securiform.fr/formations-specifiques"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/formations-specifiques/"
+          "item": "https://securiform.fr/formations-specifiques"
         }
       ]
     }
@@ -38,7 +38,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formations spécifiques - SECURIFORM",
-  description: "SECURIFORM propose des formations sur mesure : tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
+  description: "SECURIFORM propose des formations sur-mesure : tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent.",
   alternates: { canonical: "/formations-specifiques" },
   openGraph: {
     type: "article",
@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/formations-specifiques",
     title: "Formations spécifiques - SECURIFORM",
-    description: "Tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur mesure avec SECURIFORM.",
+    description: "Tondeuses autoportées, tronçonneuses thermiques, balayeuses routières, gestes qui sauvent : des formations sur-mesure avec SECURIFORM.",
     images: ["/image/formation-specifiques.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Formations spécifiques - SECURIFORM",
-    description: "Des formations sur mesure, adaptées aux équipements et aux risques propres à votre entreprise.",
+    description: "Des formations sur-mesure, adaptées aux équipements et aux risques propres à votre entreprise.",
     images: ["/image/formation-specifiques.webp"],
   },
 };
@@ -79,7 +79,7 @@ export default function Page() {
           <span>Formations spécifiques</span>
         </p>
         <h1>Formations spécifiques</h1>
-        <p>Un équipement ou un risque qui ne rentre dans aucune case&nbsp;? SECURIFORM conçoit des formations sur mesure, adaptées à votre matériel et à votre activité.</p>
+        <p>Un équipement ou un risque qui ne rentre dans aucune case&nbsp;? SECURIFORM conçoit des formations sur-mesure, adaptées à votre matériel et à votre activité.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
     </section>
@@ -88,42 +88,33 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-intro">
-      <div className="container section-head reveal">
-        <span className="surtitre">Au-delà du catalogue standard</span>
-        <h2 id="titre-intro">Des formations pensées pour vos équipements précis</h2>
-        <hr className="trait" />
-        <p>Toutes les activités ne rentrent pas dans les grandes catégories réglementaires. SECURIFORM développe des formations ciblées sur des équipements ou des situations particulières, avec la même exigence pédagogique que le reste de son catalogue.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section section-alt" id="parcours" aria-labelledby="titre-parcours">
+<section className="section" id="parcours" aria-labelledby="titre-parcours">
       <div className="container">
-        <h2 id="titre-parcours" className="sr-only" style={{ "position": "absolute", "left": "-9999px" }}>Nos formations spécifiques</h2>
-        <div className="formations-grid">
+        <div className="section-head reveal">
+          <span className="surtitre">Au-delà du catalogue standard</span>
+          <h2 id="titre-parcours">Des formations conçues pour vos équipements spécifiques</h2>
+          <hr className="trait" />
+        </div>
+        <div className="formations-grid titres-alignes">
 
           <article className="formation-card reveal">
             <div className="formation-photo">
               <img src="/image/formation-tondeuse.webp" alt="Conduite en sécurité de tondeuses autoportées" loading="lazy" />
             </div>
             <h3>Tondeuses autoportées</h3>
-            <p>Conduite en sécurité des tondeuses autoportées utilisées pour l'entretien de grands espaces verts.</p>
+            <p>Conduite en sécurité des tondeuses autoportées utilisées pour l'entretien d'espaces verts.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/tondeuses-autoportees" aria-label="Conduite en sécurité de tondeuses autoportées" />
           </article>
 
           <article className="formation-card reveal">
             <div className="formation-photo">
-              <img src="/image/formation-tronconneuse.webp" alt="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" loading="lazy" />
+              <img src="/image/formation-tronconneuse.webp" alt="Utilisation en sécurité des tronçonneuses thermiques à chaîne" loading="lazy" />
             </div>
             <h3>Tronçonneuses thermiques</h3>
-            <p>Utilisation en sécurité d'une tronçonneuse thermique à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
+            <p>Utilisation en sécurité des tronçonneuses thermiques à chaîne&nbsp;: prise en main, entretien et bonnes pratiques de coupe.</p>
             <span className="lien">Découvrir</span>
-            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité d'une tronçonneuse thermique à chaîne" />
+            <Link className="card-cover" href="/tronconneuse-thermique" aria-label="Utilisation en sécurité des tronçonneuses thermiques à chaîne" />
           </article>
 
           <article className="formation-card reveal">
@@ -141,7 +132,7 @@ export default function Page() {
               <img src="/image/formation-gestes-qui-sauvent.webp" alt="Sensibilisation aux gestes qui sauvent" loading="lazy" />
             </div>
             <h3>Gestes qui sauvent</h3>
-            <p>Une sensibilisation accessible à tous aux gestes de premiers secours essentiels, sans prérequis.</p>
+            <p>Sensibilisation aux gestes de premiers secours.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/gestes-qui-sauvent" aria-label="Sensibilisation aux gestes qui sauvent" />
           </article>
@@ -154,11 +145,11 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-etapes">
+<section className="section section-alt" aria-labelledby="titre-etapes">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre besoin, notre méthode</span>
-          <h2 id="titre-etapes">Comment naît une formation sur mesure</h2>
+          <h2 id="titre-etapes">Comment naît une formation sur-mesure</h2>
           <hr className="trait" />
           <p>Que votre besoin concerne un équipement précis ou un risque propre à votre activité, la démarche reste la même.</p>
         </div>
@@ -173,7 +164,7 @@ export default function Page() {
           </div>
           <div className="etape reveal">
             <h3>Formation</h3>
-            <p>La session se déroule en centre ou directement sur votre site, avec votre matériel si besoin, puis fait l'objet d'une évaluation.</p>
+            <p>La session se déroule sur votre site, avec votre matériel, puis fait l'objet d'une évaluation.</p>
           </div>
         </div>
       </div>
@@ -183,7 +174,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-faq">
+<section className="section" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -198,18 +189,18 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>Une formation sur mesure coûte-t-elle plus cher qu'une formation standard&nbsp;?</summary>
+            <summary>Une formation sur-mesure coûte-t-elle plus cher qu'une formation standard&nbsp;?</summary>
             <p>Le tarif dépend surtout du temps de conception et du nombre de participants, pas du simple fait qu'elle soit "spécifique". Nous vous transmettons un devis clair avant toute confirmation.</p>
           </details>
 
           <details className="faq-item">
             <summary>Pouvez-vous former directement sur mon site, avec mon propre matériel&nbsp;?</summary>
-            <p>Oui, c'est même souvent recommandé pour ce type de formation&nbsp;: vos équipes s'entraînent directement sur les équipements et dans les conditions qu'elles rencontreront au quotidien.</p>
+            <p>Oui, c'est même recommandé pour ce type de formation&nbsp;: vos équipes s'entraînent directement sur votre matériel et dans les conditions qu'elles rencontrent au quotidien.</p>
           </details>
 
           <details className="faq-item">
             <summary>La sensibilisation aux gestes qui sauvent remplace-t-elle une formation SST&nbsp;?</summary>
-            <p>Non. Il s'agit d'une sensibilisation courte et accessible à tous, utile pour diffuser les bons réflexes largement dans l'entreprise. Pour un statut de Sauveteur Secouriste du Travail reconnu, la formation SST complète reste nécessaire.</p>
+            <p>Non. Il s'agit d'une sensibilisation courte et accessible à tous, utile pour diffuser les bons réflexes largement dans l'entreprise. Pour un statut de Sauveteur Secouriste du Travail reconnu, la formation SST reste nécessaire.</p>
           </details>
 
         </div>
@@ -220,7 +211,7 @@ export default function Page() {
     
 
     
-<section className="section" id="devis" aria-labelledby="titre-devis">
+<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -257,7 +248,7 @@ export default function Page() {
               <label htmlFor="formation">Votre besoin</label>
               <select id="formation" name="formation">
                 <option value="tondeuse">Tondeuse autoportée</option>
-                <option value="tronconneuse">Tronçonneuse thermique</option>
+                <option value="tronconneuse">Tronçonneuses thermiques</option>
                 <option value="balayeuse">Balayeuse routière</option>
                 <option value="gestes">Sensibilisation gestes qui sauvent</option>
                 <option value="autre">Autre équipement / besoin spécifique</option>
@@ -277,7 +268,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-recrute">
+<section className="section" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -9,13 +8,13 @@ const jsonLd = {
     {
       "@type": "Course",
       "name": "Formation échafaudages fixes R408",
-      "description": "Formation au montage-démontage, à la vérification et à la supervision des échafaudages fixes, conformément à la recommandation R408 de la CNAMTS et à l'arrêté du 21 décembre 2004. Habilitation valable 5 ans.",
+      "description": "Formation au montage-démontage, à la vérification et à la supervision des échafaudages fixes, conformément à la recommandation R408 de la CNAMTS et à l'arrêté du 21 décembre 2004.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
+      "url": "https://securiform.fr/echafaudages-fixes"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Formation échafaudages fixes",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/formation-echafaudages-fixes/"
+          "item": "https://securiform.fr/echafaudages-fixes"
         }
       ]
     }
@@ -102,7 +101,7 @@ export default function Page() {
         <span className="surtitre">Vue d'ensemble</span>
         <h2 id="titre-intro">Quatre objectifs, un seul mot d'ordre&nbsp;: la conformité</h2>
         <hr className="trait" />
-        <p>L'article R4323-69 du Code du travail impose que le montage, le démontage ou toute modification substantielle d'un échafaudage soit réalisé sous la direction d'une personne compétente, par des travailleurs formés. La recommandation R408 de la CNAMTS structure cette formation autour de quatre compétences&nbsp;: monter et démonter, vérifier et entretenir, appliquer la notice du fabricant, et superviser une équipe de monteurs.</p>
+        <p>L&apos;article R4323-69 du Code du travail impose que le montage, le démontage ou toute modification substantielle d&apos;un échafaudage soit réalisé sous la direction d&apos;une personne compétente, par des travailleurs formés. La formation R408 proposée par SECURIFORM a pour objectif de développer 3 compétences&nbsp;: utiliser, monter et démonter, réceptionner et vérifier un échafaudage fixe.</p>
       </div>
     </section>
 
@@ -110,46 +109,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-durees">
-      <div className="container">
-        <div className="section-head reveal">
-          <span className="surtitre">Combien de temps</span>
-          <h2 id="titre-durees">Une durée selon le niveau visé</h2>
-          <hr className="trait" />
-        </div>
-        <div className="table-scroll reveal">
-          <table className="tableau-comparatif">
-            <thead>
-              <tr>
-                <th scope="col">Niveau de formation</th>
-                <th scope="col">Durée</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Montage, démontage et utilisation</td>
-                <td>3 jours (21 heures)</td>
-              </tr>
-              <tr>
-                <td>Formation complète avec supervision d'équipe</td>
-                <td>4 à 6 jours (28 à 42 heures)</td>
-              </tr>
-              <tr>
-                <td>Réception et maintenance uniquement</td>
-                <td>2 jours (14 heures)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style={{ "textAlign": "center", "marginTop": "2rem", "color": "var(--gris)" }}>L'habilitation est valable 5 ans&nbsp;; un recyclage permet de la renouveler avant expiration.</p>
-      </div>
-    </section>
-
-
-    
-
-    
-<section className="section" aria-labelledby="titre-stabilite">
+<section className="section section-alt" aria-labelledby="titre-stabilite">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Le principe fondamental</span>
@@ -182,7 +142,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-classes">
+<section className="section" aria-labelledby="titre-classes">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Bien s'y retrouver</span>
@@ -233,7 +193,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-verifications">
+<section className="section section-alt" aria-labelledby="titre-verifications">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Une obligation en 3 temps</span>
@@ -276,7 +236,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-supervision">
+<section className="section" aria-labelledby="titre-supervision">
       <div className="container presentation">
         <div className="presentation-txt reveal">
           <span className="surtitre">Pour les chefs d'équipe</span>
@@ -300,7 +260,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -342,11 +302,10 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="echafaudages-fixes" />
 
     
 
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -402,7 +361,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

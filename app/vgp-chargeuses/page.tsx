@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-chargeuses/",
+      "url": "https://securiform.fr/vgp-chargeuses",
       "description": "Vérification Générale Périodique des chargeuses sur pneus ou chenilles, tous les 6 mois, conformément à l'arrêté du 1er mars 2004."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des chargeuses",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-chargeuses/"
+          "item": "https://securiform.fr/vgp-chargeuses"
         }
       ]
     }
@@ -290,7 +290,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

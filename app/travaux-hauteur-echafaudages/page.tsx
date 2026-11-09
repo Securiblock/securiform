@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/travaux-hauteur-echafaudages/"
+      "url": "https://securiform.fr/travaux-hauteur-echafaudages"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,7 +29,7 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations travaux en hauteur et échafaudages",
-          "item": "https://securiform.fr/travaux-hauteur-echafaudages/"
+          "item": "https://securiform.fr/travaux-hauteur-echafaudages"
         }
       ]
     }
@@ -122,7 +121,7 @@ export default function Page() {
               <img src="/image/formation-echafaudage-fixe.webp" alt="Formation échafaudages fixes R408" loading="lazy" />
             </div>
             <h3>Échafaudages fixes (R408)</h3>
-            <p>Utilisation, montage-démontage, utilisation, démontage et réception d'échafaudages de pied ancrés à la façade, pour les travaux de longue durée.</p>
+            <p>Utilisation, montage-démontage, réception et vérification d&apos;échafaudages de pied.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/echafaudages-fixes" aria-label="Formation échafaudages fixes" />
           </article>
@@ -132,7 +131,7 @@ export default function Page() {
               <img src="/image/formation-echafaudage-roulant.webp" alt="Formation échafaudages roulants R457" loading="lazy" />
             </div>
             <h3>Échafaudages roulants (R457)</h3>
-            <p>Montage, stabilisation et déplacement en sécurité des échafaudages mobiles, adaptés aux interventions ponctuelles.</p>
+            <p>Utilisation, montage-démontage et vérification d&apos;échafaudages roulants.</p>
             <span className="lien">Découvrir</span>
             <Link className="card-cover" href="/echafaudages-roulants" aria-label="Formation échafaudages roulants" />
           </article>
@@ -183,11 +182,6 @@ export default function Page() {
                 <td>Plus long, structure complète</td>
                 <td>Rapide et simple</td>
               </tr>
-              <tr>
-                <td>Validité de l'attestation</td>
-                <td>5 ans</td>
-                <td>5 ans</td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -198,31 +192,36 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-etapes">
+<section className="section section-alt" aria-labelledby="titre-harnais">
       <div className="container">
         <div className="section-head reveal">
-          <span className="surtitre">La bonne méthode</span>
-          <h2 id="titre-etapes">Un montage sécurisé en 4 temps</h2>
+          <span className="surtitre">Bien s&apos;équiper</span>
+          <h2 id="titre-harnais">Les différents types de harnais</h2>
           <hr className="trait" />
-          <p>Ce qui distingue un chantier sécurisé d'un accident&nbsp;: le respect scrupuleux de cet enchaînement, quel que soit le type d'échafaudage.</p>
         </div>
-        <div className="etapes">
-          <div className="etape reveal">
-            <h3>Préparer</h3>
-            <p>Vérifier la portance du sol, caler si besoin, et implanter l'échafaudage en dégageant les circulations.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Monter niveau par niveau</h3>
-            <p>Compléter chaque niveau avant de passer au suivant, garde-corps installés dès qu'un niveau est accessible.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Ancrer</h3>
-            <p>Fixer l'échafaudage à la façade à intervalles réguliers pour empêcher tout basculement.</p>
-          </div>
-          <div className="etape reveal">
-            <h3>Réceptionner</h3>
-            <p>Faire vérifier l'ensemble par une personne compétente avant toute utilisation par l'équipe.</p>
-          </div>
+        <div className="table-scroll reveal">
+          <table className="tableau-comparatif">
+            <thead>
+              <tr>
+                <th scope="col">Type de harnais</th>
+                <th scope="col">À quoi il sert</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Harnais antichute (NF EN 361)</td>
+                <td>Arrêter la chute de l&apos;utilisateur, relié à un point d&apos;ancrage par une longe avec absorbeur d&apos;énergie ou un antichute à rappel automatique</td>
+              </tr>
+              <tr>
+                <td>Harnais de maintien au travail (NF EN 358)</td>
+                <td>Maintenir l&apos;utilisateur en position de travail, mains libres, sans chute libre possible (poteaux, pylônes)&nbsp;: il ne remplace pas un harnais antichute</td>
+              </tr>
+              <tr>
+                <td>Harnais cuissard (NF EN 813)</td>
+                <td>Travailler en suspension, assis dans le harnais&nbsp;: travaux sur cordes, accès difficiles, élagage</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -241,28 +240,23 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Un harnais suffit-il pour travailler en sécurité en hauteur&nbsp;?</summary>
-            <p>Non. Un système antichute complet repose sur trois éléments indissociables&nbsp;: le harnais, une longe ou un antichute à rappel automatique, et un point d'ancrage adapté. L'absence d'un seul de ces éléments rend les deux autres inutiles.</p>
+            <summary>Dois-je porter un harnais sur un échafaudage fixe&nbsp;?</summary>
+            <p>Pas nécessairement&nbsp;: cela dépend du type de montage. Lorsque l&apos;échafaudage est monté en sécurité, avec des protections collectives installées à chaque niveau, le port du harnais n&apos;est pas nécessaire.</p>
           </details>
 
           <details className="faq-item">
-            <summary>À quelle fréquence un échafaudage doit-il être vérifié&nbsp;?</summary>
-            <p>Trois vérifications sont prévues&nbsp;: une réception complète avant la première utilisation, une vérification journalière rapide avant chaque prise de poste, et une vérification trimestrielle approfondie, ou après tout événement exceptionnel comme une tempête.</p>
+            <summary>Quel type de casque utiliser pour les travaux en hauteur&nbsp;?</summary>
+            <p>Un casque équipé d&apos;une jugulaire, afin qu&apos;il reste en place en cas de chute ou de mouvement brusque.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Quelle est la durée de validité des attestations R408 et R457&nbsp;?</summary>
-            <p>Ces attestations sont valables 5 ans. Avant leur expiration, un recyclage permet de renouveler la compétence pour une nouvelle période. Le port du harnais fait quant à lui l'objet d'un recyclage recommandé tous les 3 ans.</p>
+            <summary>Qu&apos;est-ce qu&apos;un facteur de chute&nbsp;?</summary>
+            <p>C&apos;est le rapport entre la hauteur de la chute et la longueur de la longe qui retient l&apos;utilisateur à son point d&apos;ancrage. Il varie de 0 à 2&nbsp;: plus il est élevé, plus l&apos;effort transmis au corps, à la longe et au point d&apos;ancrage est important. C&apos;est pourquoi il faut privilégier un point d&apos;ancrage situé au-dessus de l&apos;utilisateur.</p>
           </details>
 
           <details className="faq-item">
-            <summary>Peut-on former une équipe aux deux types d'échafaudages en même temps&nbsp;?</summary>
-            <p>Oui, une formation combinée R408 et R457 est possible pour les équipes amenées à utiliser les deux types de structures, ce qui optimise le temps de formation par rapport à deux sessions séparées.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Formation en centre ou directement sur mon chantier&nbsp;?</summary>
-            <p>Les deux formules existent. Une formation sur site permet de s'entraîner directement sur le matériel et la configuration réellement utilisés par vos équipes, ce qui est souvent préférable pour les échafaudages.</p>
+            <summary>Qu&apos;est-ce qu&apos;un tirant d&apos;air&nbsp;?</summary>
+            <p>C&apos;est la hauteur libre nécessaire sous l&apos;utilisateur pour que, en cas de chute, le système antichute l&apos;arrête avant qu&apos;il ne heurte le sol ou un obstacle. Il tient compte de la longueur de la longe, de l&apos;allongement de l&apos;absorbeur d&apos;énergie, de la taille de l&apos;utilisateur et d&apos;une marge de sécurité.</p>
           </details>
 
         </div>
@@ -273,7 +267,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="travaux-hauteur-echafaudages" />
 
     
 
@@ -316,7 +309,6 @@ export default function Page() {
                 <option value="harnais">Travaux en hauteur (port du harnais)</option>
                 <option value="r408">Échafaudages fixes (R408)</option>
                 <option value="r457">Échafaudages roulants (R457)</option>
-                <option value="combine">Formation combinée R408 + R457</option>
                 <option value="autre">Autre / je ne sais pas encore</option>
               </select>
             </div>

@@ -57,6 +57,7 @@ export const pages: string[] = [
   "/nous-contacter",
   "/nous-recrutons",
   "/outils/calculateur-recyclage",
+  "/outils/plan-du-site",
   "/outils/quelle-formation",
 ];
 

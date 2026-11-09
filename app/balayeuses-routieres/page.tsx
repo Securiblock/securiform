@@ -14,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/conduite-en-securite-de-balayeuses-routieres-2/"
+      "url": "https://securiform.fr/balayeuses-routieres"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/formations-specifiques/"
+          "item": "https://securiform.fr/formations-specifiques"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Balayeuses routières",
-          "item": "https://securiform.fr/conduite-en-securite-de-balayeuses-routieres-2/"
+          "item": "https://securiform.fr/balayeuses-routieres"
         }
       ]
     }
@@ -44,7 +44,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Conduite de balayeuses routières - SECURIFORM",
-  description: "Formation SECURIFORM à la conduite des balayeuses routières : angles morts, signalisation et vérifications avant utilisation, sur toute la moitié nord de la France.",
+  description: "Formation SECURIFORM à la conduite des balayeuses routières : angles morts, signalisation, vérifications avant utilisation, dans la moitié nord de la France.",
   alternates: { canonical: "/balayeuses-routieres" },
   openGraph: {
     type: "article",
@@ -216,8 +216,8 @@ export default function Page() {
         <div className="faq reveal">
 
           <details className="faq-item">
-            <summary>Un permis spécifique est-il nécessaire pour conduire une balayeuse routière&nbsp;?</summary>
-            <p>Cela dépend du gabarit et du poids du véhicule&nbsp;: certains modèles nécessitent un permis poids lourd. La formation SECURIFORM porte sur la conduite en sécurité de l'engin, en complément du permis de conduire requis.</p>
+            <summary>Est-ce que cette formation est obligatoire&nbsp;?</summary>
+            <p>Oui. La balayeuse routière est un équipement de travail mobile automoteur&nbsp;: selon l'article R. 4323-55 du Code du travail, sa conduite est réservée aux travailleurs ayant reçu une formation adéquate. Elle ne relève d'aucune catégorie CACES®, mais l'employeur doit tout de même former ses conducteurs.</p>
           </details>
 
           <details className="faq-item">
@@ -228,11 +228,6 @@ export default function Page() {
           <details className="faq-item">
             <summary>Que faire en cas de blocage des brosses par un déchet volumineux&nbsp;?</summary>
             <p>Toujours arrêter le moteur et attendre l'arrêt complet des brosses avant toute intervention manuelle.</p>
-          </details>
-
-          <details className="faq-item">
-            <summary>Cette formation peut-elle se dérouler directement sur nos itinéraires habituels&nbsp;?</summary>
-            <p>Oui, une formation sur site permet de s'entraîner directement sur le matériel et les parcours réellement empruntés par vos équipes.</p>
           </details>
 
         </div>

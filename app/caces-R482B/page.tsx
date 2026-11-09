@@ -16,7 +16,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R482B/"
+      "url": "https://securiform.fr/caces-R482B"
     },
     {
       "@type": "BreadcrumbList",
@@ -31,13 +31,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/caces/"
+          "item": "https://securiform.fr/caces"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "CACES R482B",
-          "item": "https://securiform.fr/caces/formation-a-la-conduite-en-securite-caces-R482B/"
+          "item": "https://securiform.fr/caces-R482B"
         }
       ]
     }
@@ -289,7 +289,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-modalites">
+<section className="section section-alt" aria-labelledby="titre-modalites">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Où se former</span>
@@ -321,7 +321,7 @@ export default function Page() {
     
 
     
-<section className="section section-alt" aria-labelledby="titre-risques">
+<section className="section" aria-labelledby="titre-risques">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Ce que la formation prévient</span>
@@ -369,7 +369,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -415,7 +415,7 @@ export default function Page() {
 
     
 
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -479,7 +479,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>

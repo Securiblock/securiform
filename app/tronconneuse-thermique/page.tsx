@@ -7,14 +7,14 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Course",
-      "name": "Utilisation en sécurité d'une tronçonneuse thermique à chaîne",
-      "description": "Formation à l'utilisation en sécurité d'une tronçonneuse thermique à chaîne, couvrant le risque de rebond, les équipements de protection individuelle, les vérifications avant utilisation et la technique d'abattage.",
+      "name": "Utilisation en sécurité des tronçonneuses thermiques à chaîne",
+      "description": "Formation à l'utilisation en sécurité des tronçonneuses thermiques à chaîne, couvrant le risque de rebond, les équipements de protection individuelle, les vérifications avant utilisation et la technique d'abattage.",
       "provider": {
         "@type": "EducationalOrganization",
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/utilisation-en-securite-dune-tronconneuse-thermique-a-chaine/"
+      "url": "https://securiform.fr/tronconneuse-thermique"
     },
     {
       "@type": "BreadcrumbList",
@@ -29,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations spécifiques",
-          "item": "https://securiform.fr/formations-specifiques/"
+          "item": "https://securiform.fr/formations-specifiques"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Tronçonneuses thermiques",
-          "item": "https://securiform.fr/utilisation-en-securite-dune-tronconneuse-thermique-a-chaine/"
+          "item": "https://securiform.fr/tronconneuse-thermique"
         }
       ]
     }
@@ -43,22 +43,22 @@ const jsonLd = {
 };
 
 export const metadata: Metadata = {
-  title: "Utilisation sécurisée d'une tronçonneuse - SECURIFORM",
-  description: "Formation SECURIFORM à l'utilisation sécurisée d'une tronçonneuse thermique : risque de rebond, équipements de protection, vérifications.",
+  title: "Formation tronçonneuses thermiques - SECURIFORM",
+  description: "Formation SECURIFORM à l'utilisation sécurisée des tronçonneuses thermiques : risque de rebond, équipements de protection, vérifications.",
   alternates: { canonical: "/tronconneuse-thermique" },
   openGraph: {
     type: "article",
     siteName: "SECURIFORM",
     locale: "fr_FR",
     url: "/tronconneuse-thermique",
-    title: "Utilisation en sécurité d'une tronçonneuse thermique à chaîne - SECURIFORM",
+    title: "Utilisation en sécurité des tronçonneuses thermiques à chaîne - SECURIFORM",
     description: "Formation SECURIFORM au risque de rebond, aux équipements de protection et à la technique de coupe en sécurité.",
     images: ["/image/formation-tronconneuse.webp"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Utilisation en sécurité d'une tronçonneuse thermique - SECURIFORM",
-    description: "Formez vos équipes à l'utilisation en sécurité d'une tronçonneuse thermique, avec SECURIFORM.",
+    title: "Utilisation en sécurité des tronçonneuses thermiques - SECURIFORM",
+    description: "Formez vos équipes à l'utilisation en sécurité des tronçonneuses thermiques, avec SECURIFORM.",
     images: ["/image/formation-tronconneuse.webp"],
   },
 };
@@ -77,7 +77,7 @@ export default function Page() {
     
 
     
-<section className="page-hero" aria-label="Utilisation en sécurité d'une tronçonneuse thermique" style={{ backgroundImage: "url('/image/formation-tronconneuse.webp')" }}>
+<section className="page-hero" aria-label="Utilisation en sécurité des tronçonneuses thermiques" style={{ backgroundImage: "url('/image/formation-tronconneuse.webp')" }}>
       <div className="container page-hero-inner">
         <p className="fil-ariane">
           <Link href="/">Accueil</Link>
@@ -86,7 +86,7 @@ export default function Page() {
           <span aria-hidden="true">›</span>
           <span>Tronçonneuses thermiques</span>
         </p>
-        <h1>Utilisation en sécurité d'une tronçonneuse thermique à chaîne</h1>
+        <h1>Utilisation en sécurité des tronçonneuses thermiques à chaîne</h1>
         <p>Prise en main, entretien et bonnes pratiques de coupe&nbsp;: une formation centrée sur le risque le plus caractéristique de cet outil, le rebond.</p>
         <a href="#devis" className="btn btn-plein">Demander un devis</a>
       </div>
@@ -147,28 +147,50 @@ export default function Page() {
           <span className="surtitre">S'équiper correctement</span>
           <h2 id="titre-epi">Le kit de protection complet</h2>
           <hr className="trait" />
-          <p>Contrairement à beaucoup d'outils, la tronçonneuse impose un équipement de protection individuelle complet, jamais partiel.</p>
+          <p>Contrairement à beaucoup d'outils, l'utilisation d'une tronçonneuse nécessite un équipement de protection individuelle complet&nbsp;:</p>
         </div>
         <div className="grille-categories cols-4">
 
           <article className="categorie-card reveal">
-            <h3>Pantalon anti-coupure</h3>
-            <p>Contient des fibres qui bloquent la chaîne en cas de contact accidentel avec la jambe.</p>
-          </article>
-
-          <article className="categorie-card reveal">
-            <h3>Casque avec visière</h3>
-            <p>Protège des chutes de branches et des projections de copeaux, en plus d'une protection auditive intégrée.</p>
-          </article>
-
-          <article className="categorie-card reveal">
-            <h3>Gants anti-vibration</h3>
-            <p>Réduisent la transmission des vibrations et protègent les mains lors de la manipulation.</p>
-          </article>
-
-          <article className="categorie-card reveal">
             <h3>Chaussures anti-coupure</h3>
-            <p>Avec coque de protection, indispensables en complément du pantalon technique.</p>
+            <p>Chaussures de sécurité avec coque de protection, indispensables en complément du pantalon anti-coupure.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Pantalon ou jambières anti-coupure</h3>
+            <p>Contiennent des fibres qui bloquent la chaîne en cas de contact accidentel avec la jambe.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Veste ou manchettes anti-coupure</h3>
+            <p>Protègent le haut du corps et les bras en cas de contact accidentel avec la chaîne.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Gants anti-coupure</h3>
+            <p>Protègent les mains lors de la manipulation de la tronçonneuse.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Casque</h3>
+            <p>Protège la tête des chutes de branches.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Écran facial grillagé</h3>
+            <p>Visière grillagée qui protège le visage et les yeux des projections de copeaux et de débris.</p>
+          </article>
+
+          <article className="categorie-card reveal">
+            <h3>Protections auditives</h3>
+            <p>Protègent contre le bruit du moteur thermique.</p>
+          </article>
+
+          <article className="categorie-card carte-rouge reveal">
+            <h3>Équipez-vous</h3>
+            <p>Retrouvez nos EPI pour les travaux d'espaces verts sur notre boutique.</p>
+            <span className="lien">Voir la boutique</span>
+            <a className="card-cover" href="https://securistore.fr/36-epi-travaux-espaces-verts" target="_blank" rel="noopener noreferrer" aria-label="EPI travaux espaces verts sur la boutique SECURISTORE" />
           </article>
 
         </div>
@@ -250,11 +272,6 @@ export default function Page() {
             <p>Non, cette position est déconseillée&nbsp;: elle réduit le contrôle de l'outil et augmente fortement le risque de rebond et de perte d'équilibre.</p>
           </details>
 
-          <details className="faq-item">
-            <summary>Cette formation couvre-t-elle l'abattage de gros arbres&nbsp;?</summary>
-            <p>Elle couvre les techniques de base d'abattage. Pour des arbres de grande taille ou des situations complexes (proximité de bâtiments, lignes électriques), une expertise d'élagage professionnelle spécialisée est recommandée.</p>
-          </details>
-
         </div>
       </div>
     </section>
@@ -267,7 +284,7 @@ export default function Page() {
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
-          <h2 id="titre-devis">Programmer une formation tronçonneuse thermique</h2>
+          <h2 id="titre-devis">Programmer une formation tronçonneuses thermiques</h2>
           <hr className="trait" />
           <p>Complétez ce formulaire, notre équipe vous recontacte dans l'heure pour organiser votre session.</p>
         </div>

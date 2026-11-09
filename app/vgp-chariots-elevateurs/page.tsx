@@ -18,7 +18,7 @@ const jsonLd = {
         "@type": "State",
         "name": "Hauts-de-France"
       },
-      "url": "https://securiform.fr/verifications-generales-periodiques-des-chariots-elevateurs/",
+      "url": "https://securiform.fr/vgp-chariots-elevateurs",
       "description": "Vérification Générale Périodique des chariots élévateurs, tous les 6 mois, conformément aux articles R4323-23 et R4323-24 du Code du travail."
     },
     {
@@ -34,13 +34,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "VGP",
-          "item": "https://securiform.fr/vgp/"
+          "item": "https://securiform.fr/vgp"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "VGP des chariots élévateurs",
-          "item": "https://securiform.fr/verifications-generales-periodiques-des-chariots-elevateurs/"
+          "item": "https://securiform.fr/vgp-chariots-elevateurs"
         }
       ]
     }

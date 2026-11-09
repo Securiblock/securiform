@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
-import CalculateurRecyclage from "@/components/calculateur-recyclage";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -15,7 +14,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/incendie-evacuation/formation-manipulation-extincteurs/"
+      "url": "https://securiform.fr/manipulation-extincteurs"
     },
     {
       "@type": "BreadcrumbList",
@@ -30,13 +29,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Formations incendie et évacuation",
-          "item": "https://securiform.fr/incendie-evacuation/"
+          "item": "https://securiform.fr/incendie-evacuation"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "Manipulation des extincteurs",
-          "item": "https://securiform.fr/incendie-evacuation/formation-manipulation-extincteurs/"
+          "item": "https://securiform.fr/manipulation-extincteurs"
         }
       ]
     }
@@ -340,11 +339,6 @@ export default function Page() {
           </details>
 
           <details className="faq-item">
-            <summary>À quelle fréquence faut-il renouveler cette formation&nbsp;?</summary>
-            <p>Un recyclage est recommandé tous les 6 mois à 3 ans selon les risques propres à votre établissement, pour garder les bons réflexes à jour.</p>
-          </details>
-
-          <details className="faq-item">
             <summary>Que faire si je ne suis pas sûr de la classe de feu&nbsp;?</summary>
             <p>Dans le doute, privilégiez toujours l'alerte des secours plutôt qu'une tentative d'extinction hasardeuse&nbsp;: un extincteur mal choisi peut aggraver la situation.</p>
           </details>
@@ -362,7 +356,6 @@ export default function Page() {
     
 
     
-<CalculateurRecyclage formation="manipulation-extincteurs" />
 
     
 

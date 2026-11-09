@@ -16,7 +16,7 @@ const jsonLd = {
         "name": "SECURIFORM",
         "url": "https://securiform.fr/"
       },
-      "url": "https://securiform.fr/caces-R485A/"
+      "url": "https://securiform.fr/caces-R485A"
     },
     {
       "@type": "BreadcrumbList",
@@ -31,13 +31,13 @@ const jsonLd = {
           "@type": "ListItem",
           "position": 2,
           "name": "Conduite en sécurité et CACES®",
-          "item": "https://securiform.fr/caces/"
+          "item": "https://securiform.fr/caces"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "CACES R485A",
-          "item": "https://securiform.fr/caces-R485A/"
+          "item": "https://securiform.fr/caces-R485A"
         }
       ]
     }
@@ -46,7 +46,7 @@ const jsonLd = {
 
 export const metadata: Metadata = {
   title: "Formation CACES® R485A - SECURIFORM",
-  description: "Formation CACES R485A avec SECURIFORM : conduite de gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, sur toute la moitié nord de la France.",
+  description: "Formation CACES R485A avec SECURIFORM : gerbeurs à conducteur accompagnant, catégories 1 et 2. Certificat valable 5 ans, sur toute la moitié nord de la France.",
   alternates: { canonical: "/caces-R485A" },
   openGraph: {
     type: "article",
@@ -297,7 +297,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-faq">
+<section className="section section-alt" aria-labelledby="titre-faq">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Questions fréquentes</span>
@@ -343,7 +343,7 @@ export default function Page() {
 
     
 
-<section className="section section-alt" id="devis" aria-labelledby="titre-devis">
+<section className="section" id="devis" aria-labelledby="titre-devis">
       <div className="container">
         <div className="section-head reveal">
           <span className="surtitre">Votre projet</span>
@@ -399,7 +399,7 @@ export default function Page() {
     
 
     
-<section className="section" aria-labelledby="titre-recrute">
+<section className="section section-alt" aria-labelledby="titre-recrute">
       <div className="container recrute reveal">
         <div>
           <span className="surtitre">Rejoignez-nous</span>
