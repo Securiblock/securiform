@@ -46,19 +46,28 @@ export function detectSpam(formData: FormData): string | null {
 
 // Limite par IP (en mémoire, par instance serveur : suffit contre un robot
 // qui mitraille, pas une garantie globale — même principe que l'admin).
-const MAX_SUBMISSIONS = 5;
-const WINDOW_MS = 60 * 60 * 1000;
-const submissions = new Map<string, number[]>();
-
-export function isFormRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (submissions.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_SUBMISSIONS) {
+function createRateLimiter(max: number, windowMs: number): (ip: string) => boolean {
+  const submissions = new Map<string, number[]>();
+  return (ip) => {
+    const now = Date.now();
+    const recent = (submissions.get(ip) ?? []).filter((t) => now - t < windowMs);
+    if (recent.length >= max) {
+      submissions.set(ip, recent);
+      return true;
+    }
+    if (submissions.size > 5000) submissions.clear();
+    recent.push(now);
     submissions.set(ip, recent);
-    return true;
-  }
-  if (submissions.size > 5000) submissions.clear();
-  recent.push(now);
-  submissions.set(ip, recent);
-  return false;
+    return false;
+  };
 }
+
+const HOUR_MS = 60 * 60 * 1000;
+
+// Formulaires de contact / devis : 5 envois par heure et par IP.
+export const isFormRateLimited = createRateLimiter(5, HOUR_MS);
+
+// Rappels de recyclage : chaque inscription envoie un email à l'adresse
+// saisie, donc à n'importe qui. Compteur séparé pour ne pas consommer le
+// quota des formulaires de contact.
+export const isRappelRateLimited = createRateLimiter(10, HOUR_MS);

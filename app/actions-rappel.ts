@@ -1,6 +1,8 @@
 "use server";
 
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { isRappelRateLimited } from "@/lib/spam";
 import {
   RECYCLAGES,
   calculerEcheance,
@@ -26,6 +28,13 @@ export async function inscrireRappel(_etat: EtatRappel, formData: FormData): Pro
 
   if (lire(HONEYPOT_FIELD)) {
     return { statut: "ok", message: "C'est noté ! Un email de confirmation vient de vous être envoyé." };
+  }
+
+  // Sans ça, un script pourrait inonder une adresse d'emails de confirmation
+  // (et épuiser le quota Resend) : le piège à robots ne suffit pas.
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim() || "inconnue";
+  if (isRappelRateLimited(ip)) {
+    return { statut: "erreur", message: "Trop de demandes depuis votre connexion. Réessayez dans une heure." };
   }
 
   const email = lire("email").toLowerCase();

@@ -1,4 +1,4 @@
-import { timingSafeEqual } from "crypto";
+import { createHmac, randomBytes, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 import type { NextFetchEvent, NextRequest } from "next/server";
 import { getSettingList } from "@/lib/settings";
@@ -52,6 +52,53 @@ function safeEqual(a: string, b: string): boolean {
   return timingSafeEqual(bufA, bufB);
 }
 
+// The session cookie only decides whether to send the login alert, so it
+// must not be forgeable: a plain "1" would let anyone who found the
+// password add `Cookie: admin_session=1` and never trigger the email.
+// Value is `<nonce>.<hmac(nonce)>`, keyed with a server secret the password
+// alone doesn't reveal.
+function sessionSecret(): string {
+  return process.env.CRON_SECRET || process.env.ADMIN_PASSWORD || "";
+}
+
+function signNonce(nonce: string): string {
+  return createHmac("sha256", sessionSecret()).update(nonce).digest("hex");
+}
+
+function newSessionCookie(): string {
+  const nonce = randomBytes(16).toString("hex");
+  return `${nonce}.${signNonce(nonce)}`;
+}
+
+function isValidSessionCookie(value: string | undefined): boolean {
+  if (!value) return false;
+  const [nonce, signature] = value.split(".");
+  if (!nonce || !signature) return false;
+  return safeEqual(signature, signNonce(nonce));
+}
+
+// Browsers attach cached Basic Auth credentials to cross-site requests, so
+// a malicious page could POST to /api/blog/* "as" a logged-in admin (CSRF).
+// Browsers also always label such requests: Sec-Fetch-Site is "cross-site"
+// and Origin names the other site. Reject writes carrying those labels;
+// requests with neither header (curl, scripts) are not a browser CSRF.
+function isCrossSiteWrite(request: NextRequest): boolean {
+  if (["GET", "HEAD", "OPTIONS"].includes(request.method)) return false;
+
+  const fetchSite = request.headers.get("sec-fetch-site");
+  if (fetchSite && fetchSite !== "same-origin" && fetchSite !== "none") return true;
+
+  const origin = request.headers.get("origin");
+  if (origin) {
+    try {
+      if (new URL(origin).host !== request.headers.get("host")) return true;
+    } catch {
+      return true;
+    }
+  }
+  return false;
+}
+
 // Basic Auth re-sends the same credentials on every single request (every
 // asset, every API call), so this can't fire on every authenticated
 // request — it'd be dozens of emails per admin visit. The session cookie
@@ -95,6 +142,10 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
     });
   }
 
+  if (isCrossSiteWrite(request)) {
+    return new NextResponse("Requête inter-site refusée.", { status: 403 });
+  }
+
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "inconnue";
   if (isRateLimited(ip)) {
     return new NextResponse("Trop de tentatives. Réessayez dans quelques minutes.", {
@@ -109,12 +160,12 @@ export function proxy(request: NextRequest, event: NextFetchEvent) {
     const password = separatorIndex === -1 ? "" : decoded.slice(separatorIndex + 1);
     if (safeEqual(password, expected)) {
       const response = NextResponse.next();
-      if (!request.cookies.has(SESSION_COOKIE)) {
+      if (!isValidSessionCookie(request.cookies.get(SESSION_COOKIE)?.value)) {
         // waitUntil keeps the function alive long enough for the email to
         // actually send — a plain un-awaited call can get killed the
         // instant the response above goes out.
         event.waitUntil(notifyAdminLogin(request));
-        response.cookies.set(SESSION_COOKIE, "1", {
+        response.cookies.set(SESSION_COOKIE, newSessionCookie(), {
           maxAge: SESSION_MAX_AGE,
           httpOnly: true,
           sameSite: "lax",
