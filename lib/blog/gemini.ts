@@ -1,3 +1,4 @@
+import { FORBIDDEN_TOPIC_MESSAGE, mentionsForbiddenTopic } from "./forbidden";
 import type { Topic } from "./types";
 
 // If Google has retired this model by the time you read this, swap it here
@@ -12,6 +13,11 @@ export type GeneratedArticle = {
   readingTime: number;
   suggestedCategory: string | null;
 };
+
+// Voir lib/blog/forbidden.ts : le filtre de code est le vrai garde-fou, cette
+// consigne sert juste à ce que Gemini n'en parle pas dès le premier essai.
+const FORBIDDEN_RULE =
+  "INTERDICTION ABSOLUE : ne mentionne JAMAIS le SST, le Sauveteur Secouriste du Travail, le MAC SST, le secourisme ni les secouristes, même en passant, même dans une liste de formations ou dans la conclusion.";
 
 function buildPrompt(topic: Topic, existingCategories: string[]): string {
   const categoryInstructions =
@@ -34,7 +40,8 @@ Génère un article de blog complet, informatif et 100% textuel en français ave
 - Aucun bullet point, aucune liste à puces ou numérotée dans le corps de l'article : uniquement des paragraphes structurés et cohérents (seule exception : la section finale « À retenir », voir structure ci-dessous)
 - Rédaction naturelle et fluide, jamais robotique
 - Champ sémantique riche autour de la formation professionnelle, sécurité au travail, habilitations électriques, CACES, prévention des risques et réglementation
-- Intègre naturellement SECURIFORM dans le corps du texte en mettant en avant : son expertise en formation, la qualité de ses formateurs, ses certifications, la variété de ses formations (CACES, habilitations, SST, etc.) et son accompagnement personnalisé
+- Intègre naturellement SECURIFORM dans le corps du texte en mettant en avant : son expertise en formation, la qualité de ses formateurs, ses certifications, la variété de ses formations (CACES, habilitations électriques, travaux en hauteur, incendie, etc.) et son accompagnement personnalisé
+- ${FORBIDDEN_RULE}
 - Encourage le lecteur à contacter ou découvrir SECURIFORM sans être trop commercial
 - L'article est destiné à être publié sur https://securiform.fr
 
@@ -128,13 +135,32 @@ export async function generateArticle(
   topic: Topic,
   existingCategories: string[] = []
 ): Promise<GeneratedArticle> {
-  const text = await callGemini(buildPrompt(topic, existingCategories));
+  if (mentionsForbiddenTopic(topic.title, topic.description, ...topic.keywords)) {
+    throw new Error(FORBIDDEN_TOPIC_MESSAGE);
+  }
 
-  let parsed: Partial<GeneratedArticle> & { suggestedCategory?: unknown };
-  try {
-    parsed = JSON.parse(extractJson(text));
-  } catch {
-    throw new Error("Impossible d'analyser la réponse JSON de Gemini. Réessayez.");
+  // Gemini peut glisser le SST malgré la consigne (ex. dans l'énumération des
+  // formations SECURIFORM) : on retente une fois, puis on refuse plutôt que
+  // de produire un article interdit.
+  let parsed: Partial<GeneratedArticle> & { suggestedCategory?: unknown } = {};
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const text = await callGemini(buildPrompt(topic, existingCategories));
+    try {
+      parsed = JSON.parse(extractJson(text));
+    } catch {
+      throw new Error("Impossible d'analyser la réponse JSON de Gemini. Réessayez.");
+    }
+
+    if (!parsed.title || !parsed.content) {
+      throw new Error("La réponse de Gemini est incomplète (titre ou contenu manquant).");
+    }
+
+    if (!mentionsForbiddenTopic(parsed.title, parsed.metaDescription, parsed.content)) break;
+    if (attempt === 2) {
+      throw new Error(
+        "Gemini a mentionné le SST malgré l'interdiction, l'article a été refusé. Relancez la génération."
+      );
+    }
   }
 
   if (!parsed.title || !parsed.content) {
@@ -210,7 +236,6 @@ const FORMATIONS_CATALOGUE = `
 - Habilitation électrique : personnel électricien, personnel non-électricien
 - Incendie et évacuation : manipulation d'extincteurs, évacuation, équipier de première intervention
 - Travaux en hauteur et échafaudages : travaux en hauteur, échafaudages fixes, échafaudages roulants
-- Secourisme : SST initiale, MAC SST, gestes qui sauvent
 - Gestes et postures
 - AIPR : opérateurs, encadrants, concepteurs
 - Formations spécifiques : tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières
@@ -239,6 +264,8 @@ Voici les sujets d'articles déjà traités (publiés ou en file d'attente) — 
 ${existingList}
 
 ${briefLine}
+
+${FORBIDDEN_RULE} Aucun sujet ne doit porter sur ces thèmes.
 
 Propose ${count} nouveaux sujets d'articles de blog, originaux et pertinents pour ce secteur, qui n'existent pas encore dans la liste ci-dessus.
 
@@ -271,7 +298,8 @@ export async function suggestTopics(
         typeof item === "object" &&
         item !== null &&
         typeof (item as TopicSuggestion).title === "string" &&
-        typeof (item as TopicSuggestion).description === "string"
+        typeof (item as TopicSuggestion).description === "string" &&
+        !mentionsForbiddenTopic((item as TopicSuggestion).title, (item as TopicSuggestion).description)
     )
     .slice(0, count);
 }
