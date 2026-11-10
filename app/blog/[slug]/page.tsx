@@ -51,7 +51,7 @@ export default async function BlogArticlePage({ params }: Params) {
           <p className="fil-ariane">
             <Link href="/">Accueil</Link>
             <span aria-hidden="true">&rsaquo;</span>
-            <span>Blog</span>
+            <Link href="/blog">Blog</Link>
           </p>
           {article.category && (
             <span className="surtitre" style={{ display: "block", marginBottom: ".6rem" }}>
@@ -124,7 +124,9 @@ export default async function BlogArticlePage({ params }: Params) {
               {relatedArticles.map((related) => (
                 <article key={related.slug} className="categorie-card">
                   {related.category && (
-                    <span className="categorie-badge">{related.category}</span>
+                    <span className={related.image ? "categorie-badge" : "categorie-badge categorie-badge--inline"}>
+                      {related.category}
+                    </span>
                   )}
                   {related.image && (
                     <div className="categorie-photo">

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import BlogSlider from "@/components/blog-slider";
 import { getPublishedArticles } from "@/lib/blog/content";
 import BlogSearch from "./blog-search";
 
@@ -26,11 +25,19 @@ export default async function BlogIndexPage() {
 
   return (
     <>
-      <section className="section" aria-label="Blog" style={{ paddingBottom: 15 }}>
-        <h1 style={{ position: "absolute", left: "-9999px" }}>
-          Blog SECURIFORM : Conseils et guides pratiques sur la sécurité au travail
-        </h1>
-        {articles.length > 0 && <BlogSlider articles={articles.slice(0, 8)} />}
+      <section className="page-hero" aria-label="Blog">
+        <div className="container page-hero-inner">
+          <p className="fil-ariane">
+            <Link href="/">Accueil</Link>
+            <span aria-hidden="true">›</span>
+            <span>Blog</span>
+          </p>
+          <h1>Blog</h1>
+          <p>
+            Conseils, actualités et guides pratiques sur la sécurité au travail, le CACES®,
+            l&apos;habilitation électrique, les VGP et la prévention des risques.
+          </p>
+        </div>
       </section>
 
       <section className="section section-alt" aria-labelledby="titre-articles">

@@ -162,60 +162,6 @@ h3{font-size:26px}
 }
 .slider-arrows button:hover{background:var(--rouge);border-color:var(--rouge)}
 
-/* ===================== BLOG SLIDER (photo + carte flottante, largeur contenue) ===================== */
-.blog-slider{width:min(1200px,92%);margin-inline:auto}
-.blog-slide{position:relative;height:460px;border-radius:14px;overflow:hidden}
-.blog-slide-photo{position:absolute;inset:0;overflow:hidden}
-.blog-slide-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.blog-slide-content{
-  position:absolute;top:50%;right:2.4rem;transform:translateY(-50%);
-  width:min(420px,42%);
-  background:#F4F4F6;padding:2.6rem 2.4rem;border-radius:8px;
-  box-shadow:0 20px 45px rgba(0,0,0,.16);
-  display:flex;flex-direction:column;overflow:hidden;
-}
-.blog-slide-badge{
-  align-self:flex-start;
-  font-family:var(--titre);font-weight:700;font-size:13px;text-transform:uppercase;
-  letter-spacing:.06em;color:var(--rouge);
-  padding-bottom:.5rem;margin-bottom:1.1rem;border-bottom:3px solid var(--rouge);
-}
-.blog-slide-content h3{
-  font-size:24px;line-height:1.28;margin-bottom:1.2rem;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
-}
-.blog-slide-meta{
-  display:flex;flex-wrap:wrap;gap:1.1rem;margin-bottom:1.5rem;
-  font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--gris);
-}
-.blog-slide-meta span{display:inline-flex;align-items:center;gap:.4rem}
-.blog-slide-meta svg{flex-shrink:0;color:var(--rouge)}
-.blog-slide-cta{
-  display:inline-flex;align-items:center;gap:.7rem;
-  font-family:var(--titre);font-weight:700;font-size:14px;text-transform:uppercase;
-  letter-spacing:.03em;color:var(--noir);
-}
-.blog-slide-cta::before{content:"";width:26px;height:2px;background:var(--rouge);transition:var(--transition)}
-.blog-slide-cta:hover::before{width:38px}
-.blog-slider-controls{display:flex;justify-content:flex-end;margin-top:1rem;margin-bottom:3rem}
-.blog-slider-arrows{display:flex;gap:.6rem}
-.blog-slider-arrows button{
-  width:42px;height:42px;border-radius:50%;border:2px solid #ECECEF;
-  background:#fff;color:var(--noir);font-size:20px;cursor:pointer;transition:var(--transition);
-  display:grid;place-items:center;
-}
-.blog-slider-arrows button:hover{background:var(--rouge);border-color:var(--rouge);color:#fff}
-@media (max-width:768px){
-  .blog-slide{height:auto;border-radius:10px}
-  .blog-slide-photo{position:static;aspect-ratio:4/3;height:auto}
-  .blog-slide-content{
-    position:static;transform:none;width:auto;border-radius:0;
-    margin:-2.5rem 1rem 0;padding:1.8rem 1.5rem;
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-  }
-  .blog-slider-controls{padding-right:1rem}
-}
-
 /* ===================== BANDEAU CHIFFRES ===================== */
 .stats{background:var(--rouge);color:#fff;padding:2.6rem 0}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
@@ -411,6 +357,13 @@ h3{font-size:26px}
   font-family:var(--titre);font-weight:700;font-size:14px;text-transform:uppercase;
   letter-spacing:.05em;background:#fff;color:var(--rouge);
   padding:.3rem .7rem;border-radius:999px;box-shadow:0 3px 10px rgba(0,0,0,.18);
+}
+/* Carte sans photo (article de blog sans image) : rien sur quoi poser le
+   badge, il se superposerait à la date. On le remet dans le flux, au-dessus. */
+.categorie-badge--inline{
+  position:static;display:inline-block;align-self:flex-start;
+  margin-bottom:.9rem;font-size:12px;box-shadow:none;
+  background:rgba(206,34,34,.08);
 }
 .categorie-card h3{font-size:21px;margin-bottom:.6rem;text-transform:none}
 .categorie-card p{font-size:16px;color:var(--gris)}

@@ -493,7 +493,11 @@ export default async function Home() {
             <div className="grille-categories cols-3">
               {latestArticles.map((article) => (
                 <article key={article.slug} className="categorie-card reveal">
-                  {article.category && <span className="categorie-badge">{article.category}</span>}
+                  {article.category && (
+                    <span className={article.image ? "categorie-badge" : "categorie-badge categorie-badge--inline"}>
+                      {article.category}
+                    </span>
+                  )}
                   {article.image && (
                     <div className="categorie-photo">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
