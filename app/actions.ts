@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { getSettingList } from "@/lib/settings";
+import { detectSpam, isFormRateLimited } from "@/lib/spam";
 
 const FROM_EMAIL = process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev";
 
@@ -37,7 +38,23 @@ export async function submitForm(formData: FormData) {
     redirect("/merci?ok=1");
   }
 
-  const referer = (await headers()).get("referer") || "";
+  const requestHeaders = await headers();
+  const ip = requestHeaders.get("x-forwarded-for")?.split(",")[0]?.trim() || "inconnue";
+
+  // Same "pretend it worked" answer as the honeypot: telling a bot why it
+  // was rejected only helps it adapt. Logged so false positives can be
+  // spotted in the Vercel logs.
+  const spamReason = detectSpam(formData);
+  if (spamReason) {
+    console.warn(`Formulaire ignoré (spam : ${spamReason}) — IP ${ip}`);
+    redirect("/merci?ok=1");
+  }
+  if (isFormRateLimited(ip)) {
+    console.warn(`Formulaire refusé (trop d'envois) — IP ${ip}`);
+    redirect("/merci?ok=0");
+  }
+
+  const referer = requestHeaders.get("referer") || "";
   let sourcePath = "/";
   try {
     sourcePath = referer ? new URL(referer).pathname : "/";
