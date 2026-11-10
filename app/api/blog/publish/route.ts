@@ -2,6 +2,7 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { getArticle, saveArticle } from "@/lib/blog/articles";
 import { publishArticle } from "@/lib/blog/content";
+import { FORBIDDEN_TOPIC_MESSAGE, mentionsForbiddenTopic } from "@/lib/blog/forbidden";
 import { getTopic, updateTopic } from "@/lib/blog/topics";
 
 export async function POST(request: Request) {
@@ -32,6 +33,12 @@ export async function POST(request: Request) {
   const article = await getArticle(topic.slug);
   if (!article) {
     return NextResponse.json({ error: "Article introuvable." }, { status: 404 });
+  }
+
+  // Dernier garde-fou : couvre les retouches manuelles dans l'éditeur et les
+  // brouillons générés avant l'interdiction.
+  if (mentionsForbiddenTopic(article.title, article.metaDescription, article.content)) {
+    return NextResponse.json({ error: FORBIDDEN_TOPIC_MESSAGE }, { status: 422 });
   }
 
   await publishArticle(article);

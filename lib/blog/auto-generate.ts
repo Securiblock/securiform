@@ -2,6 +2,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { marked } from "marked";
 import { Resend } from "resend";
 import { saveArticle } from "./articles";
+import { mentionsForbiddenTopic } from "./forbidden";
 import { getCategories } from "./categories";
 import { generateArticle } from "./gemini";
 import { getTopics, updateTopic } from "./topics";
@@ -23,7 +24,14 @@ export type AutoGenerateResult =
 export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   const allTopics = await getTopics();
   const queue = allTopics
-    .filter((t) => t.status === "pending" && !t.deletedAt)
+    // Sujets SST ignorés : generateArticle les refuserait, et le cron
+    // resterait bloqué dessus à chaque passage au lieu d'avancer dans la file.
+    .filter(
+      (t) =>
+        t.status === "pending" &&
+        !t.deletedAt &&
+        !mentionsForbiddenTopic(t.title, t.description, ...t.keywords)
+    )
     .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
 
   const topic = queue[0];
