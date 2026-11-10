@@ -101,7 +101,11 @@ export default function BlogSearch({ articles }: { articles: ArticleSummary[] })
         <div className="grille-categories cols-3">
           {filtered.map((article) => (
             <article key={article.slug} className="categorie-card">
-              {article.category && <span className="categorie-badge">{article.category}</span>}
+              {article.category && (
+                <span className={article.image ? "categorie-badge" : "categorie-badge categorie-badge--inline"}>
+                  {article.category}
+                </span>
+              )}
               {article.image && (
                 <div className="categorie-photo">
                   <img src={article.image} alt={article.title} />
