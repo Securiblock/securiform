@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import Turnstile from "@/components/turnstile";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -295,6 +296,7 @@ export default function Page() {
               <textarea id="message" name="message" rows={4} />
             </div>
           </div>
+          <Turnstile />
           <button type="submit" className="btn btn-plein">Envoyer ma demande</button>
         </form>
       </div>

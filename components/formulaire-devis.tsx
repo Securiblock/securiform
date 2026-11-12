@@ -1,4 +1,5 @@
 import { submitForm } from "@/app/actions";
+import Turnstile from "@/components/turnstile";
 
 // Section « demande de devis » des pages Outils : même formulaire que celui des pages de
 // formation (ids #devis et #message, utilisés par lib/formulaire-devis.ts pour le préremplir).
@@ -45,6 +46,7 @@ export default function FormulaireDevis({ titre, introduction }: { titre: string
               <textarea id="message" name="message" rows={4} />
             </div>
           </div>
+          <Turnstile />
           <button type="submit" className="btn btn-plein">Envoyer ma demande</button>
         </form>
       </div>

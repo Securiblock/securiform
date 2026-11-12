@@ -4,13 +4,15 @@ const isDev = process.env.NODE_ENV === "development";
 
 // React needs eval() in dev mode for debugging (reconstructing call stacks);
 // it never uses it in production, so 'unsafe-eval' is dev-only.
+// challenges.cloudflare.com: captcha Turnstile des formulaires
+// (components/turnstile.tsx) — son script et son iframe.
 const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""};
+  script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com${isDev ? " 'unsafe-eval'" : ""};
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: https:;
   font-src 'self';
-  frame-src https://www.google.com;
+  frame-src https://www.google.com https://challenges.cloudflare.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';

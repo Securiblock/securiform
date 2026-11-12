@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import Turnstile from "@/components/turnstile";
 import ConsentGatedMap from "@/components/consent-gated-map";
 import FileInput from "@/components/file-input";
 
@@ -153,6 +154,7 @@ export default function Page() {
               <label htmlFor="message" style={{ "color": "var(--noir)" }}>Message</label>
               <textarea id="message" name="message" rows={4} required />
             </div>
+            <Turnstile />
             <button type="submit" className="btn btn-plein">Envoyer</button>
             <p className="form-mention">
               Les informations recueillies via ce formulaire sont utilisées exclusivement par SECURIFORM pour traiter votre demande. En savoir plus dans notre{" "}

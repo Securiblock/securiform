@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { isRappelRateLimited } from "@/lib/spam";
+import { verifyTurnstile } from "@/lib/turnstile";
 import {
   RECYCLAGES,
   calculerEcheance,
@@ -35,6 +36,9 @@ export async function inscrireRappel(_etat: EtatRappel, formData: FormData): Pro
   const ip = (await headers()).get("x-forwarded-for")?.split(",")[0]?.trim() || "inconnue";
   if (isRappelRateLimited(ip)) {
     return { statut: "erreur", message: "Trop de demandes depuis votre connexion. Réessayez dans une heure." };
+  }
+  if ((await verifyTurnstile(formData, ip)) === "refuse") {
+    return { statut: "erreur", message: "La vérification anti-robot a échoué. Merci de réessayer." };
   }
 
   const email = lire("email").toLowerCase();

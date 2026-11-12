@@ -435,6 +435,9 @@ h3{font-size:26px}
 }
 .champ-pleine-largeur{grid-column:1 / -1}
 .form-devis .btn{margin-top:.6rem}
+/* Captcha Turnstile (components/turnstile.tsx) : la case à cocher
+   n'apparaît qu'en cas de doute, mode "interaction-only". */
+.turnstile-widget:not(:empty){margin-top:1rem}
 .form-mention{font-size:14px;color:var(--gris);line-height:1.5;margin-top:1rem}
 .form-mention a{color:var(--rouge);font-weight:600}
 
