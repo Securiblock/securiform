@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useActionState, useId, useState } from "react";
 import { inscrireRappel, type EtatRappel } from "@/app/actions-rappel";
+import Turnstile from "@/components/turnstile";
 import { allerAuDevis } from "@/lib/formulaire-devis";
 import {
   RECYCLAGES,
@@ -89,6 +90,8 @@ function AlerteEmail({ formation, indexOption, date }: { formation: FormationRec
           <Link href="/politique-de-confidentialite">Politique de confidentialité</Link>
         </span>
       </label>
+      {/* Le formulaire reste affiché en cas d'erreur : nouveau jeton à chaque tentative. */}
+      <Turnstile resetKey={etat} />
       {etat.statut === "erreur" && <p className="recyclage-alerte-erreur" role="alert">{etat.message}</p>}
     </form>
   );

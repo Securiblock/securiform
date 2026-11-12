@@ -23,6 +23,10 @@ export function detectSpam(formData: FormData): string | null {
     if (URL_RE.test(field(formData, key))) return `lien dans le champ « ${key} »`;
   }
 
+  // Robots qui recopient leur adresse dans « Société » (vu dans la moitié
+  // des spams reçus) : un vrai visiteur y met le nom de son entreprise.
+  if (/\S+@\S+\.\S+/.test(field(formData, "societe"))) return "email dans le champ société";
+
   // Tous les formulaires du site ont un champ email obligatoire.
   const email = field(formData, "email");
   if (!EMAIL_RE.test(email)) return "email absent ou invalide";

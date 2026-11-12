@@ -5,12 +5,16 @@ import { redirect } from "next/navigation";
 import { Resend } from "resend";
 import { getSettingList } from "@/lib/settings";
 import { detectSpam, isFormRateLimited } from "@/lib/spam";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 const FROM_EMAIL = process.env.CONTACT_EMAIL_FROM || "onboarding@resend.dev";
 
 // Hidden honeypot field: real visitors never fill it in (it's visually
 // hidden), so a non-empty value means the submission came from a bot.
 const HONEYPOT_FIELD = "site_web";
+
+// Jeton du captcha (components/turnstile.tsx) : vérifié, jamais recopié dans l'email.
+const TURNSTILE_FIELD = "cf-turnstile-response";
 
 const ALLOWED_ATTACHMENT_EXTENSIONS = [".pdf", ".doc", ".docx"];
 
@@ -49,6 +53,12 @@ export async function submitForm(formData: FormData) {
     console.warn(`Formulaire ignoré (spam : ${spamReason}) — IP ${ip}`);
     redirect("/merci?ok=1");
   }
+  // Captcha raté : page d'erreur (pas un faux succès) — un vrai visiteur dont
+  // le jeton a expiré doit savoir que sa demande n'est pas partie.
+  if ((await verifyTurnstile(formData, ip)) === "refuse") {
+    console.warn(`Formulaire refusé (captcha) — IP ${ip}`);
+    redirect("/merci?ok=0");
+  }
   if (isFormRateLimited(ip)) {
     console.warn(`Formulaire refusé (trop d'envois) — IP ${ip}`);
     redirect("/merci?ok=0");
@@ -67,7 +77,7 @@ export async function submitForm(formData: FormData) {
   let replyTo: string | undefined;
 
   for (const [key, value] of formData.entries()) {
-    if (key === HONEYPOT_FIELD) continue;
+    if (key === HONEYPOT_FIELD || key === TURNSTILE_FIELD) continue;
 
     if (value instanceof File) {
       if (value.size > 0) {

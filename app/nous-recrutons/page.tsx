@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { submitForm } from "@/app/actions";
+import Turnstile from "@/components/turnstile";
 import FileInput from "@/components/file-input";
 
 const jsonLd = {
@@ -258,6 +259,7 @@ export default function Page() {
               <textarea id="message" name="message" rows={4} placeholder="Vos certifications, votre expérience, vos disponibilités..." />
             </div>
           </div>
+          <Turnstile />
           <button type="submit" className="btn btn-plein">Envoyer ma candidature</button>
           <p className="form-mention">
             Les informations et le CV transmis via ce formulaire sont utilisés exclusivement par SECURIFORM pour étudier votre candidature. En savoir plus dans notre{" "}
