@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import { saveArticle } from "./articles";
 import { mentionsForbiddenTopic } from "./forbidden";
 import { getCategories } from "./categories";
+import { computeCategoryStats, pickNextTopic } from "./category-stats";
 import { generateArticle } from "./gemini";
 import { getTopics, updateTopic } from "./topics";
 import type { Article } from "./types";
@@ -18,11 +19,15 @@ export type AutoGenerateResult =
   | { generated: false; reason: string }
   | { generated: true; topicId: string; title: string; slug: string; emailSent: boolean };
 
-// Picks the oldest pending topic (FIFO queue), generates its article, and
-// emails a review link. Called by the cron route — see
-// app/api/cron/generate-article.
+// Picks the pending topic whose category has the fewest articles (oldest
+// first on a tie — see pickNextTopic), generates its article, and emails a
+// review link. Called by the cron route — see app/api/cron/generate-article.
 export async function runAutoGenerate(): Promise<AutoGenerateResult> {
   const allTopics = await getTopics();
+  // Catégorie SST exclue : sinon, vide, elle passerait toujours en priorité.
+  const categoryNames = (await getCategories())
+    .map((c) => c.name)
+    .filter((name) => !mentionsForbiddenTopic(name));
   const queue = allTopics
     // Sujets SST ignorés : generateArticle les refuserait, et le cron
     // resterait bloqué dessus à chaque passage au lieu d'avancer dans la file.
@@ -31,15 +36,13 @@ export async function runAutoGenerate(): Promise<AutoGenerateResult> {
         t.status === "pending" &&
         !t.deletedAt &&
         !mentionsForbiddenTopic(t.title, t.description, ...t.keywords)
-    )
-    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
+    );
 
-  const topic = queue[0];
+  const topic = pickNextTopic(queue, computeCategoryStats(allTopics, categoryNames));
   if (!topic) {
     return { generated: false, reason: "Aucun sujet en attente dans la file." };
   }
 
-  const categoryNames = (await getCategories()).map((c) => c.name);
   const generated = await generateArticle(topic, categoryNames);
   const category = topic.category || generated.suggestedCategory;
 
