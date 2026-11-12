@@ -46,6 +46,14 @@ function loadTurnstile(): Promise<TurnstileApi> {
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
+// Uniquement `disabled` et `aria-busy` (pas le texte du bouton, qui
+// appartient à React) ; l'état visuel est en CSS (app/globals.css).
+const setBusy = (busy: boolean) => (button: HTMLButtonElement) => {
+  button.disabled = busy;
+  if (busy) button.setAttribute("aria-busy", "true");
+  else button.removeAttribute("aria-busy");
+};
+
 // `resetKey` : à changer après chaque envoi qui ne quitte pas la page (un
 // jeton Turnstile ne sert qu'une fois), ex. le formulaire de rappel.
 export default function Turnstile({ resetKey }: { resetKey?: unknown }) {
@@ -75,11 +83,57 @@ export default function Turnstile({ resetKey }: { resetKey?: unknown }) {
     };
   }, []);
 
+  // Envoi en cours : partagé entre l'écouteur d'envoi et la réinitialisation.
+  const submittingRef = useRef(false);
+
   useEffect(() => {
     if (resetKey !== undefined && widgetIdRef.current && window.turnstile) {
       window.turnstile.reset(widgetIdRef.current);
     }
+    // Nouvelle tentative possible (ex. erreur affichée sans quitter la page).
+    submittingRef.current = false;
+    const form = containerRef.current?.closest("form");
+    form?.querySelectorAll<HTMLButtonElement>('button[type="submit"]').forEach(setBusy(false));
   }, [resetKey]);
+
+  // Anti double envoi : un jeton Turnstile ne sert qu'une fois. Un 2e envoi
+  // repartirait avec le même jeton, refusé par Cloudflare, et la page
+  // d'erreur s'afficherait alors que le 1er a réussi (vu en production sur
+  // un double clic). Le 2e événement « submit » est annulé dès sa source :
+  // React ne lance pas l'action d'un envoi déjà annulé (preventDefault).
+  // Le bouton grisé n'est qu'un retour visuel, il arrive trop tard pour un
+  // double clic. Tout se débloque au bout de 15 s si la page n'a pas changé
+  // (réseau en panne), pour permettre de réessayer.
+  useEffect(() => {
+    if (!SITE_KEY) return;
+    const form = containerRef.current?.closest("form");
+    if (!form) return;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    const onSubmit = (event: SubmitEvent) => {
+      if (submittingRef.current) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
+      submittingRef.current = true;
+      const buttons = form.querySelectorAll<HTMLButtonElement>('button[type="submit"]');
+      // Au tick suivant : désactiver le bouton pendant l'événement en cours
+      // pourrait gêner l'envoi qui vient de partir.
+      setTimeout(() => buttons.forEach(setBusy(true)), 0);
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        submittingRef.current = false;
+        buttons.forEach(setBusy(false));
+      }, 15_000);
+    };
+
+    form.addEventListener("submit", onSubmit);
+    return () => {
+      form.removeEventListener("submit", onSubmit);
+      clearTimeout(timer);
+    };
+  }, []);
 
   // Pas de clé configurée = pas de widget (le serveur ne vérifie pas non
   // plus dans ce cas, voir lib/turnstile.ts).
