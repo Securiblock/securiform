@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import type { Category } from "@/lib/blog/categories";
+import { computeCategoryStats } from "@/lib/blog/category-stats";
+import { mentionsForbiddenTopic } from "@/lib/blog/forbidden";
 import type { Topic, TopicStatus, TopicTone } from "@/lib/blog/types";
 import { SETTING_LABELS, type SettingKey } from "@/lib/settings-shared";
 import {
@@ -79,6 +81,8 @@ export default function BlogDashboard({
   const [suggestOpen, setSuggestOpen] = useState(false);
   const [suggestCount, setSuggestCount] = useState(5);
   const [suggestBrief, setSuggestBrief] = useState("");
+  // "" = automatique : Gemini classe et vise les catégories les moins fournies.
+  const [suggestCategory, setSuggestCategory] = useState("");
   const [suggestBusy, setSuggestBusy] = useState(false);
   const [suggestError, setSuggestError] = useState<string | null>(null);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -97,6 +101,37 @@ export default function BlogDashboard({
     [topics]
   );
   const trashCount = useMemo(() => topics.filter((t) => t.deletedAt).length, [topics]);
+
+  // Catégories SST (interdites, voir lib/blog/forbidden.ts) : jamais
+  // affichées, ni proposées aux suggestions IA.
+  const categoryStats = useMemo(
+    () =>
+      computeCategoryStats(
+        topics,
+        categories.map((c) => c.name)
+      ).filter((s) => s.name === null || !mentionsForbiddenTopic(s.name)),
+    [topics, categories]
+  );
+  // Catégories vers lesquelles on peut lancer des suggestions (gérées, non SST).
+  const suggestable = (name: string | null): name is string =>
+    name !== null && categories.some((c) => c.name === name);
+  const maxCategoryTotal = Math.max(1, ...categoryStats.map((s) => s.articles + s.pending));
+  // Catégorie(s) à renforcer : le moins d'articles, s'il y a un écart.
+  const namedStats = categoryStats.filter((s) => suggestable(s.name));
+  const minArticles = Math.min(...namedStats.map((s) => s.articles));
+  const hasGap = namedStats.some((s) => s.articles > minArticles);
+
+  function openSuggestFor(category: string) {
+    setSuggestCategory(category);
+    setSuggestOpen(true);
+  }
+
+  // Ajout rapide : la 4e colonne doit correspondre à une catégorie existante
+  // (casse ignorée), sinon le sujet est créé sans catégorie.
+  function matchCategory(value: string | undefined): string | null {
+    if (!value) return null;
+    return categories.find((c) => c.name.toLowerCase() === value.toLowerCase())?.name ?? null;
+  }
 
   const filtered = useMemo(() => {
     const byStatus =
@@ -196,7 +231,7 @@ export default function BlogDashboard({
     setQuickAddError(null);
     try {
       for (const line of lines) {
-        const [titlePart, descriptionPart, tonePart] = line.split("|").map((p) => p.trim());
+        const [titlePart, descriptionPart, tonePart, categoryPart] = line.split("|").map((p) => p.trim());
         const tone = TONES.includes(tonePart as TopicTone) ? (tonePart as TopicTone) : "professionnel";
         const res = await fetch("/api/blog/topics", {
           method: "POST",
@@ -207,7 +242,7 @@ export default function BlogDashboard({
             keywords: [],
             tone,
             targetLength: 1000,
-            category: null,
+            category: matchCategory(categoryPart),
           }),
         });
         if (!res.ok) throw new Error((await res.json()).error || `Échec pour « ${titlePart} ».`);
@@ -270,15 +305,19 @@ export default function BlogDashboard({
       const res = await fetch("/api/blog/suggest-topics", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ count: suggestCount, brief: suggestBrief }),
+        body: JSON.stringify({ count: suggestCount, brief: suggestBrief, category: suggestCategory }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Échec de la suggestion.");
 
-      const lines: string[] = data.suggestions.map((s: { title: string; description: string }) => {
-        const tone = TONES[Math.floor(Math.random() * TONES.length)];
-        return `${s.title} | ${s.description} | ${tone}`;
-      });
+      const lines: string[] = data.suggestions.map(
+        (s: { title: string; description: string; category: string | null }) => {
+          const tone = TONES[Math.floor(Math.random() * TONES.length)];
+          // « | » sépare les colonnes de l'ajout rapide : interdit dans les textes.
+          const clean = (text: string) => text.replaceAll("|", "-");
+          return [clean(s.title), clean(s.description), tone, s.category].filter(Boolean).join(" | ");
+        }
+      );
       setQuickAddText((prev) => (prev.trim() ? `${prev.trim()}\n${lines.join("\n")}` : lines.join("\n")));
       setSuggestOpen(false);
       setQuickAddOpen(true);
@@ -375,7 +414,7 @@ export default function BlogDashboard({
         subtitle="Génération, relecture et publication des articles du site."
         actions={
           <>
-            <Button variant="secondary" onClick={() => setSuggestOpen(true)}>
+            <Button variant="secondary" onClick={() => openSuggestFor("")}>
               <SparklesIcon className="h-4 w-4" /> Suggestions IA
             </Button>
             <Button variant="secondary" onClick={() => setCategoriesOpen(true)}>
@@ -405,9 +444,86 @@ export default function BlogDashboard({
         <BeakerIcon className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
         <div>
           <span className="font-semibold text-slate-900">Génération automatique</span> : tous les 2
-          jours, un sujet en attente est généré et vous recevez un email pour le relire.{" "}
+          jours, un sujet en attente est généré et vous recevez un email pour le relire. Priorité
+          aux sujets des catégories qui ont le moins d&apos;articles.{" "}
           {pendingCount} sujet{pendingCount !== 1 ? "s" : ""} en attente dans la file.
         </div>
+      </Card>
+
+      <Card className="mb-6 p-5">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-sm font-bold uppercase tracking-wide text-slate-900">
+            Vue d&apos;ensemble par catégorie
+          </h2>
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-sm bg-red-600" /> Publiés
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-sm bg-amber-400" /> À relire
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="h-2.5 w-2.5 rounded-sm bg-slate-300" /> En attente
+            </span>
+          </div>
+        </div>
+
+        {categoryStats.length === 0 ? (
+          <p className="text-sm text-slate-400">
+            Aucune catégorie pour l&apos;instant : créez-en depuis le bouton « Catégories ».
+          </p>
+        ) : (
+          <ul className="flex flex-col gap-2.5">
+            {categoryStats.map((s) => {
+              const pct = (n: number) => `${(n / maxCategoryTotal) * 100}%`;
+              const weak = suggestable(s.name) && hasGap && s.articles === minArticles;
+              return (
+                <li
+                  key={s.name ?? "__none"}
+                  className="grid grid-cols-1 items-center gap-x-4 gap-y-1 sm:grid-cols-[minmax(0,16rem)_1fr_auto]"
+                >
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (s.name) setCategoryFilter(categoryFilter === s.name ? "" : s.name);
+                    }}
+                    disabled={!s.name}
+                    title={s.name ? "Filtrer la liste sur cette catégorie" : undefined}
+                    className={`flex min-w-0 items-center gap-2 border-0 bg-transparent p-0 text-left text-sm ${
+                      s.name ? "font-medium text-slate-900 hover:text-red-600" : "italic text-slate-400"
+                    } ${categoryFilter && categoryFilter === s.name ? "text-red-600" : ""}`}
+                  >
+                    <span className="truncate">{s.name ?? "Sans catégorie"}</span>
+                    {weak && (
+                      <span className="shrink-0 rounded-full bg-amber-100 px-2 py-0.5 text-[11px] font-semibold text-amber-800">
+                        À renforcer
+                      </span>
+                    )}
+                  </button>
+                  <div className="flex h-2.5 overflow-hidden rounded-full bg-slate-100">
+                    <div className="bg-red-600" style={{ width: pct(s.published) }} />
+                    <div className="bg-amber-400" style={{ width: pct(s.toReview) }} />
+                    <div className="bg-slate-300" style={{ width: pct(s.pending) }} />
+                  </div>
+                  <div className="flex items-center gap-3 text-xs text-slate-500">
+                    <span className="w-52 tabular-nums">
+                      <strong className="text-slate-900">{s.articles}</strong> article
+                      {s.articles !== 1 ? "s" : ""} ({s.published} publié{s.published !== 1 ? "s" : ""})
+                      {s.pending > 0 && ` · ${s.pending} en file`}
+                    </span>
+                    {suggestable(s.name) ? (
+                      <Button size="sm" variant="secondary" onClick={() => openSuggestFor(s.name!)}>
+                        <SparklesIcon className="h-3.5 w-3.5" /> Suggérer
+                      </Button>
+                    ) : (
+                      <span className="w-[5.6rem]" />
+                    )}
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        )}
       </Card>
 
       <div className="mb-4 flex flex-wrap gap-3">
@@ -596,9 +712,26 @@ export default function BlogDashboard({
         open={suggestOpen}
         onClose={() => setSuggestOpen(false)}
         title="Suggestions de sujets (Gemini)"
-        description="Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en file pour éviter les doublons. Les idées s'ajoutent à l'ajout rapide pour relecture avant création."
+        description="Gemini reçoit à chaque fois la liste de tous les sujets déjà traités ou en file pour éviter les doublons, ainsi que le nombre d'articles par catégorie. Chaque idée arrive avec sa catégorie et s'ajoute à l'ajout rapide pour relecture avant création."
       >
         <div className="flex flex-wrap gap-4">
+          <div className="w-full">
+            <label className="mb-1 block text-xs font-semibold text-slate-500">Catégorie</label>
+            <select
+              value={suggestCategory}
+              onChange={(e) => setSuggestCategory(e.target.value)}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-red-600 focus:outline-none"
+            >
+              <option value="">Automatique : priorité aux catégories les moins fournies</option>
+              {categoryStats
+                .filter((s) => suggestable(s.name))
+                .map((s) => (
+                  <option key={s.name} value={s.name!}>
+                    {s.name} ({s.articles} article{s.articles !== 1 ? "s" : ""})
+                  </option>
+                ))}
+            </select>
+          </div>
           <div>
             <label className="mb-1 block text-xs font-semibold text-slate-500">Nombre de sujets</label>
             <input
@@ -722,11 +855,12 @@ export default function BlogDashboard({
         title="Ajouter plusieurs sujets d'un coup"
         description={
           <>
-            Un sujet par ligne. Optionnel : ajoutez une description après un « | » (ex.{" "}
-            <code>CACES R489A | les erreurs à éviter</code>). Sans description, le titre sert
-            aussi de description. Tous les sujets sont créés en ton « professionnel », 1000 mots
-            (les suggestions IA arrivent déjà avec leur propre ton varié). La catégorie est
-            choisie automatiquement par l&apos;IA à la génération de chaque article.
+            Un sujet par ligne, au format{" "}
+            <code>titre | description | ton | catégorie</code> (seul le titre est obligatoire,
+            ex. <code>CACES R489A | les erreurs à éviter</code>). Sans description, le titre sert
+            aussi de description ; sans ton, « professionnel » ; 1000 mots. Les suggestions IA
+            arrivent déjà avec leur ton et leur catégorie. Sans catégorie (ou nom inconnu),
+            l&apos;IA la choisit à la génération de l&apos;article.
           </>
         }
         maxWidth="max-w-xl"
@@ -735,7 +869,7 @@ export default function BlogDashboard({
           value={quickAddText}
           onChange={(e) => setQuickAddText(e.target.value)}
           rows={6}
-          placeholder={"CACES R489A | les erreurs à éviter\nPourquoi former ses équipes au secourisme\nHabilitation électrique : les bases"}
+          placeholder={"CACES R489A | les erreurs à éviter\nHabilitation électrique : les bases | | pédagogique | Habilitation électrique\nPourquoi former ses équipes à l'évacuation"}
           className="w-full rounded-lg border border-slate-300 px-3 py-2 font-mono text-sm focus:border-red-600 focus:outline-none"
         />
         {quickAddError && <p className="mt-2 text-sm text-red-600">{quickAddError}</p>}

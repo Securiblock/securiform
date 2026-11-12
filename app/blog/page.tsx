@@ -58,7 +58,7 @@ export default async function BlogIndexPage() {
 
       <section className="cta" aria-labelledby="titre-cta">
         <div className="container">
-          <h2 id="titre-cta">Vous avez une question sur le blog&nbsp;?</h2>
+          <h2 id="titre-cta">Vous avez une question sur nos formations&nbsp;?</h2>
           <p>
             Notre équipe vous répond rapidement, et notre boutique propose le
             matériel de sécurité dont vous avez besoin.

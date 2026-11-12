@@ -138,6 +138,8 @@ export async function generateArticle(
   if (mentionsForbiddenTopic(topic.title, topic.description, ...topic.keywords)) {
     throw new Error(FORBIDDEN_TOPIC_MESSAGE);
   }
+  // Une catégorie SST encore en base ne doit jamais être proposée à Gemini.
+  existingCategories = existingCategories.filter((name) => !mentionsForbiddenTopic(name));
 
   // Gemini peut glisser le SST malgré la consigne (ex. dans l'énumération des
   // formations SECURIFORM) : on retente une fois, puis on refuse plutôt que
@@ -225,7 +227,16 @@ export async function suggestImageIdeas(title: string, content: string): Promise
   return parsed as string[];
 }
 
-export type TopicSuggestion = { title: string; description: string };
+export type TopicSuggestion = { title: string; description: string; category: string | null };
+
+// Catégories proposées à Gemini pour classer ses suggestions. `articles` =
+// articles déjà générés ou publiés dans la catégorie (voir category-stats.ts).
+export type SuggestionCategories = {
+  available: { name: string; articles: number }[];
+  // Catégorie imposée pour toutes les suggestions, sinon Gemini répartit en
+  // priorité sur les catégories les moins fournies.
+  target: string | null;
+};
 
 // Catalogue réel des formations SECURIFORM (extrait des pages du site) —
 // permet à Gemini de proposer des sujets ancrés dans l'offre réelle plutôt
@@ -241,10 +252,28 @@ const FORMATIONS_CATALOGUE = `
 - Formations spécifiques : tondeuses auto-portées, tronçonneuses thermiques, balayeuses routières
 `.trim();
 
+function buildCategoryInstructions({ available, target }: SuggestionCategories): string {
+  if (target) {
+    return `**Catégorie imposée :** tous les sujets doivent relever de la catégorie « ${target} ». Mets exactement "${target}" dans le champ "category" de chaque sujet.`;
+  }
+  if (available.length === 0) {
+    return `Aucune catégorie n'existe encore : mets null dans le champ "category".`;
+  }
+  const list = [...available]
+    .sort((a, b) => a.articles - b.articles)
+    .map((c) => `- ${c.name} : ${c.articles} article${c.articles > 1 ? "s" : ""}`)
+    .join("\n");
+  return `**Catégories du blog (avec le nombre d'articles déjà rédigés) :**
+${list}
+
+Classe chaque sujet dans UNE de ces catégories (reprends le nom exactement à l'identique dans le champ "category"). Pour équilibrer le blog, propose en priorité des sujets pour les catégories qui ont le MOINS d'articles (en haut de la liste), en les répartissant sur plusieurs de ces catégories plutôt que tous dans la même.`;
+}
+
 function buildTopicSuggestionsPrompt(
   existingTitles: string[],
   count: number,
-  brief: string
+  brief: string,
+  categories: SuggestionCategories
 ): string {
   const existingList =
     existingTitles.length > 0
@@ -265,21 +294,35 @@ ${existingList}
 
 ${briefLine}
 
+${buildCategoryInstructions(categories)}
+
 ${FORBIDDEN_RULE} Aucun sujet ne doit porter sur ces thèmes.
 
 Propose ${count} nouveaux sujets d'articles de blog, originaux et pertinents pour ce secteur, qui n'existent pas encore dans la liste ci-dessus.
 
 **Réponds UNIQUEMENT avec un tableau JSON valide de ${count} objets, sans backticks ni markdown autour :**
-[{"title": "Titre du sujet", "description": "Description du sujet en 1 à 2 phrases"}]
+[{"title": "Titre du sujet", "description": "Description du sujet en 1 à 2 phrases", "category": "nom exact de la catégorie"}]
 `.trim();
 }
 
 export async function suggestTopics(
   existingTitles: string[],
   count: number,
-  brief: string
+  brief: string,
+  categories: SuggestionCategories = { available: [], target: null }
 ): Promise<TopicSuggestion[]> {
-  const text = await callGemini(buildTopicSuggestionsPrompt(existingTitles, count, brief), 2048);
+  const text = await callGemini(
+    buildTopicSuggestionsPrompt(existingTitles, count, brief, categories),
+    2048
+  );
+  const names = categories.available.map((c) => c.name);
+  // Gemini peut inventer un nom ou changer la casse : on ne garde que les
+  // catégories réellement proposées, et la catégorie imposée l'emporte.
+  const resolveCategory = (value: unknown): string | null => {
+    if (categories.target) return categories.target;
+    if (typeof value !== "string") return null;
+    return names.find((n) => n.toLowerCase() === value.trim().toLowerCase()) ?? null;
+  };
 
   let parsed: unknown;
   try {
@@ -294,12 +337,17 @@ export async function suggestTopics(
 
   return parsed
     .filter(
-      (item): item is TopicSuggestion =>
+      (item): item is { title: string; description: string; category?: unknown } =>
         typeof item === "object" &&
         item !== null &&
         typeof (item as TopicSuggestion).title === "string" &&
         typeof (item as TopicSuggestion).description === "string" &&
         !mentionsForbiddenTopic((item as TopicSuggestion).title, (item as TopicSuggestion).description)
     )
-    .slice(0, count);
+    .slice(0, count)
+    .map((item) => ({
+      title: item.title,
+      description: item.description,
+      category: resolveCategory(item.category),
+    }));
 }
