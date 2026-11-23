@@ -74,6 +74,24 @@ export default function Page() {
       </div>
     </section>
 
+    {/* Chiffres tirés de l'enquête de satisfaction 2026 (public/pdf/avis-client-2026.pdf). */}
+    <section className="stats" aria-label="Enquête de satisfaction 2026 en chiffres">
+      <div className="container stats-grid">
+        <div className="reveal">
+          <div className="stat-num" data-count="84" data-suffix="%">0%</div>
+          <div className="stat-label">recommanderaient « certainement » SECURIFORM</div>
+        </div>
+        <div className="reveal">
+          <div className="stat-num" data-count="100" data-suffix="%">0%</div>
+          <div className="stat-label">de stagiaires satisfaits de leur formation</div>
+        </div>
+        <div className="reveal">
+          <div className="stat-num" data-count="100" data-suffix="%">0%</div>
+          <div className="stat-label">satisfaits de la prise en compte de leur demande</div>
+        </div>
+      </div>
+    </section>
+
 
     
 
@@ -140,6 +158,15 @@ export default function Page() {
             <span className="doc-annee">2024</span>
             <span className="doc-label">Télécharger le PDF</span>
             <a className="card-cover" href="/pdf/avis-client-2024.pdf" aria-label="Avis clients 2024 (PDF)" target="_blank" rel="noopener" />
+          </article>
+
+          <article className="doc-card reveal">
+            <div className="doc-icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6" /></svg>
+            </div>
+            <span className="doc-annee">2026</span>
+            <span className="doc-label">Télécharger le PDF</span>
+            <a className="card-cover" href="/pdf/avis-client-2026.pdf" aria-label="Avis clients 2026 (PDF)" target="_blank" rel="noopener" />
           </article>
 
         </div>
